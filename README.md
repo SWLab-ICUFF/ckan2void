@@ -4,7 +4,7 @@ Despite the fact that extensive list of open datasets are available in catalogue
 
 Searching techniques can rank available datasets <i>S<sub>i</sub></i> according to the probability that it will be possible to define links between URIs of <i>S<sub>i</sub></i> and a given dataset <i>T</i> to be published, so that most of the links, if not all, could be found by inspecting the most relevant datasets in the ranking.
 
-This dataset provides dataset descriptions using the VoID vocabulary and linkage references for supporting the evaluation of searching techniques for dataset linkage. The descriptions contain linksets, classes, properties and topic categories harvested from the Datahub catalogue, dataset dumps and void files and were enriched with topic categories from DBpedia. The enrichments used the DBpedia Spotlight to detect entities in textual literals and to retrieve the classification categories of each entity.
+The ckan2void is a tool which extracts dataset descriptions, expressed using the VoID vocabulary, from CKAN catalogues, dataset dumps and void files and enrich descriptions with DBpedia topic categories of the entities detected in textual literals of the dataset.
 
 Requirements
 ------------

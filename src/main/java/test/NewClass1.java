@@ -1,4 +1,4 @@
-package draft;
+package test;
 
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;

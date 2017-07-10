@@ -1,4 +1,4 @@
-package draft;
+package test;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.util.List;

@@ -1,12 +1,12 @@
-package uff.ic.swlab.datasetcrawler;
+package uff.ic.swlab.ckancrawler.core;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import uff.ic.swlab.datasetcrawler.adapter.Dataset;
+import uff.ic.swlab.ckancrawler.adapter.Dataset;
 
-public class CatalogCrawler extends Crawler<Dataset> {
+public class CKANCrawler extends Crawler<Dataset> {
 
     private CkanClient cc = null;
     private int offset = 0;
@@ -14,10 +14,10 @@ public class CatalogCrawler extends Crawler<Dataset> {
     private List<String> names;
     private Iterator<String> iterator;
 
-    private CatalogCrawler() {
+    private CKANCrawler() {
     }
 
-    public CatalogCrawler(String url) {
+    public CKANCrawler(String url) {
         try {
             cc = new CkanClient(url);
             names = cc.getDatasetList(limit, offset);

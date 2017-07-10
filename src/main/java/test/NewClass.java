@@ -1,4 +1,4 @@
-package draft;
+package test;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;

@@ -1,4 +1,4 @@
-package uff.ic.swlab.datasetcrawler.util;
+package uff.ic.swlab.ckancrawler;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,16 +1,16 @@
-package uff.ic.swlab.datasetcrawler;
+package uff.ic.swlab.ckancrawler.core;
 
 import javax.naming.InvalidNameException;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.datasetcrawler.util.Config;
-import uff.ic.swlab.datasetcrawler.adapter.FusekiServer;
-import uff.ic.swlab.datasetcrawler.helper.VoIDHelper;
-import uff.ic.swlab.datasetcrawler.adapter.Dataset;
+import uff.ic.swlab.ckancrawler.Config;
+import uff.ic.swlab.ckancrawler.adapter.FusekiServer;
+import uff.ic.swlab.ckancrawler.helper.VoIDHelper;
+import uff.ic.swlab.ckancrawler.adapter.Dataset;
 
-public class GetVoIDTask implements Runnable {
+public class MakeVoIDTask implements Runnable {
 
     private final Dataset dataset;
     private final FusekiServer server;
@@ -45,7 +45,7 @@ public class GetVoIDTask implements Runnable {
         }
     }
 
-    public GetVoIDTask(Dataset dataset, String graphURI, FusekiServer server) {
+    public MakeVoIDTask(Dataset dataset, String graphURI, FusekiServer server) {
         INSTANCE_COUNTER.startInstance();
         this.dataset = dataset;
         this.server = server;

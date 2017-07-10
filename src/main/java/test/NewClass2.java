@@ -1,4 +1,4 @@
-package draft;
+package test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.ckancrawler.Config;
 
 public class NewClass2 {
 

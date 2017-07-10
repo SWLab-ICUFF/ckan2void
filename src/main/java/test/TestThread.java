@@ -1,4 +1,4 @@
-package draft;
+package test;
 
 public class TestThread {
 

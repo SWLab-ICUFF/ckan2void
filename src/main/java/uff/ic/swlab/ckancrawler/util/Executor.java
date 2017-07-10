@@ -1,4 +1,4 @@
-package uff.ic.swlab.datasetcrawler.util;
+package uff.ic.swlab.ckancrawler.util;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

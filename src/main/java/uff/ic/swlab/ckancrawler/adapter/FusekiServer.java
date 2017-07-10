@@ -1,4 +1,4 @@
-package uff.ic.swlab.datasetcrawler.adapter;
+package uff.ic.swlab.ckancrawler.adapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.ckancrawler.Config;
 
 public class FusekiServer {
 

@@ -9,4 +9,4 @@ tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset.
 # tdb:GraphTDB    rdfs:subClassOf  ja:Model.
 
 <voids> rdf:type tdb:DatasetTDB ;
-    tdb:location "./src/main/resources/dat/tdb/teste2".
+    tdb:location "./resources/dat/tdb/teste2".

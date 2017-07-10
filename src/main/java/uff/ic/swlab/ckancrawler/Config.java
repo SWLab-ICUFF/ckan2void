@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import uff.ic.swlab.commons.util.SWLabHost;
 
 public abstract class Config {
 
-    public static String NAMESPACE;
+    public static final SWLabHost HOST = SWLabHost.DEFAULT_HOST;
 
-    public static String FUSEKI_URL;
     public static String FUSEKI_DATASET;
     public static String FUSEKI_TEMP_DATASET;
     public static String CKAN_CATALOG;
@@ -33,9 +33,6 @@ public abstract class Config {
             Properties prop = new Properties();
             prop.load(input);
 
-            NAMESPACE = prop.getProperty("namespace");
-
-            FUSEKI_URL = prop.getProperty("fusekiServer");
             FUSEKI_DATASET = prop.getProperty("fusekiDataset");
             FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset");
             CKAN_CATALOG = prop.getProperty("ckanCatalog");

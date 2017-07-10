@@ -6,14 +6,14 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckancrawler.Config;
-import uff.ic.swlab.ckancrawler.adapter.FusekiServer;
-import uff.ic.swlab.ckancrawler.helper.VoIDHelper;
 import uff.ic.swlab.ckancrawler.adapter.Dataset;
+import uff.ic.swlab.ckancrawler.helper.VoIDHelper;
+import uff.ic.swlab.commons.util.SWLabHost;
 
 public class MakeVoIDTask implements Runnable {
 
     private final Dataset dataset;
-    private final FusekiServer server;
+    private final SWLabHost server;
     private final String graphUri;
     private final String graphDerefUri;
 
@@ -45,7 +45,7 @@ public class MakeVoIDTask implements Runnable {
         }
     }
 
-    public MakeVoIDTask(Dataset dataset, String graphURI, FusekiServer server) {
+    public MakeVoIDTask(Dataset dataset, String graphURI, SWLabHost server) {
         INSTANCE_COUNTER.startInstance();
         this.dataset = dataset;
         this.server = server;

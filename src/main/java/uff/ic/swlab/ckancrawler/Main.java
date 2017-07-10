@@ -1,8 +1,5 @@
 package uff.ic.swlab.ckancrawler;
 
-import uff.ic.swlab.ckancrawler.core.MakeVoIDTask;
-import uff.ic.swlab.ckancrawler.core.Crawler;
-import uff.ic.swlab.ckancrawler.core.CKANCrawler;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -11,6 +8,9 @@ import java.util.stream.Stream;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckancrawler.adapter.Dataset;
 import uff.ic.swlab.ckancrawler.adapter.FusekiServer;
+import uff.ic.swlab.ckancrawler.core.CKANCrawler;
+import uff.ic.swlab.ckancrawler.core.Crawler;
+import uff.ic.swlab.ckancrawler.core.MakeVoIDTask;
 
 public class Main {
 
@@ -28,30 +28,33 @@ public class Main {
         Config.configure("./resources/conf/app.properties");
         String oper = getOper(args);
 
-        FusekiServer server = FusekiServer.getInstance(Config.FUSEKI_SERVER);
-        Integer counter = 0;
+        for (String serverUrl : Config.FUSEKI_URL.split(";")) {
+            FusekiServer server = FusekiServer.getInstance(serverUrl);
+            Integer counter = 0;
 
-        System.out.println("Crawler started.");
-        try (Crawler<Dataset> crawler = new CKANCrawler(Config.CKAN_CATALOG);) {
+            System.out.println(String.format("Crawler started (%s).", serverUrl));
+            try (Crawler<Dataset> crawler = new CKANCrawler(Config.CKAN_CATALOG);) {
 
-            List<String> graphNames = server.listGraphNames(Config.FUSEKI_DATASET);
-            ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-            while (crawler.hasNext()) {
-                Dataset dataset = crawler.next();
-                String graphURI = dataset.getUri();
+                List<String> graphNames = server.listGraphNames(Config.FUSEKI_DATASET);
+                ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+                while (crawler.hasNext()) {
+                    Dataset dataset = crawler.next();
+                    String graphURI = dataset.getUri();
 
-                if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                    pool.submit(new MakeVoIDTask(dataset, graphURI, server));
-                    System.out.println((++counter) + ": Submitting task " + graphURI);
-                } else
-                    System.out.println("Skipping task " + graphURI);
+                    if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                        pool.submit(new MakeVoIDTask(dataset, graphURI, server));
+                        System.out.println((++counter) + ": Submitting task " + graphURI);
+                    } else
+                        System.out.println("Skipping task " + graphURI);
+                }
+                pool.shutdown();
+                System.out.println("Waiting for remaining tasks...");
+                pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
+
             }
-            pool.shutdown();
-            System.out.println("Waiting for remaining tasks...");
-            pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
-
+            System.out.println(String.format("Crawler ended (%s).", serverUrl));
+            System.gc();
         }
-        System.out.println("Crawler done.");
     }
 
     private static String getOper(String[] args) throws IllegalArgumentException {

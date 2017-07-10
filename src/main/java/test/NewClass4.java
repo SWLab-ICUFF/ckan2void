@@ -15,7 +15,7 @@ public class NewClass4 {
     public static void main(String[] args) throws InterruptedException, IOException {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         Config.configure("./resources/conf/datasetcrawler.properties");
-        FusekiServer server = FusekiServer.getInstance(Config.FUSEKI_SERVER);
+        FusekiServer server = FusekiServer.getInstance(Config.FUSEKI_URL);
         CKANCrawler crawler = new CKANCrawler(Config.CKAN_CATALOG);
 
         Dataset dataset = crawler.getDataset("rkb-explorer-acm");

@@ -10,7 +10,7 @@ public abstract class Config {
 
     public static String NAMESPACE;
 
-    public static String FUSEKI_SERVER;
+    public static String FUSEKI_URL;
     public static String FUSEKI_DATASET;
     public static String FUSEKI_TEMP_DATASET;
     public static String CKAN_CATALOG;
@@ -35,7 +35,7 @@ public abstract class Config {
 
             NAMESPACE = prop.getProperty("namespace");
 
-            FUSEKI_SERVER = prop.getProperty("fusekiServer");
+            FUSEKI_URL = prop.getProperty("fusekiServer");
             FUSEKI_DATASET = prop.getProperty("fusekiDataset");
             FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset");
             CKAN_CATALOG = prop.getProperty("ckanCatalog");

@@ -28,8 +28,8 @@ public abstract class Config {
 
     public static Long MAX_VOID_FILE_SIZE;
 
-    public static void configure(String file) throws IOException {
-        try (InputStream input = new FileInputStream(file);) {
+    public static void configure(String filename) throws IOException {
+        try (InputStream input = new FileInputStream(filename);) {
             Properties prop = new Properties();
             prop.load(input);
 

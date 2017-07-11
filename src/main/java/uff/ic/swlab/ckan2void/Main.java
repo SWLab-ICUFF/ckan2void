@@ -25,7 +25,7 @@ public class Main {
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
-        Config.configure("./resources/conf/app.properties");
+        Config.configure("./resources/conf/ckan2void.properties");
         String oper = getOper(args);
 
         Integer counter = 0;

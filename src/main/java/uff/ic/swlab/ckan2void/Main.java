@@ -1,6 +1,5 @@
 package uff.ic.swlab.ckan2void;
 
-import uff.ic.swlab.ckan2void.util.Config;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -12,8 +11,9 @@ import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
 import uff.ic.swlab.ckan2void.core.Crawler;
 import uff.ic.swlab.ckan2void.core.MakeVoIDTask;
+import uff.ic.swlab.ckan2void.util.Config;
 
-public class Main {
+public abstract class Main {
 
     public static void main(String[] args) {
         try {

@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import uff.ic.swlab.ckan2void.util.SWLabHost;
 
 public abstract class Config {
 
-    public static final SWLabHost HOST = SWLabHost.DEFAULT_HOST;
+    public static final SWLabHost HOST = SWLabHost.ALTERNATE_HOST;
 
     public static String FUSEKI_DATASET;
     public static String FUSEKI_TEMP_DATASET;

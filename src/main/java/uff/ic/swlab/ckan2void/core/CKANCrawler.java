@@ -1,10 +1,10 @@
-package uff.ic.swlab.ckancrawler.core;
+package uff.ic.swlab.ckan2void.core;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import uff.ic.swlab.ckancrawler.adapter.Dataset;
+import uff.ic.swlab.ckan2void.adapter.Dataset;
 
 public class CKANCrawler extends Crawler<Dataset> {
 

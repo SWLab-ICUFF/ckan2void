@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckancrawler.helper;
+package uff.ic.swlab.ckan2void.helper;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import uff.ic.swlab.ckancrawler.Config;
-import uff.ic.swlab.ckancrawler.util.Executor;
-import uff.ic.swlab.ckancrawler.util.RDFDataMgr;
+import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.util.Executor;
+import uff.ic.swlab.ckan2void.util.RDFDataMgr;
 
 public abstract class VoIDHelper {
 

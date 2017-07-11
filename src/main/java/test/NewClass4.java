@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.ckancrawler.Config;
-import uff.ic.swlab.ckancrawler.adapter.Dataset;
-import uff.ic.swlab.ckancrawler.core.CKANCrawler;
-import uff.ic.swlab.ckancrawler.core.MakeVoIDTask;
+import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.adapter.Dataset;
+import uff.ic.swlab.ckan2void.core.CKANCrawler;
+import uff.ic.swlab.ckan2void.core.MakeVoIDTask;
 
 public class NewClass4 {
 

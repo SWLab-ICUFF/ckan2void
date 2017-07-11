@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckancrawler.adapter;
+package uff.ic.swlab.ckan2void.adapter;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
@@ -27,9 +27,9 @@ import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
-import uff.ic.swlab.ckancrawler.Config;
-import uff.ic.swlab.ckancrawler.util.Executor;
-import uff.ic.swlab.ckancrawler.helper.URLHelper;
+import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.util.Executor;
+import uff.ic.swlab.ckan2void.helper.URLHelper;
 
 public class Dataset {
 

@@ -1,11 +1,11 @@
-package uff.ic.swlab.ckancrawler;
+package uff.ic.swlab.ckan2void;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import uff.ic.swlab.commons.util.SWLabHost;
+import uff.ic.swlab.ckan2void.util.SWLabHost;
 
 public abstract class Config {
 

@@ -1,14 +1,14 @@
-package uff.ic.swlab.ckancrawler.core;
+package uff.ic.swlab.ckan2void.core;
 
 import javax.naming.InvalidNameException;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.ckancrawler.Config;
-import uff.ic.swlab.ckancrawler.adapter.Dataset;
-import uff.ic.swlab.ckancrawler.helper.VoIDHelper;
-import uff.ic.swlab.commons.util.SWLabHost;
+import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.adapter.Dataset;
+import uff.ic.swlab.ckan2void.helper.VoIDHelper;
+import uff.ic.swlab.ckan2void.util.SWLabHost;
 
 public class MakeVoIDTask implements Runnable {
 

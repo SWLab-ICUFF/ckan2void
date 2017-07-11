@@ -11,7 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.ckancrawler.Config;
+import uff.ic.swlab.ckan2void.Config;
 
 public class NewClass2 {
 

@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckancrawler.core;
+package uff.ic.swlab.ckan2void.core;
 
 public abstract class Crawler<T> implements AutoCloseable {
 

@@ -1,6 +1,6 @@
-package uff.ic.swlab.vocabulary.ckancrawler;
+package uff.ic.swlab.vocabulary.ckan2void;
 
-import uff.ic.swlab.ckancrawler.Config;
+import uff.ic.swlab.ckan2void.Config;
 
 public class RSC {
 

@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckancrawler.helper;
+package uff.ic.swlab.ckan2void.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.ckancrawler.Config;
-import uff.ic.swlab.ckancrawler.util.Executor;
+import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.util.Executor;
 
 public abstract class URLHelper {
 

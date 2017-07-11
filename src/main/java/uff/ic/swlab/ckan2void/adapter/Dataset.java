@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 import org.apache.jena.query.QueryExecution;
@@ -21,15 +22,17 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
+import org.apache.jena.vocabulary.OWL;
+import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.VOID;
+import uff.ic.swlab.ckan2void.helper.URLHelper;
 import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
-import uff.ic.swlab.ckan2void.helper.URLHelper;
 
 public class Dataset {
 
@@ -51,7 +54,8 @@ public class Dataset {
 
     public String getNamespace() {
         try {
-            return cc.getCatalogUrl() + "/api/rest/dataset/";
+            //return cc.getCatalogUrl() + "/api/rest/dataset/";
+            return Config.HOST.linkedDataNS();
         } catch (Throwable e) {
             return null;
         }
@@ -68,6 +72,14 @@ public class Dataset {
     public String getJsonMetadataUrl() {
         try {
             return cc.getCatalogUrl() + "/api/rest/dataset/" + doc.getName();
+        } catch (Throwable e) {
+            return null;
+        }
+    }
+
+    public String getJsonFullMetadataUrl() {
+        try {
+            return cc.getCatalogUrl() + "/api/3/action/package_show?id=" + doc.getName();
         } catch (Throwable e) {
             return null;
         }
@@ -270,9 +282,10 @@ public class Dataset {
 
     private Set<Entry<String, Integer>> getLinks2() {
         Map<String, Integer> links = new HashMap<>();
+        String ns = getNamespace();
         try {
             for (CkanDatasetRelationship rel : doc.getRelationshipsAsSubject())
-                links.put(cc.getDataset(rel.getObject()).getName(), Integer.parseInt(rel.getComment()));
+                links.put(ns + cc.getDataset(rel.getObject()).getName(), Integer.parseInt(rel.getComment()));
         } catch (Throwable e) {
         }
         return links.entrySet();
@@ -359,64 +372,52 @@ public class Dataset {
         return (new HashMap<String, Integer>()).entrySet();
     }
 
-    public Model makeVoID(String graphDerefUri) {
-        Model void_ = ModelFactory.createDefaultModel();
+    public Model toVoid(String graphUri) {
+        Model _void = ModelFactory.createDefaultModel();
+        _void.setNsPrefix("void", VOID.NS);
+        _void.setNsPrefix("dcterms", DCTerms.NS);
+        _void.setNsPrefix("foaf", FOAF.NS);
+        _void.setNsPrefix("owl", OWL.NS);
+        _void.setNsPrefix("", Config.HOST.linkedDataNS());
 
-        Resource voidDatasetDescription = void_.createResource("http://rdfs.org/ns/void#DatasetDescription");
-        Resource voidDataset = void_.createResource("http://rdfs.org/ns/void#Dataset");
-        Resource voidLinkset = void_.createResource("http://rdfs.org/ns/void#Linkset");
+        Resource dataset = _void.createResource(getUri(), VOID.Dataset);
 
-        Property voidUriSpace = void_.createProperty("http://rdfs.org/ns/void#uriSpace");
-        Property voidDataDump = void_.createProperty("http://rdfs.org/ns/void#dataDump");
-        Property voidSparlEndpoint = void_.createProperty("http://rdfs.org/ns/void#sparqlEndpoint");
-        Property voidSubset = void_.createProperty("http://rdfs.org/ns/void#subset");
-        Property voidSubjectsTarget = void_.createProperty("http://rdfs.org/ns/void#sujectsTarget");
-        Property voidObjectstarget = void_.createProperty("http://rdfs.org/ns/void#objectsTarget");
-        Property voidClassPartition = void_.createProperty("http://rdfs.org/ns/void#classPartition");
-        Property voidClass = void_.createProperty("http://rdfs.org/ns/void#class");
-        Property voidEntities = void_.createProperty("http://rdfs.org/ns/void#entities");
-        Property voidPropertyPartition = void_.createProperty("http://rdfs.org/ns/void#propertyPartition");
-        Property voidProperty = void_.createProperty("http://rdfs.org/ns/void#property");
-        Property voidTriples = void_.createProperty("http://rdfs.org/ns/void#triples");
-
-        Resource dataset = void_.createResource(getUri(), voidDataset);
         Set<Entry<String, Integer>> links = getLinks();
         links.addAll(getLinks2());
         links.stream().forEach((link) -> {
-            Resource linkset = void_.createResource(null, voidLinkset)
-                    .addProperty(voidSubjectsTarget, dataset)
-                    .addProperty(voidObjectstarget, void_.createResource(link.getKey()))
-                    .addLiteral(voidTriples, void_.createTypedLiteral(link.getValue()));
-            dataset.addProperty(voidSubset, linkset);
+            dataset.addProperty(VOID.subset, _void.createResource(":id-" + UUID.randomUUID().toString(), VOID.Linkset)
+                    .addProperty(VOID.subjectsTarget, dataset)
+                    .addProperty(VOID.objectsTarget, _void.createResource(link.getKey()))
+                    .addLiteral(VOID.triples, _void.createTypedLiteral(link.getValue())));
         });
 
         Set<Entry<String, Integer>> classes = getClasses();
-        classes.stream().forEach((class_) -> {
-            dataset.addProperty(voidClassPartition, void_.createResource()
-                    .addProperty(voidClass, class_.getKey())
-                    .addLiteral(voidEntities, void_.createTypedLiteral(class_.getValue())));
+        classes.stream().forEach((_class) -> {
+            dataset.addProperty(VOID.classPartition, _void.createResource(":id-" + UUID.randomUUID().toString(), VOID.Dataset)
+                    .addProperty(VOID._class, _class.getKey())
+                    .addLiteral(VOID.entities, _void.createTypedLiteral(_class.getValue())));
         });
 
         Set<Entry<String, Integer>> properties = getProperties();
         properties.stream().forEach((property) -> {
-            dataset.addProperty(voidPropertyPartition, void_.createResource()
-                    .addProperty(voidProperty, property.getKey())
-                    .addLiteral(voidTriples, void_.createTypedLiteral(property.getValue())));
+            dataset.addProperty(VOID.propertyPartition, _void.createResource(":id-" + UUID.randomUUID().toString(), VOID.Dataset)
+                    .addProperty(VOID.property, property.getKey())
+                    .addLiteral(VOID.triples, _void.createTypedLiteral(property.getValue())));
         });
 
         List<String> sparqlEndpoints = Arrays.asList(getSparqlEndPoints());
         sparqlEndpoints.stream().forEach((sparqlEndpoint) -> {
-            dataset.addProperty(voidSparlEndpoint, void_.createResource(sparqlEndpoint));
+            dataset.addProperty(VOID.sparqlEndpoint, _void.createResource(sparqlEndpoint));
         });
 
         List<String> dumps = Arrays.asList(getDumpUrls());
         dumps.stream().forEach((dumpURL) -> {
-            dataset.addProperty(voidDataDump, void_.createResource(dumpURL));
+            dataset.addProperty(VOID.dataDump, _void.createResource(dumpURL));
         });
 
         List<String> uriSpaces = Arrays.asList(getNamespaces());
         uriSpaces.stream().forEach((uriSpace) -> {
-            dataset.addProperty(voidUriSpace, uriSpace);
+            dataset.addProperty(VOID.uriSpace, uriSpace);
         });
 
         List<String> tags = Arrays.asList(getTags());
@@ -434,35 +435,38 @@ public class Dataset {
 
         String homepage = getUrl();
         if (homepage != null && !homepage.equals(""))
-            dataset.addProperty(FOAF.homepage, void_.createResource(homepage));
+            dataset.addProperty(FOAF.homepage, _void.createResource(homepage));
 
         String page1 = getJsonMetadataUrl();
         if (page1 != null && !page1.equals(""))
-            dataset.addProperty(FOAF.page, void_.createResource(page1));
+            dataset.addProperty(RDFS.seeAlso, _void.createResource(page1));
 
-        String page2 = getWebMetadataUrl();
+        String page2 = getJsonFullMetadataUrl();
         if (page2 != null && !page2.equals(""))
-            dataset.addProperty(FOAF.page, void_.createResource(page2));
+            dataset.addProperty(RDFS.seeAlso, _void.createResource(page2));
+
+        String page3 = getWebMetadataUrl();
+        if (page3 != null && !page3.equals(""))
+            dataset.addProperty(RDFS.seeAlso, _void.createResource(page3));
 
         Integer triples = getTriples();
         if (triples != null)
-            dataset.addProperty(voidTriples, void_.createTypedLiteral(triples));
+            dataset.addProperty(VOID.triples, _void.createTypedLiteral(triples));
 
         Calendar created = getMetadataCreated();
         if (created != null)
-            dataset.addProperty(DCTerms.created, void_.createTypedLiteral(created));
+            dataset.addProperty(DCTerms.created, _void.createTypedLiteral(created));
 
         Calendar modified = getMetadataModified();
         if (modified != null)
-            dataset.addProperty(DCTerms.modified, void_.createTypedLiteral(modified));
+            dataset.addProperty(DCTerms.modified, _void.createTypedLiteral(modified));
 
         Calendar cal = Calendar.getInstance();
-        Resource datasetDescription = void_.createResource(graphDerefUri, voidDatasetDescription)
+        Resource datasetDescription = _void.createResource(graphUri, VOID.DatasetDescription)
                 .addProperty(DCTerms.title, "A VoID Description of the " + getName() + " dataset.")
                 .addProperty(FOAF.primaryTopic, dataset)
-                .addProperty(DCTerms.created, void_.createTypedLiteral(cal))
-                .addProperty(DCTerms.modified, void_.createTypedLiteral(cal));
+                .addProperty(DCTerms.modified, _void.createTypedLiteral(cal));
 
-        return void_;
+        return _void;
     }
 }

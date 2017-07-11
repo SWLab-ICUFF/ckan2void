@@ -31,7 +31,7 @@ public enum SWLabHost {
     public final String hostname;
     public final int httpPort;
     public final int ftpPort;
-    public static final SWLabHost DEFAULT_HOST = PRIMARY_HOST;
+    public static final SWLabHost DEFAULT_HOST = ALTERNATE_HOST;
 
     SWLabHost(String hostname, int httpPort, int ftpPort) {
         this.hostname = hostname;
@@ -41,6 +41,10 @@ public enum SWLabHost {
 
     public String baseHttpUrl() {
         return "http://" + hostname + (httpPort == 80 ? "" : ":" + httpPort) + "/";
+    }
+
+    public String linkedDataNS() {
+        return baseHttpUrl() + "/resource/";
     }
 
     public String getQuadsURL(String datasetname) {

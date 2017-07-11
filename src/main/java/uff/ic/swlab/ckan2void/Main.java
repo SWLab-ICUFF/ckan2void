@@ -41,10 +41,10 @@ public abstract class Main {
                     ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
                     while (crawler.hasNext()) {
                         Dataset dataset = crawler.next();
-                        String graphURI = dataset.getUri();
+                        String graphURI = dataset.getJsonMetadataUrl();
 
                         if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                            pool.submit(new MakeVoIDTask(dataset, graphURI, Config.HOST));
+                            pool.submit(new MakeVoIDTask(dataset, graphURI));
                             System.out.println((++counter) + ": Submitting task " + graphURI);
                         } else
                             System.out.println("Skipping task " + graphURI);

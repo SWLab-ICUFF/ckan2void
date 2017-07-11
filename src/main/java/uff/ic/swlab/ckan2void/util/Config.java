@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Config {
 
-    public static final SWLabHost HOST = SWLabHost.ALTERNATE_HOST;
+    public static final SWLabHost HOST = SWLabHost.DEFAULT_HOST;
 
     public static String FUSEKI_DATASET;
     public static String FUSEKI_TEMP_DATASET;

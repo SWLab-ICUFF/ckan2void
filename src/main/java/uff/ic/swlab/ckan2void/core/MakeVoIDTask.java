@@ -8,12 +8,10 @@ import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 import uff.ic.swlab.ckan2void.util.Config;
-import uff.ic.swlab.ckan2void.util.SWLabHost;
 
 public class MakeVoIDTask implements Runnable {
 
     private final Dataset dataset;
-    private final SWLabHost server;
     private final String graphUri;
     private final String graphDerefUri;
 
@@ -45,12 +43,11 @@ public class MakeVoIDTask implements Runnable {
         }
     }
 
-    public MakeVoIDTask(Dataset dataset, String graphURI, SWLabHost server) {
+    public MakeVoIDTask(Dataset dataset, String graphURI) {
         INSTANCE_COUNTER.startInstance();
         this.dataset = dataset;
-        this.server = server;
         this.graphUri = graphURI;
-        this.graphDerefUri = server.getQuadsURL(Config.FUSEKI_DATASET) + "?graph=" + graphUri;
+        this.graphDerefUri = Config.HOST.getQuadsURL(Config.FUSEKI_DATASET) + "?graph=" + graphUri;
     }
 
     @Override
@@ -64,9 +61,9 @@ public class MakeVoIDTask implements Runnable {
             String[] urls = dataset.getURLs(dataset);
             String[] sparqlEndPoints = dataset.getSparqlEndPoints();
 
-            Model void_ = dataset.makeVoID(graphDerefUri);
-            Model void__ = VoIDHelper.getContent(urls, sparqlEndPoints);
-            saveVoid(void_, void__);
+            Model _void = dataset.toVoid(graphDerefUri);
+            Model __void = VoIDHelper.getContent(urls, sparqlEndPoints);
+            saveVoid(_void, __void);
 
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1s>). Msg: %2s", graphUri, e.getMessage()));
@@ -87,17 +84,17 @@ public class MakeVoIDTask implements Runnable {
         }
 
         if (partitions.size() == 0)
-            void_.add(server.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
+            void_.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
         else
-            server.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
 
         if (void__.size() == 0)
-            void__ = server.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
+            void__ = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
         else
-            server.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, void__);
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, void__);
 
         if (void_.add(void__).size() > 5)
-            server.putModel(Config.FUSEKI_DATASET, graphUri, void_);
+            Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, void_);
         else
             Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1s>).", graphUri));
     }

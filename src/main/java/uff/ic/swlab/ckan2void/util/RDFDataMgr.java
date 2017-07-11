@@ -39,7 +39,6 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import uff.ic.swlab.ckan2void.Config;
 import uff.ic.swlab.ckan2void.helper.URLHelper;
 
 public abstract class RDFDataMgr {

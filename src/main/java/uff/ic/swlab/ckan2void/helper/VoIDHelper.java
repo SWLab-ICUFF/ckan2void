@@ -18,7 +18,7 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
 import uff.ic.swlab.ckan2void.util.RDFDataMgr;
 

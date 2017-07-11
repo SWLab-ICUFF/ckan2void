@@ -27,7 +27,7 @@ import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
-import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
 import uff.ic.swlab.ckan2void.helper.URLHelper;
 

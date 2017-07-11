@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.ckan2void.Config;
+import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
 
 public abstract class URLHelper {

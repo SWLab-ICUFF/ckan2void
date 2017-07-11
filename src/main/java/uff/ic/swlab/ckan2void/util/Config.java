@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void;
+package uff.ic.swlab.ckan2void.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

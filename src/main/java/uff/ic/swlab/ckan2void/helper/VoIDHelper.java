@@ -32,14 +32,17 @@ public abstract class VoIDHelper {
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
                 + "construct {?s1 ?p1 ?s2.\n"
                 + "           ?s2 ?p2 ?o2.\n"
-                + "           ?s3 ?p3 ?o3.}\n"
+                //+ "           ?s3 ?p3 ?o3."
+                + "}\n"
                 + "where {\n"
-                + "  ?s1 rdf:type void:Dataset.\n"
-                + "  ?s1 (void:classPartition | void:propertyPartition) ?s2.\n"
-                + "  ?s2 (!<>)* ?s3.\n"
-                + "  ?s1 ?p1 ?s2.\n"
+                //+ "  ?s1 rdf:type void:Dataset.\n"
+                //+ "  ?s1 (void:classPartition | void:propertyPartition) ?s2.\n"
+                + "  {?s1 ?p1 ?s2.\n"
+                + "  filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)"
+                + "          && not exists (?s2 a void:Linkset)}\n"
                 + "  optional {?s2 ?p2 ?o2.}\n"
-                + "  optional {?s3 ?p3 ?o3. filter not exists {[] rdf:type ?s3}}\n"
+                //+ "  ?s2 (!<>)* ?s3.\n"
+                //+ "  optional {?s3 ?p3 ?o3. filter not exists {[] rdf:type ?s3}}\n"
                 + "}";
         Callable<Model> task = () -> {
             Query query = QueryFactory.create(queryString);
@@ -89,32 +92,32 @@ public abstract class VoIDHelper {
     }
 
     private static Model getContentFromURL(String[] urls) throws InterruptedException {
-        Model void_ = ModelFactory.createDefaultModel();
+        Model _void = ModelFactory.createDefaultModel();
         for (String url : listVoIDUrls(urls))
             try {
-                void_.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE)));
+                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE)));
             } catch (InterruptedException e) {
                 throw new InterruptedException();
             } catch (Throwable e) {
             }
-        return void_;
+        return _void;
     }
 
     private static Model getContentFromSparql(String[] sparqlEndPoints) throws InterruptedException {
-        Model void_ = ModelFactory.createDefaultModel();
+        Model _void = ModelFactory.createDefaultModel();
         for (String endPoint : sparqlEndPoints)
             try {
                 String[] graphs = VoIDHelper.listVoIDGraphNames(endPoint);
                 if (graphs.length > 0) {
                     String query = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
                     String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1s>\n", n)).reduce("", String::concat);
-                    void_.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint)));
+                    _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint)));
                 }
             } catch (InterruptedException e) {
                 throw new InterruptedException();
             } catch (Throwable e) {
             }
-        return void_;
+        return _void;
     }
 
     private static String[] listVoIDUrls(String[] urls) {

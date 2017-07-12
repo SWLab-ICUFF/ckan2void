@@ -43,6 +43,36 @@ import uff.ic.swlab.ckan2void.helper.URLHelper;
 
 public abstract class RDFDataMgr {
 
+    private static Dataset loadDatasetRDFa(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
+        url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
+        URLConnection conn = (new URL(url)).openConnection();
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+        if (conn.getContentLengthLong() <= maxFileSize)
+            try (InputStream in = conn.getInputStream();) {
+                Callable<Dataset> task = () -> {
+                    Model tempModel = ModelFactory.createDefaultModel();
+                    org.apache.jena.riot.RDFDataMgr.read(tempModel, in, Lang.RDFXML);
+                    return DatasetFactory.create(tempModel);
+                };
+                return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+            }
+        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
+    }
+
+    public static Dataset loadDataset(String query, String sparqlEndPoint) throws TimeoutException, InterruptedException, ExecutionException {
+        Callable<Dataset> task = () -> {
+            Model tempModel = ModelFactory.createDefaultModel();
+            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query)) {
+                ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                exec.execConstruct(tempModel);
+                return DatasetFactory.create(tempModel);
+            }
+        };
+        return Executor.execute(task, Config.SPARQL_TIMEOUT);
+    }
+
     public static Dataset loadDataset(String url, Long maxFileSize) throws InterruptedException {
         try {
             Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
@@ -97,36 +127,6 @@ public abstract class RDFDataMgr {
                 return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
             }
         throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
-    }
-
-    private static Dataset loadDatasetRDFa(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
-        url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
-        URLConnection conn = (new URL(url)).openConnection();
-        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
-        if (conn.getContentLengthLong() <= maxFileSize)
-            try (InputStream in = conn.getInputStream();) {
-                Callable<Dataset> task = () -> {
-                    Model tempModel = ModelFactory.createDefaultModel();
-                    org.apache.jena.riot.RDFDataMgr.read(tempModel, in, Lang.RDFXML);
-                    return DatasetFactory.create(tempModel);
-                };
-                return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
-            }
-        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
-    }
-
-    public static Dataset loadDataset(String query, String sparqlEndPoint) throws TimeoutException, InterruptedException, ExecutionException {
-        Callable<Dataset> task = () -> {
-            Model tempModel = ModelFactory.createDefaultModel();
-            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query)) {
-                ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
-                exec.execConstruct(tempModel);
-                return DatasetFactory.create(tempModel);
-            }
-        };
-        return Executor.execute(task, Config.SPARQL_TIMEOUT);
     }
 
     public static void write(OutputStream output, Model model, Lang lang) {

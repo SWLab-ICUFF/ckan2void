@@ -62,39 +62,39 @@ public class MakeVoIDTask implements Runnable {
             String[] sparqlEndPoints = dataset.getSparqlEndPoints();
 
             Model _void = dataset.toVoid(graphDerefUri);
-            Model __void = VoIDHelper.getContent(urls, sparqlEndPoints);
-            saveVoid(_void, __void);
+            Model _voidExtra = VoIDHelper.getContent(urls, sparqlEndPoints);
+            saveVoid(_void, _voidExtra);
 
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1s>). Msg: %2s", graphUri, e.getMessage()));
         }
     }
 
-    private void saveVoid(Model void_, Model void__) throws InvalidNameException {
-        if (void_.size() == 0)
+    private void saveVoid(Model _void, Model _voidExtra) throws InvalidNameException {
+        if (_void.size() == 0)
             Logger.getLogger("info").log(Level.INFO, String.format("Empty default VoID (<%1s>).", graphUri));
-        if (void__.size() == 0)
+        if (_voidExtra.size() == 0)
             Logger.getLogger("info").log(Level.INFO, String.format("Empty crawled VoID (<%1s>).", graphUri));
 
         Model partitions;
         try {
-            partitions = VoIDHelper.extractPartitions(void_);
+            partitions = VoIDHelper.extractPartitions(_void);
         } catch (Throwable e) {
             partitions = ModelFactory.createDefaultModel();
         }
 
         if (partitions.size() == 0)
-            void_.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
+            _void.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
         else
             Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
 
-        if (void__.size() == 0)
-            void__ = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
+        if (_voidExtra.size() == 0)
+            _voidExtra = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
         else
-            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, void__);
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, _voidExtra);
 
-        if (void_.add(void__).size() > 5)
-            Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, void_);
+        if (_void.add(_voidExtra).size() > 5)
+            Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, _void);
         else
             Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1s>).", graphUri));
     }

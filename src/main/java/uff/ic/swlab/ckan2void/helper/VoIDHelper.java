@@ -39,7 +39,7 @@ public abstract class VoIDHelper {
                 //+ "  ?s1 (void:classPartition | void:propertyPartition) ?s2.\n"
                 + "  {?s1 ?p1 ?s2.\n"
                 + "  filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)"
-                + "          && not exists (?s2 a void:Linkset)}\n"
+                + "          && not exists {?s2 a void:Linkset})}\n"
                 + "  optional {?s2 ?p2 ?o2.}\n"
                 //+ "  ?s2 (!<>)* ?s3.\n"
                 //+ "  optional {?s3 ?p3 ?o3. filter not exists {[] rdf:type ?s3}}\n"

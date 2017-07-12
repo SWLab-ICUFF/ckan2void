@@ -38,7 +38,7 @@ public abstract class VoIDHelper {
                 //+ "  ?s1 rdf:type void:Dataset.\n"
                 //+ "  ?s1 (void:classPartition | void:propertyPartition) ?s2.\n"
                 + "  {?s1 ?p1 ?s2.\n"
-                + "  filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)"
+                + "  filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)\n"
                 + "          && not exists {?s2 a void:Linkset})}\n"
                 + "  optional {?s2 ?p2 ?o2.}\n"
                 //+ "  ?s2 (!<>)* ?s3.\n"

@@ -1,10 +1,13 @@
 package uff.ic.swlab.ckan2void;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
+import jdk.nashorn.api.scripting.URLReader;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
@@ -29,11 +32,12 @@ public abstract class Main {
         Config.configure("./resources/conf/ckan2void.properties");
         String oper = getOper(args);
 
-        Integer counter = 0;
+        String content = new Scanner(new URLReader(new URL(""))).useDelimiter("\\Z").next();
 
-        for (String catalog : Config.CKAN_CATALOG.split("[,\n\\p{Blank}]++"))
+        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
             if ((new UrlValidator()).isValid(catalog)) {
 
+                Integer counter = 0;
                 System.out.println(String.format("Crawler started (%s).", catalog));
                 try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
 

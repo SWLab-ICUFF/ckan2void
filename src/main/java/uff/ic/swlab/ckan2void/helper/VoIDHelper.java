@@ -39,7 +39,7 @@ public abstract class VoIDHelper {
                 //+ "  ?s1 (void:classPartition | void:propertyPartition) ?s2.\n"
                 + "  {?s1 ?p1 ?s2.\n"
                 + "  filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)\n"
-                + "          && not exists {?s2 a void:Linkset})}\n"
+                + "          && not exists {?s2 a void:Linkset.})}\n"
                 + "  optional {?s2 ?p2 ?o2.}\n"
                 //+ "  ?s2 (!<>)* ?s3.\n"
                 //+ "  optional {?s3 ?p3 ?o3. filter not exists {[] rdf:type ?s3}}\n"
@@ -53,6 +53,33 @@ public abstract class VoIDHelper {
     }
 
     public static Model extractVoID(Dataset dataset) throws InterruptedException, ExecutionException, TimeoutException {
+        String queryString = ""
+                + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                + "prefix void: <http://rdfs.org/ns/void#>\n"
+                + "construct {?s1 rdf:type ?t1.\n"
+                + "           ?s1 ?p1 ?o1.\n"
+                + "           ?s2 ?p2 ?o2.}\n"
+                + "where { "
+                + "  {{?s1 ?p1 ?s2.\n"
+                + "  filter (?p1 in (void:classPartition, void:propertyPartition))}\n"
+                + "  optional {?s2 ?p2 ?o2.}}\n"
+                + "\n"
+                + "  union\n"
+                + "  {{?s1 ?p1 ?s2.\n"
+                + "   filter (?p1 = void:subset)}\n"
+                + "   optional {?s2 ?p2 ?o2.}}\n"
+                + "}";
+        Callable<Model> task = () -> {
+            Query query = QueryFactory.create(queryString);
+            QueryExecution exec = QueryExecutionFactory.create(query, dataset);
+            return exec.execConstruct();
+        };
+        return Executor.execute(task, Config.SPARQL_TIMEOUT);
+    }
+
+    public static Model extractVoIDOld(Dataset dataset) throws InterruptedException, ExecutionException, TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"

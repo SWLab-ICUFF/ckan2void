@@ -12,7 +12,7 @@ public abstract class Config {
 
     public static String FUSEKI_DATASET;
     public static String FUSEKI_TEMP_DATASET;
-    public static String CKAN_CATALOG;
+    public static String CKAN_CATALOGS;
 
     public static Integer TASK_INSTANCES;
     public static Integer PARALLELISM;
@@ -34,7 +34,7 @@ public abstract class Config {
 
             FUSEKI_DATASET = prop.getProperty("fusekiDataset");
             FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset");
-            CKAN_CATALOG = prop.getProperty("ckanCatalog");
+            CKAN_CATALOGS = prop.getProperty("ckanCatalog");
 
             TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances"));
             PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));

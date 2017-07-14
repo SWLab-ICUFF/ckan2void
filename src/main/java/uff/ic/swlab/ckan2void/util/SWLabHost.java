@@ -1,5 +1,6 @@
 package uff.ic.swlab.ckan2void.util;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import javax.naming.InvalidNameException;
+import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 import org.apache.jena.query.Dataset;
@@ -120,11 +122,11 @@ public enum SWLabHost {
         return result;
     }
 
-    public void uploadViaFTP(String user, String pass, String remoteName, final InputStream in) throws IOException, Exception {
+    public void uploadBinaryFile(String localFilename, String remoteName, String user, String pass) throws IOException, Exception {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(hostname, ftpPort);
 
-        try {
+        try (InputStream in = new FileInputStream(localFilename);) {
             String[] dirs = remoteName.split("/");
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode()))
                 if (ftpClient.login(user, pass)) {
@@ -133,6 +135,7 @@ public enum SWLabHost {
                     ftpClient.enterLocalPassiveMode();
                     //ftpClient.enterRemotePassiveMode();
                     ftpClient.mkd(String.join("/", Arrays.copyOfRange(dirs, 0, dirs.length - 1)));
+                    ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
                     ftpClient.storeFile(remoteName, in);
                     ftpClient.logout();
                 }
@@ -146,14 +149,14 @@ public enum SWLabHost {
         }
     }
 
-    public void mkDirsViaFTP(String user, String pass, String remoteName) throws Exception {
+    public void mkDirsViaFTP(String remoteFilename, String user, String pass) throws Exception {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(hostname, ftpPort);
 
         try {
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode()))
                 if (ftpClient.login(user, pass)) {
-                    String[] dirs = remoteName.split("/");
+                    String[] dirs = remoteFilename.split("/");
                     //ftpClient.execPBSZ(0);
                     //ftpClient.execPROT("P");
                     ftpClient.enterLocalPassiveMode();

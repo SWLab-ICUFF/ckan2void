@@ -44,7 +44,7 @@ public enum SWLabHost {
     }
 
     public String linkedDataNS() {
-        return baseHttpUrl() + "/resource/";
+        return baseHttpUrl() + "resource/";
     }
 
     public String getQuadsURL(String datasetname) {

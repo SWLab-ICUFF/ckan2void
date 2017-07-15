@@ -373,19 +373,21 @@ public class Dataset {
     }
 
     public Model toVoid(String graphUri) {
+        String ns = Config.HOST.linkedDataNS();
+
         Model _void = ModelFactory.createDefaultModel();
         _void.setNsPrefix("void", VOID.NS);
         _void.setNsPrefix("dcterms", DCTerms.NS);
         _void.setNsPrefix("foaf", FOAF.NS);
         _void.setNsPrefix("owl", OWL.NS);
-        _void.setNsPrefix("", Config.HOST.linkedDataNS());
+        _void.setNsPrefix("", ns);
 
         Resource dataset = _void.createResource(getUri(), VOID.Dataset);
 
         Set<Entry<String, Integer>> links = getLinks();
         links.addAll(getLinks2());
         links.stream().forEach((link) -> {
-            dataset.addProperty(VOID.subset, _void.createResource(":id-" + UUID.randomUUID().toString(), VOID.Linkset)
+            dataset.addProperty(VOID.subset, _void.createResource(ns + "id-" + UUID.randomUUID().toString(), VOID.Linkset)
                     .addProperty(VOID.subjectsTarget, dataset)
                     .addProperty(VOID.objectsTarget, _void.createResource(link.getKey()))
                     .addLiteral(VOID.triples, _void.createTypedLiteral(link.getValue())));
@@ -393,14 +395,14 @@ public class Dataset {
 
         Set<Entry<String, Integer>> classes = getClasses();
         classes.stream().forEach((_class) -> {
-            dataset.addProperty(VOID.classPartition, _void.createResource(":id-" + UUID.randomUUID().toString(), VOID.Dataset)
+            dataset.addProperty(VOID.classPartition, _void.createResource(ns + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
                     .addProperty(VOID._class, _class.getKey())
                     .addLiteral(VOID.entities, _void.createTypedLiteral(_class.getValue())));
         });
 
         Set<Entry<String, Integer>> properties = getProperties();
         properties.stream().forEach((property) -> {
-            dataset.addProperty(VOID.propertyPartition, _void.createResource(":id-" + UUID.randomUUID().toString(), VOID.Dataset)
+            dataset.addProperty(VOID.propertyPartition, _void.createResource(ns + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
                     .addProperty(VOID.property, property.getKey())
                     .addLiteral(VOID.triples, _void.createTypedLiteral(property.getValue())));
         });

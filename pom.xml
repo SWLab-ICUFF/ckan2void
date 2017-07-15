@@ -78,6 +78,14 @@
                     <mainClass>uff.ic.swlab.datasetcrawler.Main</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <debug>false</debug>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

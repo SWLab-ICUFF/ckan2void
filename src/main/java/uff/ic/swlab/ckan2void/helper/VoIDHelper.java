@@ -24,55 +24,48 @@ import uff.ic.swlab.ckan2void.util.RDFDataMgr;
 
 public abstract class VoIDHelper {
 
-    public static Model extractPartitions(Model model) throws InterruptedException, ExecutionException, TimeoutException {
+    public static Model extractPartitions(Model model, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "construct {?s1 ?p1 ?s2.\n"
+                + "construct {%1$s ?p1 ?s2.\n"
                 + "           ?s2 ?p2 ?o2.\n"
-                //+ "           ?s3 ?p3 ?o3."
                 + "}\n"
                 + "where {\n"
-                //+ "  ?s1 rdf:type void:Dataset.\n"
-                //+ "  ?s1 (void:classPartition | void:propertyPartition) ?s2.\n"
                 + "  {?s1 ?p1 ?s2.\n"
                 + "  filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)\n"
                 + "          && not exists {?s2 a void:Linkset.})}\n"
                 + "  optional {?s2 ?p2 ?o2.}\n"
-                //+ "  ?s2 (!<>)* ?s3.\n"
-                //+ "  optional {?s3 ?p3 ?o3. filter not exists {[] rdf:type ?s3}}\n"
                 + "}";
         Callable<Model> task = () -> {
-            Query query = QueryFactory.create(queryString);
+            Query query = QueryFactory.create(String.format(queryString, targetURI));
             QueryExecution exec = QueryExecutionFactory.create(query, model);
             return exec.execConstruct();
         };
         return Executor.execute(task, Config.SPARQL_TIMEOUT);
     }
 
-    public static Model extractVoID(Dataset dataset) throws InterruptedException, ExecutionException, TimeoutException {
+    public static Model extractVoID(Dataset dataset, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "construct {?s1 rdf:type ?t1.\n"
-                + "           ?s1 ?p1 ?o1.\n"
+                + "construct {%1$s p1 ?s2.\n"
                 + "           ?s2 ?p2 ?o2.}\n"
-                + "where { "
-                + "  {{?s1 ?p1 ?s2.\n"
-                + "  filter (?p1 in (void:classPartition, void:propertyPartition))}\n"
+                + "where {\n"
+                + "  {{?s1 ?p1 ?s2. filter (?p1 in (void:classPartition, void:propertyPartition)\n"
+                + "                         || (?p1 in (void:subset) && exists {?s2 a void:Linkset.}))}\n"
                 + "  optional {?s2 ?p2 ?o2.}}\n"
-                + "\n"
                 + "  union\n"
-                + "  {{?s1 ?p1 ?s2.\n"
-                + "   filter (?p1 = void:subset)}\n"
-                + "   optional {?s2 ?p2 ?o2.}}\n"
+                + "  {graph ?g {{?s1 ?p1 ?s2. filter (?p1 in (void:classPartition, void:propertyPartition)\n"
+                + "                         || (?p1 in (void:subset) && exists {?s2 a void:Linkset.}))}\n"
+                + "             optional {?s2 ?p2 ?o2.}}}\n"
                 + "}";
         Callable<Model> task = () -> {
-            Query query = QueryFactory.create(queryString);
+            Query query = QueryFactory.create(String.format(queryString, targetURI));
             QueryExecution exec = QueryExecutionFactory.create(query, dataset);
             return exec.execConstruct();
         };
@@ -114,15 +107,15 @@ public abstract class VoIDHelper {
         return Executor.execute(task, Config.SPARQL_TIMEOUT);
     }
 
-    public static Model getContent(String[] urls, String[] sparqlEndPoints) throws InterruptedException {
-        return getContentFromURL(urls).add(getContentFromSparql(sparqlEndPoints));
+    public static Model getContent(String[] urls, String[] sparqlEndPoints, String targetURI) throws InterruptedException {
+        return getContentFromURL(urls, targetURI).add(getContentFromSparql(sparqlEndPoints, targetURI));
     }
 
-    private static Model getContentFromURL(String[] urls) throws InterruptedException {
+    private static Model getContentFromURL(String[] urls, String targetURI) throws InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
         for (String url : listVoIDUrls(urls))
             try {
-                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE)));
+                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE), targetURI));
             } catch (InterruptedException e) {
                 throw new InterruptedException();
             } catch (Throwable e) {
@@ -130,7 +123,7 @@ public abstract class VoIDHelper {
         return _void;
     }
 
-    private static Model getContentFromSparql(String[] sparqlEndPoints) throws InterruptedException {
+    private static Model getContentFromSparql(String[] sparqlEndPoints, String targetURI) throws InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
         for (String endPoint : sparqlEndPoints)
             try {
@@ -138,7 +131,7 @@ public abstract class VoIDHelper {
                 if (graphs.length > 0) {
                     String query = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
                     String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1s>\n", n)).reduce("", String::concat);
-                    _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint)));
+                    _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint), targetURI));
                 }
             } catch (InterruptedException e) {
                 throw new InterruptedException();

@@ -1,13 +1,10 @@
 package uff.ic.swlab.ckan2void;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
-import jdk.nashorn.api.scripting.URLReader;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
@@ -32,8 +29,7 @@ public abstract class Main {
         Config.configure("./resources/conf/ckan2void.properties");
         String oper = getOper(args);
 
-        String content = new Scanner(new URLReader(new URL(""))).useDelimiter("\\Z").next();
-
+        System.out.println("OPER = " + oper);
         for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
             if ((new UrlValidator()).isValid(catalog)) {
 
@@ -71,6 +67,6 @@ public abstract class Main {
         else if (args.length == 1 && args[0] != null && !args[0].equals(""))
             if (Stream.of(opers).anyMatch(x -> x.equals(args[0])))
                 return args[0];
-        throw new IllegalArgumentException("Illegal argument list!");
+        throw new IllegalArgumentException("Illegal argument list.");
     }
 }

@@ -62,11 +62,12 @@ public class MakeVoIDTask implements Runnable {
             String[] sparqlEndPoints = dataset.getSparqlEndPoints();
 
             Model _void = dataset.toVoid(graphDerefUri);
-            Model _voidExtra = VoIDHelper.getContent(urls, sparqlEndPoints);
+            Model _voidExtra = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
             saveVoid(_void, _voidExtra);
 
         } catch (Throwable e) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1s>). Msg: %2s", graphUri, e.getMessage()));
+            e.printStackTrace();
+            Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));
         }
     }
 
@@ -78,7 +79,7 @@ public class MakeVoIDTask implements Runnable {
 
         Model partitions;
         try {
-            partitions = VoIDHelper.extractPartitions(_void);
+            partitions = VoIDHelper.extractPartitions(_void, dataset.getUri());
         } catch (Throwable e) {
             partitions = ModelFactory.createDefaultModel();
         }

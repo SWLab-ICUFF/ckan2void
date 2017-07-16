@@ -92,7 +92,7 @@ public abstract class VoIDHelper {
         Model _void = ModelFactory.createDefaultModel();
         for (String endPoint : sparqlEndPoints)
             try {
-                String[] graphs = VoIDHelper.listVoIDGraphNames(endPoint);
+                String[] graphs = VoIDHelper.detectVoidGraphNames(endPoint);
                 if (graphs.length > 0) {
                     String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
                     String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
@@ -143,7 +143,7 @@ public abstract class VoIDHelper {
         return voidURLs.toArray(new String[0]);
     }
 
-    private static String[] listVoIDGraphNames(String sparqlEndPoint) throws InterruptedException, ExecutionException, TimeoutException {
+    private static String[] detectVoidGraphNames(String sparqlEndPoint) throws InterruptedException, ExecutionException, TimeoutException {
         Callable<String[]> task = () -> {
             List<String> graphNames = new ArrayList<>();
             String query = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
@@ -162,4 +162,5 @@ public abstract class VoIDHelper {
         };
         return Executor.execute(task, "List void graph names from " + sparqlEndPoint, Config.SPARQL_TIMEOUT);
     }
+
 }

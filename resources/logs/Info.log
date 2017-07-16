@@ -1,82 +1,76 @@
-2017-07-16 19:30:26 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/13mm-de>).
-2017-07-16 19:30:27 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
-2017-07-16 19:30:27 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/140-203-154-209>).
-2017-07-16 19:30:27 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>).
-2017-07-16 19:30:28 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/3kbo-com>).
-2017-07-16 19:30:28 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
-2017-07-16 19:30:28 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/5ver-net>).
-2017-07-16 19:30:28 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
-2017-07-16 19:30:29 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abdn-ac-uk>).
-2017-07-16 19:30:29 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
-2017-07-16 19:30:30 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acadonto>).
-2017-07-16 19:30:30 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
-2017-07-16 19:30:30 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/addgene>).
-2017-07-16 19:30:31 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/addgene>).
-2017-07-16 19:30:31 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adrideo-com>).
-2017-07-16 19:30:31 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
-2017-07-16 19:30:31 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adullact>).
-2017-07-16 19:30:31 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
-2017-07-16 19:30:32 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato>).
-2017-07-16 19:30:32 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
-2017-07-16 19:30:32 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato-org>).
-2017-07-16 19:30:32 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
-2017-07-16 19:30:32 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2000-us-census-rdf>).
-2017-07-16 19:30:32 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
-2017-07-16 19:30:33 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aegp-spanish-textile-and-clothing-association>).
-2017-07-16 19:30:33 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aegp-spanish-textile-and-clothing-association>).
-2017-07-16 19:30:33 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/academic-offer-of-unl>).
-2017-07-16 19:30:33 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
-2017-07-16 19:30:33 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agfa-com>).
-2017-07-16 19:30:34 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agfa-com>).
-2017-07-16 19:30:34 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrinepaldata>).
-2017-07-16 19:30:34 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
-2017-07-16 19:30:35 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aifkb-kit>).
-2017-07-16 19:30:35 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
-2017-07-16 19:30:35 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/airforcehistoryindex>).
-2017-07-16 19:30:35 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/airforcehistoryindex>).
-2017-07-16 19:30:35 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aksw-org>).
-2017-07-16 19:30:36 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aksw-org>).
-2017-07-16 19:30:36 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alchemyapi>).
-2017-07-16 19:30:36 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
-2017-07-16 19:30:36 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alik-su>).
-2017-07-16 19:30:36 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alik-su>).
-2017-07-16 19:30:36 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/allen-brain-atlas>).
-2017-07-16 19:30:36 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
-2017-07-16 19:30:37 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alochana-net>).
-2017-07-16 19:30:37 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
-2017-07-16 19:30:37 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/altervista-org>).
-2017-07-16 19:30:37 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/altervista-org>).
-2017-07-16 19:30:38 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/analisi-del-blog-http-www-beppegrillo-it>).
-2017-07-16 19:30:38 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
-2017-07-16 19:30:38 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alpino-rdf>).
-2017-07-16 19:30:38 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
-2017-07-16 19:30:38 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andrea-perego-name>).
-2017-07-16 19:30:38 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andrea-perego-name>).
-2017-07-16 19:30:38 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andybudd-com>).
-2017-07-16 19:30:39 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andybudd-com>).
-2017-07-16 19:30:39 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andzol-com>).
-2017-07-16 19:30:39 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
-2017-07-16 19:30:39 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anearalone-com>).
-2017-07-16 19:30:39 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anearalone-com>).
-2017-07-16 19:30:39 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/animal-diversity-web>).
-2017-07-16 19:30:39 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/animal-diversity-web>).
-2017-07-16 19:30:40 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anjeve-de>).
-2017-07-16 19:30:40 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anjeve-de>).
-2017-07-16 19:30:40 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/amsterdam-museum-as-edm-lod>).
-2017-07-16 19:30:40 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/amsterdam-museum-as-edm-lod>).
-2017-07-16 19:30:40 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/antiflux-org>).
-2017-07-16 19:30:40 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/antiflux-org>).
-2017-07-16 19:30:40 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/apache>).
-2017-07-16 19:30:40 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apache>).
-2017-07-16 19:30:42 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/artenuevosmedios-gnoss>).
-2017-07-16 19:30:50 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/artenuevosmedios-gnoss>).
-2017-07-16 19:30:50 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-plymouth>).
-2017-07-16 19:30:55 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-plymouth>).
-2017-07-16 19:30:55 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-ntu>).
-2017-07-16 19:31:00 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-ntu>).
-2017-07-16 19:31:00 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-mmu>).
-2017-07-16 19:31:18 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-mmu>).
-2017-07-16 19:31:18 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-manchester>).
-2017-07-16 19:31:24 INFO  info:141 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-manchester>).
-2017-07-16 19:31:24 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-keele>).
-2017-07-16 19:33:45 INFO  info:111 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/berlin-offener-haushalt>).
+2017-07-16 19:40:24 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/13mm-de>).
+2017-07-16 19:40:24 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
+2017-07-16 19:40:24 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/140-203-154-209>).
+2017-07-16 19:40:24 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>).
+2017-07-16 19:40:25 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/3kbo-com>).
+2017-07-16 19:40:25 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
+2017-07-16 19:40:25 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/5ver-net>).
+2017-07-16 19:40:26 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
+2017-07-16 19:40:26 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abdn-ac-uk>).
+2017-07-16 19:40:26 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
+2017-07-16 19:40:26 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acadonto>).
+2017-07-16 19:40:27 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
+2017-07-16 19:40:27 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/academic-offer-of-unl>).
+2017-07-16 19:40:27 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
+2017-07-16 19:40:27 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/addgene>).
+2017-07-16 19:40:27 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/addgene>).
+2017-07-16 19:40:27 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2000-us-census-rdf>).
+2017-07-16 19:40:28 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
+2017-07-16 19:40:28 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adrideo-com>).
+2017-07-16 19:40:28 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
+2017-07-16 19:40:28 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adullact>).
+2017-07-16 19:40:28 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
+2017-07-16 19:40:28 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato>).
+2017-07-16 19:40:28 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
+2017-07-16 19:40:29 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato-org>).
+2017-07-16 19:40:29 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
+2017-07-16 19:40:29 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aegp-spanish-textile-and-clothing-association>).
+2017-07-16 19:40:29 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aegp-spanish-textile-and-clothing-association>).
+2017-07-16 19:40:29 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agfa-com>).
+2017-07-16 19:40:29 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agfa-com>).
+2017-07-16 19:40:30 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrinepaldata>).
+2017-07-16 19:40:30 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
+2017-07-16 19:40:31 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aifkb-kit>).
+2017-07-16 19:40:31 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
+2017-07-16 19:40:31 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/airforcehistoryindex>).
+2017-07-16 19:40:31 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/airforcehistoryindex>).
+2017-07-16 19:40:32 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aksw-org>).
+2017-07-16 19:40:32 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aksw-org>).
+2017-07-16 19:40:32 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alchemyapi>).
+2017-07-16 19:40:32 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
+2017-07-16 19:40:32 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alik-su>).
+2017-07-16 19:40:32 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alik-su>).
+2017-07-16 19:40:32 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/allen-brain-atlas>).
+2017-07-16 19:40:32 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
+2017-07-16 19:40:33 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alochana-net>).
+2017-07-16 19:40:33 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
+2017-07-16 19:40:33 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/altervista-org>).
+2017-07-16 19:40:34 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/altervista-org>).
+2017-07-16 19:40:34 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alpino-rdf>).
+2017-07-16 19:40:34 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
+2017-07-16 19:40:34 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/analisi-del-blog-http-www-beppegrillo-it>).
+2017-07-16 19:40:34 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
+2017-07-16 19:40:34 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andrea-perego-name>).
+2017-07-16 19:40:34 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andrea-perego-name>).
+2017-07-16 19:40:35 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andybudd-com>).
+2017-07-16 19:40:35 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andybudd-com>).
+2017-07-16 19:40:35 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andzol-com>).
+2017-07-16 19:40:35 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
+2017-07-16 19:40:35 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/amsterdam-museum-as-edm-lod>).
+2017-07-16 19:40:35 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/amsterdam-museum-as-edm-lod>).
+2017-07-16 19:40:35 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anearalone-com>).
+2017-07-16 19:40:35 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anearalone-com>).
+2017-07-16 19:40:35 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/animal-diversity-web>).
+2017-07-16 19:40:35 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/animal-diversity-web>).
+2017-07-16 19:40:36 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anjeve-de>).
+2017-07-16 19:40:36 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anjeve-de>).
+2017-07-16 19:40:36 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/antiflux-org>).
+2017-07-16 19:40:36 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/antiflux-org>).
+2017-07-16 19:40:36 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/apache>).
+2017-07-16 19:40:36 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apache>).
+2017-07-16 19:40:38 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/artenuevosmedios-gnoss>).
+2017-07-16 19:40:47 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/artenuevosmedios-gnoss>).
+2017-07-16 19:40:47 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-plymouth>).
+2017-07-16 19:41:00 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-plymouth>).
+2017-07-16 19:41:00 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-ntu>).
+2017-07-16 19:43:42 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/berlin-offener-haushalt>).

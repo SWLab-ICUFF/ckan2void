@@ -2,10 +2,10 @@ package uff.ic.swlab.ckan2void.core;
 
 import java.util.concurrent.Callable;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
-import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
 
@@ -57,28 +57,18 @@ public class MakeVoIDTask implements Runnable {
     }
 
     private void runTask() {
-        class Result {
-
-            Model _void;
-            Model _voidComp;
-
-            Result(Model _void, Model _voidComp) {
-                this._void = _void;
-                this._voidComp = _voidComp;
-            }
-        }
-
         try {
-            String[] urls = dataset.getURLs(dataset);
-            String[] sparqlEndPoints = dataset.getSparqlEndPoints();
 
-            Callable<Result> task = () -> {
+            Callable<Object> task = () -> {
+                String[] urls = dataset.getURLs(dataset);
+                String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 Model _void = dataset.toVoid(graphDerefUri);
-                Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
-                return new Result(_void, _voidComp);
+                Model _voidComp = ModelFactory.createDefaultModel();
+                //Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
+                Config.HOST.saveVoid(_void, _voidComp, dataset.getUri(), graphUri);
+                return null;
             };
-            Result voids = Executor.execute(task, "Make void of " + dataset.getUri(), Config.TASK_TIMEOUT);
-            Config.HOST.saveVoid(voids._void, voids._voidComp, dataset.getUri(), graphUri);
+            Executor.execute(task, "Make void of " + dataset.getUri(), Config.TASK_TIMEOUT);
 
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Task failure (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));

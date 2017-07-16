@@ -1,180 +1,148 @@
-2017-07-16 11:08:26 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/5ver-net>).
-2017-07-16 11:08:27 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
-2017-07-16 11:08:27 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/3kbo-com>).
-2017-07-16 11:08:28 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
-2017-07-16 11:08:28 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abdn-ac-uk>).
-2017-07-16 11:08:28 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
-2017-07-16 11:08:28 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acadonto>).
-2017-07-16 11:08:28 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
-2017-07-16 11:08:28 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adrideo-com>).
-2017-07-16 11:08:29 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
-2017-07-16 11:08:29 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:29 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/academic-offer-of-unl>).
-2017-07-16 11:08:30 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
-2017-07-16 11:08:30 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato>).
-2017-07-16 11:08:30 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
-2017-07-16 11:08:30 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrinepaldata>).
-2017-07-16 11:08:30 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
-2017-07-16 11:08:31 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/13mm-de>).
-2017-07-16 11:08:31 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
-2017-07-16 11:08:32 ERROR riot:84 - [line: 2, col: 6 ] Bad character in IRI (space): <!--[space]...>
-2017-07-16 11:08:32 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alchemyapi>).
-2017-07-16 11:08:32 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
-2017-07-16 11:08:33 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aifkb-kit>).
-2017-07-16 11:08:34 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
-2017-07-16 11:08:34 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/analisi-del-blog-http-www-beppegrillo-it>).
-2017-07-16 11:08:34 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:34 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
-2017-07-16 11:08:34 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alpino-rdf>).
-2017-07-16 11:08:35 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
-2017-07-16 11:08:35 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adullact>).
-2017-07-16 11:08:35 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
-2017-07-16 11:08:35 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/allen-brain-atlas>).
-2017-07-16 11:08:35 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:35 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
-2017-07-16 11:08:35 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:35 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andzol-com>).
-2017-07-16 11:08:35 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
-2017-07-16 11:08:35 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:35 WARN  riot:77 - [line: 40, col: 94] {W107} Bad URI: <http://maps.yandex.ru/?text=Россия, Казань> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
-2017-07-16 11:08:35 ERROR riot:84 - Bad character in IRI (space): <http://maps.yandex.ru/?text=Россия,[space]...>
-2017-07-16 11:08:35 WARN  riot:77 - [line: 5, col: 57] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
-2017-07-16 11:08:35 ERROR riot:84 - [line: 6, col: 13] {E201} Multiple children of property element
-2017-07-16 11:08:35 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato-org>).
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:36 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
-2017-07-16 11:08:36 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('﻿' (code 65279 / 0xfeff)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 1 ] Expected a { character to start a JSON Object but got [LT]
-2017-07-16 11:08:37 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2000-us-census-rdf>).
-2017-07-16 11:08:37 WARN  riot:77 - [line: 38, col: 75] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
-2017-07-16 11:08:37 ERROR riot:84 - [line: 38, col: 88] {E202} Expecting XML start or end element(s). String data "Soxiam UI Set" not allowed. Maybe there should be an rdf:parseType='Literal' for embedding mixed XML content in RDF. Maybe a striping error.
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:37 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 2 ] Expected a { character to start a JSON Object but got [LT]
-2017-07-16 11:08:37 ERROR riot:84 - [line: 2, col: 176] Unrecognized XML element: powder
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:37 ERROR riot:84 - [line: 10, col: 2 ] Unrecognized XML element: rdf:RDF
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:37 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alochana-net>).
-2017-07-16 11:08:37 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
-2017-07-16 11:08:38 ERROR riot:84 - [line: 1, col: 1 ] Expected a { character to start a JSON Object but got [LT]
-2017-07-16 11:08:38 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:38 ERROR riot:84 - [line: 9, col: 36] Unrecognized XML element: rdf:RDF
-2017-07-16 11:08:38 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:38 WARN  riot:77 - [line: 2, col: 52] {W119} A processing instruction is in RDF content. No processing was done. 
-2017-07-16 11:08:38 WARN  riot:77 - [line: 3, col: 19] {W104} Unqualified typed nodes are not allowed. Type treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 4, col: 11] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 5, col: 10] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 6, col: 9 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 7, col: 14] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 8, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 9, col: 14] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 10, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 11, col: 8 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 12, col: 8 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 13, col: 8 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 14, col: 11] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 15, col: 9 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 16, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 17, col: 11] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 18, col: 14] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 19, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 20, col: 9 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:38 WARN  riot:77 - [line: 21, col: 10] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:39 WARN  riot:77 - [line: 5, col: 57] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
-2017-07-16 11:08:39 ERROR riot:84 - [line: 6, col: 13] {E201} Multiple children of property element
-2017-07-16 11:08:40 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:08:47 WARN  riot:77 - [line: 40, col: 94] {W107} Bad URI: <http://maps.yandex.ru/?text=Россия, Казань> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
-2017-07-16 11:08:47 ERROR riot:84 - Bad character in IRI (space): <http://maps.yandex.ru/?text=Россия,[space]...>
-2017-07-16 11:08:48 WARN  riot:77 - [line: 38, col: 75] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
-2017-07-16 11:08:48 ERROR riot:84 - [line: 38, col: 88] {E202} Expecting XML start or end element(s). String data "Soxiam UI Set" not allowed. Maybe there should be an rdf:parseType='Literal' for embedding mixed XML content in RDF. Maybe a striping error.
-2017-07-16 11:08:52 ERROR riot:84 - [line: 1, col: 20] Triples not terminated by DOT
-2017-07-16 11:08:52 WARN  riot:77 - [line: 1, col: 7 ] {W104} Unqualified typed nodes are not allowed. Type treated as a relative URI.
-2017-07-16 11:08:52 WARN  riot:77 - [line: 1, col: 13] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
-2017-07-16 11:08:52 WARN  riot:77 - [line: 1, col: 20] {W104} Unqualified typed nodes are not allowed. Type treated as a relative URI.
-2017-07-16 11:08:52 ERROR riot:84 - [line: 1, col: 32] {E202} Expecting XML start or end element(s). String data "Object moved" not allowed. Maybe there should be an rdf:parseType='Literal' for embedding mixed XML content in RDF. Maybe a striping error.
-2017-07-16 11:08:53 ERROR riot:84 - [line: 1, col: 20] Triple not terminated by DOT: [KEYWORD:Object]
-2017-07-16 11:08:53 ERROR riot:84 - [line: 1, col: 20] Triples not terminated by DOT
-2017-07-16 11:08:54 ERROR riot:84 - [line: 1, col: 20] Expected BNode or IRI: Got: [KEYWORD:Object]
-2017-07-16 11:08:54 ERROR riot:84 - [line: 2, col: 1 ] Broken IRI (newline): rdf:RDF
-2017-07-16 11:08:54 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
-2017-07-16 11:08:55 ERROR riot:84 - [line: 1, col: 1 ] Expected a { character to start a JSON Object but got [LT]
-2017-07-16 11:08:55 INFO  info:99 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
-2017-07-16 11:08:55 INFO  info:130 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andybudd-com>).
-2017-07-16 11:08:55 ERROR riot:84 - [line: 1, col: 7 ] Unrecognized XML element: html
-2017-07-16 11:08:57 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
-2017-07-16 11:08:57 ERROR riot:84 - [line: 2, col: 1 ] Broken IRI (newline): rdf:RDF
-2017-07-16 11:08:58 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
-2017-07-16 11:09:00 WARN  QueryEngineHTTP:691 - HTTP response not fully consumed, if HTTP Client is reusing connections (its default behaviour) then it will consume the remaining response data which may take a long time and cause this application to become unresponsive
-2017-07-16 11:09:01 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
-2017-07-16 11:09:01 ERROR riot:84 - [line: 162, col: 4 ] Bad character encoding
-2017-07-16 11:09:01 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
-2017-07-16 11:09:08 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 11:09:08 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 11:09:17 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
-2017-07-16 11:09:20 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
-2017-07-16 11:09:21 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
-2017-07-16 11:09:27 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
-2017-07-16 11:09:28 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:09:28 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
-2017-07-16 11:09:30 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql".
-2017-07-16 11:09:31 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
-2017-07-16 11:09:31 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
-2017-07-16 11:09:34 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:09:36 ERROR timeout:21 - Timeout while executing "List void graph names from http://opendata.aragon.es/sparql".
-2017-07-16 11:09:38 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 11:09:38 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 11:09:40 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:09:42 ERROR timeout:21 - Timeout while executing "List void graph names from http://semanticweb.cs.vu.nl/europeana/sparql/".
-2017-07-16 11:09:43 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:09:45 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.archiveshub.ac.uk/sparql".
-2017-07-16 11:09:45 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:09:50 ERROR timeout:21 - Timeout while executing "List void graph names from http://linguistic.linkeddata.es/sparql/".
-2017-07-16 11:09:51 ERROR timeout:21 - Timeout while executing "List void graph names from http://linguistic.linkeddata.es/sparql/".
-2017-07-16 11:09:55 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.allie.dbcls.jp/sparql".
-2017-07-16 11:10:00 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql_en.html".
-2017-07-16 11:10:03 ERROR timeout:21 - Timeout while executing "List void graph names from http://visualdataweb.infor.uva.es/sparql".
-2017-07-16 11:10:08 ERROR timeout:21 - Timeout while executing "List void graph names from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 11:10:12 ERROR timeout:21 - Timeout while executing "List void graph names from http://semanticweb.cs.vu.nl/europeana/user/query".
-2017-07-16 11:10:16 ERROR timeout:21 - Timeout while executing "List void graph names from http://abs.270a.info/sparql".
-2017-07-16 11:10:26 ERROR timeout:21 - Timeout while executing "List void graph names from http://202.45.142.113:10035/repositories/agris".
-2017-07-16 11:10:42 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
-2017-07-16 11:10:42 ERROR riot:84 - [line: 11, col: 52] Broken IRI (CR): http://www.w3.org/ns/lemon/lime#
-2017-07-16 11:10:43 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('@' (code 64)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
-2017-07-16 11:10:43 ERROR riot:84 - [line: 1, col: 1 ] XML error: ParseError at [row,col]:[1,1]
-Message: Content is not allowed in prolog.
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:44 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
-2017-07-16 11:10:48 ERROR timeout:21 - Timeout while executing "List void graph names from http://aemet.linkeddata.es/sparql".
-2017-07-16 11:11:04 ERROR timeout:21 - Timeout while executing "List void graph names from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 11:11:18 ERROR timeout:21 - Timeout while executing "List void graph names from http://aemet.linkeddata.es/sparql_en.html".
-2017-07-16 11:11:25 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/140-203-154-209".
-2017-07-16 11:11:25 ERROR error:84 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>). Msg: null
-2017-07-16 11:11:28 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/acorn-sat".
-2017-07-16 11:11:28 ERROR error:84 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acorn-sat>). Msg: null
-2017-07-16 11:11:29 ERROR timeout:21 - Timeout while executing "Load dataset from http://aims.fao.org/aos/agrovoc/void.ttl".
-2017-07-16 11:11:31 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/agrovoc-skos".
-2017-07-16 11:11:31 ERROR error:84 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrovoc-skos>). Msg: null
-2017-07-16 11:11:36 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/animal-diversity-web".
-2017-07-16 11:11:36 ERROR error:84 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/animal-diversity-web>). Msg: null
-2017-07-16 11:12:29 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
-2017-07-16 11:12:29 WARN  riot:77 - [line: 2, col: 65] {W119} A processing instruction is in RDF content. No processing was done. 
-2017-07-16 11:12:46 WARN  riot:77 - [line: 23, col: 20] Lexical form '2012-08-8' not valid for datatype XSD date
-2017-07-16 11:14:28 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/ashok-org-uk".
-2017-07-16 11:14:28 ERROR error:84 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/ashok-org-uk>). Msg: null
-2017-07-16 11:14:58 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.jesandco.org:8890/sparql".
-2017-07-16 11:15:28 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.jesandco.org:8890/fct/".
+2017-07-16 19:17:36 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/13mm-de>).
+2017-07-16 19:17:36 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
+2017-07-16 19:17:36 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/140-203-154-209>).
+2017-07-16 19:17:37 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>).
+2017-07-16 19:17:37 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/3kbo-com>).
+2017-07-16 19:17:37 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
+2017-07-16 19:17:38 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/5ver-net>).
+2017-07-16 19:17:38 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
+2017-07-16 19:17:38 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abdn-ac-uk>).
+2017-07-16 19:17:38 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
+2017-07-16 19:17:39 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acadonto>).
+2017-07-16 19:17:39 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
+2017-07-16 19:17:39 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/academic-offer-of-unl>).
+2017-07-16 19:17:39 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
+2017-07-16 19:17:39 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/addgene>).
+2017-07-16 19:17:39 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/addgene>).
+2017-07-16 19:17:40 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adrideo-com>).
+2017-07-16 19:17:40 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
+2017-07-16 19:17:40 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adullact>).
+2017-07-16 19:17:40 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
+2017-07-16 19:17:40 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato>).
+2017-07-16 19:17:40 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
+2017-07-16 19:17:40 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato-org>).
+2017-07-16 19:17:40 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
+2017-07-16 19:17:41 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aegp-spanish-textile-and-clothing-association>).
+2017-07-16 19:17:41 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aegp-spanish-textile-and-clothing-association>).
+2017-07-16 19:17:42 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agfa-com>).
+2017-07-16 19:17:42 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agfa-com>).
+2017-07-16 19:17:43 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrinepaldata>).
+2017-07-16 19:17:43 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
+2017-07-16 19:17:43 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aifkb-kit>).
+2017-07-16 19:17:43 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
+2017-07-16 19:17:43 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2000-us-census-rdf>).
+2017-07-16 19:17:43 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
+2017-07-16 19:17:43 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/airforcehistoryindex>).
+2017-07-16 19:17:44 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/airforcehistoryindex>).
+2017-07-16 19:17:44 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aksw-org>).
+2017-07-16 19:17:44 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aksw-org>).
+2017-07-16 19:17:44 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alchemyapi>).
+2017-07-16 19:17:44 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
+2017-07-16 19:17:44 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alik-su>).
+2017-07-16 19:17:44 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alik-su>).
+2017-07-16 19:17:45 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/allen-brain-atlas>).
+2017-07-16 19:17:45 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
+2017-07-16 19:17:45 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alochana-net>).
+2017-07-16 19:17:45 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
+2017-07-16 19:17:46 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/altervista-org>).
+2017-07-16 19:17:46 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/altervista-org>).
+2017-07-16 19:17:46 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/analisi-del-blog-http-www-beppegrillo-it>).
+2017-07-16 19:17:46 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
+2017-07-16 19:17:46 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andrea-perego-name>).
+2017-07-16 19:17:46 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andrea-perego-name>).
+2017-07-16 19:17:47 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andybudd-com>).
+2017-07-16 19:17:47 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andybudd-com>).
+2017-07-16 19:17:47 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alpino-rdf>).
+2017-07-16 19:17:47 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
+2017-07-16 19:17:47 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andzol-com>).
+2017-07-16 19:17:47 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
+2017-07-16 19:17:47 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anearalone-com>).
+2017-07-16 19:17:47 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anearalone-com>).
+2017-07-16 19:17:47 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/animal-diversity-web>).
+2017-07-16 19:17:47 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/animal-diversity-web>).
+2017-07-16 19:17:48 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anjeve-de>).
+2017-07-16 19:17:48 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anjeve-de>).
+2017-07-16 19:17:48 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/antiflux-org>).
+2017-07-16 19:17:48 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/antiflux-org>).
+2017-07-16 19:17:48 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/apache>).
+2017-07-16 19:17:48 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apache>).
+2017-07-16 19:17:48 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/amsterdam-museum-as-edm-lod>).
+2017-07-16 19:17:48 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/amsterdam-museum-as-edm-lod>).
+2017-07-16 19:17:50 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/artenuevosmedios-gnoss>).
+2017-07-16 19:17:56 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/artenuevosmedios-gnoss>).
+2017-07-16 19:17:56 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-plymouth>).
+2017-07-16 19:18:01 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-plymouth>).
+2017-07-16 19:18:01 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-ntu>).
+2017-07-16 19:18:07 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-ntu>).
+2017-07-16 19:18:07 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-mmu>).
+2017-07-16 19:18:08 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
+2017-07-16 19:18:09 WARN  QueryEngineHTTP:691 - HTTP response not fully consumed, if HTTP Client is reusing connections (its default behaviour) then it will consume the remaining response data which may take a long time and cause this application to become unresponsive
+2017-07-16 19:18:09 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-16 19:18:09 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-mmu>).
+2017-07-16 19:18:09 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-manchester>).
+2017-07-16 19:18:12 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
+2017-07-16 19:18:13 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-16 19:18:29 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
+2017-07-16 19:18:30 ERROR timeout:21 - Timeout while executing "Query properties from http://sparql.jesandco.org:8890/sparql".
+2017-07-16 19:18:33 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
+2017-07-16 19:18:33 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
+2017-07-16 19:18:38 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
+2017-07-16 19:18:39 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql".
+2017-07-16 19:18:39 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-16 19:18:42 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
+2017-07-16 19:18:43 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-16 19:19:00 ERROR timeout:21 - Timeout while executing "Query properties from http://sparql.jesandco.org:8890/fct/".
+2017-07-16 19:19:09 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql_en.html".
+2017-07-16 19:20:37 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2001-spanish-census-to-rdf".
+2017-07-16 19:20:37 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2001-spanish-census-to-rdf>). Msg: null
+2017-07-16 19:20:38 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/abs-linked-data".
+2017-07-16 19:20:38 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abs-linked-data>). Msg: null
+2017-07-16 19:20:39 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/acorn-sat".
+2017-07-16 19:20:39 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acorn-sat>). Msg: null
+2017-07-16 19:20:41 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aemet".
+2017-07-16 19:20:41 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aemet>). Msg: null
+2017-07-16 19:20:42 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/agris".
+2017-07-16 19:20:42 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agris>). Msg: null
+2017-07-16 19:20:43 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/agrovoc-skos".
+2017-07-16 19:20:43 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrovoc-skos>). Msg: null
+2017-07-16 19:20:45 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/allie-abbreviation-and-long-form-database-in-life-science".
+2017-07-16 19:20:45 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allie-abbreviation-and-long-form-database-in-life-science>). Msg: null
+2017-07-16 19:20:49 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/apertium-en-ca".
+2017-07-16 19:20:49 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apertium-en-ca>). Msg: null
+2017-07-16 19:20:49 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/apertium-en-es".
+2017-07-16 19:20:49 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apertium-en-es>). Msg: null
+2017-07-16 19:20:49 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aragodbpedia".
+2017-07-16 19:20:49 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aragodbpedia>). Msg: null
+2017-07-16 19:20:49 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/archiveshub-linkeddata".
+2017-07-16 19:20:49 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/archiveshub-linkeddata>). Msg: null
+2017-07-16 19:20:50 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/arrayexpress-e-afmx-1".
+2017-07-16 19:20:50 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/arrayexpress-e-afmx-1>). Msg: null
+2017-07-16 19:20:50 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/arrayexpress_e-mtab-104".
+2017-07-16 19:20:50 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/arrayexpress_e-mtab-104>). Msg: null
+2017-07-16 19:20:50 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/arthroscopy".
+2017-07-16 19:20:50 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/arthroscopy>). Msg: null
+2017-07-16 19:20:51 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/ashok-org-uk".
+2017-07-16 19:20:51 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/ashok-org-uk>). Msg: null
+2017-07-16 19:20:51 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/asit".
+2017-07-16 19:20:51 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/asit>). Msg: null
+2017-07-16 19:20:51 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/asjp".
+2017-07-16 19:20:51 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/asjp>). Msg: null
+2017-07-16 19:20:51 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/asn-us".
+2017-07-16 19:20:51 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/asn-us>). Msg: null
+2017-07-16 19:20:52 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-bolton".
+2017-07-16 19:20:52 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-bolton>). Msg: null
+2017-07-16 19:20:52 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-bournemouth".
+2017-07-16 19:20:52 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-bournemouth>). Msg: null
+2017-07-16 19:20:52 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-brunel".
+2017-07-16 19:20:52 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-brunel>). Msg: null
+2017-07-16 19:20:52 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-derby".
+2017-07-16 19:20:52 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-derby>). Msg: null
+2017-07-16 19:20:53 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-harper-adams".
+2017-07-16 19:20:53 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-harper-adams>). Msg: null
+2017-07-16 19:20:53 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-hope".
+2017-07-16 19:20:53 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-hope>). Msg: null
+2017-07-16 19:20:53 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-keele".
+2017-07-16 19:20:53 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-keele>). Msg: null
+2017-07-16 19:20:54 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aspire-manchester".
+2017-07-16 19:20:54 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-manchester>). Msg: null
+2017-07-16 19:20:54 INFO  info:107 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/berlin-offener-haushalt>).

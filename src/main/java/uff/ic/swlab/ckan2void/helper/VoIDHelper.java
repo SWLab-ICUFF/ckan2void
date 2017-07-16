@@ -24,6 +24,39 @@ import uff.ic.swlab.ckan2void.util.RDFDataMgr;
 
 public abstract class VoIDHelper {
 
+    public static Model getContent(String[] urls, String[] sparqlEndPoints, String targetURI) throws InterruptedException {
+        return getContentFromURL(urls, targetURI).add(getContentFromSparql(sparqlEndPoints, targetURI));
+    }
+
+    private static Model getContentFromURL(String[] urls, String targetURI) throws InterruptedException {
+        Model _void = ModelFactory.createDefaultModel();
+        for (String url : makeVoIDUrls(urls))
+            try {
+                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE), targetURI));
+            } catch (InterruptedException e) {
+                throw e;
+            } catch (Throwable e) {
+            }
+        return _void;
+    }
+
+    private static Model getContentFromSparql(String[] sparqlEndPoints, String targetURI) throws InterruptedException {
+        Model _void = ModelFactory.createDefaultModel();
+        for (String endPoint : sparqlEndPoints)
+            try {
+                String[] graphs = VoIDHelper.detectVoidGraphNames(endPoint);
+                if (graphs.length > 0) {
+                    String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
+                    String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
+                    _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint), targetURI));
+                }
+            } catch (InterruptedException e) {
+                throw e;
+            } catch (Throwable e) {
+            }
+        return _void;
+    }
+
     public static Model extractPartitions(Model model, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
@@ -72,39 +105,6 @@ public abstract class VoIDHelper {
         return Executor.execute(task, "Extract void for " + targetURI, Config.SPARQL_TIMEOUT);
     }
 
-    public static Model getContent(String[] urls, String[] sparqlEndPoints, String targetURI) throws InterruptedException {
-        return getContentFromURL(urls, targetURI).add(getContentFromSparql(sparqlEndPoints, targetURI));
-    }
-
-    private static Model getContentFromURL(String[] urls, String targetURI) throws InterruptedException {
-        Model _void = ModelFactory.createDefaultModel();
-        for (String url : makeVoIDUrls(urls))
-            try {
-                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE), targetURI));
-            } catch (InterruptedException e) {
-                throw e;
-            } catch (Throwable e) {
-            }
-        return _void;
-    }
-
-    private static Model getContentFromSparql(String[] sparqlEndPoints, String targetURI) throws InterruptedException {
-        Model _void = ModelFactory.createDefaultModel();
-        for (String endPoint : sparqlEndPoints)
-            try {
-                String[] graphs = VoIDHelper.detectVoidGraphNames(endPoint);
-                if (graphs.length > 0) {
-                    String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
-                    String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
-                    _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint), targetURI));
-                }
-            } catch (InterruptedException e) {
-                throw e;
-            } catch (Throwable e) {
-            }
-        return _void;
-    }
-
     private static String[] makeVoIDUrls(String[] urls) {
         Set<String> voidURLs = new HashSet<>();
 
@@ -114,16 +114,10 @@ public abstract class VoIDHelper {
                 String protocol = url.getProtocol();
                 String auth = url.getAuthority();
                 String newPath = protocol + "://" + auth;
-                voidURLs.add(newPath);
                 voidURLs.add(newPath + "/.well-known/void");
-                voidURLs.add(newPath + "/.well-known/void.ttl");
-                voidURLs.add(newPath + "/.well-known/void.rdf");
                 voidURLs.add(newPath + "/void");
                 voidURLs.add(newPath + "/void.ttl");
                 voidURLs.add(newPath + "/void.rdf");
-                voidURLs.add(newPath + "/models/void");
-                voidURLs.add(newPath + "/models/void.ttl");
-                voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
                 for (int i = 1; i < path.length; i++)
                     if (!path[i].contains("void")) {

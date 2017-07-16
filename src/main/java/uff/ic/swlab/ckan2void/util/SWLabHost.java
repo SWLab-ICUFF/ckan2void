@@ -23,6 +23,7 @@ import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 
 public enum SWLabHost {
 
@@ -122,6 +123,31 @@ public enum SWLabHost {
         return result;
     }
 
+    public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException {
+        if (_void.size() == 0)
+            Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1s>).", datasetUri));
+        if (_voidComp.size() == 0)
+            Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1s>).", datasetUri));
+        Model partitions;
+        try {
+            partitions = VoIDHelper.extractPartitions(_void, datasetUri);
+        } catch (Throwable e) {
+            partitions = ModelFactory.createDefaultModel();
+        }
+        if (partitions.size() == 0)
+            _void.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
+        else
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
+        if (_voidComp.size() == 0)
+            _voidComp = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
+        else
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, _voidComp);
+        if (_void.add(_voidComp).size() > 5)
+            Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, _void);
+        else
+            Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1s>).", graphUri));
+    }
+
     public synchronized void uploadBinaryFile(String localFilename, String remoteName, String user, String pass) throws IOException, Exception {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(hostname, ftpPort);
@@ -173,4 +199,5 @@ public enum SWLabHost {
             throw e;
         }
     }
+
 }

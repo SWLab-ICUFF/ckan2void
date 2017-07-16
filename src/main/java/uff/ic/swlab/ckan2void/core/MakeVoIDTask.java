@@ -1,13 +1,13 @@
 package uff.ic.swlab.ckan2void.core;
 
-import javax.naming.InvalidNameException;
+import java.util.concurrent.Callable;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 import uff.ic.swlab.ckan2void.util.Config;
+import uff.ic.swlab.ckan2void.util.Executor;
 
 public class MakeVoIDTask implements Runnable {
 
@@ -57,45 +57,33 @@ public class MakeVoIDTask implements Runnable {
     }
 
     private void runTask() {
+        class Result {
+
+            Model _void;
+            Model _voidComp;
+
+            Result(Model _void, Model _voidComp) {
+                this._void = _void;
+                this._voidComp = _voidComp;
+            }
+        }
+
         try {
             String[] urls = dataset.getURLs(dataset);
             String[] sparqlEndPoints = dataset.getSparqlEndPoints();
 
-            Model _void = dataset.toVoid(graphDerefUri);
-            Model _voidExtra = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
-            saveVoid(_void, _voidExtra);
+            Callable<Result> task = () -> {
+                Model _void = dataset.toVoid(graphDerefUri);
+                Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
+                return new Result(_void, _voidComp);
+            };
+            Result voids = Executor.execute(task, "Make void of " + dataset.getUri(), Config.TASK_TIMEOUT);
+            Config.HOST.saveVoid(voids._void, voids._voidComp, dataset.getUri(), graphUri);
 
         } catch (Throwable e) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));
-        }
-    }
-
-    private void saveVoid(Model _void, Model _voidExtra) throws InvalidNameException {
-        if (_void.size() == 0)
-            Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1s>).", graphUri));
-        if (_voidExtra.size() == 0)
-            Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1s>).", graphUri));
-
-        Model partitions;
-        try {
-            partitions = VoIDHelper.extractPartitions(_void, dataset.getUri());
-        } catch (Throwable e) {
-            partitions = ModelFactory.createDefaultModel();
+            Logger.getLogger("error").log(Level.ERROR, String.format("Task failure (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));
         }
 
-        if (partitions.size() == 0)
-            _void.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
-        else
-            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
-
-        if (_voidExtra.size() == 0)
-            _voidExtra = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
-        else
-            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, _voidExtra);
-
-        if (_void.add(_voidExtra).size() > 5)
-            Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, _void);
-        else
-            Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1s>).", graphUri));
     }
+
 }

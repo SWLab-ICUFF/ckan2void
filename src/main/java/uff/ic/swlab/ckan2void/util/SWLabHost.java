@@ -113,7 +113,7 @@ public enum SWLabHost {
         throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
     }
 
-    public Model execConstruct(String queryString, String datasetname) {
+    public synchronized Model execConstruct(String queryString, String datasetname) {
         Model result = ModelFactory.createDefaultModel();
         try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString)) {
             ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
@@ -122,7 +122,7 @@ public enum SWLabHost {
         return result;
     }
 
-    public void uploadBinaryFile(String localFilename, String remoteName, String user, String pass) throws IOException, Exception {
+    public synchronized void uploadBinaryFile(String localFilename, String remoteName, String user, String pass) throws IOException, Exception {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(hostname, ftpPort);
 
@@ -149,7 +149,7 @@ public enum SWLabHost {
         }
     }
 
-    public void mkDirsViaFTP(String remoteFilename, String user, String pass) throws Exception {
+    public synchronized void mkDirsViaFTP(String remoteFilename, String user, String pass) throws Exception {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(hostname, ftpPort);
 

@@ -109,8 +109,8 @@ public abstract class RDFDataMgr {
                 return tempDataset;
             };
             return Executor.execute(task, "Load dataset from " + url, Config.MODEL_READ_TIMEOUT);
-        }
-        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
+        } else
+            throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
     }
 
     private static Dataset loadDataset2(String url, Lang lang, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
@@ -126,7 +126,8 @@ public abstract class RDFDataMgr {
                 };
                 return Executor.execute(task, "Load dataset from " + url + " using lang = " + lang.getName(), Config.MODEL_READ_TIMEOUT);
             }
-        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
+        else
+            throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
     }
 
     public static void write(OutputStream output, Model model, Lang lang) {

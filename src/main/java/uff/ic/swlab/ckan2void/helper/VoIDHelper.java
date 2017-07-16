@@ -78,7 +78,7 @@ public abstract class VoIDHelper {
 
     private static Model getContentFromURL(String[] urls, String targetURI) throws InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
-        for (String url : listVoIDUrls(urls))
+        for (String url : makeVoIDUrls(urls))
             try {
                 _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE), targetURI));
             } catch (InterruptedException e) {
@@ -105,7 +105,7 @@ public abstract class VoIDHelper {
         return _void;
     }
 
-    private static String[] listVoIDUrls(String[] urls) {
+    private static String[] makeVoIDUrls(String[] urls) {
         Set<String> voidURLs = new HashSet<>();
 
         try {

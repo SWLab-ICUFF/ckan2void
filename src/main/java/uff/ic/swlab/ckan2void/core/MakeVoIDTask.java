@@ -72,9 +72,9 @@ public class MakeVoIDTask implements Runnable {
 
     private void saveVoid(Model _void, Model _voidExtra) throws InvalidNameException {
         if (_void.size() == 0)
-            Logger.getLogger("info").log(Level.INFO, String.format("Empty default VoID (<%1s>).", graphUri));
+            Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1s>).", graphUri));
         if (_voidExtra.size() == 0)
-            Logger.getLogger("info").log(Level.INFO, String.format("Empty crawled VoID (<%1s>).", graphUri));
+            Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1s>).", graphUri));
 
         Model partitions;
         try {

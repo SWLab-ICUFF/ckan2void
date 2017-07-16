@@ -1,12 +1,117 @@
-2017-07-15 21:07:29 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
-2017-07-15 21:07:30 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
-2017-07-15 21:07:33 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
-2017-07-15 21:07:34 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
-2017-07-15 21:07:52 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
-2017-07-15 21:07:56 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
-2017-07-15 21:07:57 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
-2017-07-15 21:08:01 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
-2017-07-15 21:08:02 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
-2017-07-15 21:08:04 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
-2017-07-15 21:08:05 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
-2017-07-15 21:08:05 ERROR timeout:21 - Timeout while executing "List void graph names from http://opendata.aragon.es/sparql".
+2017-07-15 22:07:04 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/void is html".
+2017-07-15 22:07:14 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/void.rdf is html".
+2017-07-15 22:07:21 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/collections/nl/am/proxy-23182/void is html".
+2017-07-15 22:07:23 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/void.rdf is html".
+2017-07-15 22:07:24 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/foaf.rdf/void.rdf is html".
+2017-07-15 22:07:25 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
+2017-07-15 22:07:26 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-15 22:07:29 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
+2017-07-15 22:07:30 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-15 22:07:33 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/.well-known/void is html".
+2017-07-15 22:07:34 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/void.rdf is html".
+2017-07-15 22:07:40 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/collections/nl/am/proxy-23182/void.ttl is html".
+2017-07-15 22:07:44 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/models/void.ttl is html".
+2017-07-15 22:07:45 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/.well-known/void.ttl is html".
+2017-07-15 22:07:46 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
+2017-07-15 22:07:54 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/void is html".
+2017-07-15 22:07:55 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
+2017-07-15 22:07:56 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-15 22:07:57 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
+2017-07-15 22:07:57 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql".
+2017-07-15 22:07:58 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
+2017-07-15 22:07:58 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu is html".
+2017-07-15 22:07:59 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
+2017-07-15 22:08:00 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-15 22:08:04 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/.well-known/void is html".
+2017-07-15 22:08:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/observations.zip/void is html".
+2017-07-15 22:08:07 ERROR timeout:21 - Timeout while executing "List void graph names from http://opendata.aragon.es/sparql".
+2017-07-15 22:08:08 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/void.rdf is html".
+2017-07-15 22:08:12 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-15 22:08:14 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/void.ttl is html".
+2017-07-15 22:08:14 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-15 22:08:16 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/void is html".
+2017-07-15 22:08:18 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/void is html".
+2017-07-15 22:08:23 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.allie.dbcls.jp/sparql".
+2017-07-15 22:08:24 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/void.ttl is html".
+2017-07-15 22:08:26 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/twc/arrayexpress/E-MTAB-104/void.rdf is html".
+2017-07-15 22:08:26 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/all_slices.zip/void is html".
+2017-07-15 22:08:27 ERROR timeout:21 - Timeout while executing "List void graph names from http://linguistic.linkeddata.es/sparql/".
+2017-07-15 22:08:27 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql_en.html".
+2017-07-15 22:08:28 ERROR timeout:21 - Timeout while executing "List void graph names from http://linguistic.linkeddata.es/sparql/".
+2017-07-15 22:08:29 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/Apis_mellifera.owl is html".
+2017-07-15 22:08:32 ERROR timeout:21 - Timeout while executing "List void graph names from http://semanticweb.cs.vu.nl/europeana/sparql/".
+2017-07-15 22:08:34 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/.well-known/void.ttl is html".
+2017-07-15 22:08:36 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/twc/arrayexpress/void is html".
+2017-07-15 22:08:36 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/void.rdf is html".
+2017-07-15 22:08:40 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/Apis_mellifera.owl/void is html".
+2017-07-15 22:08:41 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.archiveshub.ac.uk/sparql".
+2017-07-15 22:08:42 ERROR timeout:21 - Timeout while executing "List void graph names from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-15 22:08:43 ERROR timeout:21 - Timeout while executing "List void graph names from http://visualdataweb.infor.uva.es/sparql".
+2017-07-15 22:08:44 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/foaf.rdf is html".
+2017-07-15 22:08:46 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/twc/arrayexpress/E-MTAB-104/void is html".
+2017-07-15 22:08:46 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/year.rdf/void.ttl is html".
+2017-07-15 22:08:50 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/void.ttl is html".
+2017-07-15 22:08:54 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/models/void is html".
+2017-07-15 22:08:56 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/year.rdf/void.rdf is html".
+2017-07-15 22:08:56 ERROR timeout:21 - Timeout while executing "List void graph names from http://abs.270a.info/sparql".
+2017-07-15 22:08:57 ERROR timeout:21 - Timeout while executing "List void graph names from http://202.45.142.113:10035/repositories/agris".
+2017-07-15 22:08:59 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/twc/arrayexpress/dump/E-MTAB-104.rdf is html".
+2017-07-15 22:09:02 ERROR timeout:21 - Timeout while executing "List void graph names from http://semanticweb.cs.vu.nl/europeana/user/query".
+2017-07-15 22:09:03 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/Apis_mellifera.owl/void.ttl is html".
+2017-07-15 22:09:04 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/.well-known/void.rdf is html".
+2017-07-15 22:09:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/void.rdf is html".
+2017-07-15 22:09:13 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/models/void is html".
+2017-07-15 22:09:14 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit is html".
+2017-07-15 22:09:16 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/void is html".
+2017-07-15 22:09:19 ERROR timeout:21 - Timeout while executing "List void graph names from http://aemet.linkeddata.es/sparql".
+2017-07-15 22:09:20 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/twc/arrayexpress/dump/E-MTAB-104.rdf/void.ttl is html".
+2017-07-15 22:09:23 ERROR timeout:21 - Timeout while executing "Load dataset from http://aims.fao.org/aos/agrovoc/void.ttl".
+2017-07-15 22:09:24 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/foaf.rdf/void is html".
+2017-07-15 22:09:26 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/models/void.rdf is html".
+2017-07-15 22:09:26 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/void.ttl is html".
+2017-07-15 22:09:30 ERROR timeout:21 - Timeout while executing "Ask if http://purl.org/twc/arrayexpress/dump/void.rdf is html".
+2017-07-15 22:09:34 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/~vit/foaf.rdf/void.ttl is html".
+2017-07-15 22:09:36 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn.rdf/void is html".
+2017-07-15 22:09:36 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/void.ttl is html".
+2017-07-15 22:09:44 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209 is html".
+2017-07-15 22:09:46 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/observations.zip/void.ttl is html".
+2017-07-15 22:09:46 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/void is html".
+2017-07-15 22:09:49 ERROR timeout:21 - Timeout while executing "List void graph names from http://aemet.linkeddata.es/sparql_en.html".
+2017-07-15 22:09:54 ERROR timeout:21 - Timeout while executing "Ask if http://140.203.154.209/models/void.rdf is html".
+2017-07-15 22:09:56 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/void.ttl is html".
+2017-07-15 22:09:56 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/models/void.ttl is html".
+2017-07-15 22:10:00 ERROR timeout:21 - Timeout while executing "List void graph names from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-15 22:10:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/year/month.ttl/void.rdf is html".
+2017-07-15 22:10:07 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/void is html".
+2017-07-15 22:10:16 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/void.rdf is html".
+2017-07-15 22:10:17 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/.well-known/void.rdf is html".
+2017-07-15 22:10:26 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/year.ttl/void is html".
+2017-07-15 22:10:27 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa is html".
+2017-07-15 22:10:30 ERROR timeout:21 - Timeout while executing "Load dataset from http://aims.fao.org/void.ttl".
+2017-07-15 22:10:36 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/all_slices.zip is html".
+2017-07-15 22:10:37 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/void.rdf is html".
+2017-07-15 22:10:46 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/void is html".
+2017-07-15 22:10:49 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies is html".
+2017-07-15 22:10:56 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/void is html".
+2017-07-15 22:10:59 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/Apis_mellifera.owl/void.rdf is html".
+2017-07-15 22:11:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/void.ttl is html".
+2017-07-15 22:11:09 ERROR timeout:21 - Timeout while executing "Ask if http://spire.umbc.edu/ontologies/taxa/void.ttl is html".
+2017-07-15 22:11:16 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/models/void is html".
+2017-07-15 22:11:26 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/year.rdf/void is html".
+2017-07-15 22:11:32 ERROR timeout:21 - Timeout while executing "List void graph names from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-15 22:11:36 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/void.rdf is html".
+2017-07-15 22:11:46 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/models/void.ttl is html".
+2017-07-15 22:11:56 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn.rdf/void.rdf is html".
+2017-07-15 22:12:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps is html".
+2017-07-15 22:12:16 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/void.rdf is html".
+2017-07-15 22:12:26 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/dumps/release/observations.zip/void.rdf is html".
+2017-07-15 22:12:36 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/void.ttl is html".
+2017-07-15 22:12:46 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/void.ttl is html".
+2017-07-15 22:12:56 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice/station/year/month.ttl/void.ttl is html".
+2017-07-15 22:13:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/.well-known/void is html".
+2017-07-15 22:13:16 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/models/void.rdf is html".
+2017-07-15 22:13:26 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/slice is html".
+2017-07-15 22:13:36 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn.rdf/void.ttl is html".
+2017-07-15 22:13:46 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/void.rdf is html".
+2017-07-15 22:13:56 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data/acorn/climate/void is html".
+2017-07-15 22:14:06 ERROR timeout:21 - Timeout while executing "Ask if http://lab.environment.data.gov.au/data is html".

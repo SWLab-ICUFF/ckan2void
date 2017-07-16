@@ -177,3 +177,4 @@ Message: Content is not allowed in prolog.
 2017-07-16 11:14:28 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/ashok-org-uk".
 2017-07-16 11:14:28 ERROR error:84 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/ashok-org-uk>). Msg: null
 2017-07-16 11:14:58 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.jesandco.org:8890/sparql".
+2017-07-16 11:15:28 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.jesandco.org:8890/fct/".

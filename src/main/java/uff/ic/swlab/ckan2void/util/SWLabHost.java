@@ -45,6 +45,10 @@ public enum SWLabHost {
         return "http://" + hostname + (httpPort == 80 ? "" : ":" + httpPort) + "/";
     }
 
+    public String baseLocalHttpUrl() {
+        return "http://localhost:8080/";
+    }
+
     public String linkedDataNS() {
         return baseHttpUrl() + "resource/";
     }
@@ -58,7 +62,7 @@ public enum SWLabHost {
     }
 
     public String getDataURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/data", datasetname);
+        return String.format(baseLocalHttpUrl() + "fuseki/%1$s/data", datasetname);
     }
 
     public String updateURL(String datasetname) {

@@ -45,9 +45,9 @@ public abstract class Main {
 
                         if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
                             pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Submitting task " + graphURI);
+                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
                         } else
-                            System.out.println("Skipping task " + graphURI);
+                            System.out.println("Skipping dataset " + graphURI + ".");
                     }
                     pool.shutdown();
                     System.out.println("Waiting for remaining tasks...");

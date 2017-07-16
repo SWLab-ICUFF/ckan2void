@@ -55,7 +55,7 @@ public abstract class RDFDataMgr {
                     org.apache.jena.riot.RDFDataMgr.read(tempModel, in, Lang.RDFXML);
                     return DatasetFactory.create(tempModel);
                 };
-                return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+                return Executor.execute(task, "Load RDFa dataset from " + url, Config.MODEL_READ_TIMEOUT);
             }
         throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
     }
@@ -70,13 +70,13 @@ public abstract class RDFDataMgr {
                 return DatasetFactory.create(tempModel);
             }
         };
-        return Executor.execute(task, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "Query dataset from " + sparqlEndPoint, Config.SPARQL_TIMEOUT);
     }
 
     public static Dataset loadDataset(String url, Long maxFileSize) throws InterruptedException {
         try {
-            Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
-                Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+            Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT, null};
             if (!URLHelper.isHTML(url))
                 for (Lang lang : langs)
                     try {
@@ -85,13 +85,13 @@ public abstract class RDFDataMgr {
                         else
                             return loadDataset2(url, lang, maxFileSize);
                     } catch (InterruptedException e) {
-                        throw new InterruptedException();
+                        throw e;
                     } catch (Throwable e) {
                     }
             else
                 return loadDatasetRDFa(url, maxFileSize);
         } catch (InterruptedException e) {
-            throw new InterruptedException();
+            throw e;
         } catch (Throwable e) {
         }
         return DatasetFactory.create();
@@ -108,7 +108,7 @@ public abstract class RDFDataMgr {
                 org.apache.jena.riot.RDFDataMgr.read(tempDataset, url);
                 return tempDataset;
             };
-            return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+            return Executor.execute(task, "Load dataset from " + url, Config.MODEL_READ_TIMEOUT);
         }
         throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
     }
@@ -124,7 +124,7 @@ public abstract class RDFDataMgr {
                     org.apache.jena.riot.RDFDataMgr.read(tempDataset, in, lang);
                     return tempDataset;
                 };
-                return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+                return Executor.execute(task, "Load dataset from " + url + " using lang = " + lang.getName(), Config.MODEL_READ_TIMEOUT);
             }
         throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
     }

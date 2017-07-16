@@ -1,2 +1,129 @@
-2017-07-15 16:15:17 INFO  info:78 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
-2017-07-15 16:15:49 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
+2017-07-15 21:06:59 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
+2017-07-15 21:06:59 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
+2017-07-15 21:07:00 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
+2017-07-15 21:07:00 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
+2017-07-15 21:07:00 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
+2017-07-15 21:07:00 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
+2017-07-15 21:07:00 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
+2017-07-15 21:07:00 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
+2017-07-15 21:07:01 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
+2017-07-15 21:07:01 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
+2017-07-15 21:07:03 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
+2017-07-15 21:07:03 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
+2017-07-15 21:07:03 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
+2017-07-15 21:07:03 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
+2017-07-15 21:07:05 ERROR riot:84 - [line: 2, col: 6 ] Bad character in IRI (space): <!--[space]...>
+2017-07-15 21:07:05 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
+2017-07-15 21:07:05 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
+2017-07-15 21:07:05 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
+2017-07-15 21:07:05 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
+2017-07-15 21:07:05 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:07 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
+2017-07-15 21:07:07 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
+2017-07-15 21:07:07 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
+2017-07-15 21:07:07 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
+2017-07-15 21:07:07 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:08 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
+2017-07-15 21:07:08 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
+2017-07-15 21:07:08 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
+2017-07-15 21:07:09 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
+2017-07-15 21:07:09 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:09 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:09 WARN  riot:77 - [line: 38, col: 75] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
+2017-07-15 21:07:09 ERROR riot:84 - [line: 38, col: 88] {E202} Expecting XML start or end element(s). String data "Soxiam UI Set" not allowed. Maybe there should be an rdf:parseType='Literal' for embedding mixed XML content in RDF. Maybe a striping error.
+2017-07-15 21:07:09 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:09 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
+2017-07-15 21:07:09 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
+2017-07-15 21:07:09 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:10 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:10 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
+2017-07-15 21:07:10 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
+2017-07-15 21:07:10 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+2017-07-15 21:07:10 ERROR riot:84 - [line: 1, col: 1 ] Expected a { character to start a JSON Object but got [LT]
+2017-07-15 21:07:10 ERROR riot:84 - [line: 9, col: 36] Unrecognized XML element: rdf:RDF
+2017-07-15 21:07:10 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
+2017-07-15 21:07:10 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
+2017-07-15 21:07:11 WARN  riot:77 - [line: 38, col: 75] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
+2017-07-15 21:07:11 ERROR riot:84 - [line: 38, col: 88] {E202} Expecting XML start or end element(s). String data "Soxiam UI Set" not allowed. Maybe there should be an rdf:parseType='Literal' for embedding mixed XML content in RDF. Maybe a striping error.
+2017-07-15 21:07:11 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
+2017-07-15 21:07:11 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:12 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:12 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:12 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anearalone-com>).
+2017-07-15 21:07:12 WARN  riot:77 - [line: 5, col: 57] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
+2017-07-15 21:07:12 ERROR riot:84 - [line: 6, col: 13] {E201} Multiple children of property element
+2017-07-15 21:07:12 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:13 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
+2017-07-15 21:07:13 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:13 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aksw-org>).
+2017-07-15 21:07:13 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/altervista-org>).
+2017-07-15 21:07:13 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:13 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+2017-07-15 21:07:13 ERROR riot:84 - [line: 1, col: 1 ] Expected a { character to start a JSON Object but got [LT]
+2017-07-15 21:07:14 ERROR riot:84 - [line: 2, col: 176] Unrecognized XML element: powder
+2017-07-15 21:07:15 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/addgene>).
+2017-07-15 21:07:15 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:15 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:15 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andybudd-com>).
+2017-07-15 21:07:15 WARN  riot:77 - [line: 40, col: 94] {W107} Bad URI: <http://maps.yandex.ru/?text=Россия, Казань> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
+2017-07-15 21:07:15 ERROR riot:84 - Bad character in IRI (space): <http://maps.yandex.ru/?text=Россия,[space]...>
+2017-07-15 21:07:16 WARN  riot:77 - [line: 2, col: 52] {W119} A processing instruction is in RDF content. No processing was done. 
+2017-07-15 21:07:16 WARN  riot:77 - [line: 3, col: 19] {W104} Unqualified typed nodes are not allowed. Type treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 4, col: 11] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 5, col: 10] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 6, col: 9 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 7, col: 14] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 8, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 9, col: 14] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 10, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 11, col: 8 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 12, col: 8 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 13, col: 8 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 14, col: 11] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 15, col: 9 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 16, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 17, col: 11] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 18, col: 14] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 19, col: 12] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 20, col: 9 ] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 WARN  riot:77 - [line: 21, col: 10] {W104} Unqualified property elements are not allowed. Treated as a relative URI.
+2017-07-15 21:07:16 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anjeve-de>).
+2017-07-15 21:07:16 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:16 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apache>).
+2017-07-15 21:07:16 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:16 ERROR riot:84 - [line: 1, col: 8 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:07:17 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('﻿' (code 65279 / 0xfeff)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+2017-07-15 21:07:17 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
+2017-07-15 21:07:17 ERROR riot:84 - [line: 1, col: 2 ] Expected a { character to start a JSON Object but got [LT]
+2017-07-15 21:07:17 ERROR riot:84 - [line: 10, col: 2 ] Unrecognized XML element: rdf:RDF
+2017-07-15 21:07:17 WARN  riot:77 - [line: 5, col: 57] {W102} Unqualified property attributes are not allowed. Property treated as a relative URI.
+2017-07-15 21:07:17 ERROR riot:84 - [line: 6, col: 13] {E201} Multiple children of property element
+2017-07-15 21:07:17 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agfa-com>).
+2017-07-15 21:07:18 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/airforcehistoryindex>).
+2017-07-15 21:07:19 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/antiflux-org>).
+2017-07-15 21:07:19 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andrea-perego-name>).
+2017-07-15 21:07:20 ERROR riot:84 - [line: 2, col: 1 ] Broken IRI (newline): rdf:RDF
+2017-07-15 21:07:22 WARN  riot:77 - [line: 40, col: 94] {W107} Bad URI: <http://maps.yandex.ru/?text=Россия, Казань> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
+2017-07-15 21:07:22 ERROR riot:84 - Bad character in IRI (space): <http://maps.yandex.ru/?text=Россия,[space]...>
+2017-07-15 21:07:23 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alik-su>).
+2017-07-15 21:07:25 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
+2017-07-15 21:07:25 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
+2017-07-15 21:07:26 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anearalone-com>).
+2017-07-15 21:07:29 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
+2017-07-15 21:07:30 ERROR riot:84 - [line: 2, col: 1 ] Broken IRI (newline): rdf:RDF
+2017-07-15 21:07:30 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-15 21:07:33 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
+2017-07-15 21:07:34 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-15 21:07:35 INFO  info:98 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
+2017-07-15 21:07:36 WARN  QueryEngineHTTP:691 - HTTP response not fully consumed, if HTTP Client is reusing connections (its default behaviour) then it will consume the remaining response data which may take a long time and cause this application to become unresponsive
+2017-07-15 21:07:52 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
+2017-07-15 21:07:56 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
+2017-07-15 21:07:57 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
+2017-07-15 21:08:01 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
+2017-07-15 21:08:02 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-15 21:08:02 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aegp-spanish-textile-and-clothing-association>).
+2017-07-15 21:08:03 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-15 21:08:04 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
+2017-07-15 21:08:05 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-15 21:08:05 ERROR timeout:21 - Timeout while executing "List void graph names from http://opendata.aragon.es/sparql".
+2017-07-15 21:08:05 INFO  info:77 - Empty crawled VoID (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aragodbpedia>).

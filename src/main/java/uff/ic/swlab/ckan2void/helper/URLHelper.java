@@ -67,7 +67,7 @@ public abstract class URLHelper {
             else
                 return false;
         };
-        return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+        return Executor.execute(task, "Ask if " + url + " is html", Config.MODEL_READ_TIMEOUT);
     }
 
 }

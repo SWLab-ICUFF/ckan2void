@@ -330,7 +330,7 @@ public class Dataset {
                         return classes;
                     }
                 };
-                return Executor.execute(task, Config.SPARQL_TIMEOUT).entrySet();
+                return Executor.execute(task, "Query classes from " + sparqlEndPoint, Config.SPARQL_TIMEOUT).entrySet();
             } catch (InterruptedException e) {
             } catch (Throwable e) {
             }
@@ -365,7 +365,7 @@ public class Dataset {
                         return properties;
                     }
                 };
-                return Executor.execute(task, Config.SPARQL_TIMEOUT).entrySet();
+                return Executor.execute(task, "Query properties from " + sparqlEndPoint, Config.SPARQL_TIMEOUT).entrySet();
             } catch (InterruptedException e) {
             } catch (Throwable e) {
             }

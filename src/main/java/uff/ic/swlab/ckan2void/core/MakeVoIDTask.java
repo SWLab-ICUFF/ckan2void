@@ -66,7 +66,6 @@ public class MakeVoIDTask implements Runnable {
             saveVoid(_void, _voidExtra);
 
         } catch (Throwable e) {
-            e.printStackTrace();
             Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));
         }
     }

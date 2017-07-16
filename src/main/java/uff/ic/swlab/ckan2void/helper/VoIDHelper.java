@@ -44,7 +44,7 @@ public abstract class VoIDHelper {
             QueryExecution exec = QueryExecutionFactory.create(query, model);
             return exec.execConstruct();
         };
-        return Executor.execute(task, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "Extract partitions for " + targetURI, Config.SPARQL_TIMEOUT);
     }
 
     public static Model extractVoID(Dataset dataset, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
@@ -69,42 +69,7 @@ public abstract class VoIDHelper {
             QueryExecution exec = QueryExecutionFactory.create(query, dataset);
             return exec.execConstruct();
         };
-        return Executor.execute(task, Config.SPARQL_TIMEOUT);
-    }
-
-    public static Model extractVoIDOld(Dataset dataset) throws InterruptedException, ExecutionException, TimeoutException {
-        String queryString = ""
-                + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-                + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
-                + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "construct {?s1 rdf:type ?t1.\n"
-                + "           ?s1 ?p1 ?o1.\n"
-                + "           ?s2 ?p2 ?o2.}\n"
-                + "where { {\n"
-                + "  {{?s1 rdf:type void:Dataset. bind(void:Dataset as ?t1)}\n"
-                + "    union {?s1 rdf:type void:dataset. bind(void:Dataset as ?t1)}\n"
-                + "    union {?s1 rdf:type void:DatasetDescription. bind(void:DatasetDescription as ?t1)}}\n"
-                + "  ?s1 (!<>)* ?s2.\n"
-                + "  optional {?s1 ?p1 ?o1.}\n"
-                + "  optional {?s2 ?p2 ?o2. filter not exists {[] rdf:type ?s2}}\n"
-                + "  }\n"
-                + "  union {graph ?g {\n"
-                + "    {{?s1 rdf:type void:Dataset. bind(void:Dataset as ?t1)}\n"
-                + "      union {?s1 rdf:type void:dataset. bind(void:Dataset as ?t1)}\n"
-                + "      union {?s1 rdf:type void:DatasetDescription. bind(void:DatasetDescription as ?t1)}}\n"
-                + "    ?s1 (!<>)* ?s2.\n"
-                + "    optional {?s1 ?p1 ?o1.}\n"
-                + "    optional {?s2 ?p2 ?o2. filter not exists {[] rdf:type ?s2}}\n"
-                + "    }\n"
-                + "  }\n"
-                + "}";
-        Callable<Model> task = () -> {
-            Query query = QueryFactory.create(queryString);
-            QueryExecution exec = QueryExecutionFactory.create(query, dataset);
-            return exec.execConstruct();
-        };
-        return Executor.execute(task, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "Extract void for " + targetURI, Config.SPARQL_TIMEOUT);
     }
 
     public static Model getContent(String[] urls, String[] sparqlEndPoints, String targetURI) throws InterruptedException {
@@ -117,7 +82,7 @@ public abstract class VoIDHelper {
             try {
                 _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE), targetURI));
             } catch (InterruptedException e) {
-                throw new InterruptedException();
+                throw e;
             } catch (Throwable e) {
             }
         return _void;
@@ -134,7 +99,7 @@ public abstract class VoIDHelper {
                     _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint), targetURI));
                 }
             } catch (InterruptedException e) {
-                throw new InterruptedException();
+                throw e;
             } catch (Throwable e) {
             }
         return _void;
@@ -195,6 +160,6 @@ public abstract class VoIDHelper {
             }
             return graphNames.toArray(new String[0]);
         };
-        return Executor.execute(task, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "List void graph names from " + sparqlEndPoint, Config.SPARQL_TIMEOUT);
     }
 }

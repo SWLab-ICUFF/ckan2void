@@ -24,6 +24,7 @@ public abstract class Config {
     public static Long MODEL_WRITE_TIMEOUT;
     public static Integer HTTP_CONNECT_TIMEOUT;
     public static Integer HTTP_READ_TIMEOUT;
+    public static Integer HTTP_ACCESS_TIMEOUT;
 
     public static Long MAX_VOID_FILE_SIZE;
 
@@ -46,6 +47,7 @@ public abstract class Config {
             SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
             HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout"));
             HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout"));
+            HTTP_ACCESS_TIMEOUT = Integer.valueOf(prop.getProperty("httpAccessTimeout"));
 
             MAX_VOID_FILE_SIZE = Long.valueOf(prop.getProperty("maxVoidFileSize"));
         }

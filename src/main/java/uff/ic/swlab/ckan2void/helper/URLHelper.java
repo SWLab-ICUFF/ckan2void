@@ -19,18 +19,21 @@ import uff.ic.swlab.ckan2void.util.Executor;
 
 public abstract class URLHelper {
 
-    private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException {
-        URLConnection conn = (new URL(normalize(url))).openConnection();
-        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+    private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException, InterruptedException, TimeoutException, ExecutionException {
+        Callable<String> task = () -> {
+            URLConnection conn = (new URL(normalize(url))).openConnection();
+            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
 
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
-            StringBuilder response = new StringBuilder();
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                response.append(inputLine);
-            return response.toString();
-        }
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
+                StringBuilder response = new StringBuilder();
+                String inputLine;
+                while ((inputLine = in.readLine()) != null)
+                    response.append(inputLine);
+                return response.toString();
+            }
+        };
+        return Executor.execute(task, "Get content of " + url, Config.HTTP_ACCESS_TIMEOUT);
     }
 
     public static String normalize(String url) throws MalformedURLException, URISyntaxException {
@@ -67,7 +70,7 @@ public abstract class URLHelper {
             else
                 return false;
         };
-        return Executor.execute(task, "Ask if " + url + " is html", Config.MODEL_READ_TIMEOUT);
+        return Executor.execute(task, "Ask if " + url + " is html", Config.HTTP_ACCESS_TIMEOUT);
     }
 
 }

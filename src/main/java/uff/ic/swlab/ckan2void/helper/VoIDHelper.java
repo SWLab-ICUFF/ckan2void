@@ -53,7 +53,7 @@ public abstract class VoIDHelper {
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "construct {%1$s p1 ?s2.\n"
+                + "construct {%1$s ?p1 ?s2.\n"
                 + "           ?s2 ?p2 ?o2.}\n"
                 + "where {\n"
                 + "  {{?s1 ?p1 ?s2. filter (?p1 in (void:classPartition, void:propertyPartition)\n"
@@ -94,8 +94,8 @@ public abstract class VoIDHelper {
             try {
                 String[] graphs = VoIDHelper.listVoIDGraphNames(endPoint);
                 if (graphs.length > 0) {
-                    String query = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
-                    String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1s>\n", n)).reduce("", String::concat);
+                    String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
+                    String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
                     _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint), targetURI));
                 }
             } catch (InterruptedException e) {

@@ -47,7 +47,12 @@ public class CKANCrawler extends Crawler<Dataset> {
 
     @Override
     public Dataset next() {
-        return new Dataset(cc, cc.getDataset(iterator.next()));
+        while (hasNext())
+            try {
+                return new Dataset(cc, cc.getDataset(iterator.next()));
+            } catch (Throwable e) {
+            }
+        return null;
     }
 
     public Dataset getDataset(String name) {

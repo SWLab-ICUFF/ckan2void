@@ -4,7 +4,7 @@
 
     <groupId>uff.ic.swlab</groupId>
     <artifactId>ckan2void</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>CKAN to VoID</name>
 
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.20</version>
+            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -62,11 +62,7 @@
     <build>
         <sourceDirectory>./src/main/java</sourceDirectory>
         <testSourceDirectory>./src/test/java</testSourceDirectory>
-        <resources>
-            <resource>
-                <directory>./resources</directory>
-            </resource>
-        </resources>
+
 
         <plugins>
             <plugin>
@@ -85,6 +81,52 @@
                     <debug>false</debug>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/conf</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>conf</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/dependency</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>

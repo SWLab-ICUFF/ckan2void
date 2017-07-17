@@ -1,4 +1,3 @@
-package uff.ic.swlab.ckan2void;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,8 +24,8 @@ public abstract class Main {
     }
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
-        PropertyConfigurator.configure("./resources/conf/log4j.properties");
-        Config.configure("./resources/conf/ckan2void.properties");
+        PropertyConfigurator.configure("./conf/log4j.properties");
+        Config.configure("./conf/ckan2void.properties");
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);

@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.nothread;
+
 
 import java.io.IOException;
 import javax.naming.InvalidNameException;
@@ -10,7 +10,7 @@ import uff.ic.swlab.ckan2void.core.Crawler;
 import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 import uff.ic.swlab.ckan2void.util.Config;
 
-public class Main {
+public class MainNoThread {
 
     public static void main(String[] args) throws InvalidNameException, IOException, InterruptedException {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");

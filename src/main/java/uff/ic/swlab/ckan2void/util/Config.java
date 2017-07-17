@@ -15,14 +15,14 @@ public abstract class Config {
     public static String CKAN_CATALOGS;
 
     public static Integer TASK_INSTANCES;
-    public static Integer TASK_TIMEOUT;
     public static Integer PARALLELISM;
     public static Integer POOL_SHUTDOWN_TIMEOUT;
     public static TimeUnit POOL_SHUTDOWN_TIMEOUT_UNIT;
 
-    public static Long SPARQL_TIMEOUT;
-    public static Long MODEL_READ_TIMEOUT;
-    public static Long MODEL_WRITE_TIMEOUT;
+    public static Integer TASK_TIMEOUT;
+    public static Integer SPARQL_TIMEOUT;
+    public static Integer MODEL_READ_TIMEOUT;
+    public static Integer MODEL_WRITE_TIMEOUT;
     public static Integer HTTP_CONNECT_TIMEOUT;
     public static Integer HTTP_READ_TIMEOUT;
     public static Integer HTTP_ACCESS_TIMEOUT;
@@ -34,24 +34,24 @@ public abstract class Config {
             Properties prop = new Properties();
             prop.load(input);
 
-            FUSEKI_DATASET = prop.getProperty("fusekiDataset");
-            FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset");
-            CKAN_CATALOGS = prop.getProperty("ckanCatalog");
+            FUSEKI_DATASET = prop.getProperty("fusekiDataset", "DatesetDescriptions");
+            FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset", "temp");
+            CKAN_CATALOGS = prop.getProperty("ckanCatalog", "http://datahub.io");
 
-            TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances"));
-            TASK_TIMEOUT = Integer.valueOf(prop.getProperty("taskTimeout"));
-            PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));
-            POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
-            POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit"));
+            TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances", "8"));
+            PARALLELISM = Integer.valueOf(prop.getProperty("parallelism", "4"));
+            POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout", "1"));
+            POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit", "HOURS"));
 
-            MODEL_READ_TIMEOUT = Long.valueOf(prop.getProperty("modelReadTimeout"));
-            MODEL_WRITE_TIMEOUT = Long.valueOf(prop.getProperty("modelWriteTimeout"));
-            SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
-            HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout"));
-            HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout"));
-            HTTP_ACCESS_TIMEOUT = Integer.valueOf(prop.getProperty("httpAccessTimeout"));
+            TASK_TIMEOUT = Integer.valueOf(prop.getProperty("taskTimeout", "300000"));
+            SPARQL_TIMEOUT = Integer.valueOf(prop.getProperty("sparqlTimeout", "60000"));
+            MODEL_READ_TIMEOUT = Integer.valueOf(prop.getProperty("modelReadTimeout", "60000"));
+            MODEL_WRITE_TIMEOUT = Integer.valueOf(prop.getProperty("modelWriteTimeout", "60000"));
+            HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout", "30000"));
+            HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout", "30000"));
+            HTTP_ACCESS_TIMEOUT = Integer.valueOf(prop.getProperty("httpAccessTimeout", "60000"));
 
-            MAX_VOID_FILE_SIZE = Long.valueOf(prop.getProperty("maxVoidFileSize"));
+            MAX_VOID_FILE_SIZE = Long.valueOf(prop.getProperty("maxVoidFileSize", "1048576"));
         }
     }
 }

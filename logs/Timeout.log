@@ -1,0 +1,63 @@
+2017-07-17 14:30:15 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
+2017-07-17 14:30:16 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-17 14:30:19 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
+2017-07-17 14:30:19 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-17 14:30:37 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
+2017-07-17 14:31:01 ERROR timeout:21 - Timeout while executing "Query classes from http://babelnet.org:8084/sparql/".
+2017-07-17 14:31:02 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-17 14:31:03 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql".
+2017-07-17 14:31:03 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-17 14:31:15 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
+2017-07-17 14:31:16 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-17 14:31:19 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
+2017-07-17 14:31:19 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-17 14:31:20 ERROR timeout:21 - Timeout while executing "List void graph names from http://semanticweb.cs.vu.nl/europeana/user/query".
+2017-07-17 14:31:28 ERROR timeout:21 - Timeout while executing "Query classes from http://www.open-biomed.org.uk/sparql/endpoint/bdgp_20081030".
+2017-07-17 14:31:29 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.archiveshub.ac.uk/sparql".
+2017-07-17 14:31:33 ERROR timeout:21 - Timeout while executing "Query classes from http://fintrans.publicdata.eu/sparql".
+2017-07-17 14:31:38 ERROR timeout:21 - Timeout while executing "List void graph names from http://lod.b3kat.de/sparql".
+2017-07-17 14:31:44 ERROR timeout:21 - Timeout while executing "List void graph names from http://vocabulary.semantic-web.at/PoolParty/sparql/AustrianSkiTeam".
+2017-07-17 14:31:51 ERROR timeout:21 - Timeout while executing "Query classes from http://bfs.270a.info/sparql".
+2017-07-17 14:31:53 ERROR timeout:21 - Timeout while executing "Query classes from http://data.bibbase.org:2020/sparql".
+2017-07-17 14:31:53 ERROR timeout:21 - Timeout while executing "List void graph names from http://visualdataweb.infor.uva.es/sparql".
+2017-07-17 14:31:59 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.bibleontology.com/searchpo.jsp?q=bibleontology:Jacob&type=xml".
+2017-07-17 14:32:01 ERROR timeout:21 - Timeout while executing "Query properties from http://babelnet.org:8084/sparql/".
+2017-07-17 14:32:02 ERROR timeout:21 - Timeout while executing "List void graph names from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-17 14:32:03 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql_en.html".
+2017-07-17 14:32:16 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.allie.dbcls.jp/sparql".
+2017-07-17 14:32:24 ERROR timeout:21 - Timeout while executing "List void graph names from http://sparql.jesandco.org:8890/sparql".
+2017-07-17 14:32:28 ERROR timeout:21 - Timeout while executing "Query properties from http://www.open-biomed.org.uk/sparql/endpoint/bdgp_20081030".
+2017-07-17 14:32:30 ERROR timeout:21 - Timeout while executing "Query classes from http://affymetrix.bio2rdf.org/sparql".
+2017-07-17 14:32:33 ERROR timeout:21 - Timeout while executing "Query properties from http://fintrans.publicdata.eu/sparql".
+2017-07-17 14:32:34 ERROR timeout:21 - Timeout while executing "Query classes from http://biomodels.bio2rdf.org/sparql".
+2017-07-17 14:32:36 ERROR timeout:21 - Timeout while executing "List void graph names from http://abs.270a.info/sparql".
+2017-07-17 14:32:38 ERROR timeout:21 - Timeout while executing "Query classes from http://bioportal.bio2rdf.org/sparql".
+2017-07-17 14:32:44 ERROR timeout:21 - Timeout while executing "List void graph names from http://202.45.142.113:10035/repositories/agris".
+2017-07-17 14:32:44 ERROR timeout:21 - Timeout while executing "Query classes from http://chembl.bio2rdf.org/sparql".
+2017-07-17 14:32:45 ERROR timeout:21 - Timeout while executing "Query classes from http://clinicaltrials.bio2rdf.org/sparql".
+2017-07-17 14:32:50 ERROR timeout:21 - Timeout while executing "Query classes from http://ctd.bio2rdf.org/sparql".
+2017-07-17 14:32:51 ERROR timeout:21 - Timeout while executing "Query properties from http://bfs.270a.info/sparql".
+2017-07-17 14:32:53 ERROR timeout:21 - Timeout while executing "Query properties from http://data.bibbase.org:2020/sparql".
+2017-07-17 14:32:59 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.bibleontology.com/searchs.jsp?q=Jacob".
+2017-07-17 14:32:59 ERROR timeout:21 - Timeout while executing "Query classes from http://dbsnp.bio2rdf.org/sparql".
+2017-07-17 14:33:01 ERROR timeout:21 - Timeout while executing "Query classes from http://drugbank.bio2rdf.org/sparql".
+2017-07-17 14:33:12 ERROR timeout:21 - Timeout while executing "List void graph names from http://purl.org/twc/arrayexpress/virtuoso/sparql".
+2017-07-17 14:33:16 ERROR timeout:21 - Timeout while executing "Query classes from http://genage.bio2rdf.org/sparql".
+2017-07-17 14:33:17 ERROR timeout:21 - Timeout while executing "List void graph names from http://babelnet.org:8084/sparql/".
+2017-07-17 14:33:19 ERROR timeout:21 - Timeout while executing "Query classes from http://genbank.bio2rdf.org/sparql".
+2017-07-17 14:33:22 ERROR timeout:21 - Timeout while executing "List void graph names from http://aemet.linkeddata.es/sparql".
+2017-07-17 14:33:24 ERROR timeout:21 - Timeout while executing "List void graph names from http://sparql.jesandco.org:8890/fct/".
+2017-07-17 14:33:30 ERROR timeout:21 - Timeout while executing "Query properties from http://affymetrix.bio2rdf.org/sparql".
+2017-07-17 14:33:34 ERROR timeout:21 - Timeout while executing "Query properties from http://biomodels.bio2rdf.org/sparql".
+2017-07-17 14:33:37 ERROR timeout:21 - Timeout while executing "Query classes from http://gendr.bio2rdf.org/sparql".
+2017-07-17 14:33:38 ERROR timeout:21 - Timeout while executing "List void graph names from http://www.open-biomed.org.uk/sparql/endpoint/bdgp_20081030".
+2017-07-17 14:33:38 ERROR timeout:21 - Timeout while executing "Query properties from http://bioportal.bio2rdf.org/sparql".
+2017-07-17 14:33:44 ERROR timeout:21 - Timeout while executing "Query properties from http://chembl.bio2rdf.org/sparql".
+2017-07-17 14:33:45 ERROR timeout:21 - Timeout while executing "Query properties from http://clinicaltrials.bio2rdf.org/sparql".
+2017-07-17 14:33:50 ERROR timeout:21 - Timeout while executing "Query properties from http://ctd.bio2rdf.org/sparql".
+2017-07-17 14:33:53 ERROR timeout:21 - Timeout while executing "Query classes from http://goa.bio2rdf.org/sparql".
+2017-07-17 14:33:54 ERROR timeout:21 - Timeout while executing "List void graph names from http://data.bibbase.org:2020/sparql".
+2017-07-17 14:33:59 ERROR timeout:21 - Timeout while executing "Query classes from http://bibleontology.com/sparql/index.jsp".
+2017-07-17 14:33:59 ERROR timeout:21 - Timeout while executing "Query properties from http://dbsnp.bio2rdf.org/sparql".
+2017-07-17 14:34:01 ERROR timeout:21 - Timeout while executing "Query properties from http://drugbank.bio2rdf.org/sparql".
+2017-07-17 14:34:03 ERROR timeout:21 - Timeout while executing "Query classes from http://hgnc.bio2rdf.org/sparql".

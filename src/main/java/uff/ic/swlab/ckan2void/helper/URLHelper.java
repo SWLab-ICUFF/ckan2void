@@ -14,41 +14,12 @@ import uff.ic.swlab.ckan2void.util.Executor;
 
 public abstract class URLHelper {
 
-//    private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException, InterruptedException, TimeoutException, ExecutionException {
-//        Callable<String> task = () -> {
-//            URLConnection conn = (new URL(normalize(url))).openConnection();
-//            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-//            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
-//
-//            try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
-//                StringBuilder response = new StringBuilder();
-//                String inputLine;
-//                while ((inputLine = in.readLine()) != null)
-//                    response.append(inputLine);
-//                return response.toString();
-//            }
-//        };
-//        return Executor.execute(task, "Get content of " + url, Config.HTTP_ACCESS_TIMEOUT);
-//    }
     public static String normalize(String url) throws MalformedURLException, URISyntaxException {
         URL url_ = new URL(url.trim());
         URI uri_ = new URI(url_.getProtocol(), url_.getUserInfo(), url_.getHost().toLowerCase(), url_.getPort(), url_.getPath(), url_.getQuery(), url_.getRef());
         return uri_.toString();
     }
 
-//    public static boolean sameAs(String url1, String url2) throws UnknownHostException, MalformedURLException, URISyntaxException, IOException {
-//        URL url1_ = new URL(url1);
-//        URL url2_ = new URL(url2);
-//        InetAddress address1 = InetAddress.getByName(url1_.getHost());
-//        InetAddress address2 = InetAddress.getByName(url2_.getHost());
-//        if (!normalize(url1).equals(normalize(url2))) {
-//            if (address1.getHostAddress().equals(address2.getHostAddress()))
-//                if (StringUtils.getJaroWinklerDistance(url1, url2) > 0.9)
-//                    return true;
-//            return false;
-//        }
-//        return true;
-//    }
     public static boolean isHTML(String url) throws MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException {
         Callable<Boolean> task = () -> {
             String contentType;
@@ -66,4 +37,33 @@ public abstract class URLHelper {
         return Executor.execute(task, "Ask if " + url + " is html", Config.HTTP_ACCESS_TIMEOUT);
     }
 
+//    private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException, InterruptedException, TimeoutException, ExecutionException {
+//        Callable<String> task = () -> {
+//            URLConnection conn = (new URL(normalize(url))).openConnection();
+//            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+//            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+//
+//            try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
+//                StringBuilder response = new StringBuilder();
+//                String inputLine;
+//                while ((inputLine = in.readLine()) != null)
+//                    response.append(inputLine);
+//                return response.toString();
+//            }
+//        };
+//        return Executor.execute(task, "Get content of " + url, Config.HTTP_ACCESS_TIMEOUT);
+//    }
+//    public static boolean sameAs(String url1, String url2) throws UnknownHostException, MalformedURLException, URISyntaxException, IOException {
+//        URL url1_ = new URL(url1);
+//        URL url2_ = new URL(url2);
+//        InetAddress address1 = InetAddress.getByName(url1_.getHost());
+//        InetAddress address2 = InetAddress.getByName(url2_.getHost());
+//        if (!normalize(url1).equals(normalize(url2))) {
+//            if (address1.getHostAddress().equals(address2.getHostAddress()))
+//                if (StringUtils.getJaroWinklerDistance(url1, url2) > 0.9)
+//                    return true;
+//            return false;
+//        }
+//        return true;
+//    }
 }

@@ -64,7 +64,14 @@ public class Dataset {
 
     public String getUri() {
         try {
-            return getNamespace() + doc.getName();
+            String sufix;
+            if (cc.getCatalogUrl().contains("uni-mannheim"))
+                sufix = "-uni-mannheim";
+            else if (cc.getCatalogUrl().contains("datahub"))
+                sufix = "-datahub";
+            else
+                sufix = "";
+            return getNamespace() + doc.getName() + sufix;
         } catch (Throwable e) {
             return null;
         }

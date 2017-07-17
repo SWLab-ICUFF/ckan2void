@@ -1,10 +1,1 @@
-2017-07-16 19:57:11 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2001-spanish-census-to-rdf>). Msg: null
-2017-07-16 19:57:12 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abs-linked-data>). Msg: null
-2017-07-16 19:57:13 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acorn-sat>). Msg: null
-2017-07-16 19:57:15 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aemet>). Msg: null
-2017-07-16 19:57:16 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agris>). Msg: null
-2017-07-16 19:57:17 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrovoc-skos>). Msg: null
-2017-07-16 19:57:18 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allie-abbreviation-and-long-form-database-in-life-science>). Msg: null
-2017-07-16 19:57:22 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apertium-en-ca>). Msg: null
-2017-07-16 19:57:23 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apertium-en-es>). Msg: null
-2017-07-16 19:57:23 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aragodbpedia>). Msg: null
+2017-07-16 21:44:03 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrovoc-skos>). Msg: null

@@ -1,117 +1,58 @@
-2017-07-16 19:54:10 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/13mm-de>).
-2017-07-16 19:54:11 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
-2017-07-16 19:54:11 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/140-203-154-209>).
-2017-07-16 19:54:11 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>).
-2017-07-16 19:54:11 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/3kbo-com>).
-2017-07-16 19:54:12 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
-2017-07-16 19:54:12 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/5ver-net>).
-2017-07-16 19:54:12 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
-2017-07-16 19:54:12 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abdn-ac-uk>).
-2017-07-16 19:54:12 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
-2017-07-16 19:54:13 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acadonto>).
-2017-07-16 19:54:13 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
-2017-07-16 19:54:13 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/academic-offer-of-unl>).
-2017-07-16 19:54:13 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
-2017-07-16 19:54:14 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/addgene>).
-2017-07-16 19:54:14 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/addgene>).
-2017-07-16 19:54:14 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adrideo-com>).
-2017-07-16 19:54:14 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
-2017-07-16 19:54:14 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adullact>).
-2017-07-16 19:54:14 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
-2017-07-16 19:54:14 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato>).
-2017-07-16 19:54:15 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
-2017-07-16 19:54:15 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato-org>).
-2017-07-16 19:54:15 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
-2017-07-16 19:54:15 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aegp-spanish-textile-and-clothing-association>).
-2017-07-16 19:54:15 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aegp-spanish-textile-and-clothing-association>).
-2017-07-16 19:54:16 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agfa-com>).
-2017-07-16 19:54:16 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agfa-com>).
-2017-07-16 19:54:17 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aifkb-kit>).
-2017-07-16 19:54:17 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aifkb-kit>).
-2017-07-16 19:54:17 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/airforcehistoryindex>).
-2017-07-16 19:54:17 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/airforcehistoryindex>).
-2017-07-16 19:54:17 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aksw-org>).
-2017-07-16 19:54:18 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aksw-org>).
-2017-07-16 19:54:18 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alchemyapi>).
-2017-07-16 19:54:18 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alchemyapi>).
-2017-07-16 19:54:18 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alik-su>).
-2017-07-16 19:54:18 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alik-su>).
-2017-07-16 19:54:18 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/allen-brain-atlas>).
-2017-07-16 19:54:18 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allen-brain-atlas>).
-2017-07-16 19:54:19 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alochana-net>).
-2017-07-16 19:54:19 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alochana-net>).
-2017-07-16 19:54:19 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2000-us-census-rdf>).
-2017-07-16 19:54:19 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
-2017-07-16 19:54:19 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrinepaldata>).
-2017-07-16 19:54:19 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
-2017-07-16 19:54:19 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/altervista-org>).
-2017-07-16 19:54:19 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/altervista-org>).
-2017-07-16 19:54:20 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/analisi-del-blog-http-www-beppegrillo-it>).
-2017-07-16 19:54:20 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/analisi-del-blog-http-www-beppegrillo-it>).
-2017-07-16 19:54:20 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andrea-perego-name>).
-2017-07-16 19:54:20 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andrea-perego-name>).
-2017-07-16 19:54:20 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andybudd-com>).
-2017-07-16 19:54:20 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andybudd-com>).
-2017-07-16 19:54:21 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/andzol-com>).
-2017-07-16 19:54:21 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/andzol-com>).
-2017-07-16 19:54:21 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anearalone-com>).
-2017-07-16 19:54:21 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anearalone-com>).
-2017-07-16 19:54:21 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/alpino-rdf>).
-2017-07-16 19:54:21 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/alpino-rdf>).
-2017-07-16 19:54:21 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/animal-diversity-web>).
-2017-07-16 19:54:21 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/animal-diversity-web>).
-2017-07-16 19:54:21 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/anjeve-de>).
-2017-07-16 19:54:22 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/anjeve-de>).
-2017-07-16 19:54:22 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/antiflux-org>).
-2017-07-16 19:54:22 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/antiflux-org>).
-2017-07-16 19:54:22 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/apache>).
-2017-07-16 19:54:22 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apache>).
-2017-07-16 19:54:22 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/amsterdam-museum-as-edm-lod>).
-2017-07-16 19:54:22 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/amsterdam-museum-as-edm-lod>).
-2017-07-16 19:54:24 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/artenuevosmedios-gnoss>).
-2017-07-16 19:54:28 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/artenuevosmedios-gnoss>).
-2017-07-16 19:54:28 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-plymouth>).
-2017-07-16 19:54:36 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-plymouth>).
-2017-07-16 19:54:36 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-ntu>).
-2017-07-16 19:54:42 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
-2017-07-16 19:54:43 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
-2017-07-16 19:54:46 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
-2017-07-16 19:54:47 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
-2017-07-16 19:54:47 INFO  info:140 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aspire-ntu>).
-2017-07-16 19:54:47 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aspire-mmu>).
-2017-07-16 19:54:53 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 19:54:54 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 19:55:03 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
-2017-07-16 19:55:05 ERROR timeout:21 - Timeout while executing "Query properties from http://sparql.jesandco.org:8890/sparql".
-2017-07-16 19:55:06 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
-2017-07-16 19:55:07 ERROR timeout:21 - Timeout while executing "Query properties from http://linguistic.linkeddata.es/sparql/".
-2017-07-16 19:55:09 ERROR timeout:21 - Timeout while executing "Query classes from http://aemet.linkeddata.es/sparql_en.html".
-2017-07-16 19:55:12 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
-2017-07-16 19:55:13 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
-2017-07-16 19:55:16 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
-2017-07-16 19:55:17 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
-2017-07-16 19:55:23 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 19:55:24 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/twc/arrayexpress/virtuoso/sparql".
-2017-07-16 19:55:35 ERROR timeout:21 - Timeout while executing "Query properties from http://sparql.jesandco.org:8890/fct/".
-2017-07-16 19:55:39 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql".
-2017-07-16 19:56:09 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql_en.html".
-2017-07-16 19:57:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2001-spanish-census-to-rdf".
-2017-07-16 19:57:11 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2001-spanish-census-to-rdf>). Msg: null
-2017-07-16 19:57:12 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/abs-linked-data".
-2017-07-16 19:57:12 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abs-linked-data>). Msg: null
-2017-07-16 19:57:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/acorn-sat".
-2017-07-16 19:57:13 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acorn-sat>). Msg: null
-2017-07-16 19:57:15 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aemet".
-2017-07-16 19:57:15 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aemet>). Msg: null
-2017-07-16 19:57:16 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/agris".
-2017-07-16 19:57:16 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agris>). Msg: null
-2017-07-16 19:57:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/agrovoc-skos".
-2017-07-16 19:57:17 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrovoc-skos>). Msg: null
-2017-07-16 19:57:18 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/allie-abbreviation-and-long-form-database-in-life-science".
-2017-07-16 19:57:18 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/allie-abbreviation-and-long-form-database-in-life-science>). Msg: null
-2017-07-16 19:57:22 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/apertium-en-ca".
-2017-07-16 19:57:22 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apertium-en-ca>). Msg: null
-2017-07-16 19:57:23 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/apertium-en-es".
-2017-07-16 19:57:23 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/apertium-en-es>). Msg: null
-2017-07-16 19:57:23 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aragodbpedia".
-2017-07-16 19:57:23 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aragodbpedia>). Msg: null
+2017-07-16 21:36:06 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/13mm-de>).
+2017-07-16 21:36:07 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/13mm-de>).
+2017-07-16 21:36:07 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/140-203-154-209>).
+2017-07-16 21:36:07 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>).
+2017-07-16 21:36:10 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2000-us-census-rdf>).
+2017-07-16 21:36:10 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2000-us-census-rdf>).
+2017-07-16 21:37:01 ERROR timeout:21 - Timeout while executing "Query properties from http://visualdataweb.infor.uva.es/sparql".
+2017-07-16 21:37:01 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/2001-spanish-census-to-rdf>).
+2017-07-16 21:37:01 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/2001-spanish-census-to-rdf>).
+2017-07-16 21:37:01 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/3kbo-com>).
+2017-07-16 21:37:01 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/3kbo-com>).
+2017-07-16 21:37:01 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/5ver-net>).
+2017-07-16 21:37:01 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/5ver-net>).
+2017-07-16 21:37:02 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abdn-ac-uk>).
+2017-07-16 21:37:02 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abdn-ac-uk>).
+2017-07-16 21:37:32 ERROR timeout:21 - Timeout while executing "Query classes from http://abs.270a.info/sparql".
+2017-07-16 21:38:02 ERROR timeout:21 - Timeout while executing "Query properties from http://abs.270a.info/sparql".
+2017-07-16 21:38:02 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/abs-linked-data>).
+2017-07-16 21:38:03 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abs-linked-data>).
+2017-07-16 21:38:03 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/academic-offer-of-unl>).
+2017-07-16 21:38:03 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/academic-offer-of-unl>).
+2017-07-16 21:38:03 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acadonto>).
+2017-07-16 21:38:03 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acadonto>).
+2017-07-16 21:38:33 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-16 21:39:03 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-16 21:39:03 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/acorn-sat>).
+2017-07-16 21:39:04 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acorn-sat>).
+2017-07-16 21:39:04 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/addgene>).
+2017-07-16 21:39:04 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/addgene>).
+2017-07-16 21:39:04 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adrideo-com>).
+2017-07-16 21:39:04 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adrideo-com>).
+2017-07-16 21:39:04 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/adullact>).
+2017-07-16 21:39:04 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/adullact>).
+2017-07-16 21:39:04 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato>).
+2017-07-16 21:39:04 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato>).
+2017-07-16 21:39:05 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/advogato-org>).
+2017-07-16 21:39:05 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/advogato-org>).
+2017-07-16 21:39:05 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aegp-spanish-textile-and-clothing-association>).
+2017-07-16 21:39:05 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aegp-spanish-textile-and-clothing-association>).
+2017-07-16 21:39:31 WARN  QueryEngineHTTP:691 - HTTP response not fully consumed, if HTTP Client is reusing connections (its default behaviour) then it will consume the remaining response data which may take a long time and cause this application to become unresponsive
+2017-07-16 21:40:01 ERROR timeout:21 - Timeout while executing "Query properties from http://aemet.linkeddata.es/sparql".
+2017-07-16 21:40:02 WARN  QueryEngineHTTP:691 - HTTP response not fully consumed, if HTTP Client is reusing connections (its default behaviour) then it will consume the remaining response data which may take a long time and cause this application to become unresponsive
+2017-07-16 21:40:02 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aemet>).
+2017-07-16 21:40:02 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aemet>).
+2017-07-16 21:40:02 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agfa-com>).
+2017-07-16 21:40:02 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agfa-com>).
+2017-07-16 21:40:02 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrinepaldata>).
+2017-07-16 21:40:02 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrinepaldata>).
+2017-07-16 21:40:32 ERROR timeout:21 - Timeout while executing "Query classes from http://202.45.142.113:10035/repositories/agris".
+2017-07-16 21:41:02 ERROR timeout:21 - Timeout while executing "Query properties from http://202.45.142.113:10035/repositories/agris".
+2017-07-16 21:41:02 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agris>).
+2017-07-16 21:41:03 INFO  info:137 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agris>).
+2017-07-16 21:41:33 ERROR timeout:21 - Timeout while executing "Query classes from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-16 21:42:03 ERROR timeout:21 - Timeout while executing "Query properties from http://202.73.13.50:55824/catalogs/performance/repositories/agrovoc".
+2017-07-16 21:42:03 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/agrovoc-skos>).
+2017-07-16 21:44:03 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/agrovoc-skos".
+2017-07-16 21:44:03 ERROR error:74 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/agrovoc-skos>). Msg: null
+2017-07-16 21:44:03 INFO  info:108 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/aifkb-kit>).

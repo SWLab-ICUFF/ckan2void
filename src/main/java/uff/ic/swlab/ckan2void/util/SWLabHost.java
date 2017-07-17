@@ -23,6 +23,7 @@ import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 
 public enum SWLabHost {
 
@@ -105,36 +106,35 @@ public enum SWLabHost {
             Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1$s>).", datasetUri));
         if (_voidComp.size() == 0)
             Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1$s>).", datasetUri));
-//
-//        Model partitions;
-//        try {
-//            partitions = VoIDHelper.extractPartitions(_void, datasetUri);
-//        } catch (Throwable e) {
-//            partitions = ModelFactory.createDefaultModel();
-//        }
-//
-//        if (partitions.size() == 0)
-//            _void.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
-//        else
-//            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
-//
-//        if (_voidComp.size() == 0)
-//            _voidComp = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
-//        else
-//            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, _voidComp);
-//
+
+        Model partitions;
+        try {
+            partitions = VoIDHelper.extractPartitions(_void, datasetUri);
+        } catch (Throwable e) {
+            partitions = ModelFactory.createDefaultModel();
+        }
+
+        if (partitions.size() == 0)
+            _void.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
+        else
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
+
+        if (_voidComp.size() == 0)
+            _voidComp = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
+        else
+            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, _voidComp);
+
         if (_void.add(_voidComp).size() > 5)
             Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, _void);
         else
             Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
-        System.gc();
     }
 
-    private synchronized void putModel(String datasetname, String graphUri, Model model) throws InvalidNameException {
+    public synchronized void putModel(String datasetname, String graphUri, Model model) throws InvalidNameException {
         if (graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname));
             accessor.putModel(graphUri, model);
-            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
+            //Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
         } else
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }

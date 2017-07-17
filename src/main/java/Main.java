@@ -1,10 +1,15 @@
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import org.apache.commons.validator.routines.UrlValidator;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
@@ -26,6 +31,7 @@ public abstract class Main {
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
         PropertyConfigurator.configure("./conf/log4j.properties");
         Config.configure("./conf/ckan2void.properties");
+        Config.configureAuth("./conf/auth.properties");
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);
@@ -57,6 +63,10 @@ public abstract class Main {
                 System.gc();
 
             }
+
+        org.apache.jena.query.Dataset dataset = DatasetFactory.create();
+        RDFDataMgr.read(dataset, Config.HOST.getQuadsURL(Config.FUSEKI_DATASET));
+        RDFDataMgr.write(new FileOutputStream(new File("")), dataset, Lang.NQ);
     }
 
     private static String getOper(String[] args) throws IllegalArgumentException {

@@ -14,6 +14,23 @@ public abstract class Config {
     public static String FUSEKI_TEMP_DATASET;
     public static String DATASET_NAME;
 
+    public static final String RDF_ROOT = "./data/v1/rdf";
+
+    public static String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "/index.jsp";
+    public static String LOCAL_NQUADS_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".nq.gz";
+    public static String LOCAL_TRIG_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trig.gz";
+    public static String LOCAL_TRIX_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trix.gz";
+    public static String LOCAL_JSONLD_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".jsonld.gz";
+
+    public static String USERNAME = null;
+    public static String PASSWORD = null;
+
+    public static final String REMOTE_DATASET_HOMEPAGE = "/tomcat/dataset/" + DATASET_NAME + "/index.jsp";
+    public static final String REMOTE_NQUADS_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".nq.gz";
+    public static final String REMOTE_TRIG_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trig.gz";
+    public static final String REMOTE_TRIX_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trix.gz";
+    public static final String REMOTE_JSONLD_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".jsonld.gz";
+
     public static String CKAN_CATALOGS;
 
     public static Integer TASK_INSTANCES;
@@ -56,6 +73,16 @@ public abstract class Config {
             HTTP_ACCESS_TIMEOUT = Integer.valueOf(prop.getProperty("httpAccessTimeout", "60000"));
 
             MAX_VOID_FILE_SIZE = Long.valueOf(prop.getProperty("maxVoidFileSize", "1048576"));
+        }
+    }
+
+    public static void configureAuth(String filename) throws IOException {
+        try (InputStream input = new FileInputStream(filename);) {
+            Properties prop = new Properties();
+            prop.load(input);
+
+            USERNAME = prop.getProperty("username");
+            PASSWORD = prop.getProperty("password");
         }
     }
 }

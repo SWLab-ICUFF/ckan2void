@@ -16,20 +16,20 @@ public abstract class Config {
 
     public static final String RDF_ROOT = "./data/v1/rdf";
 
-    public static String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "/index.jsp";
-    public static String LOCAL_NQUADS_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".nq.gz";
-    public static String LOCAL_TRIG_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trig.gz";
-    public static String LOCAL_TRIX_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trix.gz";
-    public static String LOCAL_JSONLD_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".jsonld.gz";
+    public static String LOCAL_DATASET_HOMEPAGE;
+    public static String LOCAL_NQUADS_DUMP_NAME;
+    public static String LOCAL_TRIG_DUMP_NAME;
+    public static String LOCAL_TRIX_DUMP_NAME;
+    public static String LOCAL_JSONLD_DUMP_NAME;
 
     public static String USERNAME = null;
     public static String PASSWORD = null;
 
-    public static final String REMOTE_DATASET_HOMEPAGE = "/tomcat/dataset/" + DATASET_NAME + "/index.jsp";
-    public static final String REMOTE_NQUADS_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".nq.gz";
-    public static final String REMOTE_TRIG_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trig.gz";
-    public static final String REMOTE_TRIX_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trix.gz";
-    public static final String REMOTE_JSONLD_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".jsonld.gz";
+    public static String REMOTE_DATASET_HOMEPAGE;
+    public static String REMOTE_NQUADS_DUMP_NAME;
+    public static String REMOTE_TRIG_DUMP_NAME;
+    public static String REMOTE_TRIX_DUMP_NAME;
+    public static String REMOTE_JSONLD_DUMP_NAME;
 
     public static String CKAN_CATALOGS;
 
@@ -56,6 +56,18 @@ public abstract class Config {
             FUSEKI_DATASET = prop.getProperty("fusekiDataset", "DatasetDescriptions");
             FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset", "temp");
             DATASET_NAME = FUSEKI_DATASET + "_v1";
+
+            LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "/index.jsp";
+            LOCAL_NQUADS_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".nq.gz";
+            LOCAL_TRIG_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trig.gz";
+            LOCAL_TRIX_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trix.gz";
+            LOCAL_JSONLD_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".jsonld.gz";
+
+            REMOTE_DATASET_HOMEPAGE = "/tomcat/dataset/" + DATASET_NAME + "/index.jsp";
+            REMOTE_NQUADS_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".nq.gz";
+            REMOTE_TRIG_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trig.gz";
+            REMOTE_TRIX_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trix.gz";
+            REMOTE_JSONLD_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".jsonld.gz";
 
             CKAN_CATALOGS = prop.getProperty("ckanCatalog", "http://datahub.io");
 

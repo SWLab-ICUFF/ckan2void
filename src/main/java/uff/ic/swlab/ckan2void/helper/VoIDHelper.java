@@ -48,7 +48,7 @@ public abstract class VoIDHelper {
                 if (graphs.length > 0) {
                     String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
                     String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
-                    _void.add(extractVoID(RDFDataMgr.loadDataset(String.format(query, from), endPoint), targetURI));
+                    _void.add(extractVoID(RDFDataMgr.loadDataset(endPoint, String.format(query, from)), targetURI));
                 }
             } catch (InterruptedException e) {
                 throw e;

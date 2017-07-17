@@ -11,6 +11,7 @@ import javax.naming.InvalidNameException;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
@@ -132,16 +133,16 @@ public enum SWLabHost {
 
     public synchronized void putModel(String datasetname, String graphUri, Model model) throws InvalidNameException {
         if (graphUri != null && !graphUri.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname));
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
             accessor.putModel(graphUri, model);
-            //Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
+            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
         } else
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
 
     private synchronized Model getModel(String datasetname, String graphUri) throws InvalidNameException {
         if (graphUri != null && !graphUri.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname));
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
             Model model = accessor.getModel(graphUri);
             if (model != null)
                 return model;

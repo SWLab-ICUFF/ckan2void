@@ -23,7 +23,7 @@ import uff.ic.swlab.ckan2void.helper.URLHelper;
 
 public abstract class RDFDataMgr {
 
-    public static Dataset loadDataset(String query, String sparqlEndPoint) throws TimeoutException, InterruptedException, ExecutionException {
+    public static Dataset loadDataset(String sparqlEndPoint, String query) throws TimeoutException, InterruptedException, ExecutionException {
         Callable<Dataset> task = () -> {
             Model tempModel = ModelFactory.createDefaultModel();
             try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query)) {
@@ -38,21 +38,19 @@ public abstract class RDFDataMgr {
 
     public static Dataset loadDataset(String url, Long maxFileSize) throws InterruptedException {
         try {
-            Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
-                Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT, null};
-            if (!URLHelper.isHTML(url))
+            Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+
+            if (URLHelper.isHTML(url))
+                return loadRDFaDataset(url, maxFileSize);
+            else
                 for (Lang lang : langs)
                     try {
-                        if (lang == null)
-                            return loadDataset1(url, maxFileSize);
-                        else
-                            return loadDataset2(url, lang, maxFileSize);
+                        return loadRDFDataset(url, lang, maxFileSize);
                     } catch (InterruptedException e) {
                         throw e;
                     } catch (Throwable e) {
                     }
-            else
-                return loadDatasetRDFa(url, maxFileSize);
         } catch (InterruptedException e) {
             throw e;
         } catch (Throwable e) {
@@ -60,25 +58,7 @@ public abstract class RDFDataMgr {
         return DatasetFactory.create();
     }
 
-    private static Dataset loadDataset1(String url, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
-        Callable<Dataset> task = () -> {
-            URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
-            if (conn.getContentLengthLong() <= maxFileSize) {
-                conn.getInputStream().close();
-
-                Dataset tempDataset = DatasetFactory.create();
-                org.apache.jena.riot.RDFDataMgr.read(tempDataset, url);
-                return tempDataset;
-
-            } else
-                throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
-        };
-        return Executor.execute(task, "Load dataset from " + url, Config.HTTP_ACCESS_TIMEOUT);
-    }
-
-    private static Dataset loadDataset2(String url, Lang lang, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
+    private static Dataset loadRDFDataset(String url, Lang lang, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
         Callable<Dataset> task = () -> {
             URLConnection conn = (new URL(url)).openConnection();
             conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
@@ -87,7 +67,10 @@ public abstract class RDFDataMgr {
                 try (InputStream in = conn.getInputStream();) {
 
                     Dataset tempDataset = DatasetFactory.create();
-                    org.apache.jena.riot.RDFDataMgr.read(tempDataset, in, lang);
+                    if (lang == null)
+                        org.apache.jena.riot.RDFDataMgr.read(tempDataset, url);
+                    else
+                        org.apache.jena.riot.RDFDataMgr.read(tempDataset, in, lang);
                     return tempDataset;
                 }
             else
@@ -96,7 +79,7 @@ public abstract class RDFDataMgr {
         return Executor.execute(task, "Load dataset from " + url + " using lang = " + lang.getName(), Config.HTTP_ACCESS_TIMEOUT);
     }
 
-    private static Dataset loadDatasetRDFa(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
+    private static Dataset loadRDFaDataset(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
         Callable<Dataset> task = () -> {
             URL rdfaUrl = new URL(URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8"));
             URLConnection conn = rdfaUrl.openConnection();

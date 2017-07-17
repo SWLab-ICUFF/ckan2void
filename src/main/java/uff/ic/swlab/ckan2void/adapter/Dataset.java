@@ -28,6 +28,7 @@ import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.OWL;
+import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
 import uff.ic.swlab.ckan2void.helper.URLHelper;
@@ -249,14 +250,14 @@ public class Dataset {
         }
     }
 
-    public String[] getURLs(Dataset dataset) {
+    public String[] getURLs() {
         String[] urls;
         Set<String> set = new HashSet<>();
-        set.add(dataset.getUrl());
-        set.addAll(Arrays.asList(dataset.getNamespaces()));
-        set.addAll(Arrays.asList(dataset.getVoIDUrls()));
-        set.addAll(Arrays.asList(dataset.getExampleUrls()));
-        set.addAll(Arrays.asList(dataset.getDumpUrls()));
+        set.add(getUrl());
+        set.addAll(Arrays.asList(getNamespaces()));
+        set.addAll(Arrays.asList(getVoIDUrls()));
+        set.addAll(Arrays.asList(getExampleUrls()));
+        set.addAll(Arrays.asList(getDumpUrls()));
         set = set.stream().filter((String line) -> line != null).collect(Collectors.toSet());
         urls = set.toArray(new String[0]);
         return urls;
@@ -376,10 +377,12 @@ public class Dataset {
         String ns = Config.HOST.linkedDataNS();
 
         Model _void = ModelFactory.createDefaultModel();
-        _void.setNsPrefix("void", VOID.NS);
+        _void.setNsPrefix("rdf", RDF.uri);
+        _void.setNsPrefix("rdfs", RDFS.uri);
+        _void.setNsPrefix("owl", OWL.NS);
         _void.setNsPrefix("dcterms", DCTerms.NS);
         _void.setNsPrefix("foaf", FOAF.NS);
-        _void.setNsPrefix("owl", OWL.NS);
+        _void.setNsPrefix("void", VOID.NS);
         _void.setNsPrefix("", ns);
 
         Resource dataset = _void.createResource(getUri(), VOID.Dataset);

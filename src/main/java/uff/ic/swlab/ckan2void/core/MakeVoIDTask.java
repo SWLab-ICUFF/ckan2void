@@ -2,10 +2,10 @@ package uff.ic.swlab.ckan2void.core;
 
 import java.util.concurrent.Callable;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
+import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
 
@@ -60,11 +60,10 @@ public class MakeVoIDTask implements Runnable {
         try {
 
             Callable<Object> task = () -> {
-                String[] urls = dataset.getURLs(dataset);
+                String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 Model _void = dataset.toVoid(graphDerefUri);
-                Model _voidComp = ModelFactory.createDefaultModel();
-                //Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
+                Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
                 Config.HOST.saveVoid(_void, _voidComp, dataset.getUri(), graphUri);
                 return null;
             };

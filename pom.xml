@@ -48,13 +48,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-fuseki</artifactId>
-            <version>2.6.0</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-libs</artifactId>
+            <artifactId>apache-jena</artifactId>
             <version>3.3.0</version>
             <type>pom</type>
         </dependency>

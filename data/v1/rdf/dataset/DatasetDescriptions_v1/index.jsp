@@ -11,7 +11,7 @@
     </head>
     <body>
         <div style="text-align:right">
-            <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>?@Lookup@=&refresh=clean">
+            <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>dataset/DatasetDescriptions_v1?@Lookup@=&refresh=clean">
                 <img title="Browse with" src="/uriburnerlogo_small.png" style="vertical-align:middle; width:10%; height:auto"/>
             </a>
         </div>
@@ -49,10 +49,10 @@
                 classification categories of each entity.
             </p>
             <div style="text-align:right">
-                <a href="https://doi.org/10.6084/m9.figshare.5211916.v1">https://doi.org/10.6084/m9.figshare.5211916.v1</a>
+                <a href="https://doi.org/10.6084/m9.figshare.5211916">https://doi.org/10.6084/m9.figshare.5211916</a>
             </div>
             <br/><br/>
-            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1">
+            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5211916/embed?show_title=1">
             </iframe>
         </div>
 

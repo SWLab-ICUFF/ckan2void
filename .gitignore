@@ -4,6 +4,8 @@
 
 .DS_Store
 Thumbs.db
+auth.properties
+
 
 *.class
 *.cdi

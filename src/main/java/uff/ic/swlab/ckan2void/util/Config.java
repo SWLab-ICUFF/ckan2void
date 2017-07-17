@@ -12,6 +12,8 @@ public abstract class Config {
 
     public static String FUSEKI_DATASET;
     public static String FUSEKI_TEMP_DATASET;
+    public static String DATASET_NAME;
+
     public static String CKAN_CATALOGS;
 
     public static Integer TASK_INSTANCES;
@@ -34,8 +36,10 @@ public abstract class Config {
             Properties prop = new Properties();
             prop.load(input);
 
-            FUSEKI_DATASET = prop.getProperty("fusekiDataset", "DatesetDescriptions");
+            FUSEKI_DATASET = prop.getProperty("fusekiDataset", "DatasetDescriptions");
             FUSEKI_TEMP_DATASET = prop.getProperty("fusekiTempDataset", "temp");
+            DATASET_NAME = FUSEKI_DATASET + "_v1";
+
             CKAN_CATALOGS = prop.getProperty("ckanCatalog", "http://datahub.io");
 
             TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances", "8"));

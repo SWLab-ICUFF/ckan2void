@@ -38,12 +38,12 @@ public abstract class Main {
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);
-        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++")) {
+        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
             if ((new UrlValidator()).isValid(catalog)) {
 
-                Integer counter = 0;
-                System.out.println(String.format("Crawler started (%s).", catalog));
                 try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
+                    System.out.println(String.format("Crawler started (%s).", catalog));
+                    Integer counter = 0;
 
                     List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
                     ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
@@ -63,10 +63,7 @@ public abstract class Main {
 
                 }
                 System.out.println(String.format("Crawler ended (%s).", catalog));
-
             }
-            System.gc();
-        }
 
         exportDataset();
         uploadDataset();

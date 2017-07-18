@@ -55,7 +55,7 @@
         <dependency>
             <groupId>eu.trentorise.opendata</groupId>
             <artifactId>jackan</artifactId>
-            <version>0.4.2</version>
+            <version>0.4.3-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

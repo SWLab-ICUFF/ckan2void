@@ -71,7 +71,7 @@ public enum SWLabHost {
         List<String> graphNames = new ArrayList<>();
 
         String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString)) {
+        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setTimeout(timeout);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
@@ -84,7 +84,7 @@ public enum SWLabHost {
 
     public synchronized void loadDataset(String datasetname, String uri) {
         Dataset ds = RDFDataMgr.loadDataset(uri);
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname));
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
         accessor.putModel(ds.getDefaultModel());
         Iterator<String> iter = ds.listNames();
         while (iter.hasNext()) {
@@ -95,7 +95,7 @@ public enum SWLabHost {
 
     public synchronized Model execConstruct(String queryString, String datasetname) {
         Model result = ModelFactory.createDefaultModel();
-        try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString)) {
+        try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
             ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
             exec.execConstruct(result);
         }

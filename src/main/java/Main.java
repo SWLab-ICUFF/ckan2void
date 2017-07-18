@@ -40,35 +40,34 @@ public abstract class Main {
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);
-        if (false)
-            for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
-                if ((new UrlValidator()).isValid(catalog)) {
+        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
+            if ((new UrlValidator()).isValid(catalog)) {
 
-                    try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
-                        System.out.println(String.format("Crawler started (%s).", catalog));
-                        Integer counter = 0;
+                try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
+                    System.out.println(String.format("Crawler started (%s).", catalog));
+                    Integer counter = 0;
 
-                        List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
-                        ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-                        while (crawler.hasNext()) {
+                    List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
+                    ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+                    while (crawler.hasNext()) {
 
-                            Dataset dataset = crawler.next();
-                            String graphURI = dataset.getJsonMetadataUrl();
+                        Dataset dataset = crawler.next();
+                        String graphURI = dataset.getJsonMetadataUrl();
 
-                            if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                                pool.submit(new MakeVoIDTask(dataset, graphURI));
-                                System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
-                            } else
-                                System.out.println("Skipping dataset " + graphURI + ".");
-
-                        }
-                        pool.shutdown();
-                        System.out.println("Waiting for remaining tasks...");
-                        pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
+                        if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                            pool.submit(new MakeVoIDTask(dataset, graphURI));
+                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
+                        } else
+                            System.out.println("Skipping dataset " + graphURI + ".");
 
                     }
-                    System.out.println(String.format("Crawler ended (%s).", catalog));
+                    pool.shutdown();
+                    System.out.println("Waiting for remaining tasks...");
+                    pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
+
                 }
+                System.out.println(String.format("Crawler ended (%s).", catalog));
+            }
 
         createRootResource();
         exportDataset();

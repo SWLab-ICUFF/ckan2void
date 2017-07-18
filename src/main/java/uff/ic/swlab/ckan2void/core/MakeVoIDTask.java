@@ -13,7 +13,7 @@ public class MakeVoIDTask implements Runnable {
 
     private final Dataset dataset;
     private final String graphUri;
-    private final String graphDerefUri;
+    private final String derefGraphUri;
 
     private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(Config.TASK_INSTANCES);
 
@@ -47,7 +47,7 @@ public class MakeVoIDTask implements Runnable {
         INSTANCE_COUNTER.startInstance();
         this.dataset = dataset;
         this.graphUri = graphURI;
-        this.graphDerefUri = Config.HOST.getQuadsURL(Config.FUSEKI_DATASET) + "?graph=" + graphUri;
+        this.derefGraphUri = Config.HOST.getQuadsURL(Config.FUSEKI_DATASET) + "?graph=" + graphUri;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class MakeVoIDTask implements Runnable {
             Callable<Object> task = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
-                Model _void = dataset.toVoid(graphDerefUri);
+                Model _void = dataset.toVoid(derefGraphUri);
                 Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
                 Config.HOST.saveVoid(_void, _voidComp, dataset.getUri(), graphUri);
                 return null;

@@ -380,7 +380,7 @@ public class Dataset {
         return (new HashMap<String, Integer>()).entrySet();
     }
 
-    public Model toVoid(String graphUri) {
+    public Model toVoid(String derefGraphUri) {
         String ns = Config.HOST.linkedDataNS();
 
         Model _void = ModelFactory.createDefaultModel();
@@ -438,8 +438,10 @@ public class Dataset {
         });
 
         String title = getTitle();
-        if (title != null && !title.equals(""))
+        if (title != null && !title.equals("")) {
             dataset.addProperty(DCTerms.title, title);
+            dataset.addProperty(RDFS.label, title);
+        }
 
         String description = getNotes();
         if (description != null && !description.equals(""))
@@ -474,8 +476,9 @@ public class Dataset {
             dataset.addProperty(DCTerms.modified, _void.createTypedLiteral(modified));
 
         Calendar cal = Calendar.getInstance();
-        Resource datasetDescription = _void.createResource(graphUri, VOID.DatasetDescription)
-                .addProperty(DCTerms.title, "A VoID Description of the " + getName() + " dataset.")
+        Resource datasetDescription = _void.createResource(derefGraphUri, VOID.DatasetDescription)
+                .addProperty(DCTerms.title, "Description of the dataset " + getName() + ".")
+                .addProperty(RDFS.label, "Description of the dataset " + getName() + ".")
                 .addProperty(FOAF.primaryTopic, dataset)
                 .addProperty(DCTerms.modified, _void.createTypedLiteral(cal));
 

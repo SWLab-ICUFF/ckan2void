@@ -1,0 +1,918 @@
+2017-07-18 09:19:59 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-18 09:20:21 ERROR timeout:21 - Timeout while executing "Query classes from http://fintrans.publicdata.eu/sparql".
+2017-07-18 09:20:59 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-18 09:21:21 ERROR timeout:21 - Timeout while executing "Query properties from http://fintrans.publicdata.eu/sparql".
+2017-07-18 09:21:58 ERROR timeout:21 - Timeout while executing "Query classes from http://bnb.data.bl.uk/sparql".
+2017-07-18 09:22:04 ERROR timeout:21 - Timeout while executing "Query classes from http://river.styx.org/sparql".
+2017-07-18 09:22:13 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:22:16 ERROR timeout:21 - Timeout while executing "Query classes from http://eris.okfn.org/sparql".
+2017-07-18 09:22:17 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:22:18 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:22:19 ERROR timeout:21 - Timeout while executing "Query classes from http://156.35.31.156/sparql".
+2017-07-18 09:22:19 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:22:20 ERROR timeout:21 - Timeout while executing "Query classes from http://140.109.28.64:2020/sparql".
+2017-07-18 09:22:39 ERROR timeout:21 - Timeout while executing "Query classes from http://kaiko.getalp.org/dbnary/fra/dictionnaire".
+2017-07-18 09:22:41 ERROR timeout:21 - Timeout while executing "Query classes from http://fr.dbpedia.org/sparql".
+2017-07-18 09:22:42 ERROR timeout:21 - Timeout while executing "Query classes from http://nl.dbpedia.org/sparql".
+2017-07-18 09:22:44 ERROR timeout:21 - Timeout while executing "Query classes from http://dbtune.org/classical/sparql/".
+2017-07-18 09:22:58 ERROR timeout:21 - Timeout while executing "Query classes from http://bnb.data.bl.uk/flint".
+2017-07-18 09:22:58 ERROR timeout:21 - Timeout while executing "Query classes from http://dutchshipsandsailors.nl/data/sparql/".
+2017-07-18 09:23:04 ERROR timeout:21 - Timeout while executing "Query properties from http://river.styx.org/sparql".
+2017-07-18 09:23:08 ERROR timeout:21 - Timeout while executing "Query classes from http://webenemasuno.linkeddata.es/sparql.html".
+2017-07-18 09:23:11 ERROR timeout:21 - Timeout while executing "Query classes from http://api.kasabi.com/dataset/english-heritage/apis/sparql".
+2017-07-18 09:23:13 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:23:13 ERROR timeout:21 - Timeout while executing "Query classes from http://linkeddata.ge.imati.cnr.it:2020/sparql".
+2017-07-18 09:23:16 ERROR timeout:21 - Timeout while executing "Query properties from http://eris.okfn.org/sparql".
+2017-07-18 09:23:17 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:23:18 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:23:19 ERROR timeout:21 - Timeout while executing "Query properties from http://156.35.31.156/sparql".
+2017-07-18 09:23:19 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:23:20 ERROR timeout:21 - Timeout while executing "Query properties from http://140.109.28.64:2020/sparql".
+2017-07-18 09:23:39 ERROR timeout:21 - Timeout while executing "Query classes from http://kaiko.getalp.org/sparql".
+2017-07-18 09:23:41 ERROR timeout:21 - Timeout while executing "Query properties from http://fr.dbpedia.org/sparql".
+2017-07-18 09:23:42 ERROR timeout:21 - Timeout while executing "Query properties from http://nl.dbpedia.org/sparql".
+2017-07-18 09:23:43 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:23:44 ERROR timeout:21 - Timeout while executing "Query properties from http://dbtune.org/classical/sparql/".
+2017-07-18 09:23:45 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:23:57 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/140-203-154-209-uni-mannheim".
+2017-07-18 09:23:57 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/140-203-154-209>). Msg: null
+2017-07-18 09:23:57 ERROR riot:84 - [line: 1820, col: 25] Failed to find a prefix name or keyword: –(8211;0x2013)
+2017-07-18 09:23:58 ERROR timeout:21 - Timeout while executing "Query properties from http://bnb.data.bl.uk/sparql".
+2017-07-18 09:23:58 ERROR timeout:21 - Timeout while executing "Query classes from http://semanticweb.cs.vu.nl/dss/sparql/".
+2017-07-18 09:23:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/acorn-sat-uni-mannheim".
+2017-07-18 09:23:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/acorn-sat>). Msg: null
+2017-07-18 09:24:05 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:24:07 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/animal-diversity-web-uni-mannheim".
+2017-07-18 09:24:07 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/animal-diversity-web>). Msg: null
+2017-07-18 09:24:08 ERROR timeout:21 - Timeout while executing "Query classes from http://webenemasuno.linkeddata.es/sparql".
+2017-07-18 09:24:11 ERROR timeout:21 - Timeout while executing "Query classes from http://kasabi.com/api/sparql-endpoint-english-heritage".
+2017-07-18 09:24:13 ERROR timeout:21 - Timeout while executing "Query properties from http://linkeddata.ge.imati.cnr.it:2020/sparql".
+2017-07-18 09:24:13 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [DIRECTIVE:prefix]
+2017-07-18 09:24:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/aves3d-uni-mannheim".
+2017-07-18 09:24:17 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/aves3d>). Msg: null
+2017-07-18 09:24:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/bams-uni-mannheim".
+2017-07-18 09:24:19 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/bams>). Msg: null
+2017-07-18 09:24:21 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/beneficiaries-of-the-european-commission-uni-mannheim".
+2017-07-18 09:24:21 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/beneficiaries-of-the-european-commission>). Msg: null
+2017-07-18 09:24:24 ERROR riot:84 - [line: 1820, col: 25] Failed to find a prefix name or keyword: –(8211;0x2013)
+2017-07-18 09:24:28 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:24:31 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [DIRECTIVE:prefix]
+2017-07-18 09:24:39 ERROR timeout:21 - Timeout while executing "Query properties from http://kaiko.getalp.org/dbnary/fra/dictionnaire".
+2017-07-18 09:24:39 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('@' (code 64)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+2017-07-18 09:24:53 ERROR riot:84 - [line: 1, col: 1 ] XML error: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog.
+2017-07-18 09:24:57 ERROR timeout:21 - Timeout while executing "Query classes from http://epo.publicdata.eu/sparql".
+2017-07-18 09:24:58 ERROR timeout:21 - Timeout while executing "Query properties from http://bnb.data.bl.uk/flint".
+2017-07-18 09:24:58 ERROR timeout:21 - Timeout while executing "Query properties from http://dutchshipsandsailors.nl/data/sparql/".
+2017-07-18 09:24:59 ERROR timeout:21 - Timeout while executing "Query classes from http://agencies.publicdata.eu/sparql".
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:25:00 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:25:05 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:25:07 ERROR timeout:21 - Timeout while executing "Query classes from http://eur-lex.publicdata.eu/sparql".
+2017-07-18 09:25:08 ERROR timeout:21 - Timeout while executing "Query properties from http://webenemasuno.linkeddata.es/sparql.html".
+2017-07-18 09:25:11 ERROR timeout:21 - Timeout while executing "Query properties from http://api.kasabi.com/dataset/english-heritage/apis/sparql".
+2017-07-18 09:25:14 ERROR riot:84 - [line: 1820, col: 25] Failed to find a prefix name or keyword: –(8211;0x2013)
+2017-07-18 09:25:20 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:25:21 ERROR timeout:21 - Timeout while executing "Query classes from http://www4.wiwiss.fu-berlin.de/eccompetition/sparql".
+2017-07-18 09:25:22 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:25:29 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [DIRECTIVE:prefix]
+2017-07-18 09:25:38 ERROR riot:84 - [line: 1, col: 1 ] Not implemented (formulae, graph literals)
+2017-07-18 09:25:38 ERROR riot:84 - [line: 1820, col: 25] Failed to find a prefix name or keyword: –(8211;0x2013)
+2017-07-18 09:25:39 ERROR timeout:21 - Timeout while executing "Query properties from http://kaiko.getalp.org/sparql".
+2017-07-18 09:25:39 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:25:39 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [LBRACE]
+2017-07-18 09:25:40 ERROR riot:84 - [line: 1, col: 10] Undefined prefix: 
+2017-07-18 09:25:41 ERROR riot:84 - [line: 1, col: 11] Expected BNode or IRI: Got: [STRING:linked-data-api]
+2017-07-18 09:25:44 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [DIRECTIVE:prefix]
+2017-07-18 09:25:51 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('@' (code 64)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+2017-07-18 09:25:57 ERROR timeout:21 - Timeout while executing "Query properties from http://epo.publicdata.eu/sparql".
+2017-07-18 09:25:58 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/bluk-bnb-uni-mannheim".
+2017-07-18 09:25:58 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/bluk-bnb>). Msg: null
+2017-07-18 09:25:58 ERROR timeout:21 - Timeout while executing "Query properties from http://semanticweb.cs.vu.nl/dss/sparql/".
+2017-07-18 09:25:59 ERROR timeout:21 - Timeout while executing "Query properties from http://agencies.publicdata.eu/sparql".
+2017-07-18 09:25:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/bootsnall-uni-mannheim".
+2017-07-18 09:25:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/bootsnall>). Msg: null
+2017-07-18 09:26:04 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/cablegate-uni-mannheim".
+2017-07-18 09:26:04 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/cablegate>). Msg: null
+2017-07-18 09:26:04 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:26:04 ERROR riot:84 - [line: 1, col: 1 ] XML error: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog.
+2017-07-18 09:26:07 ERROR timeout:21 - Timeout while executing "Query properties from http://eur-lex.publicdata.eu/sparql".
+2017-07-18 09:26:08 ERROR timeout:21 - Timeout while executing "Query properties from http://webenemasuno.linkeddata.es/sparql".
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:10 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:26:11 ERROR timeout:21 - Timeout while executing "Query properties from http://kasabi.com/api/sparql-endpoint-english-heritage".
+2017-07-18 09:26:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/combined-nomenclature-2012-uni-mannheim".
+2017-07-18 09:26:13 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/combined-nomenclature-2012>). Msg: null
+2017-07-18 09:26:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/company-semantic-web-at-uni-mannheim".
+2017-07-18 09:26:13 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/company-semantic-web-at>). Msg: null
+2017-07-18 09:26:16 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/corscheck-uni-mannheim".
+2017-07-18 09:26:16 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/corscheck>). Msg: null
+2017-07-18 09:26:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/cpa-2008-uni-mannheim".
+2017-07-18 09:26:17 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/cpa-2008>). Msg: null
+2017-07-18 09:26:18 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/cpc-2008-uni-mannheim".
+2017-07-18 09:26:18 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/cpc-2008>). Msg: null
+2017-07-18 09:26:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/cpv-2003-uni-mannheim".
+2017-07-18 09:26:19 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/cpv-2003>). Msg: null
+2017-07-18 09:26:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/cpv-2008-uni-mannheim".
+2017-07-18 09:26:19 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/cpv-2008>). Msg: null
+2017-07-18 09:26:20 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/crowdsourcing-fb-uni-mannheim".
+2017-07-18 09:26:20 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/crowdsourcing-fb>). Msg: null
+2017-07-18 09:26:21 ERROR timeout:21 - Timeout while executing "Query properties from http://www4.wiwiss.fu-berlin.de/eccompetition/sparql".
+2017-07-18 09:26:29 ERROR riot:84 - [line: 1820, col: 25] Failed to find a prefix name or keyword: –(8211;0x2013)
+2017-07-18 09:26:36 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:26:37 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/davidgalbraith-org-uni-mannheim".
+2017-07-18 09:26:37 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/davidgalbraith-org>). Msg: null
+2017-07-18 09:26:39 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/dbnary-uni-mannheim".
+2017-07-18 09:26:39 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dbnary>). Msg: null
+2017-07-18 09:26:40 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/dbpedia-fr-uni-mannheim".
+2017-07-18 09:26:40 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dbpedia-fr>). Msg: null
+2017-07-18 09:26:42 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/dbpedia-nl-uni-mannheim".
+2017-07-18 09:26:42 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dbpedia-nl>). Msg: null
+2017-07-18 09:26:44 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/dbtune-classical-uni-mannheim".
+2017-07-18 09:26:44 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dbtune-classical>). Msg: null
+2017-07-18 09:26:46 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/dcs-sheffield-uni-mannheim".
+2017-07-18 09:26:46 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dcs-sheffield>). Msg: null
+2017-07-18 09:26:48 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/derfizz-de-uni-mannheim".
+2017-07-18 09:26:48 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/derfizz-de>). Msg: null
+2017-07-18 09:26:48 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/deri-org-uni-mannheim".
+2017-07-18 09:26:48 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/deri-org>). Msg: null
+2017-07-18 09:26:58 ERROR timeout:21 - Timeout while executing "Query classes from http://lod.hebis.de/sparql".
+2017-07-18 09:26:58 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/dutch-ships-and-sailors-uni-mannheim".
+2017-07-18 09:26:58 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dutch-ships-and-sailors>). Msg: null
+2017-07-18 09:26:59 ERROR timeout:21 - Timeout while executing "Query classes from http://www.icane.es/opendata/sparql".
+2017-07-18 09:27:04 ERROR timeout:21 - Timeout while executing "Query classes from http://data.ngii.go.kr/SPARQL/sparql".
+2017-07-18 09:27:08 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/ei-homeip-net-uni-mannheim".
+2017-07-18 09:27:08 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/ei-homeip-net>). Msg: null
+2017-07-18 09:27:08 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/elviajero-uni-mannheim".
+2017-07-18 09:27:08 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/elviajero>). Msg: null
+2017-07-18 09:27:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/englishheritage_places-uni-mannheim".
+2017-07-18 09:27:11 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/englishheritage_places>). Msg: null
+2017-07-18 09:27:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/environmental-applications-reference-thesaurus-uni-mannheim".
+2017-07-18 09:27:13 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/environmental-applications-reference-thesaurus>). Msg: null
+2017-07-18 09:27:13 ERROR timeout:21 - Timeout while executing "Query classes from http://156.35.82.103/sparql".
+2017-07-18 09:27:17 ERROR timeout:21 - Timeout while executing "Query classes from http://data.linkedmdb.org/sparql".
+2017-07-18 09:27:18 ERROR timeout:21 - Timeout while executing "Query classes from http://ecowlim.tfri.gov.tw/sparql/query".
+2017-07-18 09:27:25 ERROR timeout:21 - Timeout while executing "Query classes from http://www.lotico.com:3030/lotico".
+2017-07-18 09:27:38 ERROR timeout:21 - Timeout while executing "Query classes from http://sparql.msc2010.org".
+2017-07-18 09:27:42 ERROR timeout:21 - Timeout while executing "Query classes from http://futurewavehosting.com:3030/my-family-lineage/sparql".
+2017-07-18 09:27:44 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:27:44 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:27:44 ERROR timeout:21 - Timeout while executing "Query classes from http://iss.ndl.go.jp/ndla/sparql/".
+2017-07-18 09:27:45 ERROR timeout:21 - Timeout while executing "Query classes from http://id.ndl.go.jp/auth/ndlsh/".
+2017-07-18 09:27:51 ERROR timeout:21 - Timeout while executing "Query classes from http://n-lex.publicdata.eu/sparql".
+2017-07-18 09:27:52 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:27:58 ERROR timeout:21 - Timeout while executing "Query properties from http://lod.hebis.de/sparql".
+2017-07-18 09:27:59 ERROR timeout:21 - Timeout while executing "Query classes from http://www.icane.es/semantic-web".
+2017-07-18 09:28:01 ERROR timeout:21 - Timeout while executing "Query classes from http://data.oceandrilling.org/sparql".
+2017-07-18 09:28:04 ERROR timeout:21 - Timeout while executing "Query properties from http://data.ngii.go.kr/SPARQL/sparql".
+2017-07-18 09:28:08 ERROR timeout:21 - Timeout while executing "Query classes from http://data.oceandrilling.org/sparql".
+2017-07-18 09:28:08 ERROR timeout:21 - Timeout while executing "Query classes from http://data.oceandrilling.org/sparql".
+2017-07-18 09:28:13 ERROR timeout:21 - Timeout while executing "Query properties from http://156.35.82.103/sparql".
+2017-07-18 09:28:17 ERROR timeout:21 - Timeout while executing "Query properties from http://data.linkedmdb.org/sparql".
+2017-07-18 09:28:18 ERROR timeout:21 - Timeout while executing "Query properties from http://ecowlim.tfri.gov.tw/sparql/query".
+2017-07-18 09:28:25 ERROR timeout:21 - Timeout while executing "Query classes from http://www.lotico.com:3030/".
+2017-07-18 09:28:38 ERROR timeout:21 - Timeout while executing "Query properties from http://sparql.msc2010.org".
+2017-07-18 09:28:42 ERROR timeout:21 - Timeout while executing "Query classes from http://futurewavehosting.com:3030/my-family-lineage/query".
+2017-07-18 09:28:44 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:28:44 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:28:44 ERROR timeout:21 - Timeout while executing "Query classes from http://id.ndl.go.jp/auth/ndla/".
+2017-07-18 09:28:45 ERROR timeout:21 - Timeout while executing "Query classes from http://id.ndl.go.jp/auth/docs/sparql".
+2017-07-18 09:28:51 ERROR timeout:21 - Timeout while executing "Query properties from http://n-lex.publicdata.eu/sparql".
+2017-07-18 09:28:52 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:28:57 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/epo-uni-mannheim".
+2017-07-18 09:28:57 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/epo>). Msg: null
+2017-07-18 09:28:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/eu-agencies-bodies-uni-mannheim".
+2017-07-18 09:28:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/eu-agencies-bodies>). Msg: null
+2017-07-18 09:28:59 ERROR timeout:21 - Timeout while executing "Query properties from http://www.icane.es/opendata/sparql".
+2017-07-18 09:29:01 ERROR timeout:21 - Timeout while executing "Query properties from http://data.oceandrilling.org/sparql".
+2017-07-18 09:29:07 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/eur-lex-rdf-uni-mannheim".
+2017-07-18 09:29:07 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/eur-lex-rdf>). Msg: null
+2017-07-18 09:29:08 ERROR timeout:21 - Timeout while executing "Query properties from http://data.oceandrilling.org/sparql".
+2017-07-18 09:29:08 ERROR timeout:21 - Timeout while executing "Query properties from http://data.oceandrilling.org/sparql".
+2017-07-18 09:29:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/fastcult-ru-uni-mannheim".
+2017-07-18 09:29:17 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/fastcult-ru>). Msg: null
+2017-07-18 09:29:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/fishes-of-texas-uni-mannheim".
+2017-07-18 09:29:19 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/fishes-of-texas>). Msg: null
+2017-07-18 09:29:21 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/fu-berlin-ec-competition-uni-mannheim".
+2017-07-18 09:29:21 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/fu-berlin-ec-competition>). Msg: null
+2017-07-18 09:29:25 ERROR timeout:21 - Timeout while executing "Query properties from http://www.lotico.com:3030/lotico".
+2017-07-18 09:29:42 ERROR timeout:21 - Timeout while executing "Query properties from http://futurewavehosting.com:3030/my-family-lineage/sparql".
+2017-07-18 09:29:42 ERROR riot:84 - [line: 4, col: 10] Bad character in IRI (space): <rdf:RDF[space]...>
+2017-07-18 09:29:44 ERROR timeout:21 - Timeout while executing "Query properties from http://iss.ndl.go.jp/ndla/sparql/".
+2017-07-18 09:29:45 ERROR timeout:21 - Timeout while executing "Query properties from http://id.ndl.go.jp/auth/ndlsh/".
+2017-07-18 09:29:59 ERROR timeout:21 - Timeout while executing "Query properties from http://www.icane.es/semantic-web".
+2017-07-18 09:30:07 ERROR timeout:21 - Timeout while executing "Query classes from http://data.organic-edunet.eu/snorql/".
+2017-07-18 09:30:17 ERROR timeout:21 - Timeout while executing "Query classes from http://prelex.publicdata.eu/sparql".
+2017-07-18 09:30:19 ERROR timeout:21 - Timeout while executing "Query classes from http://api.talis.com/stores/productdb/services/sparql".
+2017-07-18 09:30:21 ERROR timeout:21 - Timeout while executing "Query classes from http://provenanceweb.org/sparql".
+2017-07-18 09:30:25 ERROR timeout:21 - Timeout while executing "Query properties from http://www.lotico.com:3030/".
+2017-07-18 09:30:42 ERROR timeout:21 - Timeout while executing "Query properties from http://futurewavehosting.com:3030/my-family-lineage/query".
+2017-07-18 09:30:44 ERROR timeout:21 - Timeout while executing "Query properties from http://id.ndl.go.jp/auth/ndla/".
+2017-07-18 09:30:45 ERROR timeout:21 - Timeout while executing "Query properties from http://id.ndl.go.jp/auth/docs/sparql".
+2017-07-18 09:30:58 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/hebis-bibliographic-resources-uni-mannheim".
+2017-07-18 09:30:58 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/hebis-bibliographic-resources>). Msg: null
+2017-07-18 09:30:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/icane-uni-mannheim".
+2017-07-18 09:30:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/icane>). Msg: null
+2017-07-18 09:31:04 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/integrated-human-geography-service-for-lod-uni-mannheim".
+2017-07-18 09:31:04 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/integrated-human-geography-service-for-lod>). Msg: null
+2017-07-18 09:31:07 ERROR timeout:21 - Timeout while executing "Query classes from http://data.organic-edunet.eu/sparql".
+2017-07-18 09:31:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/int-evry-fr-uni-mannheim".
+2017-07-18 09:31:13 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/int-evry-fr>). Msg: null
+2017-07-18 09:31:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/isic-v4-uni-mannheim".
+2017-07-18 09:31:13 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/isic-v4>). Msg: null
+2017-07-18 09:31:16 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/kantenwerk-org-uni-mannheim".
+2017-07-18 09:31:16 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/kantenwerk-org>). Msg: null
+2017-07-18 09:31:17 ERROR timeout:21 - Timeout while executing "Query properties from http://prelex.publicdata.eu/sparql".
+2017-07-18 09:31:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/linkedmdb-uni-mannheim".
+2017-07-18 09:31:17 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/linkedmdb>). Msg: null
+2017-07-18 09:31:18 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/linked-open-data-of-ecology-uni-mannheim".
+2017-07-18 09:31:18 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/linked-open-data-of-ecology>). Msg: null
+2017-07-18 09:31:19 ERROR timeout:21 - Timeout while executing "Query properties from http://api.talis.com/stores/productdb/services/sparql".
+2017-07-18 09:31:21 ERROR timeout:21 - Timeout while executing "Query properties from http://provenanceweb.org/sparql".
+2017-07-18 09:31:23 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:31:25 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/lotico-uni-mannheim".
+2017-07-18 09:31:25 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/lotico>). Msg: null
+2017-07-18 09:31:29 ERROR riot:84 - [line: 1, col: 11] Unrecognized token 'PK    ': was expecting ('true', 'false' or 'null')
+2017-07-18 09:31:31 ERROR riot:84 - [line: 1, col: 1 ] XML error: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog.
+2017-07-18 09:31:33 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:31:33 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:31:33 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:31:33 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:31:38 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/msc-uni-mannheim".
+2017-07-18 09:31:38 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/msc>). Msg: null
+2017-07-18 09:31:42 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/my-family-lineage-uni-mannheim".
+2017-07-18 09:31:42 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/my-family-lineage>). Msg: null
+2017-07-18 09:31:43 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/naics-2007-uni-mannheim".
+2017-07-18 09:31:43 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/naics-2007>). Msg: null
+2017-07-18 09:31:44 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/naics-2012-uni-mannheim".
+2017-07-18 09:31:44 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/naics-2012>). Msg: null
+2017-07-18 09:31:44 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/national-diet-library-authorities-uni-mannheim".
+2017-07-18 09:31:44 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/national-diet-library-authorities>). Msg: null
+2017-07-18 09:31:45 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/national-diet-library-subject-headings-uni-mannheim".
+2017-07-18 09:31:45 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/national-diet-library-subject-headings>). Msg: null
+2017-07-18 09:31:50 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/nhs-jargon-uni-mannheim".
+2017-07-18 09:31:50 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/nhs-jargon>). Msg: null
+2017-07-18 09:31:51 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/n-lex-as-linked-data-uni-mannheim".
+2017-07-18 09:31:51 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/n-lex-as-linked-data>). Msg: null
+2017-07-18 09:31:52 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/nomenclator-asturias-uni-mannheim".
+2017-07-18 09:31:52 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/nomenclator-asturias>). Msg: null
+2017-07-18 09:31:57 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/ntlworld-com-uni-mannheim".
+2017-07-18 09:31:57 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/ntlworld-com>). Msg: null
+2017-07-18 09:31:58 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:32:01 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/oceandrilling-codices-uni-mannheim".
+2017-07-18 09:32:01 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/oceandrilling-codices>). Msg: null
+2017-07-18 09:32:04 ERROR timeout:21 - Timeout while executing "Query classes from http://acm.rkbexplorer.com/sparql/".
+2017-07-18 09:32:07 ERROR timeout:21 - Timeout while executing "Query properties from http://data.organic-edunet.eu/snorql/".
+2017-07-18 09:32:08 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/oceandrilling-janusamp-uni-mannheim".
+2017-07-18 09:32:08 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/oceandrilling-janusamp>). Msg: null
+2017-07-18 09:32:08 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/oceandrilling-ldeo-uni-mannheim".
+2017-07-18 09:32:08 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/oceandrilling-ldeo>). Msg: null
+2017-07-18 09:32:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/onebiglibrary-net-uni-mannheim".
+2017-07-18 09:32:11 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/onebiglibrary-net>). Msg: null
+2017-07-18 09:32:13 ERROR timeout:21 - Timeout while executing "Query classes from http://budapest.rkbexplorer.com/sparql/".
+2017-07-18 09:32:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/opencalais-uni-mannheim".
+2017-07-18 09:32:13 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/opencalais>). Msg: null
+2017-07-18 09:32:13 ERROR timeout:21 - Timeout while executing "Query classes from http://courseware.rkbexplorer.com/sparql/".
+2017-07-18 09:32:16 ERROR timeout:21 - Timeout while executing "Query classes from http://dblp.rkbexplorer.com/sparql/".
+2017-07-18 09:32:17 ERROR timeout:21 - Timeout while executing "Query classes from http://dotac.rkbexplorer.com/sparql/".
+2017-07-18 09:32:18 ERROR timeout:21 - Timeout while executing "Query classes from http://ecs.rkbexplorer.com/sparql".
+2017-07-18 09:32:25 ERROR timeout:21 - Timeout while executing "Query classes from http://eprints.rkbexplorer.com/sparql/".
+2017-07-18 09:32:38 ERROR timeout:21 - Timeout while executing "Query classes from http://era.rkbexplorer.com/sparql/".
+2017-07-18 09:32:42 ERROR timeout:21 - Timeout while executing "Query classes from http://eurecom.rkbexplorer.com/sparql/".
+2017-07-18 09:32:44 ERROR timeout:21 - Timeout while executing "Query classes from http://ft.rkbexplorer.com/sparql/".
+2017-07-18 09:32:44 ERROR timeout:21 - Timeout while executing "Query classes from http://ibm.rkbexplorer.com/sparql/".
+2017-07-18 09:32:44 ERROR timeout:21 - Timeout while executing "Query classes from http://irit.rkbexplorer.com/sparql/".
+2017-07-18 09:32:45 ERROR timeout:21 - Timeout while executing "Query classes from http://jisc.rkbexplorer.com/sparql/".
+2017-07-18 09:32:50 ERROR timeout:21 - Timeout while executing "Query classes from http://kaunas.rkbexplorer.com/sparql".
+2017-07-18 09:32:51 ERROR timeout:21 - Timeout while executing "Query classes from http://kisti.rkbexplorer.com/sparql/".
+2017-07-18 09:32:52 ERROR timeout:21 - Timeout while executing "Query classes from http://lisbon.rkbexplorer.com/sparql".
+2017-07-18 09:32:57 ERROR timeout:21 - Timeout while executing "Query classes from http://newcastle.rkbexplorer.com/sparql/".
+2017-07-18 09:32:58 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:33:01 ERROR timeout:21 - Timeout while executing "Query classes from http://nsf.rkbexplorer.com/sparql/".
+2017-07-18 09:33:04 ERROR timeout:21 - Timeout while executing "Query properties from http://acm.rkbexplorer.com/sparql/".
+2017-07-18 09:33:07 ERROR timeout:21 - Timeout while executing "Query properties from http://data.organic-edunet.eu/sparql".
+2017-07-18 09:33:08 ERROR timeout:21 - Timeout while executing "Query classes from http://oai.rkbexplorer.com/sparql/".
+2017-07-18 09:33:11 ERROR timeout:21 - Timeout while executing "Query classes from http://pisa.rkbexplorer.com/sparql/".
+2017-07-18 09:33:11 ERROR riot:84 - [line: 12, col: 15] Failed to find a prefix name or keyword: “(8220;0x201C)
+2017-07-18 09:33:11 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:33:11 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [DIRECTIVE:prefix]
+2017-07-18 09:33:12 ERROR riot:84 - [line: 12, col: 15] Failed to find a prefix name or keyword: “(8220;0x201C)
+2017-07-18 09:33:12 ERROR riot:84 - [line: 1, col: 1 ] Expected BNode or IRI: Got: [DIRECTIVE:prefix]
+2017-07-18 09:33:12 ERROR riot:84 - [line: 1, col: 2 ] Unexpected character ('@' (code 64)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+2017-07-18 09:33:13 ERROR timeout:21 - Timeout while executing "Query properties from http://budapest.rkbexplorer.com/sparql/".
+2017-07-18 09:33:13 ERROR riot:84 - [line: 1, col: 1 ] XML error: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog.
+2017-07-18 09:33:13 ERROR timeout:21 - Timeout while executing "Query classes from http://roma.rkbexplorer.com/sparql/".
+2017-07-18 09:33:13 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:33:13 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:33:13 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:33:13 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:33:13 ERROR timeout:21 - Timeout while executing "Query properties from http://courseware.rkbexplorer.com/sparql/".
+2017-07-18 09:33:14 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 535, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 543, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 551, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 559, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 567, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 575, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 583, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 591, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:14 WARN  riot:77 - [line: 599, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:16 ERROR timeout:21 - Timeout while executing "Query properties from http://dblp.rkbexplorer.com/sparql/".
+2017-07-18 09:33:17 ERROR timeout:21 - Timeout while executing "Query properties from http://dotac.rkbexplorer.com/sparql/".
+2017-07-18 09:33:18 ERROR timeout:21 - Timeout while executing "Query properties from http://ecs.rkbexplorer.com/sparql".
+2017-07-18 09:33:20 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 595, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 603, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 611, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 619, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 627, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 635, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 643, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 651, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 659, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 667, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 675, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 683, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:20 WARN  riot:77 - [line: 691, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:21 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-05-12T16:16:23' not valid for datatype XSD date
+2017-07-18 09:33:21 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-05-12T16:16:23' not valid for datatype XSD date
+2017-07-18 09:33:21 WARN  riot:77 - [line: 22, col: 19] Lexical form '2009-12-23T01:04:20' not valid for datatype XSD date
+2017-07-18 09:33:21 WARN  riot:77 - [line: 45, col: 15] Lexical form '2010-05-12T16:16:23' not valid for datatype XSD date
+2017-07-18 09:33:22 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:33:22 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:33:25 ERROR timeout:21 - Timeout while executing "Query properties from http://eprints.rkbexplorer.com/sparql/".
+2017-07-18 09:33:25 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:25 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:25 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:25 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:33:26 WARN  riot:77 - [line: 595, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 603, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 611, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 619, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 627, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 635, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 643, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 651, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 659, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 667, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 675, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 683, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 WARN  riot:77 - [line: 691, col: 15] Lexical form '2010-09-13T17:25:07' not valid for datatype XSD date
+2017-07-18 09:33:26 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:33:27 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:33:28 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:46' not valid for datatype XSD date
+2017-07-18 09:33:28 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:46' not valid for datatype XSD date
+2017-07-18 09:33:28 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:46' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 499, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 507, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 515, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 523, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 531, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:32 WARN  riot:77 - [line: 539, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:33 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:33:34 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:33:36 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:36 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:36 WARN  riot:77 - [line: 46, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:36 WARN  riot:77 - [line: 350, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:36 WARN  riot:77 - [line: 358, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 535, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 543, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 551, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 559, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 567, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 575, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 583, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 591, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 WARN  riot:77 - [line: 599, col: 15] Lexical form '2010-09-13T14:00:50' not valid for datatype XSD date
+2017-07-18 09:33:38 ERROR timeout:21 - Timeout while executing "Query properties from http://era.rkbexplorer.com/sparql/".
+2017-07-18 09:33:40 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:40 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:40 WARN  riot:77 - [line: 48, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:40 WARN  riot:77 - [line: 88, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:42 ERROR timeout:21 - Timeout while executing "Query properties from http://eurecom.rkbexplorer.com/sparql/".
+2017-07-18 09:33:43 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:43 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:43 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 ERROR timeout:21 - Timeout while executing "Query properties from http://ft.rkbexplorer.com/sparql/".
+2017-07-18 09:33:44 WARN  riot:77 - [line: 499, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 WARN  riot:77 - [line: 507, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 WARN  riot:77 - [line: 515, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 WARN  riot:77 - [line: 523, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 WARN  riot:77 - [line: 531, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 WARN  riot:77 - [line: 539, col: 15] Lexical form '2010-09-13T12:58:34' not valid for datatype XSD date
+2017-07-18 09:33:44 ERROR timeout:21 - Timeout while executing "Query properties from http://ibm.rkbexplorer.com/sparql/".
+2017-07-18 09:33:44 ERROR timeout:21 - Timeout while executing "Query properties from http://irit.rkbexplorer.com/sparql/".
+2017-07-18 09:33:45 ERROR timeout:21 - Timeout while executing "Query properties from http://jisc.rkbexplorer.com/sparql/".
+2017-07-18 09:33:45 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:45 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:45 WARN  riot:77 - [line: 48, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:45 WARN  riot:77 - [line: 88, col: 15] Lexical form '2010-09-13T11:32:14' not valid for datatype XSD date
+2017-07-18 09:33:50 ERROR timeout:21 - Timeout while executing "Query properties from http://kaunas.rkbexplorer.com/sparql".
+2017-07-18 09:33:51 ERROR timeout:21 - Timeout while executing "Query properties from http://kisti.rkbexplorer.com/sparql/".
+2017-07-18 09:33:51 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:37' not valid for datatype XSD date
+2017-07-18 09:33:51 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:37' not valid for datatype XSD date
+2017-07-18 09:33:51 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:37' not valid for datatype XSD date
+2017-07-18 09:33:52 ERROR timeout:21 - Timeout while executing "Query properties from http://lisbon.rkbexplorer.com/sparql".
+2017-07-18 09:33:55 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:33:55 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:55 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:55 WARN  riot:77 - [line: 46, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:56 WARN  riot:77 - [line: 350, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:56 WARN  riot:77 - [line: 358, col: 15] Lexical form '2010-09-13T14:27:13' not valid for datatype XSD date
+2017-07-18 09:33:56 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:33:57 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/opencyc-uni-mannheim".
+2017-07-18 09:33:57 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/opencyc>). Msg: null
+2017-07-18 09:33:57 ERROR timeout:21 - Timeout while executing "Query properties from http://newcastle.rkbexplorer.com/sparql/".
+2017-07-18 09:33:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/open-election-data-project-uni-mannheim".
+2017-07-18 09:33:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/open-election-data-project>). Msg: null
+2017-07-18 09:34:00 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 22, col: 19] Lexical form '2009-10-02T01:04:00' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 81, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 82, col: 19] Lexical form '2010-05-08T22:20:44' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 105, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 113, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:00 WARN  riot:77 - [line: 121, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:01 ERROR timeout:21 - Timeout while executing "Query properties from http://nsf.rkbexplorer.com/sparql/".
+2017-07-18 09:34:03 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:46' not valid for datatype XSD date
+2017-07-18 09:34:03 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:46' not valid for datatype XSD date
+2017-07-18 09:34:03 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:46' not valid for datatype XSD date
+2017-07-18 09:34:07 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/organic-edunet-uni-mannheim".
+2017-07-18 09:34:07 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/organic-edunet>). Msg: null
+2017-07-18 09:34:08 ERROR timeout:21 - Timeout while executing "Query properties from http://oai.rkbexplorer.com/sparql/".
+2017-07-18 09:34:08 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:08 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:08 WARN  riot:77 - [line: 46, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:08 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:08 WARN  riot:77 - [line: 302, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:08 WARN  riot:77 - [line: 310, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:08 WARN  riot:77 - [line: 318, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:08 WARN  riot:77 - [line: 326, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 46, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 302, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 310, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 318, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:09 WARN  riot:77 - [line: 326, col: 15] Lexical form '2010-09-13T11:30:53' not valid for datatype XSD date
+2017-07-18 09:34:10 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:10 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T13:18:39' not valid for datatype XSD date
+2017-07-18 09:34:10 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T13:18:39' not valid for datatype XSD date
+2017-07-18 09:34:10 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T13:18:39' not valid for datatype XSD date
+2017-07-18 09:34:11 ERROR timeout:21 - Timeout while executing "Query properties from http://pisa.rkbexplorer.com/sparql/".
+2017-07-18 09:34:12 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:42' not valid for datatype XSD date
+2017-07-18 09:34:12 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:42' not valid for datatype XSD date
+2017-07-18 09:34:12 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:42' not valid for datatype XSD date
+2017-07-18 09:34:13 ERROR timeout:21 - Timeout while executing "Query properties from http://roma.rkbexplorer.com/sparql/".
+2017-07-18 09:34:14 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:34:14 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:34:14 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:34:14 WARN  riot:77 - [line: 295, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:34:15 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:15 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:16 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:17 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/prelex-uni-mannheim".
+2017-07-18 09:34:17 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/prelex>). Msg: null
+2017-07-18 09:34:18 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 46, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 146, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 46, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 146, col: 15] Lexical form '2010-09-13T11:30:59' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 403, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 411, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 419, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:36' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:36' not valid for datatype XSD date
+2017-07-18 09:34:18 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:36' not valid for datatype XSD date
+2017-07-18 09:34:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/productdb-uni-mannheim".
+2017-07-18 09:34:19 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/productdb>). Msg: null
+2017-07-18 09:34:19 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:36' not valid for datatype XSD date
+2017-07-18 09:34:19 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:36' not valid for datatype XSD date
+2017-07-18 09:34:19 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:36' not valid for datatype XSD date
+2017-07-18 09:34:21 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/provenanceweb-uni-mannheim".
+2017-07-18 09:34:21 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/provenanceweb>). Msg: null
+2017-07-18 09:34:23 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:25 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T13:18:39' not valid for datatype XSD date
+2017-07-18 09:34:25 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T13:18:39' not valid for datatype XSD date
+2017-07-18 09:34:25 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T13:18:39' not valid for datatype XSD date
+2017-07-18 09:34:25 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:28 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:37' not valid for datatype XSD date
+2017-07-18 09:34:28 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:37' not valid for datatype XSD date
+2017-07-18 09:34:28 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:37' not valid for datatype XSD date
+2017-07-18 09:34:32 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:33 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:33 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:35 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:35 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:52' not valid for datatype XSD date
+2017-07-18 09:34:35 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:52' not valid for datatype XSD date
+2017-07-18 09:34:35 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:52' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:47' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:47' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:47' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 403, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 411, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 419, col: 15] Lexical form '2010-09-13T11:31:12' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:47' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:47' not valid for datatype XSD date
+2017-07-18 09:34:36 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:47' not valid for datatype XSD date
+2017-07-18 09:34:38 ERROR timeout:21 - Timeout while executing "List void graph names from http://acm.rkbexplorer.com/sparql/".
+2017-07-18 09:34:39 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 22, col: 19] Lexical form '2009-10-02T01:04:00' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 81, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 82, col: 19] Lexical form '2010-05-08T22:20:44' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 105, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 113, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:39 WARN  riot:77 - [line: 121, col: 15] Lexical form '2010-05-12T16:21:43' not valid for datatype XSD date
+2017-07-18 09:34:41 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:41 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-acm>).
+2017-07-18 09:34:41 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:42' not valid for datatype XSD date
+2017-07-18 09:34:41 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:42' not valid for datatype XSD date
+2017-07-18 09:34:41 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:42' not valid for datatype XSD date
+2017-07-18 09:34:42 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:43 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-acm>).
+2017-07-18 09:34:46 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:47 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:49 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:50 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:50 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:51 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:52' not valid for datatype XSD date
+2017-07-18 09:34:51 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:52' not valid for datatype XSD date
+2017-07-18 09:34:51 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:52' not valid for datatype XSD date
+2017-07-18 09:34:51 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:51 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:52 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:57 ERROR timeout:21 - Timeout while executing "Query classes from http://southampton.rkbexplorer.com/sparql/".
+2017-07-18 09:34:57 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:34:57 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:34:57 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:34:57 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:34:57 WARN  riot:77 - [line: 331, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:34:57 WARN  riot:77 - [line: 339, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:34:58 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:34:59 ERROR timeout:21 - Timeout while executing "Query classes from http://ulm.rkbexplorer.com/sparql/".
+2017-07-18 09:34:59 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:40' not valid for datatype XSD date
+2017-07-18 09:34:59 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:40' not valid for datatype XSD date
+2017-07-18 09:34:59 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:40' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 295, col: 15] Lexical form '2010-09-13T11:30:44' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 331, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:35:05 WARN  riot:77 - [line: 339, col: 15] Lexical form '2010-09-13T11:32:28' not valid for datatype XSD date
+2017-07-18 09:35:06 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:40' not valid for datatype XSD date
+2017-07-18 09:35:06 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:40' not valid for datatype XSD date
+2017-07-18 09:35:06 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:30:40' not valid for datatype XSD date
+2017-07-18 09:35:07 ERROR timeout:21 - Timeout while executing "Query classes from http://unlocode.rkbexplorer.com/sparql/".
+2017-07-18 09:35:10 ERROR timeout:21 - Timeout while executing "List void graph names from http://budapest.rkbexplorer.com/sparql/".
+2017-07-18 09:35:10 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-budapest>).
+2017-07-18 09:35:10 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-budapest>).
+2017-07-18 09:35:11 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/statusnet-fcac-com-uni-mannheim>).
+2017-07-18 09:35:11 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/statusnet-fcac-com>).
+2017-07-18 09:35:14 ERROR timeout:21 - Timeout while executing "List void graph names from http://courseware.rkbexplorer.com/sparql/".
+2017-07-18 09:35:14 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-courseware>).
+2017-07-18 09:35:14 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-courseware>).
+2017-07-18 09:35:17 ERROR timeout:21 - Timeout while executing "Query classes from http://aseg.cs.concordia.ca/secold/sparqlendpoint".
+2017-07-18 09:35:19 ERROR timeout:21 - Timeout while executing "Query classes from http://data.semanticuniverse.com/sparql".
+2017-07-18 09:35:19 ERROR timeout:21 - Timeout while executing "List void graph names from http://eprints.rkbexplorer.com/sparql/".
+2017-07-18 09:35:19 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-eprints>).
+2017-07-18 09:35:19 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-eprints>).
+2017-07-18 09:35:21 ERROR timeout:21 - Timeout while executing "Query classes from http://purl.org/weso/sparql".
+2017-07-18 09:35:22 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:35:24 ERROR riot:84 - [line: 1, col: 11] Unrecognized token 'PK   ': was expecting ('true', 'false' or 'null')
+2017-07-18 09:35:24 ERROR riot:84 - [line: 1, col: 1 ] XML error: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog.
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:25 WARN  ThriftConvert:80 - visit: Unrecognized: <RDF_StreamRow >
+2017-07-18 09:35:29 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 6, col: 9 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 33, col: 14] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#myDS-DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 38, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 44, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#myDS-DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 50, col: 14] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 53, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS2> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 59, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#myDS-DS2> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:29 WARN  riot:77 - [line: 65, col: 14] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS2> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:35:30 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:35:55 ERROR timeout:21 - Timeout while executing "List void graph names from http://dblp.rkbexplorer.com/sparql/".
+2017-07-18 09:35:55 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-dblp>).
+2017-07-18 09:35:55 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-dblp>).
+2017-07-18 09:35:57 ERROR timeout:21 - Timeout while executing "Query properties from http://southampton.rkbexplorer.com/sparql/".
+2017-07-18 09:35:58 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/pscs-catalogue-uni-mannheim".
+2017-07-18 09:35:58 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/pscs-catalogue>). Msg: null
+2017-07-18 09:35:59 ERROR timeout:21 - Timeout while executing "List void graph names from http://era.rkbexplorer.com/sparql/".
+2017-07-18 09:35:59 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-era>).
+2017-07-18 09:35:59 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-era>).
+2017-07-18 09:35:59 ERROR timeout:21 - Timeout while executing "Query properties from http://ulm.rkbexplorer.com/sparql/".
+2017-07-18 09:35:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/riese-uni-mannheim".
+2017-07-18 09:35:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/riese>). Msg: null
+2017-07-18 09:36:03 ERROR timeout:21 - Timeout while executing "List void graph names from http://dotac.rkbexplorer.com/sparql/".
+2017-07-18 09:36:03 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-dotac>).
+2017-07-18 09:36:03 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-dotac>).
+2017-07-18 09:36:04 ERROR timeout:21 - Timeout while executing "List void graph names from http://jisc.rkbexplorer.com/sparql/".
+2017-07-18 09:36:04 ERROR timeout:21 - Timeout while executing "List void graph names from http://eurecom.rkbexplorer.com/sparql/".
+2017-07-18 09:36:04 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-jisc>).
+2017-07-18 09:36:04 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-jisc>).
+2017-07-18 09:36:04 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-eurecom>).
+2017-07-18 09:36:05 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-eurecom>).
+2017-07-18 09:36:05 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:36:06 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:36:06 ERROR timeout:21 - Timeout while executing "List void graph names from http://ft.rkbexplorer.com/sparql/".
+2017-07-18 09:36:06 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ft>).
+2017-07-18 09:36:07 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ft>).
+2017-07-18 09:36:07 ERROR timeout:21 - Timeout while executing "Query properties from http://unlocode.rkbexplorer.com/sparql/".
+2017-07-18 09:36:09 ERROR timeout:21 - Timeout while executing "List void graph names from http://ibm.rkbexplorer.com/sparql/".
+2017-07-18 09:36:09 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ibm>).
+2017-07-18 09:36:09 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ibm>).
+2017-07-18 09:36:09 ERROR timeout:21 - Timeout while executing "List void graph names from http://irit.rkbexplorer.com/sparql/".
+2017-07-18 09:36:09 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 47, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 195, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 203, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 211, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 219, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 227, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 235, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 WARN  riot:77 - [line: 243, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:09 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-irit>).
+2017-07-18 09:36:10 WARN  riot:77 - [line: 251, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:10 WARN  riot:77 - [line: 259, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:10 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-irit>).
+2017-07-18 09:36:11 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:11 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:11 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 595, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 603, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 611, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 619, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 627, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 635, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 643, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 651, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 659, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 667, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 675, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 683, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 691, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 699, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 707, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 715, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:41' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:41' not valid for datatype XSD date
+2017-07-18 09:36:12 WARN  riot:77 - [line: 50, col: 15] Lexical form '2010-09-13T11:30:41' not valid for datatype XSD date
+2017-07-18 09:36:12 ERROR timeout:21 - Timeout while executing "List void graph names from http://kaunas.rkbexplorer.com/sparql".
+2017-07-18 09:36:12 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-kaunas>).
+2017-07-18 09:36:12 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-kaunas>).
+2017-07-18 09:36:14 ERROR timeout:21 - Timeout while executing "List void graph names from http://newcastle.rkbexplorer.com/sparql/".
+2017-07-18 09:36:14 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-newcastle>).
+2017-07-18 09:36:14 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-newcastle>).
+2017-07-18 09:36:14 ERROR timeout:21 - Timeout while executing "List void graph names from http://lisbon.rkbexplorer.com/sparql".
+2017-07-18 09:36:14 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-lisbon>).
+2017-07-18 09:36:15 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-lisbon>).
+2017-07-18 09:36:15 WARN  riot:77 - [line: 6, col: 9 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 33, col: 14] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#myDS-DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 38, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 44, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#myDS-DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 50, col: 14] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS1> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 53, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS2> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 59, col: 1 ] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#myDS-DS2> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:15 WARN  riot:77 - [line: 65, col: 14] Bad IRI: <http:/stitch.cs.vu.nl/rameau/void#DS2> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:17 ERROR timeout:21 - Timeout while executing "Query classes from http://aseg.cs.concordia.ca/secold/sparql/".
+2017-07-18 09:36:18 ERROR timeout:21 - Timeout while executing "List void graph names from http://nsf.rkbexplorer.com/sparql/".
+2017-07-18 09:36:18 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-nsf>).
+2017-07-18 09:36:18 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-nsf>).
+2017-07-18 09:36:18 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:18 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:18 WARN  riot:77 - [line: 51, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:18 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/rkb-explorer-ecs-uni-mannheim".
+2017-07-18 09:36:18 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ecs>). Msg: null
+2017-07-18 09:36:19 ERROR timeout:21 - Timeout while executing "Query properties from http://data.semanticuniverse.com/sparql".
+2017-07-18 09:36:19 WARN  riot:77 - [line: 595, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 603, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 611, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 619, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 627, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 635, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 643, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 651, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 659, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 667, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 675, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 683, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 691, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 699, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 707, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:19 WARN  riot:77 - [line: 715, col: 15] Lexical form '2010-09-13T11:36:12' not valid for datatype XSD date
+2017-07-18 09:36:21 ERROR timeout:21 - Timeout while executing "Query properties from http://purl.org/weso/sparql".
+2017-07-18 09:36:22 ERROR timeout:21 - Timeout while executing "List void graph names from http://kisti.rkbexplorer.com/sparql/".
+2017-07-18 09:36:23 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-kisti>).
+2017-07-18 09:36:23 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-kisti>).
+2017-07-18 09:36:23 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:36:24 ERROR timeout:21 - Timeout while executing "List void graph names from http://roma.rkbexplorer.com/sparql/".
+2017-07-18 09:36:24 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-roma>).
+2017-07-18 09:36:25 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-roma>).
+2017-07-18 09:36:25 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:36:26 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:36:27 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:36:29 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:36:29 ERROR timeout:21 - Timeout while executing "List void graph names from http://oai.rkbexplorer.com/sparql/".
+2017-07-18 09:36:29 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/rkb-explorer-oai-uni-mannheim>).
+2017-07-18 09:36:29 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-oai>).
+2017-07-18 09:36:31 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:36:32 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/stitch-rameau>). Msg: org.apache.jena.shared.BadURIException: Only well-formed absolute URIrefs can be included in RDF/XML output: <http:/stitch.cs.vu.nl/rameau/void#> Code: 57/REQUIRED_COMPONENT_MISSING in HOST: A component that is required by the scheme is missing.
+2017-07-18 09:36:33 ERROR timeout:21 - Timeout while executing "List void graph names from http://pisa.rkbexplorer.com/sparql/".
+2017-07-18 09:36:33 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-pisa>).
+2017-07-18 09:36:33 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-pisa>).
+2017-07-18 09:36:34 ERROR riot:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+2017-07-18 09:36:36 ERROR riot:84 - [line: 1, col: 2 ] Illegal character ((CTRL-CHAR, code 31)): only regular white space (\r, \n, \t) is allowed between tokens
+2017-07-18 09:36:37 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:30:41' not valid for datatype XSD date
+2017-07-18 09:36:37 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:30:41' not valid for datatype XSD date
+2017-07-18 09:36:37 WARN  riot:77 - [line: 50, col: 15] Lexical form '2010-09-13T11:30:41' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 13, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 21, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 47, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 195, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 203, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 211, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 219, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 227, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 235, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 243, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 251, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:40 WARN  riot:77 - [line: 259, col: 15] Lexical form '2010-09-13T11:36:17' not valid for datatype XSD date
+2017-07-18 09:36:55 ERROR timeout:21 - Timeout while executing "Query classes from http://zbw.eu/beta/sparql/stw/query".
+2017-07-18 09:36:58 ERROR timeout:21 - Timeout while executing "Query classes from http://www.open-biomed.org.uk/sparql/endpoint/tcm".
+2017-07-18 09:36:59 ERROR timeout:21 - Timeout while executing "Query classes from http://diwis.imis.athena-innovation.gr:8181/sparql".
+2017-07-18 09:36:59 ERROR timeout:21 - Timeout while executing "Query classes from http://lod.apc.gov.tw/sparql".
+2017-07-18 09:37:03 ERROR timeout:21 - Timeout while executing "Query classes from http://ieeevis.tw.rpi.edu/sparql".
+2017-07-18 09:37:04 ERROR timeout:21 - Timeout while executing "Query classes from http://opendap.tw.rpi.edu/sparql".
+2017-07-18 09:37:05 ERROR timeout:21 - Timeout while executing "Query classes from http://platform.uberblic.org/api/v1/sparql".
+2017-07-18 09:37:08 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/rkb-explorer-opencyc-uni-mannheim".
+2017-07-18 09:37:08 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-opencyc>). Msg: null
+2017-07-18 09:37:11 ERROR timeout:21 - Timeout while executing "Query classes from http://unodc.publicdata.eu/sparql".
+2017-07-18 09:37:17 ERROR timeout:21 - Timeout while executing "Query properties from http://aseg.cs.concordia.ca/secold/sparqlendpoint".
+2017-07-18 09:37:28 ERROR timeout:21 - Timeout while executing "Query classes from http://neuroweb.med.yale.edu:8890/sparql".
+2017-07-18 09:37:30 ERROR timeout:21 - Timeout while executing "List void graph names from http://southampton.rkbexplorer.com/sparql/".
+2017-07-18 09:37:30 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-southampton>).
+2017-07-18 09:37:30 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-southampton>).
+2017-07-18 09:37:39 ERROR timeout:21 - Timeout while executing "List void graph names from http://ulm.rkbexplorer.com/sparql/".
+2017-07-18 09:37:39 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ulm>).
+2017-07-18 09:37:40 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-ulm>).
+2017-07-18 09:37:40 ERROR timeout:21 - Timeout while executing "List void graph names from http://unlocode.rkbexplorer.com/sparql/".
+2017-07-18 09:37:41 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-unlocode>).
+2017-07-18 09:37:41 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-unlocode>).
+2017-07-18 09:37:55 ERROR timeout:21 - Timeout while executing "Query properties from http://zbw.eu/beta/sparql/stw/query".
+2017-07-18 09:37:58 ERROR timeout:21 - Timeout while executing "Query properties from http://www.open-biomed.org.uk/sparql/endpoint/tcm".
+2017-07-18 09:37:59 ERROR timeout:21 - Timeout while executing "Query properties from http://diwis.imis.athena-innovation.gr:8181/sparql".
+2017-07-18 09:37:59 ERROR timeout:21 - Timeout while executing "Query properties from http://lod.apc.gov.tw/sparql".
+2017-07-18 09:38:03 ERROR timeout:21 - Timeout while executing "Query properties from http://ieeevis.tw.rpi.edu/sparql".
+2017-07-18 09:38:04 ERROR timeout:21 - Timeout while executing "Query classes from http://www.w3.org/ns/sparql-service-description".
+2017-07-18 09:38:05 ERROR timeout:21 - Timeout while executing "Query properties from http://platform.uberblic.org/api/v1/sparql".
+2017-07-18 09:38:11 ERROR timeout:21 - Timeout while executing "Query properties from http://unodc.publicdata.eu/sparql".
+2017-07-18 09:38:17 ERROR timeout:21 - Timeout while executing "Query properties from http://aseg.cs.concordia.ca/secold/sparql/".
+2017-07-18 09:38:28 ERROR timeout:21 - Timeout while executing "Query properties from http://neuroweb.med.yale.edu:8890/sparql".
+2017-07-18 09:39:04 ERROR timeout:21 - Timeout while executing "Query properties from http://opendap.tw.rpi.edu/sparql".
+2017-07-18 09:39:17 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/secold-uni-mannheim".
+2017-07-18 09:39:17 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/secold>). Msg: null
+2017-07-18 09:39:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/semantic-universe-uni-mannheim".
+2017-07-18 09:39:19 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/semantic-universe>). Msg: null
+2017-07-18 09:39:21 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/sitc-v4-uni-mannheim".
+2017-07-18 09:39:21 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/sitc-v4>). Msg: null
+2017-07-18 09:39:43 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/statusnet-dtdns-net-uni-mannheim".
+2017-07-18 09:39:43 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/statusnet-dtdns-net>). Msg: null
+2017-07-18 09:40:04 ERROR timeout:21 - Timeout while executing "Query properties from http://www.w3.org/ns/sparql-service-description".
+2017-07-18 09:40:09 ERROR riot:84 - [line: 1, col: 7 ] Bad character in IRI (space): <?xml[space]...>
+2017-07-18 09:40:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/statusnet-freelish-us-uni-mannheim".
+2017-07-18 09:40:11 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/statusnet-freelish-us>). Msg: null
+2017-07-18 09:40:14 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/statusnet-recit-org-uni-mannheim".
+2017-07-18 09:40:14 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/statusnet-recit-org>). Msg: null
+2017-07-18 09:40:55 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/stw-thesaurus-for-economics-uni-mannheim".
+2017-07-18 09:40:55 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/stw-thesaurus-for-economics>). Msg: null
+2017-07-18 09:40:58 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/tcmgenedit_dataset-uni-mannheim".
+2017-07-18 09:40:58 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/tcmgenedit_dataset>). Msg: null
+2017-07-18 09:40:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/testee-uni-mannheim".
+2017-07-18 09:40:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/testee>). Msg: null
+2017-07-18 09:40:59 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/tip-uni-mannheim".
+2017-07-18 09:40:59 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/tip>). Msg: null
+2017-07-18 09:41:03 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/twc-ieeevis-uni-mannheim".
+2017-07-18 09:41:03 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/twc-ieeevis>). Msg: null
+2017-07-18 09:41:04 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/twc-opendap-uni-mannheim".
+2017-07-18 09:41:04 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/twc-opendap>). Msg: null
+2017-07-18 09:41:05 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/uberblic-uni-mannheim".
+2017-07-18 09:41:05 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/uberblic>). Msg: null
+2017-07-18 09:41:07 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/uniovi-es-uni-mannheim".
+2017-07-18 09:41:07 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/uniovi-es>). Msg: null
+2017-07-18 09:41:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/unodc-uni-mannheim".
+2017-07-18 09:41:11 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/unodc>). Msg: null
+2017-07-18 09:41:15 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/vivo-indiana-university-uni-mannheim".
+2017-07-18 09:41:15 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/vivo-indiana-university>). Msg: null
+2017-07-18 09:41:21 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/webnmasunotraveler-uni-mannheim".
+2017-07-18 09:41:21 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/webnmasunotraveler>). Msg: null
+2017-07-18 09:41:28 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/yale_senselab-uni-mannheim".
+2017-07-18 09:41:28 ERROR error:73 - Task failure (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/yale_senselab>). Msg: null
+2017-07-18 09:46:38 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/0000-0003-4469-8298-3-datahub".
+2017-07-18 09:46:38 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/0000-0003-4469-8298-3>). Msg: null
+2017-07-18 09:46:39 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/06072005-datahub".
+2017-07-18 09:46:39 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/06072005>). Msg: null
+2017-07-18 09:46:44 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/18122006-datahub".
+2017-07-18 09:46:44 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/18122006>). Msg: null
+2017-07-18 09:48:07 ERROR timeout:21 - Timeout while executing "Query classes from http://lab.environment.data.gov.au/sparql".
+2017-07-18 09:49:07 ERROR timeout:21 - Timeout while executing "Query properties from http://lab.environment.data.gov.au/sparql".
+2017-07-18 09:49:14 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/all-people-economically-active-in-employment-self-employed-datahub>).
+2017-07-18 09:49:14 INFO  info:138 - Dataset saved (<http://datahub.io/api/rest/dataset/all-people-economically-active-in-employment-self-employed>).
+2017-07-18 09:49:23 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/annualseasonalprecipitationwetyears-datahub>).
+2017-07-18 09:49:23 INFO  info:138 - Dataset saved (<http://datahub.io/api/rest/dataset/annualseasonalprecipitationwetyears>).
+2017-07-18 09:49:28 ERROR timeout:21 - Timeout while executing "Query classes from http://aliada.scanbit.net:8891/sparql".
+2017-07-18 09:49:37 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/ansd_test3-datahub>).
+2017-07-18 09:49:37 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/ansd_test3>). Msg: org.apache.jena.shared.CannotEncodeCharacterException: cannot encode (char)  in context XML
+2017-07-18 09:49:38 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/ansd_test3ansd_test3ansd_test3ansd_test3ansd_test3-datahub>).
+2017-07-18 09:49:38 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/ansd_test2-datahub>).
+2017-07-18 09:49:38 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/ansd_test3ansd_test3ansd_test3ansd_test3ansd_test3>). Msg: org.apache.jena.shared.CannotEncodeCharacterException: cannot encode (char)  in context XML
+2017-07-18 09:49:38 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/ansd_test2>). Msg: org.apache.jena.shared.CannotEncodeCharacterException: cannot encode (char)  in context XML
+2017-07-18 09:50:28 ERROR timeout:21 - Timeout while executing "Query properties from http://aliada.scanbit.net:8891/sparql".
+2017-07-18 09:50:41 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:42 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:45 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:47 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:48 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:48 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:49 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:50 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:50 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:51 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:53 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:50:54 ERROR timeout:21 - Timeout while executing "Query classes from http://linguistic.linkeddata.es/sparql/".
+2017-07-18 09:51:09 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-1-e001-datahub".
+2017-07-18 09:51:09 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-1-e001>). Msg: null
+2017-07-18 09:51:10 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-1-e002-datahub".
+2017-07-18 09:51:10 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-1-e002>). Msg: null
+2017-07-18 09:51:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-1-e003-datahub".
+2017-07-18 09:51:11 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-1-e003>). Msg: null
+2017-07-18 09:51:11 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-1-e004-datahub".
+2017-07-18 09:51:11 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-1-e004>). Msg: null
+2017-07-18 09:51:12 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-2-e06-datahub".
+2017-07-18 09:51:12 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-2-e06>). Msg: null
+2017-07-18 09:51:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-2-e07-datahub".
+2017-07-18 09:51:13 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-2-e07>). Msg: null
+2017-07-18 09:51:13 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-2-e09-datahub".
+2017-07-18 09:51:13 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-2-e09>). Msg: null
+2017-07-18 09:51:14 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-2-e10-datahub".
+2017-07-18 09:51:14 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-2-e10>). Msg: null
+2017-07-18 09:51:15 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-2-e11-datahub".
+2017-07-18 09:51:15 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-2-e11>). Msg: null
+2017-07-18 09:51:19 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-3-e20-datahub".
+2017-07-18 09:51:19 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-3-e20>). Msg: null
+2017-07-18 09:51:20 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-3-e21-datahub".
+2017-07-18 09:51:20 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-3-e21>). Msg: null
+2017-07-18 09:51:21 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2016-1-3-e22-datahub".
+2017-07-18 09:51:21 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2016-1-3-e22>). Msg: null
+2017-07-18 09:51:23 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2017-2-1-e23-datahub".
+2017-07-18 09:51:23 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2017-2-1-e23>). Msg: null
+2017-07-18 09:51:24 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2017-2-1-e24-datahub".
+2017-07-18 09:51:24 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2017-2-1-e24>). Msg: null
+2017-07-18 09:51:25 ERROR timeout:21 - Timeout while executing "Make void of http://swlab.paes-leme.name:8080/resource/2017-2-1-e25-datahub".
+2017-07-18 09:51:25 ERROR error:73 - Task failure (<http://datahub.io/api/rest/dataset/2017-2-1-e25>). Msg: null

@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
@@ -321,7 +322,7 @@ public class Dataset {
                         + "limit 200";
                 Callable<Map<String, Integer>> task = () -> {
                     Map<String, Integer> classes = new HashMap<>();
-                    try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                    try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
                         ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
                         ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                         ResultSet rs = exec.execSelect();
@@ -356,7 +357,7 @@ public class Dataset {
                         + "limit 200";
                 Callable<Map<String, Integer>> task = () -> {
                     Map<String, Integer> properties = new HashMap<>();
-                    try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                    try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
                         ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
                         ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                         ResultSet rs = exec.execSelect();

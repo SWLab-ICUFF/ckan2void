@@ -1,0 +1,15 @@
+2017-07-17 21:04:33 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/colinda-uni-mannheim>).
+2017-07-17 21:04:34 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/colinda-partitions>).
+2017-07-17 21:04:34 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/colinda>).
+2017-07-17 21:07:03 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/dbpedia-ja-uni-mannheim>).
+2017-07-17 21:07:04 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/dbpedia-ja>).
+2017-07-17 21:07:58 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/event-media-uni-mannheim>).
+2017-07-17 21:07:59 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/event-media>).
+2017-07-17 21:12:01 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/linked-user-feedback-uni-mannheim>).
+2017-07-17 21:12:01 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/linked-user-feedback>).
+2017-07-17 21:12:40 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/nvs-uni-mannheim>).
+2017-07-17 21:12:40 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/nvs>).
+2017-07-17 21:17:01 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-deploy>).
+2017-07-17 21:17:02 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-deploy>).
+2017-07-17 21:17:29 INFO  info:109 - Empty captured VoID (<http://swlab.paes-leme.name:8080/resource/statusnet-hackerposse-com-uni-mannheim>).
+2017-07-17 21:17:29 INFO  info:138 - Dataset saved (<http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/statusnet-hackerposse-com>).

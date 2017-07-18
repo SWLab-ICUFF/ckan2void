@@ -31,13 +31,13 @@
                 others, as recommended by W3C VoID Vocabulary. However,
                 catalogues by themselves do not provide any explicit
                 information to help the URI linkage process.
-
+                <br><br>
                 Searching techniques can rank available datasets Si according"
                 to the probability that it will be possible to define links
                 between URIs of Si and a given dataset T to be published, so
                 that most of the links, if not all, could be found by
                 inspecting the most relevant datasets in the ranking.
-
+                <br><br>
                 This dataset provides dataset descriptions using the VoID
                 vocabulary and linkage references for supporting the
                 evaluation of searching techniques for dataset linkage. The

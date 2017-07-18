@@ -40,34 +40,35 @@ public abstract class Main {
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);
-        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
-            if ((new UrlValidator()).isValid(catalog)) {
+        if (false)
+            for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
+                if ((new UrlValidator()).isValid(catalog)) {
 
-                try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
-                    System.out.println(String.format("Crawler started (%s).", catalog));
-                    Integer counter = 0;
+                    try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
+                        System.out.println(String.format("Crawler started (%s).", catalog));
+                        Integer counter = 0;
 
-                    List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
-                    ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-                    while (crawler.hasNext()) {
+                        List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
+                        ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+                        while (crawler.hasNext()) {
 
-                        Dataset dataset = crawler.next();
-                        String graphURI = dataset.getJsonMetadataUrl();
+                            Dataset dataset = crawler.next();
+                            String graphURI = dataset.getJsonMetadataUrl();
 
-                        if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                            pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
-                        } else
-                            System.out.println("Skipping dataset " + graphURI + ".");
+                            if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                                pool.submit(new MakeVoIDTask(dataset, graphURI));
+                                System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
+                            } else
+                                System.out.println("Skipping dataset " + graphURI + ".");
+
+                        }
+                        pool.shutdown();
+                        System.out.println("Waiting for remaining tasks...");
+                        pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
                     }
-                    pool.shutdown();
-                    System.out.println("Waiting for remaining tasks...");
-                    pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
-
+                    System.out.println(String.format("Crawler ended (%s).", catalog));
                 }
-                System.out.println(String.format("Crawler ended (%s).", catalog));
-            }
 
         createRootResource();
         exportDataset();
@@ -75,6 +76,7 @@ public abstract class Main {
     }
 
     private static void createRootResource() throws InvalidNameException {
+        System.out.println("Creating root resource...");
         String queryString = ""
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
@@ -86,14 +88,16 @@ public abstract class Main {
                 + "           :id-root-dataset-descriptions foaf:topic ?s.}\n"
                 + "where {select distinct ?s \n"
                 + "       where {graph ?g {?s a void:Dataset. \n"
-                + "                        filter not exists {?s2 (void:subset | void:classPartition | void:propertyPartition) ?s}} } limit 10}";
+                + "                        filter not exists {?s2 (void:subset | void:classPartition | void:propertyPartition) ?s}}}}";
 
         queryString = String.format(queryString, Config.HOST.linkedDataNS());
         Model rootResource = Config.HOST.execConstruct(queryString, uff.ic.swlab.ckan2void.util.Config.FUSEKI_DATASET);
         Config.HOST.putModel(Config.FUSEKI_DATASET, rootResource);
+        System.out.println("Done.");
     }
 
     private static void exportDataset() throws Exception, IOException {
+        System.out.println("Exporting dataset...");
         (new File(Config.LOCAL_DATASET_HOMEPAGE)).getParentFile().mkdirs();
 
         org.apache.jena.query.Dataset dataset = DatasetFactory.create();
@@ -124,9 +128,11 @@ public abstract class Main {
             out2.finish();
             out.flush();
         }
+        System.out.println("Done.");
     }
 
     private static void uploadDataset() throws FileNotFoundException, IOException, Exception {
+        System.out.println("Uploading dataset...");
         Config.HOST.mkDirsViaFTP(Config.REMOTE_DATASET_HOMEPAGE, Config.USERNAME, Config.PASSWORD);
 
         Config.HOST.uploadBinaryFile(Config.LOCAL_DATASET_HOMEPAGE, Config.REMOTE_DATASET_HOMEPAGE, Config.USERNAME, Config.PASSWORD);
@@ -134,6 +140,7 @@ public abstract class Main {
         Config.HOST.uploadBinaryFile(Config.LOCAL_TRIG_DUMP_NAME, Config.REMOTE_TRIG_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
         Config.HOST.uploadBinaryFile(Config.LOCAL_TRIX_DUMP_NAME, Config.REMOTE_TRIX_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
         Config.HOST.uploadBinaryFile(Config.LOCAL_JSONLD_DUMP_NAME, Config.REMOTE_JSONLD_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
+        System.out.println("Done.");
     }
 
     private static String getOper(String[] args) throws IllegalArgumentException {

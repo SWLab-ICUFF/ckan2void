@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -142,7 +143,7 @@ public abstract class VoIDHelper {
             List<String> graphNames = new ArrayList<>();
             String query = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
             String name;
-            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query)) {
+            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query, HttpClients.createDefault())) {
                 ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                 ResultSet rs = exec.execSelect();
                 while (rs.hasNext()) {

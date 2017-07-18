@@ -11,6 +11,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import javax.naming.SizeLimitExceededException;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.QueryExecution;
@@ -26,7 +27,7 @@ public abstract class RDFDataMgr {
     public static Dataset loadDataset(String sparqlEndPoint, String query) throws TimeoutException, InterruptedException, ExecutionException {
         Callable<Dataset> task = () -> {
             Model tempModel = ModelFactory.createDefaultModel();
-            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query)) {
+            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query, HttpClients.createDefault())) {
                 ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
                 ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                 exec.execConstruct(tempModel);

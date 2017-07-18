@@ -22,6 +22,10 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.jena.update.UpdateExecutionFactory;
+import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.update.UpdateProcessor;
+import org.apache.jena.update.UpdateRequest;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.helper.VoIDHelper;
@@ -57,6 +61,10 @@ public enum SWLabHost {
 
     public String getSparqlURL(String datasetname) {
         return String.format(baseHttpUrl() + "fuseki/%1$s/sparql", datasetname);
+    }
+
+    public String getUpdateURL(String datasetname) {
+        return String.format(baseHttpUrl() + "fuseki/%1$s/update", datasetname);
     }
 
     public String getDataURL(String datasetname) {
@@ -100,6 +108,12 @@ public enum SWLabHost {
             exec.execConstruct(result);
         }
         return result;
+    }
+
+    public synchronized void execUpdate(String queryString, String datasetname) {
+        UpdateRequest request = UpdateFactory.create(queryString);
+        UpdateProcessor execution = UpdateExecutionFactory.createRemote(request, getUpdateURL(datasetname));
+        execution.execute();
     }
 
     public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException {

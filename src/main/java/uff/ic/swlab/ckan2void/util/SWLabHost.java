@@ -140,6 +140,12 @@ public enum SWLabHost {
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
 
+    public synchronized void putModel(String datasetname, Model model) throws InvalidNameException {
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+        accessor.putModel(model);
+        Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
+    }
+
     public synchronized Model getModel(String datasetname, String graphUri) throws InvalidNameException {
         if (graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());

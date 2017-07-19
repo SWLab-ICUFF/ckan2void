@@ -12,7 +12,6 @@ import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.PropertyConfigurator;
@@ -40,34 +39,35 @@ public abstract class Main {
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);
-        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
-            if ((new UrlValidator()).isValid(catalog)) {
+        if (false)
+            for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
+                if ((new UrlValidator()).isValid(catalog)) {
 
-                try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
-                    System.out.println(String.format("Crawler started (%s).", catalog));
-                    Integer counter = 0;
+                    try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
+                        System.out.println(String.format("Crawler started (%s).", catalog));
+                        Integer counter = 0;
 
-                    List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
-                    ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-                    while (crawler.hasNext()) {
+                        List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
+                        ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+                        while (crawler.hasNext()) {
 
-                        Dataset dataset = crawler.next();
-                        String graphURI = dataset.getJsonMetadataUrl();
+                            Dataset dataset = crawler.next();
+                            String graphURI = dataset.getJsonMetadataUrl();
 
-                        if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                            pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
-                        } else
-                            System.out.println("Skipping dataset " + graphURI + ".");
+                            if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                                pool.submit(new MakeVoIDTask(dataset, graphURI));
+                                System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
+                            } else
+                                System.out.println("Skipping dataset " + graphURI + ".");
+
+                        }
+                        pool.shutdown();
+                        System.out.println("Waiting for remaining tasks...");
+                        pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
                     }
-                    pool.shutdown();
-                    System.out.println("Waiting for remaining tasks...");
-                    pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
-
+                    System.out.println(String.format("Crawler ended (%s).", catalog));
                 }
-                System.out.println(String.format("Crawler ended (%s).", catalog));
-            }
 
         createRootResource();
         exportDataset();
@@ -80,18 +80,20 @@ public abstract class Main {
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "prefix : <%1$s>\n"
+                + "prefix : <http://swlab.paes-leme.name:8080/resource/>\n"
                 + "\n"
-                + "construct {:id-root-dataset-descriptions a void:DatasetDescription.\n"
-                + "           :id-root-dataset-descriptions rdfs:label \"Root resource of the dataset \\\"Dataset Descriptions\\\"\".\n"
-                + "           :id-root-dataset-descriptions foaf:topic ?s.}\n"
-                + "where {select distinct ?s \n"
-                + "       where {graph ?g {?s a void:Dataset. \n"
-                + "                        filter not exists {?s2 (void:subset | void:classPartition | void:propertyPartition) ?s}}}}";
+                + "delete {?s ?p ?o.}\n"
+                + "insert {:id-root-dataset-descriptions a void:DatasetDescription.\n"
+                + "        :id-root-dataset-descriptions rdfs:label \"Root resource of the dataset Dataset Descriptions\".\n"
+                + "        :id-root-dataset-descriptions foaf:topic ?s.}\n"
+                + "where {\n"
+                + "  select distinct ?s\n"
+                + "  where {graph ?g {?s a void:Dataset.\n"
+                + "                   filter not exists {?s2 (void:subset | void:classPartition | void:propertyPartition) ?s.}}}\n"
+                + "}";
 
         queryString = String.format(queryString, Config.HOST.linkedDataNS());
-        Model rootResource = Config.HOST.execConstruct(queryString, uff.ic.swlab.ckan2void.util.Config.FUSEKI_DATASET);
-        Config.HOST.putModel(Config.FUSEKI_DATASET, rootResource);
+        Config.HOST.execUpdate(queryString, uff.ic.swlab.ckan2void.util.Config.FUSEKI_DATASET);
         System.out.println("Done.");
     }
 

@@ -98,7 +98,6 @@ public abstract class Main {
     private static void backupDataset() throws Exception, IOException {
         System.out.println(String.format("Requesting backup of the Fuseki dataset %1$s...", Config.FUSEKI_DATASET));
         String url = Config.HOST.getBackupURL(Config.FUSEKI_DATASET);
-        System.out.println(url);
         HttpClient httpclient = HttpClients.createDefault();
         try {
             HttpResponse response = httpclient.execute(new HttpPost(url));

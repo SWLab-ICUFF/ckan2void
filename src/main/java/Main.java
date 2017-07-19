@@ -96,16 +96,21 @@ public abstract class Main {
     }
 
     private static void backupDataset() throws Exception, IOException {
-        String url = Config.HOST.getBackupURL("DatasetDescriptions");
+        System.out.println(String.format("Requesting backup of the Fuseki dataset %1$s...", Config.FUSEKI_DATASET));
+        String url = Config.HOST.getBackupURL(Config.FUSEKI_DATASET);
         System.out.println(url);
         HttpClient httpclient = HttpClients.createDefault();
         try {
             HttpResponse response = httpclient.execute(new HttpPost(url));
+            int statuscode = response.getStatusLine().getStatusCode();
             HttpEntity entity = response.getEntity();
-            if (entity != null)
+            if (entity != null && statuscode == 200)
                 try (InputStream instream = entity.getContent();) {
                     System.out.println(IOUtils.toString(instream, "utf-8"));
+                    System.out.println("Done.");
                 }
+            else
+                System.out.println("Backup request failed.");
         } catch (Throwable e) {
             System.out.println("Backup request failed.");
         }

@@ -46,60 +46,51 @@ public class Dataset {
         this.cc = cc;
     }
 
+    public String getCatalogUrl() {
+        try {
+            return cc.getCatalogUrl();
+        } catch (Throwable e) {
+            return "http://undefined-catalog";
+        }
+    }
+
     public String getName() {
         try {
             return doc.getName();
         } catch (Throwable e) {
-            return null;
+            return "undefined-name";
         }
     }
 
     public String getNamespace() {
         try {
-            //return cc.getCatalogUrl() + "/api/rest/dataset/";
             return Config.HOST.linkedDataNS();
         } catch (Throwable e) {
-            return null;
+            return "http://undefined-namespace/";
         }
     }
 
     public String getUri() {
-        try {
-            String sufix;
-            if (cc.getCatalogUrl().contains("uni-mannheim"))
-                sufix = "-uni-mannheim";
-            else if (cc.getCatalogUrl().contains("datahub"))
-                sufix = "-datahub";
-            else
-                sufix = "";
-            return getNamespace() + doc.getName() + sufix;
-        } catch (Throwable e) {
-            return null;
-        }
+        String sufix;
+        if (getCatalogUrl().contains("uni-mannheim"))
+            sufix = "-uni-mannheim";
+        else if (getCatalogUrl().contains("datahub"))
+            sufix = "-datahub";
+        else
+            sufix = "";
+        return getNamespace() + getName() + sufix;
     }
 
     public String getJsonMetadataUrl() {
-        try {
-            return cc.getCatalogUrl() + "/api/rest/dataset/" + doc.getName();
-        } catch (Throwable e) {
-            return null;
-        }
+        return getCatalogUrl() + "/api/rest/dataset/" + getName();
     }
 
     public String getJsonFullMetadataUrl() {
-        try {
-            return cc.getCatalogUrl() + "/api/3/action/package_show?id=" + doc.getName();
-        } catch (Throwable e) {
-            return null;
-        }
+        return getCatalogUrl() + "/api/3/action/package_show?id=" + getName();
     }
 
     public String getWebMetadataUrl() {
-        try {
-            return cc.getCatalogUrl() + "/dataset/" + doc.getName();
-        } catch (Throwable e) {
-            return null;
-        }
+        return getCatalogUrl() + "/dataset/" + getName();
     }
 
     public String getUrl() {

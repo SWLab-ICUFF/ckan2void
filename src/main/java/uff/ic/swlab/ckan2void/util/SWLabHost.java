@@ -55,6 +55,10 @@ public enum SWLabHost {
         return baseHttpUrl() + "resource/";
     }
 
+    public String getBackupURL(String datasetname) {
+        return String.format(baseHttpUrl() + "fuseki/$/backup/%1$s", datasetname);
+    }
+
     public String getQuadsURL(String datasetname) {
         return String.format(baseHttpUrl() + "fuseki/%1$s/", datasetname);
     }

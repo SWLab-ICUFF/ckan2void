@@ -81,6 +81,17 @@ public class Dataset {
         return getNamespace() + getName() + sufix;
     }
 
+    public String getDescUri() {
+        String sufix;
+        if (getCatalogUrl().contains("uni-mannheim"))
+            sufix = "-uni-mannheim";
+        else if (getCatalogUrl().contains("datahub"))
+            sufix = "-datahub";
+        else
+            sufix = "";
+        return getNamespace() + "desc-" + getName() + sufix;
+    }
+
     public String getJsonMetadataUrl() {
         return getCatalogUrl() + "/api/rest/dataset/" + getName();
     }
@@ -372,7 +383,7 @@ public class Dataset {
         return (new HashMap<String, Integer>()).entrySet();
     }
 
-    public Model toVoid(String derefGraphUri) {
+    public Model toVoid() {
         String ns = Config.HOST.linkedDataNS();
 
         Model _void = ModelFactory.createDefaultModel();
@@ -468,10 +479,11 @@ public class Dataset {
             dataset.addProperty(DCTerms.modified, _void.createTypedLiteral(modified));
 
         Calendar cal = Calendar.getInstance();
-        Resource datasetDescription = _void.createResource(derefGraphUri, VOID.DatasetDescription)
+        Resource datasetDescription = _void.createResource(getDescUri(), VOID.DatasetDescription)
                 .addProperty(DCTerms.title, "Description of the dataset " + getName() + ".")
                 .addProperty(RDFS.label, "Description of the dataset " + getName() + ".")
                 .addProperty(FOAF.primaryTopic, dataset)
+                .addProperty(DCTerms.created, _void.createTypedLiteral(cal))
                 .addProperty(DCTerms.modified, _void.createTypedLiteral(cal));
 
         return _void;

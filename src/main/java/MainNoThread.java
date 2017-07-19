@@ -26,9 +26,8 @@ public class MainNoThread {
                 String[] sparqlEndPoints = d.getSparqlEndPoints();
 
                 String graphUri = d.getJsonMetadataUrl();
-                String derefGraphUri = Config.HOST.getQuadsURL(Config.FUSEKI_DATASET) + "?graph=" + graphUri;
 
-                Model model = d.toVoid(derefGraphUri);
+                Model model = d.toVoid();
                 Model model2 = VoIDHelper.getContent(urls, sparqlEndPoints, d.getUri());
 
                 System.out.println(counter + ": " + d.getJsonMetadataUrl());

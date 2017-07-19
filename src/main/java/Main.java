@@ -1,19 +1,18 @@
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
-import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.validator.routines.UrlValidator;
-import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
@@ -39,38 +38,38 @@ public abstract class Main {
         String oper = getOper(args);
 
         System.out.println("OPER = " + oper);
-        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
-            if ((new UrlValidator()).isValid(catalog)) {
+        if (false)
+            for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
+                if ((new UrlValidator()).isValid(catalog)) {
 
-                try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
-                    System.out.println(String.format("Crawler started (%s).", catalog));
-                    Integer counter = 0;
+                    try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
+                        System.out.println(String.format("Crawler started (%s).", catalog));
+                        Integer counter = 0;
 
-                    List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
-                    ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-                    while (crawler.hasNext()) {
+                        List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
+                        ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+                        while (crawler.hasNext()) {
 
-                        Dataset dataset = crawler.next();
-                        String graphURI = dataset.getJsonMetadataUrl();
+                            Dataset dataset = crawler.next();
+                            String graphURI = dataset.getJsonMetadataUrl();
 
-                        if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                            pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
-                        } else
-                            System.out.println("Skipping dataset " + graphURI + ".");
+                            if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                                pool.submit(new MakeVoIDTask(dataset, graphURI));
+                                System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
+                            } else
+                                System.out.println("Skipping dataset " + graphURI + ".");
+
+                        }
+                        pool.shutdown();
+                        System.out.println("Waiting for remaining tasks...");
+                        pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
                     }
-                    pool.shutdown();
-                    System.out.println("Waiting for remaining tasks...");
-                    pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
-
+                    System.out.println(String.format("Crawler ended (%s).", catalog));
                 }
-                System.out.println(String.format("Crawler ended (%s).", catalog));
-            }
 
         createRootResource();
-        exportDataset();
-        uploadDataset();
+        backupDataset();
     }
 
     private static void createRootResource() throws InvalidNameException {
@@ -96,51 +95,20 @@ public abstract class Main {
         System.out.println("Done.");
     }
 
-    private static void exportDataset() throws Exception, IOException {
-        System.out.println("Exporting dataset...");
-        (new File(Config.LOCAL_DATASET_HOMEPAGE)).getParentFile().mkdirs();
-
-        org.apache.jena.query.Dataset dataset = DatasetFactory.create();
-        RDFDataMgr.read(dataset, Config.HOST.getQuadsURL(Config.FUSEKI_DATASET));
-
-        try (OutputStream out = new FileOutputStream(Config.LOCAL_NQUADS_DUMP_NAME);
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
-            RDFDataMgr.write(out2, dataset, Lang.NQUADS);
-            out2.finish();
-            out.flush();
+    private static void backupDataset() throws Exception, IOException {
+        String url = Config.HOST.getBackupURL("DatasetDescriptions");
+        System.out.println(url);
+        HttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpResponse response = httpclient.execute(new HttpPost(url));
+            HttpEntity entity = response.getEntity();
+            if (entity != null)
+                try (InputStream instream = entity.getContent();) {
+                    System.out.println(IOUtils.toString(instream, "utf-8"));
+                }
+        } catch (Throwable e) {
+            System.out.println("Backup request failed.");
         }
-
-        try (OutputStream out = new FileOutputStream(Config.LOCAL_TRIG_DUMP_NAME);
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
-            RDFDataMgr.write(out2, dataset, Lang.TRIG);
-            out2.finish();
-            out.flush();
-        }
-        try (OutputStream out = new FileOutputStream(Config.LOCAL_TRIX_DUMP_NAME);
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
-            RDFDataMgr.write(out2, dataset, Lang.TRIX);
-            out2.finish();
-            out.flush();
-        }
-        try (OutputStream out = new FileOutputStream(Config.LOCAL_JSONLD_DUMP_NAME);
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
-            RDFDataMgr.write(out2, dataset, Lang.JSONLD);
-            out2.finish();
-            out.flush();
-        }
-        System.out.println("Done.");
-    }
-
-    private static void uploadDataset() throws FileNotFoundException, IOException, Exception {
-        System.out.println("Uploading dataset...");
-        Config.HOST.mkDirsViaFTP(Config.REMOTE_DATASET_HOMEPAGE, Config.USERNAME, Config.PASSWORD);
-
-        Config.HOST.uploadBinaryFile(Config.LOCAL_DATASET_HOMEPAGE, Config.REMOTE_DATASET_HOMEPAGE, Config.USERNAME, Config.PASSWORD);
-        Config.HOST.uploadBinaryFile(Config.LOCAL_NQUADS_DUMP_NAME, Config.REMOTE_NQUADS_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
-        Config.HOST.uploadBinaryFile(Config.LOCAL_TRIG_DUMP_NAME, Config.REMOTE_TRIG_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
-        Config.HOST.uploadBinaryFile(Config.LOCAL_TRIX_DUMP_NAME, Config.REMOTE_TRIX_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
-        Config.HOST.uploadBinaryFile(Config.LOCAL_JSONLD_DUMP_NAME, Config.REMOTE_JSONLD_DUMP_NAME, Config.USERNAME, Config.PASSWORD);
-        System.out.println("Done.");
     }
 
     private static String getOper(String[] args) throws IllegalArgumentException {

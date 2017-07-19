@@ -99,17 +99,6 @@ public enum SWLabHost {
         return graphNames;
     }
 
-    public synchronized void loadDataset(String datasetname, String sourceDatasetUri) {
-        Dataset dataset = RDFDataMgr.loadDataset(sourceDatasetUri);
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-        accessor.putModel(dataset.getDefaultModel());
-        Iterator<String> iter = dataset.listNames();
-        while (iter.hasNext()) {
-            String graphUri = iter.next();
-            accessor.putModel(graphUri, dataset.getNamedModel(graphUri));
-        }
-    }
-
     public synchronized Model execConstruct(String queryString, String datasetname) {
         Model result = ModelFactory.createDefaultModel();
         try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
@@ -145,6 +134,44 @@ public enum SWLabHost {
         }
     }
 
+    public synchronized void loadDataset(String datasetname, String sourceDatasetUri) {
+        Dataset dataset = RDFDataMgr.loadDataset(sourceDatasetUri);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+        accessor.putModel(dataset.getDefaultModel());
+        Iterator<String> iter = dataset.listNames();
+        while (iter.hasNext()) {
+            String graphUri = iter.next();
+            accessor.putModel(graphUri, dataset.getNamedModel(graphUri));
+        }
+    }
+
+    public synchronized void putModel(String datasetname, Model model) throws InvalidNameException {
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+        accessor.putModel(model);
+        Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
+    }
+
+    public synchronized void putModel(String datasetname, String graphUri, Model model) throws InvalidNameException {
+        if (graphUri != null && !graphUri.equals("")) {
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+            accessor.putModel(graphUri, model);
+            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
+        } else
+            throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
+    }
+
+    public synchronized Model getModel(String datasetname, String graphUri) throws InvalidNameException {
+        if (graphUri != null && !graphUri.equals("")) {
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+            Model model = accessor.getModel(graphUri);
+            if (model != null)
+                return model;
+            else
+                return ModelFactory.createDefaultModel();
+        } else
+            throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
+    }
+
     public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException {
         if (_void.size() == 0)
             Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1$s>).", datasetUri));
@@ -172,33 +199,6 @@ public enum SWLabHost {
             Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, _void);
         else
             Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
-    }
-
-    public synchronized void putModel(String datasetname, String graphUri, Model model) throws InvalidNameException {
-        if (graphUri != null && !graphUri.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-            accessor.putModel(graphUri, model);
-            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
-        } else
-            throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
-    }
-
-    public synchronized void putModel(String datasetname, Model model) throws InvalidNameException {
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-        accessor.putModel(model);
-        Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
-    }
-
-    public synchronized Model getModel(String datasetname, String graphUri) throws InvalidNameException {
-        if (graphUri != null && !graphUri.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-            Model model = accessor.getModel(graphUri);
-            if (model != null)
-                return model;
-            else
-                return ModelFactory.createDefaultModel();
-        } else
-            throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
 
     public synchronized void uploadBinaryFile(String localFilename, String remoteName, String user, String pass) throws IOException, Exception {

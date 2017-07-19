@@ -1,18 +1,11 @@
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import javax.naming.InvalidNameException;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.validator.routines.UrlValidator;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
@@ -68,7 +61,7 @@ public abstract class Main {
             }
 
         createRootResource();
-        backupDataset();
+        Config.HOST.backupDataset(Config.FUSEKI_DATASET);
     }
 
     private static void createRootResource() throws InvalidNameException {
@@ -92,26 +85,6 @@ public abstract class Main {
         queryString = String.format(queryString, Config.HOST.linkedDataNS());
         Config.HOST.execUpdate(queryString, uff.ic.swlab.ckan2void.util.Config.FUSEKI_DATASET);
         System.out.println("Done.");
-    }
-
-    private static void backupDataset() throws Exception, IOException {
-        System.out.println(String.format("Requesting backup of the Fuseki dataset %1$s...", Config.FUSEKI_DATASET));
-        String url = Config.HOST.getBackupURL(Config.FUSEKI_DATASET);
-        HttpClient httpclient = HttpClients.createDefault();
-        try {
-            HttpResponse response = httpclient.execute(new HttpPost(url));
-            int statuscode = response.getStatusLine().getStatusCode();
-            HttpEntity entity = response.getEntity();
-            if (entity != null && statuscode == 200)
-                try (InputStream instream = entity.getContent();) {
-                    System.out.println(IOUtils.toString(instream, "utf-8"));
-                    System.out.println("Done.");
-                }
-            else
-                System.out.println("Backup request failed.");
-        } catch (Throwable e) {
-            System.out.println("Backup request failed.");
-        }
     }
 
     private static String getOper(String[] args) throws IllegalArgumentException {

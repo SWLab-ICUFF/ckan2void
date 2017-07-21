@@ -18,8 +18,9 @@ public class MainNoThread {
         for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++")) {
             Crawler<Dataset> c = new CKANCrawler(catalog);
             int counter = 0;
-            while (c.hasNext()) {
-                Dataset d = c.next();
+
+            Dataset d;
+            while ((d = c.next()) != null) {
                 counter++;
 
                 String[] urls = d.getURLs();

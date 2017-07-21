@@ -1,18 +1,11 @@
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import javax.naming.InvalidNameException;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.validator.routines.UrlValidator;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
@@ -35,40 +28,43 @@ public abstract class Main {
         PropertyConfigurator.configure("./conf/log4j.properties");
         Config.configure("./conf/ckan2void.properties");
         Config.configureAuth("./conf/auth.properties");
-        String oper = getOper(args);
 
+        String oper = getOper(args);
         System.out.println("OPER = " + oper);
+
         for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
+
             if ((new UrlValidator()).isValid(catalog)) {
 
-                try (Crawler<Dataset> crawler = new CKANCrawler(catalog);) {
-                    System.out.println(String.format("Crawler started (%s).", catalog));
-                    Integer counter = 0;
+                Crawler<Dataset> crawler = new CKANCrawler(catalog);
+                System.out.println(String.format("Crawler started (%s).", catalog));
+                Integer counter = 0;
 
-                    List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
-                    ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-                    while (crawler.hasNext()) {
+                List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
+                ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
 
-                        Dataset dataset = crawler.next();
-                        String graphURI = dataset.getJsonMetadataUrl();
+                Dataset dataset;
+                while ((dataset = crawler.next()) != null) {
 
-                        if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                            pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
-                        } else
-                            System.out.println("Skipping dataset " + graphURI + ".");
-
-                    }
-                    pool.shutdown();
-                    System.out.println("Waiting for remaining tasks...");
-                    pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
+                    String graphURI = dataset.getJsonMetadataUrl();
+                    if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                        pool.submit(new MakeVoIDTask(dataset, graphURI));
+                        System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " has been submitted.");
+                    } else
+                        System.out.println("Skipping dataset " + graphURI + ".");
 
                 }
+
+                pool.shutdown();
+                System.out.println("Waiting for remaining tasks...");
+                pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
                 System.out.println(String.format("Crawler ended (%s).", catalog));
+                Config.HOST.backupDataset(Config.FUSEKI_DATASET);
+                System.gc();
+
             }
 
         createRootResource();
-        backupDataset();
     }
 
     private static void createRootResource() throws InvalidNameException {
@@ -92,26 +88,6 @@ public abstract class Main {
         queryString = String.format(queryString, Config.HOST.linkedDataNS());
         Config.HOST.execUpdate(queryString, uff.ic.swlab.ckan2void.util.Config.FUSEKI_DATASET);
         System.out.println("Done.");
-    }
-
-    private static void backupDataset() throws Exception, IOException {
-        System.out.println(String.format("Requesting backup of the Fuseki dataset %1$s...", Config.FUSEKI_DATASET));
-        String url = Config.HOST.getBackupURL(Config.FUSEKI_DATASET);
-        HttpClient httpclient = HttpClients.createDefault();
-        try {
-            HttpResponse response = httpclient.execute(new HttpPost(url));
-            int statuscode = response.getStatusLine().getStatusCode();
-            HttpEntity entity = response.getEntity();
-            if (entity != null && statuscode == 200)
-                try (InputStream instream = entity.getContent();) {
-                    System.out.println(IOUtils.toString(instream, "utf-8"));
-                    System.out.println("Done.");
-                }
-            else
-                System.out.println("Backup request failed.");
-        } catch (Throwable e) {
-            System.out.println("Backup request failed.");
-        }
     }
 
     private static String getOper(String[] args) throws IllegalArgumentException {

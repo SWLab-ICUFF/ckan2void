@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
+import uff.ic.swlab.ckan2void.util.Config;
 
 public class CKANCrawler extends Crawler<Dataset> {
 
     private CkanClient cc = null;
     private int offset = 0;
-    private int limit = 2000;
+    private int limit = Config.TASK_INSTANCES;
     private List<String> names;
     private Iterator<String> iterator;
 
@@ -30,7 +31,20 @@ public class CKANCrawler extends Crawler<Dataset> {
     }
 
     @Override
-    public boolean hasNext() {
+    public Dataset next() {
+        while (hasNext())
+            try {
+                return getDataset(iterator.next());
+            } catch (Throwable e) {
+            }
+        return null;
+    }
+
+    public Dataset getDataset(String name) {
+        return new Dataset(cc, cc.getDataset(name));
+    }
+
+    private boolean hasNext() {
         try {
             boolean hasNext = iterator.hasNext();
             if (!hasNext) {
@@ -45,21 +59,4 @@ public class CKANCrawler extends Crawler<Dataset> {
         }
     }
 
-    @Override
-    public Dataset next() {
-        while (hasNext())
-            try {
-                return new Dataset(cc, cc.getDataset(iterator.next()));
-            } catch (Throwable e) {
-            }
-        return null;
-    }
-
-    public Dataset getDataset(String name) {
-        return new Dataset(cc, cc.getDataset(name));
-    }
-
-    @Override
-    public void close() {
-    }
 }

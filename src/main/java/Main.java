@@ -31,7 +31,11 @@ public abstract class Main {
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
         String oper = getOper(args);
+        System.out.println("Host = " + conf.host().hostname);
         System.out.println("OPER = " + oper);
+        System.out.println("Task instances = " + conf.taskInstances());
+        System.out.println("================================================================================================");
+        System.out.println("");
 
         for (String catalog : conf.ckanCatalogs().split("[,\n\\p{Blank}]++"))
 

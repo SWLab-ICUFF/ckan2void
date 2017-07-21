@@ -62,7 +62,20 @@ public class Config {
             httpAccessTimeout = Integer.valueOf(prop.getProperty("httpAccessTimeout", "60000"));
 
             maxVoidFileSize = Long.valueOf(prop.getProperty("maxVoidFileSize", "1048576"));
+
+            String _host = prop.getProperty("host", "alternate");
+            if (_host == null)
+                host = SWLabHost.ALTERNATE_HOST;
+            else if (_host.toLowerCase().equals("primary"))
+                host = SWLabHost.PRIMARY_HOST;
+            else if (_host.toLowerCase().equals("development"))
+                host = SWLabHost.DEVELOPMENT_HOST;
+            else if (_host.toLowerCase().equals("alternate"))
+                host = SWLabHost.ALTERNATE_HOST;
+            else
+                host = SWLabHost.ALTERNATE_HOST;
         } catch (Throwable t) {
+            host = SWLabHost.ALTERNATE_HOST;
             ckanCatalogs = "http://datahub.io";
 
             parallelism = 4;
@@ -84,25 +97,11 @@ public class Config {
         try (InputStream input = new FileInputStream("./conf/auth.properties");) {
             Properties prop = new Properties();
             prop.load(input);
-
             username = prop.getProperty("username", "");
             password = prop.getProperty("password", "");
-
-            String _host = prop.getProperty("host", "alternate");
-            if (_host == null)
-                host = SWLabHost.ALTERNATE_HOST;
-            else if (_host.toLowerCase().equals("primary"))
-                host = SWLabHost.PRIMARY_HOST;
-            else if (_host.toLowerCase().equals("development"))
-                host = SWLabHost.DEVELOPMENT_HOST;
-            else if (_host.toLowerCase().equals("alternate"))
-                host = SWLabHost.ALTERNATE_HOST;
-            else
-                host = SWLabHost.ALTERNATE_HOST;
         } catch (Throwable t) {
             username = "";
             password = "";
-            host = SWLabHost.ALTERNATE_HOST;
         }
 
     }

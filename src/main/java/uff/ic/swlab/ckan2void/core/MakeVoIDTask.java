@@ -61,8 +61,6 @@ public class MakeVoIDTask implements Runnable {
 
     private void runTask() {
         try {
-            Config conf = Config.getInsatnce();
-
             Callable<Object> task = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();

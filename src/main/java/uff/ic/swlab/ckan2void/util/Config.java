@@ -33,8 +33,8 @@ public abstract class Config {
 
     public static String CKAN_CATALOGS;
 
-    public static Integer TASK_INSTANCES;
     public static Integer PARALLELISM;
+    public static Integer TASK_INSTANCES;
     public static Integer POOL_SHUTDOWN_TIMEOUT;
     public static TimeUnit POOL_SHUTDOWN_TIMEOUT_UNIT;
 
@@ -55,11 +55,11 @@ public abstract class Config {
 
             CKAN_CATALOGS = prop.getProperty("ckanCatalog", "http://datahub.io");
 
-            TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances", "8"));
             PARALLELISM = Integer.valueOf(prop.getProperty("parallelism", "4"));
+            TASK_INSTANCES = (int) (PARALLELISM * 1.1);
+
             POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout", "1"));
             POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit", "HOURS"));
-
             TASK_TIMEOUT = Integer.valueOf(prop.getProperty("taskTimeout", "300000"));
             SPARQL_TIMEOUT = Integer.valueOf(prop.getProperty("sparqlTimeout", "60000"));
             MODEL_READ_TIMEOUT = Integer.valueOf(prop.getProperty("modelReadTimeout", "60000"));

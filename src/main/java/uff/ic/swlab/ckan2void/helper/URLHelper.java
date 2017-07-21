@@ -1,6 +1,5 @@
 package uff.ic.swlab.ckan2void.helper;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,12 +19,12 @@ public abstract class URLHelper {
         return uri_.toString();
     }
 
-    public static boolean isHTML(String url) throws MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException {
+    public static boolean isHTML(String url) throws MalformedURLException, InterruptedException, ExecutionException, TimeoutException {
         Callable<Boolean> task = () -> {
             String contentType;
             URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            conn.setConnectTimeout(Config.getInsatnce().httpConnectTimeout());
+            conn.setReadTimeout(Config.getInsatnce().httpReadTimeout());
             contentType = conn.getContentType().toLowerCase();
             conn.getInputStream().close();
 
@@ -34,7 +33,7 @@ public abstract class URLHelper {
             else
                 return false;
         };
-        return Executor.execute(task, "Ask if " + url + " is html", Config.HTTP_ACCESS_TIMEOUT);
+        return Executor.execute(task, "Ask if " + url + " is html", Config.getInsatnce().httpAccessTimeout());
     }
 
 //    private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException, InterruptedException, TimeoutException, ExecutionException {

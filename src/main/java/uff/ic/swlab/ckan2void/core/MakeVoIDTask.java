@@ -11,10 +11,11 @@ import uff.ic.swlab.ckan2void.util.Executor;
 
 public class MakeVoIDTask implements Runnable {
 
-    private final Dataset dataset;
-    private final String graphUri;
+    private Dataset dataset;
+    private String graphUri;
+    private Config conf;
 
-    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(Config.TASK_INSTANCES);
+    private static InstanceCounter counter;
 
     private static class InstanceCounter {
 
@@ -24,7 +25,7 @@ public class MakeVoIDTask implements Runnable {
             this.instances = instances;
         }
 
-        public synchronized void startInstance() {
+        public synchronized void newInstance() {
             while (true)
                 if (instances > 0) {
                     instances--;
@@ -36,14 +37,18 @@ public class MakeVoIDTask implements Runnable {
                     }
         }
 
-        public synchronized void finilizeInstance() {
+        public synchronized void finalizeInstance() {
             instances++;
             notifyAll();
         }
     }
 
     public MakeVoIDTask(Dataset dataset, String graphURI) {
-        INSTANCE_COUNTER.startInstance();
+        conf = Config.getInsatnce();
+        if (counter == null)
+            counter = new InstanceCounter(conf.taskInstances());
+        counter.newInstance();
+
         this.dataset = dataset;
         this.graphUri = graphURI;
     }
@@ -51,21 +56,22 @@ public class MakeVoIDTask implements Runnable {
     @Override
     public final void run() {
         runTask();
-        INSTANCE_COUNTER.finilizeInstance();
+        counter.finalizeInstance();
     }
 
     private void runTask() {
         try {
+            Config conf = Config.getInsatnce();
 
             Callable<Object> task = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 Model _void = dataset.toVoid();
                 Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
-                Config.HOST.saveVoid(_void, _voidComp, dataset.getUri(), graphUri);
+                conf.host().saveVoid(_void, _voidComp, dataset.getUri(), graphUri, conf.fusekiDataset(), conf.fusekiTemDataset());
                 return null;
             };
-            Executor.execute(task, "Make void of " + dataset.getUri(), Config.TASK_TIMEOUT);
+            Executor.execute(task, "Make void of " + dataset.getUri(), conf.taskTimeout());
 
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Task failure (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));

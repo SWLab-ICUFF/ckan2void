@@ -9,13 +9,16 @@ import uff.ic.swlab.ckan2void.util.Config;
 
 public class CKANCrawler extends Crawler<Dataset> {
 
+    private Config conf;
     private CkanClient cc = null;
     private int offset = 0;
-    private int limit = Config.TASK_INSTANCES;
+    private int limit;
     private List<String> names;
     private Iterator<String> iterator;
 
     private CKANCrawler() {
+        conf = Config.getInsatnce();
+        limit = conf.taskInstances();
     }
 
     public CKANCrawler(String url) {
@@ -41,7 +44,11 @@ public class CKANCrawler extends Crawler<Dataset> {
     }
 
     public Dataset getDataset(String name) {
-        return new Dataset(cc, cc.getDataset(name));
+        try {
+            return new Dataset(cc, cc.getDataset(name));
+        } catch (Throwable t) {
+            return null;
+        }
     }
 
     private boolean hasNext() {

@@ -4,6 +4,7 @@ import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
 import eu.trentorise.opendata.jackan.model.CkanDatasetRelationship;
 import eu.trentorise.opendata.jackan.model.CkanPair;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -40,8 +41,10 @@ public class Dataset {
 
     private final CkanDataset doc;
     private final CkanClient cc;
+    private final Config conf;
 
-    public Dataset(CkanClient cc, CkanDataset doc) {
+    public Dataset(CkanClient cc, CkanDataset doc) throws IOException {
+        this.conf = Config.getInsatnce();
         this.doc = doc;
         this.cc = cc;
     }
@@ -64,7 +67,7 @@ public class Dataset {
 
     public String getNamespace() {
         try {
-            return Config.HOST.linkedDataNS();
+            return conf.host().linkedDataNS();
         } catch (Throwable e) {
             return "http://undefined-namespace/";
         }
@@ -326,7 +329,7 @@ public class Dataset {
                     Map<String, Integer> classes = new HashMap<>();
                     try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
                         ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                        ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                        ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
                         ResultSet rs = exec.execSelect();
                         while (rs.hasNext()) {
                             QuerySolution qs = rs.next();
@@ -341,7 +344,7 @@ public class Dataset {
                         return classes;
                     }
                 };
-                return Executor.execute(task, "Query classes from " + sparqlEndPoint, Config.SPARQL_TIMEOUT).entrySet();
+                return Executor.execute(task, "Query classes from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout()).entrySet();
             } catch (InterruptedException e) {
             } catch (Throwable e) {
             }
@@ -361,7 +364,7 @@ public class Dataset {
                     Map<String, Integer> properties = new HashMap<>();
                     try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
                         ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                        ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                        ((QueryEngineHTTP) exec).setTimeout(conf.sparqlTimeout());
                         ResultSet rs = exec.execSelect();
                         while (rs.hasNext()) {
                             QuerySolution qs = rs.next();
@@ -376,7 +379,7 @@ public class Dataset {
                         return properties;
                     }
                 };
-                return Executor.execute(task, "Query properties from " + sparqlEndPoint, Config.SPARQL_TIMEOUT).entrySet();
+                return Executor.execute(task, "Query properties from " + sparqlEndPoint, conf.sparqlTimeout()).entrySet();
             } catch (InterruptedException e) {
             } catch (Throwable e) {
             }
@@ -384,7 +387,7 @@ public class Dataset {
     }
 
     public Model toVoid() {
-        String ns = Config.HOST.linkedDataNS();
+        String ns = conf.host().linkedDataNS();
 
         Model _void = ModelFactory.createDefaultModel();
         _void.setNsPrefix("rdf", RDF.uri);

@@ -1,84 +1,213 @@
 package uff.ic.swlab.ckan2void.util;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public abstract class Config {
+public class Config {
 
-    public static final SWLabHost HOST = SWLabHost.DEFAULT_HOST;
+    private String fusekiDataset = "DatasetDescriptions";
+    private String fusekiTemDataset = "temp";
+    private String datasetname = fusekiDataset + "_v1";
 
-    public static String FUSEKI_DATASET = "DatasetDescriptions";
-    public static String FUSEKI_TEMP_DATASET = "temp";
-    public static String DATASET_NAME = FUSEKI_DATASET + "_v1";
+    private String rdfRoot = "./data/v1/rdf";
 
-    public static final String RDF_ROOT = "./data/v1/rdf";
+    private String localdatasetHomepageName = rdfRoot + "/dataset/" + datasetname + "/index.jsp";
+    private String localNquadsDumpNamed = rdfRoot + "/dataset/" + datasetname + ".nq.gz";
 
-    public static String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "/index.jsp";
-    public static String LOCAL_NQUADS_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".nq.gz";
-    public static String LOCAL_TRIG_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trig.gz";
-    public static String LOCAL_TRIX_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".trix.gz";
-    public static String LOCAL_JSONLD_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + ".jsonld.gz";
+    private String username;
+    private String password;
 
-    public static String USERNAME = null;
-    public static String PASSWORD = null;
+    private String remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
+    private String remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
 
-    public static String REMOTE_DATASET_HOMEPAGE = "/tomcat/dataset/" + DATASET_NAME + "/index.jsp";
-    public static String REMOTE_NQUADS_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".nq.gz";
-    public static String REMOTE_TRIG_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trig.gz";
-    public static String REMOTE_TRIX_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".trix.gz";
-    public static String REMOTE_JSONLD_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + ".jsonld.gz";
+    private String ckanCatalogs;
 
-    public static String CKAN_CATALOGS;
+    private Integer parallelism;
+    private Integer taskInstances;
+    private Integer poolShutdownTimeout;
+    private TimeUnit poolShutdownTimeoutUnit;
 
-    public static Integer PARALLELISM;
-    public static Integer TASK_INSTANCES;
-    public static Integer POOL_SHUTDOWN_TIMEOUT;
-    public static TimeUnit POOL_SHUTDOWN_TIMEOUT_UNIT;
+    private Integer taskTimeout;
+    private Integer sparqlTimeout;
+    private Integer modelReadTimeout;
+    private Integer modelWriteTimeout;
+    private Integer httpConnectTimeout;
+    private Integer httpReadTimeout;
+    private Integer httpAccessTimeout;
 
-    public static Integer TASK_TIMEOUT;
-    public static Integer SPARQL_TIMEOUT;
-    public static Integer MODEL_READ_TIMEOUT;
-    public static Integer MODEL_WRITE_TIMEOUT;
-    public static Integer HTTP_CONNECT_TIMEOUT;
-    public static Integer HTTP_READ_TIMEOUT;
-    public static Integer HTTP_ACCESS_TIMEOUT;
+    private Long maxVoidFileSize;
 
-    public static Long MAX_VOID_FILE_SIZE;
+    private SWLabHost host;
 
-    public static void configure(String filename) throws IOException {
-        try (InputStream input = new FileInputStream(filename);) {
+    private Config() {
+        try (InputStream input = new FileInputStream("./conf/ckan2void.properties");) {
             Properties prop = new Properties();
             prop.load(input);
 
-            CKAN_CATALOGS = prop.getProperty("ckanCatalog", "http://datahub.io");
+            ckanCatalogs = prop.getProperty("ckanCatalog", "http://datahub.io");
 
-            PARALLELISM = Integer.valueOf(prop.getProperty("parallelism", "4"));
-            TASK_INSTANCES = (int) (PARALLELISM * 1.1);
+            parallelism = Integer.valueOf(prop.getProperty("parallelism", "4"));
+            taskInstances = (int) (parallelism * 1.1);
 
-            POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout", "1"));
-            POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit", "HOURS"));
-            TASK_TIMEOUT = Integer.valueOf(prop.getProperty("taskTimeout", "300000"));
-            SPARQL_TIMEOUT = Integer.valueOf(prop.getProperty("sparqlTimeout", "60000"));
-            MODEL_READ_TIMEOUT = Integer.valueOf(prop.getProperty("modelReadTimeout", "60000"));
-            MODEL_WRITE_TIMEOUT = Integer.valueOf(prop.getProperty("modelWriteTimeout", "60000"));
-            HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout", "30000"));
-            HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout", "30000"));
-            HTTP_ACCESS_TIMEOUT = Integer.valueOf(prop.getProperty("httpAccessTimeout", "60000"));
+            poolShutdownTimeout = Integer.valueOf(prop.getProperty("poolShutdownTimeout", "1"));
+            poolShutdownTimeoutUnit = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit", "HOURS"));
+            taskTimeout = Integer.valueOf(prop.getProperty("taskTimeout", "300000"));
+            sparqlTimeout = Integer.valueOf(prop.getProperty("sparqlTimeout", "60000"));
+            modelReadTimeout = Integer.valueOf(prop.getProperty("modelReadTimeout", "60000"));
+            modelWriteTimeout = Integer.valueOf(prop.getProperty("modelWriteTimeout", "60000"));
+            httpConnectTimeout = Integer.valueOf(prop.getProperty("httpConnectTimeout", "30000"));
+            httpReadTimeout = Integer.valueOf(prop.getProperty("httpReadTimeout", "30000"));
+            httpAccessTimeout = Integer.valueOf(prop.getProperty("httpAccessTimeout", "60000"));
 
-            MAX_VOID_FILE_SIZE = Long.valueOf(prop.getProperty("maxVoidFileSize", "1048576"));
+            maxVoidFileSize = Long.valueOf(prop.getProperty("maxVoidFileSize", "1048576"));
+        } catch (Throwable t) {
+            ckanCatalogs = "http://datahub.io";
+
+            parallelism = 4;
+            taskInstances = (int) (parallelism * 1.1);
+
+            poolShutdownTimeout = 1;
+            poolShutdownTimeoutUnit = TimeUnit.valueOf("HOURS");
+            taskTimeout = 300000;
+            sparqlTimeout = 60000;
+            modelReadTimeout = 60000;
+            modelWriteTimeout = 60000;
+            httpConnectTimeout = 30000;
+            httpReadTimeout = 30000;
+            httpAccessTimeout = 60000;
+
+            maxVoidFileSize = 1048576l;
         }
+
+        try (InputStream input = new FileInputStream("./conf/auth.properties");) {
+            Properties prop = new Properties();
+            prop.load(input);
+
+            username = prop.getProperty("username", "");
+            password = prop.getProperty("password", "");
+
+            String _host = prop.getProperty("host", "alternate");
+            if (_host == null)
+                host = SWLabHost.ALTERNATE_HOST;
+            else if (_host.toLowerCase().equals("primary"))
+                host = SWLabHost.PRIMARY_HOST;
+            else if (_host.toLowerCase().equals("development"))
+                host = SWLabHost.DEVELOPMENT_HOST;
+            else if (_host.toLowerCase().equals("alternate"))
+                host = SWLabHost.ALTERNATE_HOST;
+            else
+                host = SWLabHost.ALTERNATE_HOST;
+        } catch (Throwable t) {
+            username = "";
+            password = "";
+            host = SWLabHost.ALTERNATE_HOST;
+        }
+
     }
 
-    public static void configureAuth(String filename) throws IOException {
-        try (InputStream input = new FileInputStream(filename);) {
-            Properties prop = new Properties();
-            prop.load(input);
+    private static Config config;
 
-            USERNAME = prop.getProperty("username");
-            PASSWORD = prop.getProperty("password");
-        }
+    public static Config getInsatnce() {
+        if (config == null)
+            config = new Config();
+        return config;
+    }
+
+    public String fusekiDataset() {
+        return fusekiDataset;
+    }
+
+    public String fusekiTemDataset() {
+        return fusekiTemDataset;
+    }
+
+    public String datasetname() {
+        return datasetname;
+    }
+
+    public String rdfRoot() {
+        return rdfRoot;
+    }
+
+    public String localDatasetHomepageName() {
+        return localdatasetHomepageName;
+    }
+
+    public String localNquadsDumpName() {
+        return localNquadsDumpNamed;
+    }
+
+    public String username() {
+        return username;
+    }
+
+    public String password() {
+        return password;
+    }
+
+    public String remoteDatasetHomepageName() {
+        return remoteDatasetHomepageName;
+    }
+
+    public String remoteNquadsDumpName() {
+        return remoteNquadsDumpName;
+    }
+
+    public String ckanCatalogs() {
+        return ckanCatalogs;
+    }
+
+    public Integer parallelism() {
+        return parallelism;
+    }
+
+    public Integer taskInstances() {
+        return taskInstances;
+    }
+
+    public Integer poolShutdownTimeout() {
+        return poolShutdownTimeout;
+    }
+
+    public TimeUnit poolShutdownTimeoutUnit() {
+        return poolShutdownTimeoutUnit;
+    }
+
+    public Integer taskTimeout() {
+        return taskTimeout;
+    }
+
+    public Integer sparqlTimeout() {
+        return sparqlTimeout;
+    }
+
+    public Integer modelReadTimeout() {
+        return modelReadTimeout;
+    }
+
+    public Integer modelWriteTimeout() {
+        return modelWriteTimeout;
+    }
+
+    public Integer httpConnectTimeout() {
+        return httpConnectTimeout;
+    }
+
+    public Integer httpReadTimeout() {
+        return httpReadTimeout;
+    }
+
+    public Integer httpAccessTimeout() {
+        return httpAccessTimeout;
+    }
+
+    public Long maxVoidFileSize() {
+        return maxVoidFileSize;
+    }
+
+    public SWLabHost host() {
+        return host;
     }
 }

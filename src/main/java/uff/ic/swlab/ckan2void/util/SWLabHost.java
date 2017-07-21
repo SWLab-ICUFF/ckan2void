@@ -172,7 +172,7 @@ public enum SWLabHost {
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
 
-    public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException {
+    public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri, String datasetname, String tempDatasetname) throws InvalidNameException {
         if (_void.size() == 0)
             Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1$s>).", datasetUri));
         if (_voidComp.size() == 0)
@@ -186,17 +186,17 @@ public enum SWLabHost {
         }
 
         if (partitions.size() == 0)
-            _void.add(Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions"));
+            _void.add(getModel(tempDatasetname, graphUri + "-partitions"));
         else
-            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri + "-partitions", partitions);
+            putModel(tempDatasetname, graphUri + "-partitions", partitions);
 
         if (_voidComp.size() == 0)
-            _voidComp = Config.HOST.getModel(Config.FUSEKI_TEMP_DATASET, graphUri);
+            _voidComp = getModel(tempDatasetname, graphUri);
         else
-            Config.HOST.putModel(Config.FUSEKI_TEMP_DATASET, graphUri, _voidComp);
+            putModel(tempDatasetname, graphUri, _voidComp);
 
         if (_void.add(_voidComp).size() > 5)
-            Config.HOST.putModel(Config.FUSEKI_DATASET, graphUri, _void);
+            putModel(datasetname, graphUri, _void);
         else
             Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
     }

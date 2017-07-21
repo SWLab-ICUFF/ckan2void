@@ -1,6 +1,5 @@
 package uff.ic.swlab.ckan2void.util;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -29,12 +28,12 @@ public abstract class RDFDataMgr {
             Model tempModel = ModelFactory.createDefaultModel();
             try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query, HttpClients.createDefault())) {
                 ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
                 exec.execConstruct(tempModel);
                 return DatasetFactory.create(tempModel);
             }
         };
-        return Executor.execute(task, "Query dataset from " + sparqlEndPoint, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "Query dataset from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout());
     }
 
     public static Dataset loadDataset(String url, Long maxFileSize) throws InterruptedException {
@@ -59,11 +58,11 @@ public abstract class RDFDataMgr {
         return DatasetFactory.create();
     }
 
-    private static Dataset loadRDFDataset(String url, Lang lang, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
+    private static Dataset loadRDFDataset(String url, Lang lang, Long maxFileSize) throws InterruptedException, MalformedURLException, ExecutionException, TimeoutException, SizeLimitExceededException {
         Callable<Dataset> task = () -> {
             URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            conn.setConnectTimeout(Config.getInsatnce().httpConnectTimeout());
+            conn.setReadTimeout(Config.getInsatnce().httpReadTimeout());
             if (conn.getContentLengthLong() <= maxFileSize)
                 try (InputStream in = conn.getInputStream();) {
 
@@ -77,15 +76,15 @@ public abstract class RDFDataMgr {
             else
                 throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
         };
-        return Executor.execute(task, "Load dataset from " + url + " using lang = " + lang.getName(), Config.HTTP_ACCESS_TIMEOUT);
+        return Executor.execute(task, "Load dataset from " + url + " using lang = " + lang.getName(), Config.getInsatnce().httpAccessTimeout());
     }
 
-    private static Dataset loadRDFaDataset(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
+    private static Dataset loadRDFaDataset(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
         Callable<Dataset> task = () -> {
             URL rdfaUrl = new URL(URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8"));
             URLConnection conn = rdfaUrl.openConnection();
-            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            conn.setConnectTimeout(Config.getInsatnce().httpConnectTimeout());
+            conn.setReadTimeout(Config.getInsatnce().httpReadTimeout());
             if (conn.getContentLengthLong() <= maxFileSize)
                 try (InputStream in = conn.getInputStream();) {
                     Model tempModel = ModelFactory.createDefaultModel();
@@ -95,6 +94,6 @@ public abstract class RDFDataMgr {
             else
                 throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
         };
-        return Executor.execute(task, "Load RDFa dataset from " + url, Config.HTTP_ACCESS_TIMEOUT);
+        return Executor.execute(task, "Load RDFa dataset from " + url, Config.getInsatnce().httpAccessTimeout());
     }
 }

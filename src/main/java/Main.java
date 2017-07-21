@@ -15,8 +15,13 @@ import uff.ic.swlab.ckan2void.util.Config;
 
 public abstract class Main {
 
+    public static Config conf;
+
     public static void main(String[] args) {
         try {
+            PropertyConfigurator.configure("./conf/log4j.properties");
+            conf = Config.getInsatnce();
+
             run(args);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
@@ -25,14 +30,10 @@ public abstract class Main {
     }
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
-        PropertyConfigurator.configure("./conf/log4j.properties");
-        Config.configure("./conf/ckan2void.properties");
-        Config.configureAuth("./conf/auth.properties");
-
         String oper = getOper(args);
         System.out.println("OPER = " + oper);
 
-        for (String catalog : Config.CKAN_CATALOGS.split("[,\n\\p{Blank}]++"))
+        for (String catalog : conf.ckanCatalogs().split("[,\n\\p{Blank}]++"))
 
             if ((new UrlValidator()).isValid(catalog)) {
 
@@ -40,8 +41,8 @@ public abstract class Main {
                 System.out.println(String.format("Crawler started (%s).", catalog));
                 Integer counter = 0;
 
-                List<String> graphNames = Config.HOST.listGraphNames(Config.FUSEKI_DATASET, Config.SPARQL_TIMEOUT);
-                ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+                List<String> graphNames = conf.host().listGraphNames(conf.fusekiDataset(), conf.sparqlTimeout());
+                ExecutorService pool = Executors.newWorkStealingPool(conf.parallelism());
 
                 Dataset dataset;
                 while ((dataset = crawler.next()) != null) {
@@ -57,9 +58,9 @@ public abstract class Main {
 
                 pool.shutdown();
                 System.out.println("Waiting for remaining tasks...");
-                pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
+                pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
                 System.out.println(String.format("Crawler ended (%s).", catalog));
-                Config.HOST.backupDataset(Config.FUSEKI_DATASET);
+                conf.host().backupDataset(conf.fusekiDataset());
                 System.gc();
 
             }
@@ -85,8 +86,8 @@ public abstract class Main {
                 + "                   filter not exists {?s2 (void:subset | void:classPartition | void:propertyPartition) ?s.}}}\n"
                 + "}";
 
-        queryString = String.format(queryString, Config.HOST.linkedDataNS());
-        Config.HOST.execUpdate(queryString, uff.ic.swlab.ckan2void.util.Config.FUSEKI_DATASET);
+        queryString = String.format(queryString, conf.host().linkedDataNS());
+        conf.host().execUpdate(queryString, conf.fusekiDataset());
         System.out.println("Done.");
     }
 

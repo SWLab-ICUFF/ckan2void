@@ -33,7 +33,7 @@ public abstract class VoIDHelper {
         Model _void = ModelFactory.createDefaultModel();
         for (String url : makeVoIDUrls(urls))
             try {
-                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.MAX_VOID_FILE_SIZE), targetURI));
+                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.getInsatnce().maxVoidFileSize()), targetURI));
             } catch (InterruptedException e) {
                 throw e;
             } catch (Throwable e) {
@@ -78,7 +78,7 @@ public abstract class VoIDHelper {
             QueryExecution exec = QueryExecutionFactory.create(query, model);
             return exec.execConstruct();
         };
-        return Executor.execute(task, "Extract partitions for " + targetURI, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "Extract partitions for " + targetURI, Config.getInsatnce().sparqlTimeout());
     }
 
     public static Model extractVoID(Dataset dataset, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
@@ -103,7 +103,7 @@ public abstract class VoIDHelper {
             QueryExecution exec = QueryExecutionFactory.create(query, dataset);
             return exec.execConstruct();
         };
-        return Executor.execute(task, "Extract void for " + targetURI, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "Extract void for " + targetURI, Config.getInsatnce().sparqlTimeout());
     }
 
     private static String[] makeVoIDUrls(String[] urls) {
@@ -144,7 +144,7 @@ public abstract class VoIDHelper {
             String query = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
             String name;
             try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query, HttpClients.createDefault())) {
-                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
                 ResultSet rs = exec.execSelect();
                 while (rs.hasNext()) {
                     name = rs.next().getResource("g").getURI();
@@ -155,7 +155,7 @@ public abstract class VoIDHelper {
             }
             return graphNames.toArray(new String[0]);
         };
-        return Executor.execute(task, "List void graph names from " + sparqlEndPoint, Config.SPARQL_TIMEOUT);
+        return Executor.execute(task, "List void graph names from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout());
     }
 
 }

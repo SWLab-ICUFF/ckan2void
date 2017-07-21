@@ -7,20 +7,22 @@ import java.util.concurrent.TimeUnit;
 
 public class Config {
 
-    private String fusekiDataset = "DatasetDescriptions";
-    private String fusekiTemDataset = "temp";
-    private String datasetname = fusekiDataset + "_v1";
+    private SWLabHost host;
 
-    private String rdfRoot = "./data/v1/rdf";
+    private String fusekiDataset;
+    private String fusekiTemDataset;
+    private String datasetname;
 
-    private String localdatasetHomepageName = rdfRoot + "/dataset/" + datasetname + "/index.jsp";
-    private String localNquadsDumpNamed = rdfRoot + "/dataset/" + datasetname + ".nq.gz";
+    private String rdfRoot;
+
+    private String localdatasetHomepageName;
+    private String localNquadsDumpNamed;
 
     private String username;
     private String password;
 
-    private String remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
-    private String remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
+    private String remoteDatasetHomepageName;
+    private String remoteNquadsDumpName;
 
     private String ckanCatalogs;
 
@@ -38,8 +40,6 @@ public class Config {
     private Integer httpAccessTimeout;
 
     private Long maxVoidFileSize;
-
-    private SWLabHost host;
 
     private Config() {
         try (InputStream input = new FileInputStream("./conf/ckan2void.properties");) {
@@ -85,6 +85,7 @@ public class Config {
         try (InputStream input = new FileInputStream("./conf/auth.properties");) {
             Properties prop = new Properties();
             prop.load(input);
+
             username = prop.getProperty("username", "");
             password = prop.getProperty("password", "");
 
@@ -105,6 +106,17 @@ public class Config {
             host = SWLabHost.ALTERNATE_HOST;
         }
 
+        fusekiDataset = "DatasetDescriptions";
+        fusekiTemDataset = "temp";
+        datasetname = fusekiDataset + "_v1";
+
+        rdfRoot = "./data/v1/rdf";
+
+        localdatasetHomepageName = rdfRoot + "/dataset/" + datasetname + "/index.jsp";
+        localNquadsDumpNamed = rdfRoot + "/dataset/" + datasetname + ".nq.gz";
+
+        remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
+        remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
     }
 
     private static Config config;

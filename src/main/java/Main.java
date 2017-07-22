@@ -31,10 +31,11 @@ public abstract class Main {
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
         String oper = getOper(args);
+        System.out.println("========================================");
         System.out.println("Update host " + conf.host().hostname);
         System.out.println("OPER = " + oper);
         System.out.println("Task instances = " + conf.taskInstances());
-        System.out.println("================================================================================================");
+        System.out.println("========================================");
         System.out.println("");
 
         String[] catalogs = conf.ckanCatalogs().split("[,\n\\p{Blank}]++");
@@ -43,6 +44,7 @@ public abstract class Main {
             if ((new UrlValidator()).isValid(catalog)) {
 
                 Crawler<Dataset> crawler = new CKANCrawler(catalog);
+                System.out.println("===================================================================================================");
                 System.out.println(String.format("Crawler started (%s).", catalog));
                 Integer counter = 0;
 
@@ -65,6 +67,8 @@ public abstract class Main {
                 System.out.println("Waiting for remaining tasks...");
                 pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
                 System.out.println(String.format("Crawler ended (%s).", catalog));
+                System.out.println("===================================================================================================");
+                System.out.println("");
                 conf.host().backupDataset(conf.fusekiDataset());
                 System.gc();
 

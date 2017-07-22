@@ -66,11 +66,11 @@ public abstract class Main {
                 pool.shutdown();
                 System.out.println("Waiting for remaining tasks...");
                 pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
+                conf.host().backupDataset(conf.fusekiDataset());
+                System.gc();
                 System.out.println(String.format("Crawler ended (%s).", catalog));
                 System.out.println("===================================================================================================");
                 System.out.println("");
-                conf.host().backupDataset(conf.fusekiDataset());
-                System.gc();
 
             }
 

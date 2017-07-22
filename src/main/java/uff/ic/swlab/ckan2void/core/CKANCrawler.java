@@ -25,22 +25,19 @@ public class CKANCrawler extends Crawler<Dataset> {
         try {
             cc = new CkanClient(url);
             names = cc.getDatasetList(limit, offset);
-            iterator = names.iterator();
         } catch (Throwable e) {
             System.out.println("CKAN error while connecting to CKAN!");
             names = new ArrayList<>();
-            iterator = names.iterator();
         }
+        iterator = names.iterator();
     }
 
     @Override
     public Dataset next() {
-        while (hasNext())
-            try {
-                return getDataset(iterator.next());
-            } catch (Throwable e) {
-            }
-        return null;
+        Dataset ddataset = getDataset(iterator.next());
+        while (ddataset == null && hasNext())
+            ddataset = getDataset(iterator.next());
+        return ddataset;
     }
 
     public Dataset getDataset(String name) {

@@ -37,7 +37,8 @@ public abstract class Main {
         System.out.println("================================================================================================");
         System.out.println("");
 
-        for (String catalog : conf.ckanCatalogs().split("[,\n\\p{Blank}]++"))
+        String[] catalogs = conf.ckanCatalogs().split("[,\n\\p{Blank}]++");
+        for (String catalog : catalogs)
 
             if ((new UrlValidator()).isValid(catalog)) {
 

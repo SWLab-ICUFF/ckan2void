@@ -1,4 +1,5 @@
 
+import java.sql.SQLException;
 import javax.naming.InvalidNameException;
 import org.apache.jena.rdf.model.Model;
 import org.apache.log4j.PropertyConfigurator;
@@ -12,7 +13,7 @@ public class MainNoThread {
 
     public static Config conf;
 
-    public static void main(String[] args) throws InvalidNameException, InterruptedException {
+    public static void main(String[] args) throws InvalidNameException, InterruptedException, SQLException {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         conf = Config.getInsatnce();
 
@@ -33,7 +34,7 @@ public class MainNoThread {
                 Model model2 = VoIDHelper.getContent(urls, sparqlEndPoints, d.getUri());
 
                 System.out.println(counter + ": " + d.getJsonMetadataUrl());
-                conf.host().saveVoid(model, model2, d.getUri(), graphUri, conf.fusekiDataset(), conf.fusekiTemDataset());
+                conf.host().saveVoid(model, model2, d.getUri(), graphUri);
             }
         }
     }

@@ -5,6 +5,8 @@
 .DS_Store
 Thumbs.db
 auth.properties
+sdb1.ttl
+sdb2.ttl
 
 
 *.class

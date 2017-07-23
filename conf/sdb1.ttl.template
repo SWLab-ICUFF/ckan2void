@@ -1,0 +1,22 @@
+@prefix rdfs:	  <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix ja:       <http://jena.hpl.hp.com/2005/11/Assembler#>.
+@prefix sdb:      <http://jena.hpl.hp.com/2007/sdb#>.
+
+<#dataset> rdf:type sdb:DatasetStore;
+           sdb:store <#store>.
+
+<#store> rdf:type sdb:Store;
+         ## sdb:layout        "layout2/index";
+         sdb:layout        "layout2/hash";
+         sdb:connection    <#conn>.
+
+<#conn> rdf:type sdb:SDBConnection;
+        sdb:sdbType        "postgresql";
+        sdb:driver         "org.postgresql.Driver" ;
+        sdb:sdbHost        "???:5432";
+        sdb:sdbName        "Temp";
+        ## sdb:jdbcURL        "jdbc:postgresql://192.168.1.10:5432/jena-sdb";
+        sdb:sdbUser        "???";
+        sdb:sdbPassword    "???".
+

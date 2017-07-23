@@ -3,6 +3,7 @@ package uff.ic.swlab.ckan2void.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -21,11 +22,14 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
+import org.apache.jena.sdb.SDBFactory;
+import org.apache.jena.sdb.Store;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
@@ -172,33 +176,57 @@ public enum SWLabHost {
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
 
-    public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri, String datasetname, String tempDatasetname) throws InvalidNameException {
-        if (_void.size() == 0)
-            Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1$s>).", datasetUri));
-        if (_voidComp.size() == 0)
-            Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1$s>).", datasetUri));
+    public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException, SQLException {
+        Store store1 = SDBFactory.connectStore(Config.getInsatnce().sdb1());
+        Store store2 = SDBFactory.connectStore(Config.getInsatnce().sdb2());
+        org.apache.jena.query.Dataset dataset1 = SDBFactory.connectDataset(store1);
+        org.apache.jena.query.Dataset dataset2 = SDBFactory.connectDataset(store2);
 
-        Model partitions;
         try {
-            partitions = VoIDHelper.extractPartitions(_void, datasetUri);
-        } catch (Throwable e) {
-            partitions = ModelFactory.createDefaultModel();
+
+            if (_void.size() == 0)
+                Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1$s>).", datasetUri));
+            if (_voidComp.size() == 0)
+                Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1$s>).", datasetUri));
+
+            Model partitions;
+            try {
+                partitions = VoIDHelper.extractPartitions(_void, datasetUri);
+            } catch (Throwable e) {
+                partitions = ModelFactory.createDefaultModel();
+            }
+
+            dataset1.begin(ReadWrite.WRITE);
+            dataset2.begin(ReadWrite.WRITE);
+
+            if (partitions.size() == 0)
+                _void.add(dataset2.getNamedModel(graphUri + "-partitions"));
+            else
+                dataset2.replaceNamedModel(graphUri + "-partitions", partitions);
+
+            if (_voidComp.size() == 0)
+                _voidComp = dataset2.getNamedModel(graphUri);
+            else
+                dataset2.replaceNamedModel(graphUri, _voidComp);
+
+            if (_void.add(_voidComp).size() > 5) {
+                dataset1.replaceNamedModel(graphUri, _void);
+                dataset1.commit();
+                dataset2.commit();
+            } else {
+                Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
+                dataset1.abort();
+                dataset2.abort();
+            }
+
+        } catch (Throwable t) {
+            dataset1.abort();
+            dataset2.abort();
+            throw t;
+        } finally {
+            dataset1.close();
+            dataset2.close();
         }
-
-        if (partitions.size() == 0)
-            _void.add(getModel(tempDatasetname, graphUri + "-partitions"));
-        else
-            putModel(tempDatasetname, graphUri + "-partitions", partitions);
-
-        if (_voidComp.size() == 0)
-            _voidComp = getModel(tempDatasetname, graphUri);
-        else
-            putModel(tempDatasetname, graphUri, _voidComp);
-
-        if (_void.add(_voidComp).size() > 5)
-            putModel(datasetname, graphUri, _void);
-        else
-            Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
     }
 
     public synchronized void uploadBinaryFile(String localFilename, String remoteName, String user, String pass) throws IOException, Exception {

@@ -1,11 +1,16 @@
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import javax.naming.InvalidNameException;
 import org.apache.commons.validator.routines.UrlValidator;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.sdb.SDBFactory;
+import org.apache.jena.sdb.Store;
+import org.apache.jena.sdb.util.StoreUtils;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
@@ -15,13 +20,12 @@ import uff.ic.swlab.ckan2void.util.Config;
 
 public abstract class Main {
 
-    public static Config conf;
+    public static Config conf = Config.getInsatnce();
 
     public static void main(String[] args) {
         try {
             PropertyConfigurator.configure("./conf/log4j.properties");
-            conf = Config.getInsatnce();
-
+            initSDB();
             run(args);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
@@ -108,5 +112,23 @@ public abstract class Main {
             if (Stream.of(opers).anyMatch(x -> x.equals(args[0])))
                 return args[0];
         throw new IllegalArgumentException("Illegal argument list.");
+    }
+
+    private static void initSDB() throws SQLException {
+        Store store1 = SDBFactory.connectStore(conf.sdb1());
+        Store store2 = SDBFactory.connectStore(conf.sdb2());
+
+        org.apache.jena.query.Dataset dataset1 = SDBFactory.connectDataset(store1);
+        Model model1 = dataset1.getDefaultModel();
+        if (!StoreUtils.isFormatted(store1))
+            store1.getTableFormatter().create();
+
+        org.apache.jena.query.Dataset dataset2 = SDBFactory.connectDataset(store2);
+        Model model2 = dataset2.getDefaultModel();
+        if (!StoreUtils.isFormatted(store2))
+            store2.getTableFormatter().create();
+
+        store1.close();
+        store2.close();
     }
 }

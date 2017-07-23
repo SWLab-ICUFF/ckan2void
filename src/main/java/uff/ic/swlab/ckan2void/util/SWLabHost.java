@@ -22,7 +22,6 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -177,10 +176,8 @@ public enum SWLabHost {
     }
 
     public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException, SQLException {
-        Store store1 = SDBFactory.connectStore(Config.getInsatnce().sdb1());
-        Store store2 = SDBFactory.connectStore(Config.getInsatnce().sdb2());
-        org.apache.jena.query.Dataset dataset1 = SDBFactory.connectDataset(store1);
-        org.apache.jena.query.Dataset dataset2 = SDBFactory.connectDataset(store2);
+        Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetDesc());
+        Store tempDatasetStore = SDBFactory.connectStore(Config.getInsatnce().tempDatasetDesc());
 
         try {
 
@@ -196,36 +193,40 @@ public enum SWLabHost {
                 partitions = ModelFactory.createDefaultModel();
             }
 
-            dataset1.begin(ReadWrite.WRITE);
-            dataset2.begin(ReadWrite.WRITE);
+            org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
+            org.apache.jena.query.Dataset tempDataset = SDBFactory.connectDataset(tempDatasetStore);
+
+            datasetStore.getConnection().getTransactionHandler().begin();
+            tempDatasetStore.getConnection().getTransactionHandler().begin();
 
             if (partitions.size() == 0)
-                _void.add(dataset2.getNamedModel(graphUri + "-partitions"));
+                _void.add(tempDataset.getNamedModel(graphUri + "-partitions"));
             else
-                dataset2.replaceNamedModel(graphUri + "-partitions", partitions);
+                tempDataset.replaceNamedModel(graphUri + "-partitions", partitions);
 
             if (_voidComp.size() == 0)
-                _voidComp = dataset2.getNamedModel(graphUri);
+                _voidComp = tempDataset.getNamedModel(graphUri);
             else
-                dataset2.replaceNamedModel(graphUri, _voidComp);
+                tempDataset.replaceNamedModel(graphUri, _voidComp);
 
             if (_void.add(_voidComp).size() > 5) {
-                dataset1.replaceNamedModel(graphUri, _void);
-                dataset1.commit();
-                dataset2.commit();
+                dataset.replaceNamedModel(graphUri, _void);
+                datasetStore.getConnection().getTransactionHandler().commit();
+                tempDatasetStore.getConnection().getTransactionHandler().commit();
+                Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
             } else {
+                datasetStore.getConnection().getTransactionHandler().abort();
+                tempDatasetStore.getConnection().getTransactionHandler().abort();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
-                dataset1.abort();
-                dataset2.abort();
             }
 
         } catch (Throwable t) {
-            dataset1.abort();
-            dataset2.abort();
+            datasetStore.getConnection().getTransactionHandler().abort();
+            tempDatasetStore.getConnection().getTransactionHandler().abort();
             throw t;
         } finally {
-            dataset1.close();
-            dataset2.close();
+            datasetStore.getConnection().close();
+            tempDatasetStore.getConnection().close();
         }
     }
 

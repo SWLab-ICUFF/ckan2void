@@ -1,13 +1,20 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
+import java.util.zip.GZIPOutputStream;
 import javax.naming.InvalidNameException;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.sdb.SDBFactory;
 import org.apache.jena.sdb.Store;
 import org.apache.jena.sdb.util.StoreUtils;
@@ -70,6 +77,9 @@ public abstract class Main {
                 pool.shutdown();
                 System.out.println("Waiting for remaining tasks...");
                 pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
+
+                exportDataset();
+
                 conf.host().backupDataset(conf.fusekiDataset());
                 System.gc();
                 System.out.println(String.format("Crawler ended (%s).", catalog));
@@ -115,8 +125,8 @@ public abstract class Main {
     }
 
     private static void initSDB() throws SQLException {
-        Store store1 = SDBFactory.connectStore(conf.sdb1());
-        Store store2 = SDBFactory.connectStore(conf.sdb2());
+        Store store1 = SDBFactory.connectStore(conf.datasetDesc());
+        Store store2 = SDBFactory.connectStore(conf.tempDatasetDesc());
 
         org.apache.jena.query.Dataset dataset1 = SDBFactory.connectDataset(store1);
         Model model1 = dataset1.getDefaultModel();
@@ -130,5 +140,28 @@ public abstract class Main {
 
         store1.close();
         store2.close();
+    }
+
+    private static void exportDataset() throws Exception, IOException {
+        (new File(conf.localDatasetHomepageName())).getParentFile().mkdirs();
+
+        Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetDesc());
+        try (OutputStream out = new FileOutputStream(conf.localNquadsDumpName());
+                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+            RDFDataMgr.write(out2, SDBFactory.connectDataset(datasetStore), Lang.NQ);
+            out2.finish();
+            out.flush();
+        }
+
+    }
+
+    private static void uploadDataset() throws FileNotFoundException, IOException, Exception {
+        Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetDesc());
+        conf.host().mkDirsViaFTP(conf.remoteDatasetHomepageName(), conf.username(), conf.password());
+        conf.host().uploadBinaryFile(conf.localDatasetHomepageName(), conf.remoteDatasetHomepageName(), conf.username(), conf.password());
+        conf.host().uploadBinaryFile(conf.localNquadsDumpName(), conf.remoteNquadsDumpName(), conf.username(), conf.password());
+
+        conf.host().putModel(conf.fusekiDataset(), DATASET);
+        conf.host().backupDataset(conf.fusekiDataset());
     }
 }

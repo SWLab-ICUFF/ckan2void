@@ -42,8 +42,8 @@ public class Config {
 
     private Long maxVoidFileSize;
 
-    private StoreDesc sdb1;
-    private StoreDesc sdb2;
+    private StoreDesc datasetDesc;
+    private StoreDesc tempDatasetDesc;
 
     private Config() {
         try (InputStream input = new FileInputStream("./conf/ckan2void.properties");) {
@@ -122,8 +122,8 @@ public class Config {
         remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
         remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
 
-        sdb1 = StoreDesc.read("./conf/sdb1.ttl");
-        sdb2 = StoreDesc.read("./conf/sdb2.ttl");
+        datasetDesc = StoreDesc.read("./conf/sdb1.ttl");
+        tempDatasetDesc = StoreDesc.read("./conf/sdb2.ttl");
     }
 
     private static Config config;
@@ -230,11 +230,11 @@ public class Config {
         return host;
     }
 
-    public StoreDesc sdb1() {
-        return sdb1;
+    public StoreDesc datasetDesc() {
+        return datasetDesc;
     }
 
-    public StoreDesc sdb2() {
-        return sdb2;
+    public StoreDesc tempDatasetDesc() {
+        return tempDatasetDesc;
     }
 }

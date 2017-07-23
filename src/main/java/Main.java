@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -79,9 +80,9 @@ public abstract class Main {
                 pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
 
                 exportDataset();
-
-                conf.host().backupDataset(conf.fusekiDataset());
+                uploadDataset();
                 System.gc();
+
                 System.out.println(String.format("Crawler ended (%s).", catalog));
                 System.out.println("===================================================================================================");
                 System.out.println("");
@@ -157,11 +158,18 @@ public abstract class Main {
 
     private static void uploadDataset() throws FileNotFoundException, IOException, Exception {
         Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetDesc());
+        org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
+
         conf.host().mkDirsViaFTP(conf.remoteDatasetHomepageName(), conf.username(), conf.password());
         conf.host().uploadBinaryFile(conf.localDatasetHomepageName(), conf.remoteDatasetHomepageName(), conf.username(), conf.password());
         conf.host().uploadBinaryFile(conf.localNquadsDumpName(), conf.remoteNquadsDumpName(), conf.username(), conf.password());
 
-        conf.host().putModel(conf.fusekiDataset(), DATASET);
+        Iterator<String> iter = dataset.listNames();
+        conf.host().putModel(conf.fusekiDataset(), dataset.getDefaultModel());
+        while (iter.hasNext()) {
+            String graphUri = iter.next();
+            conf.host().putModel(conf.fusekiDataset(), graphUri, dataset.getNamedModel(graphUri));
+        }
         conf.host().backupDataset(conf.fusekiDataset());
     }
 }

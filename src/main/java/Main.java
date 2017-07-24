@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -161,19 +160,7 @@ public abstract class Main {
         conf.host().mkDirsViaFTP(conf.remoteDatasetHomepageName(), conf.username(), conf.password());
         conf.host().uploadBinaryFile(conf.localDatasetHomepageName(), conf.remoteDatasetHomepageName(), conf.username(), conf.password());
         conf.host().uploadBinaryFile(conf.localNquadsDumpName(), conf.remoteNquadsDumpName(), conf.username(), conf.password());
-
-        conf.host().putModel(conf.fusekiDataset(), dataset.getDefaultModel());
-        String graphUri;
-        Iterator<String> iter = dataset.listNames();
-        while (iter.hasNext()) {
-            graphUri = iter.next();
-            try {
-                conf.host().putModel(conf.fusekiDataset(), graphUri, dataset.getNamedModel(graphUri));
-            } catch (Throwable t) {
-                System.out.println("Discarding " + graphUri);
-            }
-        }
-        conf.host().backupDataset(conf.fusekiDataset());
+        datasetStore.close();
         System.out.println("Done.");
     }
 

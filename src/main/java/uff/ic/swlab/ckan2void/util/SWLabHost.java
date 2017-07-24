@@ -118,9 +118,13 @@ public enum SWLabHost {
         Store datasetStore = SDBFactory.connectStore(storeDesc);
         Dataset dataset = SDBFactory.connectDataset(datasetStore);
 
-        Query query = QueryFactory.create(queryString);
-        QueryExecution execution = QueryExecutionFactory.create(query, dataset);
-        return execution.execSelect();
+        try {
+            Query query = QueryFactory.create(queryString);
+            QueryExecution execution = QueryExecutionFactory.create(query, dataset);
+            return execution.execSelect();
+        } finally {
+            datasetStore.close();
+        }
     }
 
     public synchronized void execUpdate(String queryString, String datasetname) {
@@ -133,9 +137,14 @@ public enum SWLabHost {
         Store datasetStore = SDBFactory.connectStore(storeDesc);
         Dataset dataset = SDBFactory.connectDataset(datasetStore);
 
-        UpdateRequest request = UpdateFactory.create(queryString);
-        UpdateProcessor execution = UpdateExecutionFactory.create(request, dataset);
-        execution.execute();
+        try {
+            UpdateRequest request = UpdateFactory.create(queryString);
+            UpdateProcessor execution = UpdateExecutionFactory.create(request, dataset);
+            execution.execute();
+        } finally {
+            datasetStore.close();
+        }
+
     }
 
     public void backupDataset(String datasetname) throws Exception, IOException {

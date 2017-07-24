@@ -197,8 +197,6 @@ public enum SWLabHost {
     public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException, SQLException {
         Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
         Store tempDatasetStore = SDBFactory.connectStore(Config.getInsatnce().tempDatasetSDBDesc());
-        Dataset dataset = null;
-        Dataset tempDataset = null;
 
         try {
 
@@ -214,11 +212,11 @@ public enum SWLabHost {
                 partitions = ModelFactory.createDefaultModel();
             }
 
-            dataset = SDBFactory.connectDataset(datasetStore);
-            tempDataset = SDBFactory.connectDataset(tempDatasetStore);
-
             datasetStore.getConnection().getTransactionHandler().begin();
             tempDatasetStore.getConnection().getTransactionHandler().begin();
+
+            Dataset tempDataset = SDBFactory.connectDataset(tempDatasetStore);
+            Dataset dataset = SDBFactory.connectDataset(datasetStore);
 
             if (partitions.size() == 0)
                 _void.add(tempDataset.getNamedModel(graphUri + "-partitions"));
@@ -233,6 +231,7 @@ public enum SWLabHost {
             if (_void.add(_voidComp).size() > 5) {
                 dataset.replaceNamedModel(graphUri, _void);
                 putModel(Config.getInsatnce().fusekiDataset(), graphUri, _void);
+
                 datasetStore.getConnection().getTransactionHandler().commit();
                 tempDatasetStore.getConnection().getTransactionHandler().commit();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));

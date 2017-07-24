@@ -92,8 +92,7 @@ public abstract class Main {
             System.out.println("");
         }
 
-        createRootResource(conf.fusekiDataset());
-        createRootResource(StoreDesc.read(conf.datasetSDBDesc()));
+        createRootResource();
         exportDataset();
         uploadDataset();
     }
@@ -116,7 +115,7 @@ public abstract class Main {
         return rs.next().getLiteral("updateCandidate").getBoolean();
     }
 
-    private static void createRootResource(String datasetname) {
+    private static void createRootResource() {
         System.out.println("Creating root resource on Fuseki...");
         String queryString = ""
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -135,30 +134,8 @@ public abstract class Main {
                 + "}";
 
         queryString = String.format(queryString, conf.host().linkedDataNS());
-        conf.host().execUpdate(queryString, datasetname);
-        System.out.println("Done.");
-    }
-
-    private static void createRootResource(StoreDesc storeDesc) {
-        System.out.println("Creating root resource in the local DB...");
-        String queryString = ""
-                + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
-                + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "prefix : <http://swlab.paes-leme.name:8080/resource/>\n"
-                + "\n"
-                + "delete {?s ?p ?o.}\n"
-                + "insert {:id-root-dataset-descriptions a void:DatasetDescription.\n"
-                + "        :id-root-dataset-descriptions rdfs:label \"Root resource of the dataset Dataset Descriptions\".\n"
-                + "        :id-root-dataset-descriptions foaf:topic ?s.}\n"
-                + "where {\n"
-                + "  select distinct ?s\n"
-                + "  where {graph ?g {?s a void:Dataset.\n"
-                + "                   filter not exists {?s2 (void:subset | void:classPartition | void:propertyPartition) ?s.}}}\n"
-                + "}";
-
-        queryString = String.format(queryString, conf.host().linkedDataNS());
-        conf.host().execUpdate(queryString, storeDesc);
+        conf.host().execUpdate(queryString, conf.fusekiDataset());
+        conf.host().execUpdate(queryString, StoreDesc.read(conf.datasetSDBDesc()));
         System.out.println("Done.");
     }
 

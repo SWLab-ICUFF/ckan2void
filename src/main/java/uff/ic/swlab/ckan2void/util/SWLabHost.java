@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import javax.naming.InvalidNameException;
 import org.apache.commons.io.IOUtils;
@@ -21,14 +20,18 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
+import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sdb.SDBFactory;
 import org.apache.jena.sdb.Store;
+import org.apache.jena.sdb.StoreDesc;
+import org.apache.jena.sdb.util.StoreUtils;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
@@ -111,9 +114,27 @@ public enum SWLabHost {
         return result;
     }
 
+    public synchronized ResultSet execSelect(String queryString, StoreDesc storeDesc) {
+        Store datasetStore = SDBFactory.connectStore(storeDesc);
+        Dataset dataset = SDBFactory.connectDataset(datasetStore);
+
+        Query query = QueryFactory.create(queryString);
+        QueryExecution execution = QueryExecutionFactory.create(query, dataset);
+        return execution.execSelect();
+    }
+
     public synchronized void execUpdate(String queryString, String datasetname) {
         UpdateRequest request = UpdateFactory.create(queryString);
         UpdateProcessor execution = UpdateExecutionFactory.createRemote(request, getUpdateURL(datasetname));
+        execution.execute();
+    }
+
+    public synchronized void execUpdate(String queryString, StoreDesc storeDesc) {
+        Store datasetStore = SDBFactory.connectStore(storeDesc);
+        Dataset dataset = SDBFactory.connectDataset(datasetStore);
+
+        UpdateRequest request = UpdateFactory.create(queryString);
+        UpdateProcessor execution = UpdateExecutionFactory.create(request, dataset);
         execution.execute();
     }
 
@@ -137,20 +158,9 @@ public enum SWLabHost {
         }
     }
 
-    public synchronized void loadDataset(String datasetname, String sourceDatasetUri) {
-        Dataset dataset = RDFDataMgr.loadDataset(sourceDatasetUri);
+    public synchronized void putModel(String datasetname, Model sourceModel) throws InvalidNameException {
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-        accessor.putModel(dataset.getDefaultModel());
-        Iterator<String> iter = dataset.listNames();
-        while (iter.hasNext()) {
-            String graphUri = iter.next();
-            accessor.putModel(graphUri, dataset.getNamedModel(graphUri));
-        }
-    }
-
-    public synchronized void putModel(String datasetname, Model model) throws InvalidNameException {
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
-        accessor.putModel(model);
+        accessor.putModel(sourceModel);
         Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
     }
 
@@ -175,9 +185,20 @@ public enum SWLabHost {
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
 
+    public synchronized Model getModel(String datasetname) {
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
+        Model model = accessor.getModel();
+        if (model != null)
+            return model;
+        else
+            return ModelFactory.createDefaultModel();
+    }
+
     public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException, SQLException {
-        Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetDesc());
-        Store tempDatasetStore = SDBFactory.connectStore(Config.getInsatnce().tempDatasetDesc());
+        Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
+        Store tempDatasetStore = SDBFactory.connectStore(Config.getInsatnce().tempDatasetSDBDesc());
+        Dataset dataset = null;
+        Dataset tempDataset = null;
 
         try {
 
@@ -193,8 +214,8 @@ public enum SWLabHost {
                 partitions = ModelFactory.createDefaultModel();
             }
 
-            org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
-            org.apache.jena.query.Dataset tempDataset = SDBFactory.connectDataset(tempDatasetStore);
+            dataset = SDBFactory.connectDataset(datasetStore);
+            tempDataset = SDBFactory.connectDataset(tempDatasetStore);
 
             datasetStore.getConnection().getTransactionHandler().begin();
             tempDatasetStore.getConnection().getTransactionHandler().begin();
@@ -211,6 +232,7 @@ public enum SWLabHost {
 
             if (_void.add(_voidComp).size() > 5) {
                 dataset.replaceNamedModel(graphUri, _void);
+                putModel(Config.getInsatnce().fusekiDataset(), graphUri, _void);
                 datasetStore.getConnection().getTransactionHandler().commit();
                 tempDatasetStore.getConnection().getTransactionHandler().commit();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
@@ -279,6 +301,16 @@ public enum SWLabHost {
             } catch (IOException e2) {
             }
             throw e;
+        }
+    }
+
+    public synchronized static void initSDB(String desc) throws SQLException {
+        Store store = SDBFactory.connectStore(StoreDesc.read(desc));
+        try {
+            if (!StoreUtils.isFormatted(store))
+                store.getTableFormatter().create();
+        } finally {
+            store.close();
         }
     }
 

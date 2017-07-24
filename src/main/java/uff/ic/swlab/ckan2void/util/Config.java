@@ -4,28 +4,27 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import org.apache.jena.sdb.StoreDesc;
 
 public class Config {
 
     private SWLabHost host;
 
-    private String fusekiDataset;
-    private String fusekiTemDataset;
-    private String datasetname;
+    private String fusekiDataset = "DatasetDescriptions";
+    private String fusekiTemDataset = "temp";
+    private String datasetname = fusekiDataset + "_v1";
 
-    private String rdfRoot;
+    private String rdfRoot = "./data/v1/rdf";
 
-    private String localdatasetHomepageName;
-    private String localNquadsDumpNamed;
+    private String localdatasetHomepageName = rdfRoot + "/dataset/" + datasetname + "/index.jsp";
+    private String localNquadsDumpNamed = rdfRoot + "/dataset/" + datasetname + ".nq.gz";
 
     private String username;
     private String password;
 
-    private String remoteDatasetHomepageName;
-    private String remoteNquadsDumpName;
+    private String remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
+    private String remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
 
-    private String ckanCatalogs;
+    private String ckanCatalogs = "http://datahub.io";
 
     private Integer parallelism;
     private Integer taskInstances;
@@ -42,8 +41,8 @@ public class Config {
 
     private Long maxVoidFileSize;
 
-    private StoreDesc datasetDesc;
-    private StoreDesc tempDatasetDesc;
+    private String datasetSDBDesc;
+    private String tempDatasetSDBDesc;
 
     private Config() {
         try (InputStream input = new FileInputStream("./conf/ckan2void.properties");) {
@@ -110,20 +109,8 @@ public class Config {
             host = SWLabHost.ALTERNATE_HOST;
         }
 
-        fusekiDataset = "DatasetDescriptions";
-        fusekiTemDataset = "temp";
-        datasetname = fusekiDataset + "_v1";
-
-        rdfRoot = "./data/v1/rdf";
-
-        localdatasetHomepageName = rdfRoot + "/dataset/" + datasetname + "/index.jsp";
-        localNquadsDumpNamed = rdfRoot + "/dataset/" + datasetname + ".nq.gz";
-
-        remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
-        remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
-
-        datasetDesc = StoreDesc.read("./conf/sdb1.ttl");
-        tempDatasetDesc = StoreDesc.read("./conf/sdb2.ttl");
+        datasetSDBDesc = "./conf/sdb1.ttl";
+        tempDatasetSDBDesc = "./conf/sdb2.ttl";
     }
 
     private static Config config;
@@ -230,11 +217,11 @@ public class Config {
         return host;
     }
 
-    public StoreDesc datasetDesc() {
-        return datasetDesc;
+    public String datasetSDBDesc() {
+        return datasetSDBDesc;
     }
 
-    public StoreDesc tempDatasetDesc() {
-        return tempDatasetDesc;
+    public String tempDatasetSDBDesc() {
+        return tempDatasetSDBDesc;
     }
 }

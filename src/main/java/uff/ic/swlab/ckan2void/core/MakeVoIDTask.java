@@ -2,6 +2,7 @@ package uff.ic.swlab.ckan2void.core;
 
 import java.util.concurrent.Callable;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
@@ -61,15 +62,18 @@ public class MakeVoIDTask implements Runnable {
 
     private void runTask() {
         try {
+            Model _void = ModelFactory.createDefaultModel();
+            Model _voidComp = ModelFactory.createDefaultModel();
+
             Callable<Object> task = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
-                Model _void = dataset.toVoid();
-                Model _voidComp = VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri());
-                conf.host().saveVoid(_void, _voidComp, dataset.getUri(), graphUri);
+                _void.add(dataset.toVoid());
+                _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri()));
                 return null;
             };
             Executor.execute(task, "Make void of " + dataset.getUri(), conf.taskTimeout());
+            conf.host().saveVoid(_void, _voidComp, dataset.getUri(), graphUri);
 
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Task failure (<%1$s>). Msg: %2$s", graphUri, e.getMessage()));

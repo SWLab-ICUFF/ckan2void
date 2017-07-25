@@ -39,7 +39,7 @@ public class CKANCrawler extends Crawler<Dataset> {
             name = iterator.next();
 
         if (name != null && !name.equals(""))
-            dataset = new Dataset(cc, iterator.next());
+            dataset = new Dataset(cc, name);
 
         return dataset;
     }

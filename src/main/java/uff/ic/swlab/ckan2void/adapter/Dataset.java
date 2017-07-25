@@ -39,14 +39,20 @@ import uff.ic.swlab.ckan2void.util.Executor;
 
 public class Dataset {
 
-    private final CkanDataset doc;
-    private final CkanClient cc;
-    private final Config conf;
+    private String name;
+    private CkanDataset doc;
+    private CkanClient cc;
+    private Config conf;
 
     public Dataset(CkanClient cc, CkanDataset doc) throws IOException {
         this.conf = Config.getInsatnce();
-        this.doc = doc;
         this.cc = cc;
+        this.doc = doc;
+
+    }
+
+    private CkanDataset getDoc() {
+        return doc;
     }
 
     public String getCatalogUrl() {
@@ -59,7 +65,7 @@ public class Dataset {
 
     public String getName() {
         try {
-            return doc.getName();
+            return getDoc().getName();
         } catch (Throwable e) {
             return "undefined-name";
         }
@@ -109,7 +115,7 @@ public class Dataset {
 
     public String getUrl() {
         try {
-            String url = doc.getUrl();
+            String url = getDoc().getUrl();
             return URLHelper.normalize(url);
         } catch (Throwable e) {
             return null;
@@ -118,7 +124,7 @@ public class Dataset {
 
     public String getTitle() {
         try {
-            String title = doc.getTitle();
+            String title = getDoc().getTitle();
             if (!title.equals(""))
                 return title;
         } catch (Throwable t) {
@@ -128,7 +134,7 @@ public class Dataset {
 
     public String getNotes() {
         try {
-            String notes = doc.getNotes();
+            String notes = getDoc().getNotes();
             if (!notes.equals(""))
                 return notes;
         } catch (Throwable t) {
@@ -139,7 +145,7 @@ public class Dataset {
     public Calendar getMetadataCreated() {
         try {
             Calendar cal = Calendar.getInstance();
-            cal.setTime(doc.getMetadataCreated());
+            cal.setTime(getDoc().getMetadataCreated());
             return cal;
         } catch (Throwable t) {
             return null;
@@ -149,7 +155,7 @@ public class Dataset {
     public Calendar getMetadataModified() {
         try {
             Calendar cal = Calendar.getInstance();
-            cal.setTime(doc.getMetadataModified());
+            cal.setTime(getDoc().getMetadataModified());
             return cal;
         } catch (Throwable t) {
             return null;
@@ -159,7 +165,7 @@ public class Dataset {
     public String[] getTags() {
         try {
             List<String> tags = new ArrayList<>();
-            doc.getTags().stream().forEach((tag) -> {
+            getDoc().getTags().stream().forEach((tag) -> {
                 try {
                     if (!tag.getName().equals(""))
                         tags.add(tag.getName().trim());
@@ -175,7 +181,7 @@ public class Dataset {
     public String[] getNamespaces() {
         try {
             List<String> uriSpaces = new ArrayList<>();
-            doc.getExtras().stream().forEach((extra) -> {
+            getDoc().getExtras().stream().forEach((extra) -> {
                 try {
                     if (extra.getKey().toLowerCase().contains("namespace"))
                         uriSpaces.add(extra.getValue().trim());
@@ -191,7 +197,7 @@ public class Dataset {
     public String[] getVoIDUrls() {
         try {
             List<String> voids = new ArrayList<>();
-            doc.getResources().stream().forEach((resource) -> {
+            getDoc().getResources().stream().forEach((resource) -> {
                 try {
                     if (resource.getDescription().toLowerCase().contains("void")
                             || resource.getFormat().toLowerCase().contains("void")
@@ -209,7 +215,7 @@ public class Dataset {
     public String[] getExampleUrls() {
         try {
             List<String> examples = new ArrayList<>();
-            doc.getResources().stream().forEach((resource) -> {
+            getDoc().getResources().stream().forEach((resource) -> {
                 try {
                     if (resource.getDescription().toLowerCase().contains("example")
                             || resource.getFormat().toLowerCase().contains("example")
@@ -227,7 +233,7 @@ public class Dataset {
     public String[] getDumpUrls() {
         try {
             List<String> dumps = new ArrayList<>();
-            doc.getResources().stream().forEach((resource) -> {
+            getDoc().getResources().stream().forEach((resource) -> {
                 try {
                     if ((resource.getDescription().toLowerCase().contains("dump")
                             || resource.getFormat().toLowerCase().contains("dump")
@@ -248,7 +254,7 @@ public class Dataset {
     public String[] getSparqlEndPoints() {
         try {
             List<String> sparqlEndPoints = new ArrayList<>();
-            doc.getResources().stream().forEach((resource) -> {
+            getDoc().getResources().stream().forEach((resource) -> {
                 try {
                     if (resource.getDescription().toLowerCase().contains("sparql")
                             || resource.getFormat().toLowerCase().contains("sparql")
@@ -281,7 +287,7 @@ public class Dataset {
         String ns = getNamespace();
         try {
             String key, value;
-            for (CkanPair ex : doc.getExtras())
+            for (CkanPair ex : getDoc().getExtras())
                 try {
                     key = ex.getKey();
                     value = ex.getValue();
@@ -298,7 +304,7 @@ public class Dataset {
         Map<String, Integer> links = new HashMap<>();
         String ns = getNamespace();
         try {
-            for (CkanDatasetRelationship rel : doc.getRelationshipsAsSubject())
+            for (CkanDatasetRelationship rel : getDoc().getRelationshipsAsSubject())
                 links.put(ns + cc.getDataset(rel.getObject()).getName(), Integer.parseInt(rel.getComment()));
         } catch (Throwable e) {
         }
@@ -307,7 +313,7 @@ public class Dataset {
 
     private Integer getTriples() {
         try {
-            List<CkanPair> extras = doc.getExtras();
+            List<CkanPair> extras = getDoc().getExtras();
             for (CkanPair d : extras)
                 if (d.getKey().trim().toLowerCase().equals("triples"))
                     return Integer.parseInt(d.getValue());

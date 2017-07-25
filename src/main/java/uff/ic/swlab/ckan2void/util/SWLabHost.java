@@ -115,9 +115,8 @@ public enum SWLabHost {
 
     public synchronized void execUpdate(String queryString, StoreDesc storeDesc) {
         Store datasetStore = SDBFactory.connectStore(storeDesc);
-        Dataset dataset = SDBFactory.connectDataset(datasetStore);
-
         try {
+            Dataset dataset = SDBFactory.connectDataset(datasetStore);
             UpdateRequest request = UpdateFactory.create(queryString);
             UpdateProcessor execution = UpdateExecutionFactory.create(request, dataset);
             execution.execute();
@@ -186,7 +185,6 @@ public enum SWLabHost {
     public synchronized void saveVoid(Model _void, Model _voidComp, String datasetUri, String graphUri) throws InvalidNameException, SQLException {
         Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
         Store tempDatasetStore = SDBFactory.connectStore(Config.getInsatnce().tempDatasetSDBDesc());
-
         try {
 
             if (_void.size() == 0)
@@ -298,7 +296,7 @@ public enum SWLabHost {
             if (!StoreUtils.isFormatted(store))
                 store.getTableFormatter().create();
         } finally {
-            store.close();
+            store.getConnection().close();
         }
     }
 

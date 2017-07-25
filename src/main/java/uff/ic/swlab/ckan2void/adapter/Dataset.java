@@ -549,8 +549,8 @@ public class Dataset {
 
         try {
             Store datasetStore = SDBFactory.connectStore(StoreDesc.read(conf.datasetSDBDesc()));
-            org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
             try {
+                org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
                 Query query = QueryFactory.create(queryString);
                 QueryExecution execution = QueryExecutionFactory.create(query, dataset);
                 return execution.execSelect().next().getLiteral("isUpdateCandidate").getBoolean();

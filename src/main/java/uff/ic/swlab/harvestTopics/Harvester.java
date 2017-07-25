@@ -9,6 +9,6 @@ package uff.ic.swlab.harvestTopics;
  *
  * @author lapaesleme
  */
-public class NewClass {
+public class Harvester {
 
 }

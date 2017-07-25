@@ -30,9 +30,7 @@ public abstract class Main {
             PropertyConfigurator.configure("./conf/log4j.properties");
             conf.host().initSDB(conf.datasetSDBDesc());
             conf.host().initSDB(conf.tempDatasetSDBDesc());
-
             run(args);
-
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
@@ -65,7 +63,7 @@ public abstract class Main {
                     try {
                         if (dataset.isUpdateCandidate()) {
                             pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " submitted.");
+                            System.out.println((++counter) + ": Harvesting task of the " + graphURI + " submitted.");
                         } else
                             System.out.println("Skipping dataset " + graphURI + ".");
                     } catch (Throwable t) {
@@ -129,6 +127,8 @@ public abstract class Main {
                 RDFDataMgr.write(out2, SDBFactory.connectDataset(datasetStore), Lang.NQUADS);
                 out2.finish();
                 out.flush();
+            } finally {
+                datasetStore.getConnection().close();
             }
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
@@ -141,12 +141,14 @@ public abstract class Main {
         System.out.println("Uploading dataset...");
         try {
             Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
-            org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
-
-            conf.host().mkDirsViaFTP(conf.remoteDatasetHomepageName(), conf.username(), conf.password());
-            conf.host().uploadBinaryFile(conf.localDatasetHomepageName(), conf.remoteDatasetHomepageName(), conf.username(), conf.password());
-            conf.host().uploadBinaryFile(conf.localNquadsDumpName(), conf.remoteNquadsDumpName(), conf.username(), conf.password());
-            datasetStore.close();
+            try {
+                org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
+                conf.host().mkDirsViaFTP(conf.remoteDatasetHomepageName(), conf.username(), conf.password());
+                conf.host().uploadBinaryFile(conf.localDatasetHomepageName(), conf.remoteDatasetHomepageName(), conf.username(), conf.password());
+                conf.host().uploadBinaryFile(conf.localNquadsDumpName(), conf.remoteNquadsDumpName(), conf.username(), conf.password());
+            } finally {
+                datasetStore.getConnection().close();
+            }
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while uploading dataset. Msg: " + t.getMessage());
             t.printStackTrace();

@@ -4,9 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import javax.naming.InvalidNameException;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.ftp.FTP;
@@ -21,7 +19,6 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.WebContent;
@@ -87,21 +84,20 @@ public enum SWLabHost {
         return String.format(baseHttpUrl() + "fuseki/%1$s/update", datasetname);
     }
 
-    public synchronized List<String> listGraphNames(String datasetname, long timeout) {
-        List<String> graphNames = new ArrayList<>();
-
-        String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
-        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
-            ((QueryEngineHTTP) exec).setTimeout(timeout);
-            ResultSet rs = exec.execSelect();
-            while (rs.hasNext())
-                graphNames.add(rs.next().getResource("g").getURI());
-        } catch (Exception e) {
-        }
-
-        return graphNames;
-    }
-
+//    public synchronized List<String> listGraphNames(String datasetname, long timeout) {
+//        List<String> graphNames = new ArrayList<>();
+//
+//        String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
+//        try (QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+//            ((QueryEngineHTTP) exec).setTimeout(timeout);
+//            ResultSet rs = exec.execSelect();
+//            while (rs.hasNext())
+//                graphNames.add(rs.next().getResource("g").getURI());
+//        } catch (Exception e) {
+//        }
+//
+//        return graphNames;
+//    }
     public synchronized Model execConstruct(String queryString, String datasetname) {
         Model result = ModelFactory.createDefaultModel();
         try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {

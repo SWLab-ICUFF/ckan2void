@@ -33,20 +33,9 @@ public class CKANCrawler extends Crawler<Dataset> {
     @Override
     public Dataset next() {
         Dataset dataset = null;
-        while (dataset == null && hasNext())
-            dataset = getDataset(iterator.next());
+        while (hasNext())
+            dataset = new Dataset(cc, iterator.next());
         return dataset;
-    }
-
-    public Dataset getDataset(String name) {
-        try {
-            Callable<Dataset> task = () -> {
-                return new Dataset(cc, cc.getDataset(name));
-            };
-            return Executor.execute(task, "get dataset document \"" + name + "\" from CKAN", conf.taskTimeout());
-        } catch (Throwable t) {
-            return null;
-        }
     }
 
     private boolean hasNext() {
@@ -61,11 +50,11 @@ public class CKANCrawler extends Crawler<Dataset> {
                 }
                 return hasNext;
             };
-            return Executor.execute(task, "asks to " + cc.getCatalogUrl() + " if has a next dataset to retrieve", conf.taskTimeout());
+            return Executor.execute(task, "Ask to " + cc.getCatalogUrl() + " if it has a next dataset to retrieve", conf.httpAccessTimeout());
         } catch (Throwable e) {
             names = new ArrayList<>();
             iterator = names.iterator();
-            offset = -limit;
+            //offset = -limit;
             return false;
         }
     }

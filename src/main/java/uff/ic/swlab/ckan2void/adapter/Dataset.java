@@ -4,7 +4,6 @@ import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
 import eu.trentorise.opendata.jackan.model.CkanDatasetRelationship;
 import eu.trentorise.opendata.jackan.model.CkanPair;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -16,9 +15,14 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
@@ -26,6 +30,9 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.WebContent;
+import org.apache.jena.sdb.SDBFactory;
+import org.apache.jena.sdb.Store;
+import org.apache.jena.sdb.StoreDesc;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
@@ -39,19 +46,23 @@ import uff.ic.swlab.ckan2void.util.Executor;
 
 public class Dataset {
 
-    private String name;
+    private final Config conf;
+    private final CkanClient cc;
+    private final String name;
     private CkanDataset doc;
-    private CkanClient cc;
-    private Config conf;
 
-    public Dataset(CkanClient cc, CkanDataset doc) throws IOException {
+    public Dataset(CkanClient cc, String name) {
         this.conf = Config.getInsatnce();
         this.cc = cc;
-        this.doc = doc;
-
+        this.name = name == null || name.equals("") ? "---unknown---" : name;
     }
 
-    private CkanDataset getDoc() {
+    private CkanDataset getDoc() throws InterruptedException, TimeoutException, ExecutionException {
+        Callable<CkanDataset> task = () -> {
+            return cc.getDataset(name);
+        };
+        if (doc == null)
+            doc = Executor.execute(task, "Get dataset document \"" + name + "\" from " + cc.getCatalogUrl(), conf.httpAccessTimeout());
         return doc;
     }
 
@@ -64,11 +75,7 @@ public class Dataset {
     }
 
     public String getName() {
-        try {
-            return getDoc().getName();
-        } catch (Throwable e) {
-            return "undefined-name";
-        }
+        return name;
     }
 
     public String getNamespace() {
@@ -79,7 +86,7 @@ public class Dataset {
         }
     }
 
-    public String getUri() {
+    public String getUri() throws InterruptedException, TimeoutException, ExecutionException {
         String sufix;
         if (getCatalogUrl().contains("uni-mannheim"))
             sufix = "-uni-mannheim";
@@ -113,56 +120,66 @@ public class Dataset {
         return getCatalogUrl() + "/dataset/" + getName();
     }
 
-    public String getUrl() {
+    public String getUrl() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             String url = getDoc().getUrl();
             return URLHelper.normalize(url);
-        } catch (Throwable e) {
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
+        } catch (Throwable t) {
             return null;
         }
     }
 
-    public String getTitle() {
+    public String getTitle() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             String title = getDoc().getTitle();
             if (!title.equals(""))
                 return title;
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable t) {
         }
         return null;
     }
 
-    public String getNotes() {
+    public String getNotes() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             String notes = getDoc().getNotes();
             if (!notes.equals(""))
                 return notes;
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable t) {
         }
         return null;
     }
 
-    public Calendar getMetadataCreated() {
+    public Calendar getMetadataCreated() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             Calendar cal = Calendar.getInstance();
             cal.setTime(getDoc().getMetadataCreated());
             return cal;
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable t) {
             return null;
         }
     }
 
-    public Calendar getMetadataModified() {
+    public Calendar getMetadataModified() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             Calendar cal = Calendar.getInstance();
             cal.setTime(getDoc().getMetadataModified());
             return cal;
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable t) {
             return null;
         }
     }
 
-    public String[] getTags() {
+    public String[] getTags() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<String> tags = new ArrayList<>();
             getDoc().getTags().stream().forEach((tag) -> {
@@ -173,12 +190,14 @@ public class Dataset {
                 }
             });
             return (new HashSet<>(tags)).toArray(new String[0]);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
             return new String[0];
         }
     }
 
-    public String[] getNamespaces() {
+    public String[] getNamespaces() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<String> uriSpaces = new ArrayList<>();
             getDoc().getExtras().stream().forEach((extra) -> {
@@ -189,12 +208,14 @@ public class Dataset {
                 }
             });
             return (new HashSet<>(uriSpaces)).toArray(new String[0]);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
             return new String[0];
         }
     }
 
-    public String[] getVoIDUrls() {
+    public String[] getVoIDUrls() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<String> voids = new ArrayList<>();
             getDoc().getResources().stream().forEach((resource) -> {
@@ -207,12 +228,14 @@ public class Dataset {
                 }
             });
             return (new HashSet<>(voids)).toArray(new String[0]);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
             return new String[0];
         }
     }
 
-    public String[] getExampleUrls() {
+    public String[] getExampleUrls() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<String> examples = new ArrayList<>();
             getDoc().getResources().stream().forEach((resource) -> {
@@ -225,12 +248,14 @@ public class Dataset {
                 }
             });
             return (new HashSet<>(examples)).toArray(new String[0]);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
             return new String[0];
         }
     }
 
-    public String[] getDumpUrls() {
+    public String[] getDumpUrls() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<String> dumps = new ArrayList<>();
             getDoc().getResources().stream().forEach((resource) -> {
@@ -246,12 +271,14 @@ public class Dataset {
                 }
             });
             return (new HashSet<>(dumps)).toArray(new String[0]);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
             return new String[0];
         }
     }
 
-    public String[] getSparqlEndPoints() {
+    public String[] getSparqlEndPoints() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<String> sparqlEndPoints = new ArrayList<>();
             getDoc().getResources().stream().forEach((resource) -> {
@@ -264,12 +291,14 @@ public class Dataset {
                 }
             });
             return (new HashSet<>(sparqlEndPoints)).toArray(new String[0]);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
             return new String[0];
         }
     }
 
-    public String[] getURLs() {
+    public String[] getURLs() throws InterruptedException, ExecutionException, TimeoutException {
         String[] urls;
         Set<String> set = new HashSet<>();
         set.add(getUrl());
@@ -282,7 +311,7 @@ public class Dataset {
         return urls;
     }
 
-    private Set<Entry<String, Integer>> getLinks() {
+    private Set<Entry<String, Integer>> getLinks() throws InterruptedException, ExecutionException, TimeoutException {
         Map<String, Integer> links = new HashMap<>();
         String ns = getNamespace();
         try {
@@ -295,34 +324,40 @@ public class Dataset {
                         links.put(ns + key.replace("links:", "").trim().replaceAll(" ", "_"), Integer.parseInt(value));
                 } catch (Throwable e) {
                 }
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
         }
         return links.entrySet();
     }
 
-    private Set<Entry<String, Integer>> getLinks2() {
+    private Set<Entry<String, Integer>> getLinks2() throws InterruptedException, ExecutionException, TimeoutException {
         Map<String, Integer> links = new HashMap<>();
         String ns = getNamespace();
         try {
             for (CkanDatasetRelationship rel : getDoc().getRelationshipsAsSubject())
                 links.put(ns + cc.getDataset(rel.getObject()).getName(), Integer.parseInt(rel.getComment()));
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
         }
         return links.entrySet();
     }
 
-    private Integer getTriples() {
+    private Integer getTriples() throws InterruptedException, ExecutionException, TimeoutException {
         try {
             List<CkanPair> extras = getDoc().getExtras();
             for (CkanPair d : extras)
                 if (d.getKey().trim().toLowerCase().equals("triples"))
                     return Integer.parseInt(d.getValue());
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            throw e;
         } catch (Throwable e) {
         }
         return null;
     }
 
-    public Set<Entry<String, Integer>> getClasses() {
+    public Set<Entry<String, Integer>> getClasses() throws InterruptedException, ExecutionException, TimeoutException {
         for (String sparqlEndPoint : getSparqlEndPoints())
             try {
                 String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
@@ -357,7 +392,7 @@ public class Dataset {
         return (new HashMap<String, Integer>()).entrySet();
     }
 
-    public Set<Entry<String, Integer>> getProperties() {
+    public Set<Entry<String, Integer>> getProperties() throws InterruptedException, ExecutionException, TimeoutException {
         for (String sparqlEndPoint : getSparqlEndPoints())
             try {
                 String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
@@ -392,7 +427,7 @@ public class Dataset {
         return (new HashMap<String, Integer>()).entrySet();
     }
 
-    public Model toVoid() {
+    public Model toVoid() throws InterruptedException, TimeoutException, ExecutionException {
         String ns = conf.host().linkedDataNS();
 
         Model _void = ModelFactory.createDefaultModel();
@@ -489,12 +524,41 @@ public class Dataset {
 
         Calendar cal = Calendar.getInstance();
         Resource datasetDescription = _void.createResource(getDescUri(), VOID.DatasetDescription)
-                .addProperty(DCTerms.title, "Description of the dataset " + getName() + ".")
-                .addProperty(RDFS.label, "Description of the dataset " + getName() + ".")
+                .addProperty(DCTerms.title, "Description of the dataset " + getUri() + ".")
+                .addProperty(RDFS.label, "Description of the dataset " + getUri() + ".")
                 .addProperty(FOAF.primaryTopic, dataset)
                 .addProperty(DCTerms.created, _void.createTypedLiteral(cal))
                 .addProperty(DCTerms.modified, _void.createTypedLiteral(cal));
 
         return _void;
+    }
+
+    public boolean isUpdateCandidate() throws InterruptedException, TimeoutException, ExecutionException {
+        String queryString = ""
+                + "prefix dcterms: <http://purl.org/dc/terms/>\n"
+                + "prefix void: <http://rdfs.org/ns/void#>\n"
+                + "prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n"
+                + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
+                + "\n"
+                + "select (((now()- if(!bound(?o),\"0001-01-01T00:00:00.000-00:00\"^^xsd:dateTime,?o)) > \"P1D\"^^xsd:duration) as ?isUpdateCandidate)\n"
+                + "where {{bind(<%1$s> as ?s)}\n"
+                + "       optional {graph ?g {?s2 a void:DatasetDescription.\n"
+                + "                           ?s2 foaf:primaryTopic ?s.\n"
+                + "                           ?s2 dcterms:modified ?o.}}}";
+        queryString = String.format(queryString, getUri());
+
+        try {
+            Store datasetStore = SDBFactory.connectStore(StoreDesc.read(conf.datasetSDBDesc()));
+            org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
+            try {
+                Query query = QueryFactory.create(queryString);
+                QueryExecution execution = QueryExecutionFactory.create(query, dataset);
+                return execution.execSelect().next().getLiteral("isUpdateCandidate").getBoolean();
+            } finally {
+                datasetStore.getConnection().close();
+            }
+        } catch (Throwable t) {
+            return false;
+        }
     }
 }

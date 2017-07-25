@@ -33,8 +33,14 @@ public class CKANCrawler extends Crawler<Dataset> {
     @Override
     public Dataset next() {
         Dataset dataset = null;
-        if (hasNext())
+        String name = null;
+
+        while ((name == null || name.equals("")) && hasNext())
+            name = iterator.next();
+
+        if (name != null && !name.equals(""))
             dataset = new Dataset(cc, iterator.next());
+
         return dataset;
     }
 

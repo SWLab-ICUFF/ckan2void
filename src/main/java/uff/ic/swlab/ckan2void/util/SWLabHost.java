@@ -20,10 +20,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
-import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -114,19 +111,6 @@ public enum SWLabHost {
         return result;
     }
 
-    public synchronized ResultSet execSelect(String queryString, StoreDesc storeDesc) {
-        Store datasetStore = SDBFactory.connectStore(storeDesc);
-        Dataset dataset = SDBFactory.connectDataset(datasetStore);
-
-        try {
-            Query query = QueryFactory.create(queryString);
-            QueryExecution execution = QueryExecutionFactory.create(query, dataset);
-            return execution.execSelect();
-        } finally {
-            datasetStore.close();
-        }
-    }
-
     public synchronized void execUpdate(String queryString, String datasetname) {
         UpdateRequest request = UpdateFactory.create(queryString);
         UpdateProcessor execution = UpdateExecutionFactory.createRemote(request, getUpdateURL(datasetname));
@@ -142,7 +126,7 @@ public enum SWLabHost {
             UpdateProcessor execution = UpdateExecutionFactory.create(request, dataset);
             execution.execute();
         } finally {
-            datasetStore.close();
+            datasetStore.getConnection().close();
         }
 
     }

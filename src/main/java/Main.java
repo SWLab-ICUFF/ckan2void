@@ -10,7 +10,10 @@ import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import java.util.zip.GZIPOutputStream;
 import org.apache.commons.validator.routines.UrlValidator;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.sdb.SDBFactory;
@@ -110,8 +113,16 @@ public abstract class Main {
                 + "                           ?s2 dcterms:modified ?o.}}}";
 
         queryString = String.format(queryString, resourceUri);
-        ResultSet rs = conf.host().execSelect(queryString, StoreDesc.read(conf.datasetSDBDesc()));
-        return rs.next().getLiteral("updateCandidate").getBoolean();
+
+        Store datasetStore = SDBFactory.connectStore(StoreDesc.read(conf.datasetSDBDesc()));
+        org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
+        try {
+            Query query = QueryFactory.create(queryString);
+            QueryExecution execution = QueryExecutionFactory.create(query, dataset);
+            return execution.execSelect().next().getLiteral("updateCandidate").getBoolean();
+        } finally {
+            datasetStore.getConnection().close();
+        }
     }
 
     private static void createRootResource() {

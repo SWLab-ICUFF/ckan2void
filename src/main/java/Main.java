@@ -30,11 +30,7 @@ public abstract class Main {
             PropertyConfigurator.configure("./conf/log4j.properties");
             conf.host().initSDB(conf.datasetSDBDesc());
             conf.host().initSDB(conf.tempDatasetSDBDesc());
-            while (true) {
-                run(args);
-                System.out.println("Sleeping for 7 days.");
-                Thread.sleep(3600 * 24 * 7);
-            }
+            run(args);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

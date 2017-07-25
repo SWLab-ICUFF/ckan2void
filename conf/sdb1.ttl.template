@@ -15,7 +15,7 @@
         sdb:sdbType        "postgresql";
         sdb:driver         "org.postgresql.Driver" ;
         sdb:sdbHost        "???:5432";
-        sdb:sdbName        "Temp";
+        sdb:sdbName        "DatasetDescriptions";
         ## sdb:jdbcURL        "jdbc:postgresql://192.168.1.10:5432/jena-sdb";
         sdb:sdbUser        "???";
         sdb:sdbPassword    "???".

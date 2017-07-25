@@ -215,7 +215,7 @@ public enum SWLabHost {
 
             if (_void.add(_voidComp).size() > 5) {
                 dataset.replaceNamedModel(graphUri, _void);
-                putModel(Config.getInsatnce().fusekiDataset(), graphUri, _void);
+                //putModel(Config.getInsatnce().fusekiDataset(), graphUri, _void);
 
                 datasetStore.getConnection().getTransactionHandler().commit();
                 tempDatasetStore.getConnection().getTransactionHandler().commit();

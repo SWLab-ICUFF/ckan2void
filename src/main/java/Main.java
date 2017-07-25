@@ -59,17 +59,19 @@ public abstract class Main {
 
                 Dataset dataset;
                 ExecutorService pool = Executors.newWorkStealingPool(conf.parallelism());
-                while ((dataset = crawler.next()) != null)
+                while ((dataset = crawler.next()) != null) {
 
+                    String graphURI = dataset.getJsonMetadataUrl();
                     try {
-                        String graphURI = dataset.getJsonMetadataUrl();
                         if (dataset.isUpdateCandidate()) {
                             pool.submit(new MakeVoIDTask(dataset, graphURI));
                             System.out.println((++counter) + ": Harvesting task of the dataset " + graphURI + " submitted.");
                         } else
                             System.out.println("Skipping dataset " + graphURI + ".");
                     } catch (Throwable t) {
+                        System.out.println("Skipping dataset " + graphURI + ".");
                     }
+                }
 
                 pool.shutdown();
                 System.out.println("Waiting for remaining tasks...");

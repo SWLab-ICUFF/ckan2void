@@ -217,22 +217,22 @@ public enum SWLabHost {
                 dataset.replaceNamedModel(graphUri, _void);
                 //putModel(Config.getInsatnce().fusekiDataset(), graphUri, _void);
 
-                datasetStore.getConnection().getTransactionHandler().commit();
                 tempDatasetStore.getConnection().getTransactionHandler().commit();
+                datasetStore.getConnection().getTransactionHandler().commit();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
             } else {
-                datasetStore.getConnection().getTransactionHandler().abort();
                 tempDatasetStore.getConnection().getTransactionHandler().abort();
+                datasetStore.getConnection().getTransactionHandler().abort();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
             }
 
         } catch (Throwable t) {
-            datasetStore.getConnection().getTransactionHandler().abort();
             tempDatasetStore.getConnection().getTransactionHandler().abort();
+            datasetStore.getConnection().getTransactionHandler().abort();
             throw t;
         } finally {
-            datasetStore.getConnection().close();
             tempDatasetStore.getConnection().close();
+            datasetStore.getConnection().close();
         }
     }
 

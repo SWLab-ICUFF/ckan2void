@@ -123,15 +123,13 @@ public enum SWLabHost {
         } finally {
             datasetStore.getConnection().close();
         }
-
     }
 
-    public void backupDataset(String datasetname) throws Exception, IOException {
+    public synchronized void backupDataset(String datasetname) throws Exception, IOException {
         System.out.println(String.format("Requesting backup of the Fuseki dataset %1$s...", datasetname));
-        String backupUrl = getBackupURL(datasetname);
-        HttpClient httpclient = HttpClients.createDefault();
         try {
-            HttpResponse response = httpclient.execute(new HttpPost(backupUrl));
+            HttpClient httpclient = HttpClients.createDefault();
+            HttpResponse response = httpclient.execute(new HttpPost(getBackupURL(datasetname)));
             int statuscode = response.getStatusLine().getStatusCode();
             HttpEntity entity = response.getEntity();
             if (entity != null && statuscode == 200)

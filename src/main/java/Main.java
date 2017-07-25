@@ -32,7 +32,7 @@ public abstract class Main {
             conf.host().initSDB(conf.tempDatasetSDBDesc());
             while (true) {
                 run(args);
-                Thread.sleep(3600 * 12);
+                Thread.sleep(3600 * 24 * 7);
             }
         } catch (Throwable e) {
             System.out.println(e.getMessage());

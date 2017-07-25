@@ -83,12 +83,12 @@ public abstract class Main {
             System.gc();
         }
 
-        createRootResource();
+        createRootResources();
         exportDataset();
         uploadDataset();
     }
 
-    private static void createRootResource() {
+    private static void createRootResources() {
         System.out.println("Creating root resource on Fuseki...");
         String queryString = ""
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"

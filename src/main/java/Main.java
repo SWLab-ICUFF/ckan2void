@@ -78,6 +78,7 @@ public abstract class Main {
                 System.out.println(String.format("Crawler ended (%s).", catalog));
                 System.out.println("================================================================================================================================");
                 System.out.println("");
+
             }
 
             System.gc();

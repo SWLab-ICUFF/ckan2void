@@ -31,7 +31,7 @@ public class CKANCrawler extends Crawler<Dataset> {
     }
 
     @Override
-    public Dataset next() {
+    public synchronized Dataset next() {
         Dataset dataset = null;
         String name = null;
 

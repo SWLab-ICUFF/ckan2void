@@ -86,7 +86,7 @@ public class MakeVoIDTask implements Runnable {
                 conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
                 return null;
             };
-            Executor.execute(task, "save void of " + dataset.getUri(), 120000);
+            Executor.execute(task, "save void of " + dataset.getUri(), 240000);
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Save void (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }

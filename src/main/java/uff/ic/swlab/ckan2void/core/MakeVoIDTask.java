@@ -65,21 +65,32 @@ public class MakeVoIDTask implements Runnable {
     }
 
     private void runTask() {
+        Model _void = ModelFactory.createDefaultModel();
+        Model _voidComp = ModelFactory.createDefaultModel();
+
         try {
-            Model _void = ModelFactory.createDefaultModel();
-            Model _voidComp = ModelFactory.createDefaultModel();
 
             Callable<Object> task = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 _void.add(dataset.toVoid());
                 _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri()));
-                conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
                 return null;
             };
             Executor.execute(task, "make void of " + dataset.getUri(), conf.taskTimeout());
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Task failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+        }
+
+        try {
+
+            Callable<Object> task = () -> {
+                conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
+                return null;
+            };
+            Executor.execute(task, "make void of " + dataset.getUri(), 120000);
+        } catch (Throwable e) {
+            Logger.getLogger("error").log(Level.ERROR, String.format("Save void (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }
 
     }

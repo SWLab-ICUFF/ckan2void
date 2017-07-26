@@ -1,5 +1,5 @@
-@echo off
+@echo on
 call mvn clean install
 cd .\target
-java -cp ckan2void-1.0.0-SNAPSHOT.jar;dependency\* Main %1
+java -Xmx4096m -cp ckan2void-1.0.0-SNAPSHOT.jar;dependency\* Main
 cd ..

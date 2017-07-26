@@ -27,10 +27,12 @@ public abstract class Main {
 
     public static void main(String[] args) {
         try {
-            PropertyConfigurator.configure("./conf/log4j.properties");
-            conf.host().initSDB(conf.datasetSDBDesc());
-            conf.host().initSDB(conf.tempDatasetSDBDesc());
-            run(args);
+            while (true) {
+                PropertyConfigurator.configure("./conf/log4j.properties");
+                conf.host().initSDB(conf.datasetSDBDesc());
+                conf.host().initSDB(conf.tempDatasetSDBDesc());
+                run(args);
+            }
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

@@ -32,6 +32,8 @@ public abstract class Main {
                 conf.host().initSDB(conf.datasetSDBDesc());
                 conf.host().initSDB(conf.tempDatasetSDBDesc());
                 run(args);
+                System.out.println("Sleeping for 72 hours.");
+                Thread.sleep(3600 * 24 * 3);
             }
         } catch (Throwable e) {
             System.out.println(e.getMessage());

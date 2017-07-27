@@ -56,7 +56,7 @@ public enum SWLabHost {
         return "http://" + hostname + (httpPort == 80 ? "" : ":" + httpPort) + "/";
     }
 
-    public String linkedDataNS() {
+    public String NS() {
         return baseHttpUrl() + "resource/";
     }
 

@@ -116,7 +116,7 @@ public abstract class Main {
                 + "}";
 
         try {
-            queryString = String.format(queryString, conf.host().linkedDataNS());
+            queryString = String.format(queryString, conf.host().NS());
             conf.host().execUpdate(queryString, conf.fusekiDataset());
             conf.host().execUpdate(queryString, StoreDesc.read(conf.datasetSDBDesc()));
         } catch (Throwable t) {

@@ -93,12 +93,12 @@ public abstract class VoIDHelper {
                 + "where {\n"
                 + "  {{{?s1 ?p1 ?unknown.\n"
                 + "     filter (?p1 in (void:classPartition, void:propertyPartition) || (?p1 in (void:subset) && exists {?unknown a void:Linkset.}))}\n"
-                + "    bind(iri(\":id-\"+struuid()) as ?s2)}\n"
+                + "    bind(iri(\":id2-\"+struuid()) as ?s2)}\n"
                 + "   optional {?unknown ?p2 ?o2.}}\n"
                 + "  union\n"
                 + "  {graph ?g {{{?s1 ?p1 ?s2.\n"
                 + "              filter (?p1 in (void:classPartition, void:propertyPartition) || (?p1 in (void:subset) && exists {?s2 a void:Linkset.}))}\n"
-                + "             bind(iri(\":id-\"+struuid()) as ?s2)}\n"
+                + "             bind(iri(\":id2-\"+struuid()) as ?s2)}\n"
                 + "            optional {?s2 ?p2 ?o2.}}}\n"
                 + "}";
         Callable<Model> task = () -> {

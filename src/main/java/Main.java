@@ -32,6 +32,7 @@ public abstract class Main {
                 conf.host().initSDB(conf.datasetSDBDesc());
                 conf.host().initSDB(conf.tempDatasetSDBDesc());
                 run(args);
+                System.gc();
                 System.out.println("Sleeping for 72 hours.");
                 Thread.sleep(3600 * 24 * 3);
             }
@@ -84,13 +85,14 @@ public abstract class Main {
                 System.out.println("");
 
             }
-
             System.gc();
+
         }
 
         createRootResources();
         exportDataset();
         uploadDataset();
+        System.gc();
     }
 
     private static void createRootResources() {

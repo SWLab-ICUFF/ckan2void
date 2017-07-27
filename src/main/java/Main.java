@@ -89,7 +89,9 @@ public abstract class Main {
         }
 
         createRootResources();
+        System.gc();
         exportDataset();
+        System.gc();
         uploadDataset();
         System.gc();
     }

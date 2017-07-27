@@ -25,15 +25,15 @@ import uff.ic.swlab.ckan2void.util.RDFDataMgr;
 
 public abstract class VoIDHelper {
 
-    public static Model getContent(String[] urls, String[] sparqlEndPoints, String targetURI) throws InterruptedException {
-        return getContentFromURL(urls, targetURI).add(getContentFromSparql(sparqlEndPoints, targetURI));
+    public static Model getContent(String[] urls, String[] sparqlEndPoints, String namespace, String targetURI) throws InterruptedException {
+        return getContentFromURL(urls, namespace, targetURI).add(getContentFromSparql(sparqlEndPoints, namespace, targetURI));
     }
 
-    private static Model getContentFromURL(String[] urls, String targetURI) throws InterruptedException {
+    private static Model getContentFromURL(String[] urls, String namespace, String targetURI) throws InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
         for (String url : makeVoIDUrls(urls))
             try {
-                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.getInsatnce().maxVoidFileSize()), targetURI));
+                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.getInsatnce().maxVoidFileSize()), namespace, targetURI));
             } catch (InterruptedException e) {
                 throw e;
             } catch (Throwable e) {
@@ -41,7 +41,7 @@ public abstract class VoIDHelper {
         return _void;
     }
 
-    private static Model getContentFromSparql(String[] sparqlEndPoints, String targetURI) throws InterruptedException {
+    private static Model getContentFromSparql(String[] sparqlEndPoints, String namespace, String targetURI) throws InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
         for (String endPoint : sparqlEndPoints)
             try {
@@ -49,7 +49,7 @@ public abstract class VoIDHelper {
                 if (graphs.length > 0) {
                     String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
                     String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
-                    _void.add(extractVoID(RDFDataMgr.loadDataset(endPoint, String.format(query, from)), targetURI));
+                    _void.add(extractVoID(RDFDataMgr.loadDataset(endPoint, String.format(query, from)), namespace, targetURI));
                 }
             } catch (InterruptedException e) {
                 throw e;

@@ -73,7 +73,7 @@ public class MakeVoIDTask implements Runnable {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 _void.add(dataset.toVoid());
-                _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, dataset.getUri()));
+                _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, conf.host().NS(), dataset.getUri()));
                 return null;
             };
             Executor.execute(task, "make void of " + dataset.getUri(), conf.taskTimeout());

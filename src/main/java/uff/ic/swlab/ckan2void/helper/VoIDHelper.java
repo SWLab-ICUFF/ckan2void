@@ -81,25 +81,28 @@ public abstract class VoIDHelper {
         return Executor.execute(task, "Extract partitions for " + targetURI, Config.getInsatnce().sparqlTimeout());
     }
 
-    public static Model extractVoID(Dataset dataset, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
+    public static Model extractVoID(Dataset dataset, String namespace, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "construct {<%1$s> ?p1 ?s2.\n"
+                + "prefix : <%1$s>\n"
+                + "construct {<%2$s> ?p1 ?s2.\n"
                 + "           ?s2 ?p2 ?o2.}\n"
                 + "where {\n"
-                + "  {{?s1 ?p1 ?s2. filter (?p1 in (void:classPartition, void:propertyPartition)\n"
-                + "                         || (?p1 in (void:subset) && exists {?s2 a void:Linkset.}))}\n"
-                + "  optional {?s2 ?p2 ?o2.}}\n"
+                + "  {{{?s1 ?p1 ?unknown.\n"
+                + "     filter (?p1 in (void:classPartition, void:propertyPartition) || (?p1 in (void:subset) && exists {?unknown a void:Linkset.}))}\n"
+                + "    bind(iri(\":id-\"+struuid()) as ?s2)}\n"
+                + "   optional {?unknown ?p2 ?o2.}}\n"
                 + "  union\n"
-                + "  {graph ?g {{?s1 ?p1 ?s2. filter (?p1 in (void:classPartition, void:propertyPartition)\n"
-                + "                         || (?p1 in (void:subset) && exists {?s2 a void:Linkset.}))}\n"
-                + "             optional {?s2 ?p2 ?o2.}}}\n"
+                + "  {graph ?g {{{?s1 ?p1 ?s2.\n"
+                + "              filter (?p1 in (void:classPartition, void:propertyPartition) || (?p1 in (void:subset) && exists {?s2 a void:Linkset.}))}\n"
+                + "             bind(iri(\":id-\"+struuid()) as ?s2)}\n"
+                + "            optional {?s2 ?p2 ?o2.}}}\n"
                 + "}";
         Callable<Model> task = () -> {
-            Query query = QueryFactory.create(String.format(queryString, targetURI));
+            Query query = QueryFactory.create(String.format(queryString, namespace, targetURI));
             QueryExecution exec = QueryExecutionFactory.create(query, dataset);
             return exec.execConstruct();
         };

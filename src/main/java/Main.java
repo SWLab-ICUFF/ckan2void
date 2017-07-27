@@ -67,7 +67,7 @@ public abstract class Main {
                     try {
                         if (dataset.isUpdateCandidate()) {
                             pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task of the " + graphURI + " submitted.");
+                            System.out.println((++counter) + ": Harvesting task for " + graphURI + " submitted.");
                         } else
                             System.out.println("Skipping dataset " + graphURI + ".");
                     } catch (Throwable t) {

@@ -40,6 +40,8 @@ import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.helper.URLHelper;
 import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Executor;
@@ -550,14 +552,14 @@ public class Dataset {
         try {
             Store datasetStore = SDBFactory.connectStore(StoreDesc.read(conf.datasetSDBDesc()));
             try {
-                org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
                 Query query = QueryFactory.create(queryString);
-                QueryExecution execution = QueryExecutionFactory.create(query, dataset);
+                QueryExecution execution = QueryExecutionFactory.create(query, SDBFactory.connectDataset(datasetStore));
                 return execution.execSelect().next().getLiteral("isUpdateCandidate").getBoolean();
             } finally {
                 datasetStore.getConnection().close();
             }
         } catch (Throwable t) {
+            Logger.getLogger("error").log(Level.ERROR, "Error isUpdateCandidate():" + getUri());
             return false;
         }
     }

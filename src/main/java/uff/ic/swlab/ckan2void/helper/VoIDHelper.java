@@ -155,7 +155,7 @@ public abstract class VoIDHelper {
             }
             return graphNames.toArray(new String[0]);
         };
-        return Executor.execute(task, "List void graph names from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout());
+        return Executor.execute(task, "Detect void graph names from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout());
     }
 
 }

@@ -78,7 +78,7 @@ public class MakeVoIDTask implements Runnable {
             };
             Executor.execute(task, "make void of " + dataset.getUri(), conf.taskTimeout());
         } catch (Throwable e) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Task failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+            Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }
 
         try {
@@ -86,9 +86,9 @@ public class MakeVoIDTask implements Runnable {
                 conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
                 return null;
             };
-            Executor.execute(task, "save void of " + dataset.getUri(), 240000);
+            Executor.execute(task, "save void of " + dataset.getUri(), conf.saveTimeout());
         } catch (Throwable e) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Save void (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+            Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }
 
     }

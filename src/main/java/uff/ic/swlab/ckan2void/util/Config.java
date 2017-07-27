@@ -32,6 +32,7 @@ public class Config {
     private TimeUnit poolShutdownTimeoutUnit;
 
     private Integer taskTimeout;
+    private Integer saveTimeout;
     private Integer sparqlTimeout;
     private Integer modelReadTimeout;
     private Integer modelWriteTimeout;
@@ -57,6 +58,7 @@ public class Config {
             poolShutdownTimeout = Integer.valueOf(prop.getProperty("poolShutdownTimeout", "1"));
             poolShutdownTimeoutUnit = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit", "HOURS"));
             taskTimeout = Integer.valueOf(prop.getProperty("taskTimeout", "300000"));
+            saveTimeout = Integer.valueOf(prop.getProperty("saveTimeout", "300000"));
             sparqlTimeout = Integer.valueOf(prop.getProperty("sparqlTimeout", "60000"));
             modelReadTimeout = Integer.valueOf(prop.getProperty("modelReadTimeout", "60000"));
             modelWriteTimeout = Integer.valueOf(prop.getProperty("modelWriteTimeout", "60000"));
@@ -183,6 +185,10 @@ public class Config {
 
     public Integer taskTimeout() {
         return taskTimeout;
+    }
+
+    public Integer saveTimeout() {
+        return saveTimeout;
     }
 
     public Integer sparqlTimeout() {

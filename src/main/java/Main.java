@@ -50,44 +50,43 @@ public abstract class Main {
         System.out.println("");
 
         String[] catalogs = conf.ckanCatalogs().split("[,\n\\p{Blank}]++");
-        if (false)
-            for (String catalog : catalogs) {
+        for (String catalog : catalogs) {
 
-                if ((new UrlValidator()).isValid(catalog)) {
+            if ((new UrlValidator()).isValid(catalog)) {
 
-                    Crawler<Dataset> crawler = new CKANCrawler(catalog);
-                    System.out.println("================================================================================================================================");
-                    System.out.println(String.format("Crawler started (%s).", catalog));
-                    int counter = 0;
+                Crawler<Dataset> crawler = new CKANCrawler(catalog);
+                System.out.println("================================================================================================================================");
+                System.out.println(String.format("Crawler started (%s).", catalog));
+                int counter = 0;
 
-                    Dataset dataset;
-                    ExecutorService pool = Executors.newWorkStealingPool(conf.parallelism());
-                    while ((dataset = crawler.next()) != null) {
+                Dataset dataset;
+                ExecutorService pool = Executors.newWorkStealingPool(conf.parallelism());
+                while ((dataset = crawler.next()) != null) {
 
-                        String graphURI = dataset.getJsonMetadataUrl();
-                        try {
-                            if (dataset.isUpdateCandidate()) {
-                                pool.submit(new MakeVoIDTask(dataset, graphURI));
-                                System.out.println((++counter) + ": Harvesting task for " + graphURI + " submitted.");
-                            } else
-                                System.out.println("Skipping dataset " + graphURI + ".");
-                        } catch (Throwable t) {
+                    String graphURI = dataset.getJsonMetadataUrl();
+                    try {
+                        if (dataset.isUpdateCandidate()) {
+                            pool.submit(new MakeVoIDTask(dataset, graphURI));
+                            System.out.println((++counter) + ": Harvesting task for " + graphURI + " submitted.");
+                        } else
                             System.out.println("Skipping dataset " + graphURI + ".");
-                        }
+                    } catch (Throwable t) {
+                        System.out.println("Skipping dataset " + graphURI + ".");
                     }
-
-                    pool.shutdown();
-                    System.out.println("Waiting for remaining tasks...");
-                    pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
-
-                    System.out.println(String.format("Crawler ended (%s).", catalog));
-                    System.out.println("================================================================================================================================");
-                    System.out.println("");
-
                 }
-                System.gc();
+
+                pool.shutdown();
+                System.out.println("Waiting for remaining tasks...");
+                pool.awaitTermination(conf.poolShutdownTimeout(), conf.poolShutdownTimeoutUnit());
+
+                System.out.println(String.format("Crawler ended (%s).", catalog));
+                System.out.println("================================================================================================================================");
+                System.out.println("");
 
             }
+            System.gc();
+
+        }
 
         createRootResources();
         System.gc();

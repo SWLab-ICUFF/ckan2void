@@ -50,6 +50,7 @@ public abstract class Main {
         System.out.println("");
 
         String[] catalogs = conf.ckanCatalogs().split("[,\n\\p{Blank}]++");
+        if (false)
         for (String catalog : catalogs) {
 
             if ((new UrlValidator()).isValid(catalog)) {
@@ -102,7 +103,7 @@ public abstract class Main {
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
-                + "prefix : <http://swlab.paes-leme.name:8080/resource/>\n"
+                + "prefix : <%1$s>\n"
                 + "\n"
                 + "delete {?s ?p ?o.}\n"
                 + "insert {:id-root-dataset-descriptions a void:DatasetDescription.\n"

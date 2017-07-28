@@ -132,7 +132,4 @@ public class MakeVoIDTask implements Runnable {
             Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }
     }
-
-}
-
 }

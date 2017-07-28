@@ -84,7 +84,7 @@ public class MakeVoIDTask implements Runnable {
                     return null;
                 };
                 Executor.execute(save, "save void of " + dataset.getUri(), conf.saveTimeout());
-            } catch (Throwable e) {
+            } catch (TimeoutException | ExecutionException e) {
                 try {
                     Model emptyModel = ModelFactory.createDefaultModel();
                     Callable<Object> task = () -> {
@@ -93,8 +93,10 @@ public class MakeVoIDTask implements Runnable {
                     };
                     Executor.execute(task, "retry to save void of " + dataset.getUri(), conf.saveTimeout());
                 } catch (Throwable e2) {
-                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Retry of save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
                 }
+            } catch (Throwable e) {
+                Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
             }
 
         } catch (Throwable e) {

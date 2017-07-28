@@ -68,7 +68,8 @@ public class MakeVoIDTask implements Runnable {
         Model _void = ModelFactory.createDefaultModel();
         Model _voidComp = ModelFactory.createDefaultModel();
 
-        try {
+        try {//make
+
             Callable<Object> makeVoid = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
@@ -78,23 +79,29 @@ public class MakeVoIDTask implements Runnable {
             };
             Executor.execute(makeVoid, "make void of " + dataset.getUri(), conf.taskTimeout());
 
-            try {
+            try {//save
+
                 Callable<Object> save = () -> {
                     conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
                     return null;
                 };
                 Executor.execute(save, "save void of " + dataset.getUri(), conf.saveTimeout());
+
             } catch (TimeoutException | ExecutionException e2) {
-                try {
+
+                try {//retry save
+
                     Model emptyModel = ModelFactory.createDefaultModel();
                     Callable<Object> task = () -> {
                         conf.host().saveVoid(_void, emptyModel, datasetUri, graphUri);
                         return null;
                     };
                     Executor.execute(task, "retry to save void of " + dataset.getUri(), conf.saveTimeout());
+
                 } catch (Throwable e4) {
                     Logger.getLogger("error").log(Level.ERROR, String.format("Retry of save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e4.getMessage()));
                 }
+
             } catch (Throwable e3) {
                 Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e3.getMessage()));
             }

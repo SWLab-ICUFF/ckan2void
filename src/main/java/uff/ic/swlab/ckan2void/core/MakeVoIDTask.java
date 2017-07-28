@@ -112,7 +112,6 @@ public class MakeVoIDTask implements Runnable {
                         Logger.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
                     }
                 }
-
             } catch (Throwable e) {
                 Logger.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
 
@@ -129,7 +128,6 @@ public class MakeVoIDTask implements Runnable {
                     Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
                 }
             }
-
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }

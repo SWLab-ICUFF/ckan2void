@@ -87,25 +87,50 @@ public class MakeVoIDTask implements Runnable {
                 };
                 Executor.execute(save, "save void of " + dataset.getUri(), conf.saveTimeout());
 
-            } catch (TimeoutException | ExecutionException e2) {
+            } catch (TimeoutException | ExecutionException e) {
 
                 try {//retry save
 
-                    Model emptyModel = ModelFactory.createDefaultModel();
+                    _voidComp.removeAll();
                     Callable<Object> task = () -> {
-                        conf.host().saveVoid(_void, emptyModel, datasetUri, graphUri);
+                        conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
                         return null;
                     };
                     Executor.execute(task, "retry to save void of " + dataset.getUri(), conf.saveTimeout());
 
-                } catch (Throwable e4) {
-                    Logger.getLogger("error").log(Level.ERROR, String.format("Retry of save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e4.getMessage()));
+                } catch (Throwable e2) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
                 }
-            } catch (Throwable e3) {
-                Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e3.getMessage()));
+            } catch (Throwable e) {
+                Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
             }
-        } catch (Throwable e1) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e1.getMessage()));
+
+        } catch (Throwable e) {
+            try {// retry make
+                _void.removeAll();
+                _voidComp.removeAll();
+
+                Callable<Object> makeVoid = () -> {
+                    String[] urls = dataset.getURLs();
+                    String[] sparqlEndPoints = dataset.getSparqlEndPoints();
+                    _void.add(dataset.toVoid());
+                    return null;
+                };
+
+                try {//save
+
+                    Callable<Object> save = () -> {
+                        conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
+                        return null;
+                    };
+                    Executor.execute(save, "save void of " + dataset.getUri(), conf.saveTimeout());
+
+                } catch (Throwable e2) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Save retry VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                }
+            } catch (Throwable e2) {
+                Logger.getLogger("error").log(Level.ERROR, String.format("Retry make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+            }
         }
     }
 

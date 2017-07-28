@@ -33,7 +33,7 @@ public abstract class Main {
                 conf.host().initSDB(conf.tempDatasetSDBDesc());
                 run(args);
                 System.out.println("Sleeping for 8 hours.");
-                Thread.sleep(3600 * 12);
+                Thread.sleep(3600 * 24);
             }
         } catch (Throwable e) {
             System.out.println(e.getMessage());

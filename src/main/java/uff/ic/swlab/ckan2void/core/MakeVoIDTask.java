@@ -96,7 +96,7 @@ public class MakeVoIDTask implements Runnable {
                     };
                     Executor.execute(save, "Save VoID + VoIDComp of " + dataset.getUri(), conf.saveTimeout());
 
-                } catch (TimeoutException | ExecutionException e) {
+                } catch (ExecutionException e) {
                     Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
 
                     try {// retry save VoID

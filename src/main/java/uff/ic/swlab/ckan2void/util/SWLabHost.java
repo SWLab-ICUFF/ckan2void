@@ -219,7 +219,7 @@ public enum SWLabHost {
 
                 tempDatasetStore.getConnection().getTransactionHandler().commit();
                 datasetStore.getConnection().getTransactionHandler().commit();
-                Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
+                Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved--- (<%1$s>).", graphUri));
             } else {
                 tempDatasetStore.getConnection().getTransactionHandler().abort();
                 datasetStore.getConnection().getTransactionHandler().abort();

@@ -116,6 +116,7 @@ public class MakeVoIDTask implements Runnable {
                     _void.add(dataset.toVoid());
                     return null;
                 };
+                Executor.execute(makeVoid, "make void of " + dataset.getUri(), conf.taskTimeout());
 
                 try {//save
 

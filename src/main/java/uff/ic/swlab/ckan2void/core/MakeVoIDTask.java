@@ -69,26 +69,36 @@ public class MakeVoIDTask implements Runnable {
         Model _voidComp = ModelFactory.createDefaultModel();
 
         try {
-            Callable<Object> task = () -> {
+            Callable<Object> makeVoid = () -> {
                 String[] urls = dataset.getURLs();
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 _void.add(dataset.toVoid());
                 _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, conf.host().NS(), dataset.getUri()));
                 return null;
             };
-            Executor.execute(task, "make void of " + dataset.getUri(), conf.taskTimeout());
+            Executor.execute(makeVoid, "make void of " + dataset.getUri(), conf.taskTimeout());
+
+            try {
+                Callable<Object> save = () -> {
+                    conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
+                    return null;
+                };
+                Executor.execute(save, "save void of " + dataset.getUri(), conf.saveTimeout());
+            } catch (Throwable e) {
+                try {
+                    Model emptyModel = ModelFactory.createDefaultModel();
+                    Callable<Object> task = () -> {
+                        conf.host().saveVoid(_void, emptyModel, datasetUri, graphUri);
+                        return null;
+                    };
+                    Executor.execute(task, "retry to save void of " + dataset.getUri(), conf.saveTimeout());
+                } catch (Throwable e2) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                }
+            }
+
         } catch (Throwable e) {
             Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
-        }
-
-        try {
-            Callable<Object> task = () -> {
-                conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
-                return null;
-            };
-            Executor.execute(task, "save void of " + dataset.getUri(), conf.saveTimeout());
-        } catch (Throwable e) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }
 
     }

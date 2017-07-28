@@ -65,6 +65,77 @@ public class MakeVoIDTask implements Runnable {
     }
 
     private void runTask() {
+
+        try {//make void
+
+            Model _void = ModelFactory.createDefaultModel();
+            Callable<Object> makeVoid = () -> {
+                String[] urls = dataset.getURLs();
+                String[] sparqlEndPoints = dataset.getSparqlEndPoints();
+                _void.add(dataset.toVoid());
+                return null;
+            };
+            Executor.execute(makeVoid, "make VoID of " + dataset.getUri(), conf.taskTimeout());
+
+            try {// make void comp
+
+                Model _voidComp = ModelFactory.createDefaultModel();
+                Callable<Object> makeVoidComp = () -> {
+                    String[] urls = dataset.getURLs();
+                    String[] sparqlEndPoints = dataset.getSparqlEndPoints();
+                    _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, conf.host().NS(), dataset.getUri()));
+                    return null;
+                };
+                Executor.execute(makeVoidComp, "make VoIDComp of " + dataset.getUri(), conf.taskTimeout());
+
+                try {// save void + voidComp
+
+                    Callable<Object> save = () -> {
+                        conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
+                        return null;
+                    };
+                    Executor.execute(save, "save VoID + VoIDComp of " + dataset.getUri(), conf.saveTimeout());
+
+                } catch (Throwable e) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+
+                    try {// save void + voidComp
+
+                        Model emptyModel = ModelFactory.createDefaultModel();
+                        Callable<Object> save = () -> {
+                            conf.host().saveVoid(_void, emptyModel, datasetUri, graphUri);
+                            return null;
+                        };
+                        Executor.execute(save, "Retry save VoID of " + dataset.getUri(), conf.saveTimeout());
+
+                    } catch (Throwable e2) {
+                        Logger.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                    }
+                }
+
+            } catch (Throwable e) {
+                Logger.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+
+                try {// save void
+
+                    Model _voidComp = ModelFactory.createDefaultModel();
+                    Callable<Object> save = () -> {
+                        conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);
+                        return null;
+                    };
+                    Executor.execute(save, "save VoID of " + dataset.getUri(), conf.saveTimeout());
+
+                } catch (Throwable e2) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                }
+            }
+
+        } catch (Throwable e) {
+            Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+        }
+    }
+
+    private void runTask2() {
         Model _void = ModelFactory.createDefaultModel();
         Model _voidComp = ModelFactory.createDefaultModel();
 

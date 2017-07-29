@@ -126,7 +126,7 @@ public abstract class Main {
             System.out.println("Done.");
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
-            System.out.println("Fail.");
+            System.out.println("Failed.");
         }
     }
 
@@ -143,11 +143,11 @@ public abstract class Main {
             } finally {
                 datasetStore.getConnection().close();
             }
+            System.out.println("Done.");
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
-            System.out.println("Fail.");
+            System.out.println("Failed.");
         }
-        System.out.println("Done.");
     }
 
     private static void uploadDataset() {
@@ -165,7 +165,7 @@ public abstract class Main {
             System.out.println("Done.");
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while uploading dataset. Msg: " + t.getMessage());
-            System.out.println("Fail.");
+            System.out.println("Failed.");
         }
     }
 

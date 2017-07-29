@@ -32,8 +32,8 @@ public abstract class Main {
             conf.host().initSDB(conf.tempDatasetSDBDesc());
 
             while (true) {
-                //createDataset();
-                //System.gc();
+                createDataset();
+                System.gc();
 
                 createRootResources();
                 System.gc();

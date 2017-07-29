@@ -34,10 +34,13 @@ public abstract class Main {
             while (true) {
                 //createDataset();
                 //System.gc();
+
                 createRootResources();
                 System.gc();
+
                 exportDataset();
                 System.gc();
+
                 uploadDataset();
                 System.gc();
 

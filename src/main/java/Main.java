@@ -99,7 +99,6 @@ public abstract class Main {
     }
 
     private static void createRootResources() {
-        System.out.println("Creating root resource...");
         String queryString0 = "clear default";
         String queryString = ""
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -118,21 +117,22 @@ public abstract class Main {
                 + "}";
 
         try {
+            System.out.println("Creating root resource...");
             queryString = String.format(queryString, conf.host().NS());
             conf.host().execUpdate(queryString0, conf.fusekiDataset());
             conf.host().execUpdate(queryString, conf.fusekiDataset());
             conf.host().execUpdate(queryString0, StoreDesc.read(conf.datasetSDBDesc()));
             conf.host().execUpdate(queryString, StoreDesc.read(conf.datasetSDBDesc()));
+            System.out.println("Done.");
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
-            t.printStackTrace();
+            System.out.println("Fail.");
         }
-        System.out.println("Done.");
     }
 
     private static void exportDataset() {
-        System.out.println("Exporting dataset...");
         try {
+            System.out.println("Exporting dataset...");
             (new File(conf.localDatasetHomepageName())).getParentFile().mkdirs();
             Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
             try (OutputStream out = new FileOutputStream(conf.localNquadsDumpName());
@@ -145,14 +145,14 @@ public abstract class Main {
             }
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
-            t.printStackTrace();
+            System.out.println("Fail.");
         }
         System.out.println("Done.");
     }
 
     private static void uploadDataset() {
-        System.out.println("Uploading dataset...");
         try {
+            System.out.println("Uploading dataset...");
             Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
             try {
                 org.apache.jena.query.Dataset dataset = SDBFactory.connectDataset(datasetStore);
@@ -162,11 +162,11 @@ public abstract class Main {
             } finally {
                 datasetStore.getConnection().close();
             }
+            System.out.println("Done.");
         } catch (Throwable t) {
             Logger.getLogger("error").log(Level.ERROR, "Error while uploading dataset. Msg: " + t.getMessage());
-            t.printStackTrace();
+            System.out.println("Fail.");
         }
-        System.out.println("Done.");
     }
 
 //    private static String getOper(String[] args) throws IllegalArgumentException {

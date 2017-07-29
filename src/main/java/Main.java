@@ -99,7 +99,7 @@ public abstract class Main {
     }
 
     private static void createRootResources() {
-        System.out.println("Creating root resource on Fuseki...");
+        System.out.println("Creating root resource...");
         String queryString0 = "clear default";
         String queryString = ""
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"

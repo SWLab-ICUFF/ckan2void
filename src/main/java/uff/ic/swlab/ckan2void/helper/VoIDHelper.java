@@ -119,6 +119,9 @@ public abstract class VoIDHelper {
                 voidURLs.add(newPath + "/void");
                 voidURLs.add(newPath + "/void.ttl");
                 voidURLs.add(newPath + "/void.rdf");
+                voidURLs.add(newPath + "/models/void");
+                voidURLs.add(newPath + "/models/void.ttl");
+                voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
                 for (int i = 1; i < path.length; i++)
                     if (!path[i].contains("void")) {

@@ -23,7 +23,7 @@ import uff.ic.swlab.ckan2void.util.Config;
 
 public abstract class Main {
 
-    public static Config conf = Config.getInsatnce();
+    private static Config conf = Config.getInsatnce();
 
     public static void main(String[] args) {
         try {
@@ -76,15 +76,15 @@ public abstract class Main {
                 ExecutorService pool = Executors.newWorkStealingPool(conf.parallelism());
                 while ((dataset = crawler.next()) != null) {
 
-                    String graphURI = dataset.getJsonMetadataUrl();
+                    String graphUri = dataset.getJsonMetadataUrl();
                     try {
                         if (dataset.isUpdateCandidate()) {
-                            pool.submit(new MakeVoIDTask(dataset, graphURI));
-                            System.out.println((++counter) + ": Harvesting task for " + graphURI + " submitted.");
+                            pool.submit(new MakeVoIDTask(dataset, graphUri));
+                            System.out.println((++counter) + ": Harvesting task for " + graphUri + " submitted.");
                         } else
-                            System.out.println("Skipping dataset " + graphURI + ".");
+                            System.out.println("Skipping dataset " + graphUri + ".");
                     } catch (Throwable t) {
-                        System.out.println("Skipping dataset " + graphURI + ".");
+                        System.out.println("Skipping dataset " + graphUri + ".");
                     }
                 }
 

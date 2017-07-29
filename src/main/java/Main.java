@@ -27,13 +27,13 @@ public abstract class Main {
 
     public static void main(String[] args) {
         try {
-            while (true) {
-                PropertyConfigurator.configure("./conf/log4j.properties");
-                conf.host().initSDB(conf.datasetSDBDesc());
-                conf.host().initSDB(conf.tempDatasetSDBDesc());
+            PropertyConfigurator.configure("./conf/log4j.properties");
+            conf.host().initSDB(conf.datasetSDBDesc());
+            conf.host().initSDB(conf.tempDatasetSDBDesc());
 
-                //createDataset(args);
-                //System.gc();
+            while (true) {
+                createDataset(args);
+                System.gc();
                 createRootResources();
                 System.gc();
                 exportDataset();
@@ -44,6 +44,7 @@ public abstract class Main {
                 System.out.println("Sleeping for 8 hours.");
                 Thread.sleep(3600 * 24);
             }
+
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

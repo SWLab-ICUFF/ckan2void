@@ -32,7 +32,7 @@ public abstract class Main {
             conf.host().initSDB(conf.tempDatasetSDBDesc());
 
             while (true) {
-                //createDataset(args);
+                //createDataset();
                 //System.gc();
                 createRootResources();
                 System.gc();
@@ -50,7 +50,7 @@ public abstract class Main {
         }
     }
 
-    public static void createDataset(String[] args) throws IOException, InterruptedException {
+    public static void createDataset() throws IOException, InterruptedException {
         System.out.println("========================================");
         System.out.println("Config:");
         System.out.println("update host " + conf.host().hostname);

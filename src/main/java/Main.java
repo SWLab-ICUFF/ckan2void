@@ -44,8 +44,9 @@ public abstract class Main {
                 uploadDataset();
                 System.gc();
 
-                System.out.println("Sleeping for 8 hours.");
-                Thread.sleep(3600 * 24);
+                int qtd = 24;
+                System.out.println("Sleeping for " + qtd + " hours.");
+                Thread.sleep(3600 * qtd);
             }
 
         } catch (Throwable e) {

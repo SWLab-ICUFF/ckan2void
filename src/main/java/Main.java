@@ -46,7 +46,7 @@ public abstract class Main {
             }
 
         } catch (Throwable e) {
-            System.out.println(e.getMessage());
+            System.out.println("Exception: " + e.getMessage());
         }
     }
 

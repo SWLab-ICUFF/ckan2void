@@ -47,7 +47,6 @@ public abstract class Main {
 
         } catch (Throwable e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
         }
     }
 

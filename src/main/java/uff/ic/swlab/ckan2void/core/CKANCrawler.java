@@ -24,12 +24,12 @@ public class CKANCrawler extends Crawler<Dataset> {
 
     public CKANCrawler(String url) {
         conf = Config.getInsatnce();
-        names = new ArrayList<>();
-        iterator = names.iterator();
+        cc = new CkanClient(url);
         limit = conf.taskInstances();
         offset = -limit;
+        names = new ArrayList<>();
+        iterator = names.iterator();
         this.url = url;
-        cc = new CkanClient(url);
     }
 
     @Override

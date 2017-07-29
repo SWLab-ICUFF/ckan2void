@@ -11,6 +11,7 @@ import uff.ic.swlab.ckan2void.util.Executor;
 
 public class CKANCrawler extends Crawler<Dataset> {
 
+    private String url;
     private Config conf;
     private CkanClient cc;
     private int offset;
@@ -27,6 +28,7 @@ public class CKANCrawler extends Crawler<Dataset> {
         iterator = names.iterator();
         limit = conf.taskInstances();
         offset = -limit;
+        this.url = url;
         cc = new CkanClient(url);
     }
 
@@ -49,6 +51,7 @@ public class CKANCrawler extends Crawler<Dataset> {
             Callable<Boolean> task = () -> {
                 boolean hasNext = iterator.hasNext();
                 if (!hasNext) {
+                    cc = new CkanClient(url);
                     offset += limit;
                     names = cc.getDatasetList(limit, offset);
                     iterator = names.iterator();

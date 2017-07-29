@@ -31,7 +31,16 @@ public abstract class Main {
                 PropertyConfigurator.configure("./conf/log4j.properties");
                 conf.host().initSDB(conf.datasetSDBDesc());
                 conf.host().initSDB(conf.tempDatasetSDBDesc());
-                run(args);
+
+                //createDataset(args);
+                //System.gc();
+                createRootResources();
+                System.gc();
+                exportDataset();
+                System.gc();
+                uploadDataset();
+                System.gc();
+
                 System.out.println("Sleeping for 8 hours.");
                 Thread.sleep(3600 * 24);
             }
@@ -41,7 +50,7 @@ public abstract class Main {
         }
     }
 
-    public static void run(String[] args) throws IOException, InterruptedException {
+    public static void createDataset(String[] args) throws IOException, InterruptedException {
         System.out.println("========================================");
         System.out.println("Config:");
         System.out.println("update host " + conf.host().hostname);
@@ -87,13 +96,6 @@ public abstract class Main {
             System.gc();
 
         }
-
-        createRootResources();
-        System.gc();
-        exportDataset();
-        System.gc();
-        uploadDataset();
-        System.gc();
     }
 
     private static void createRootResources() {

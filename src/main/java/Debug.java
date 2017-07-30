@@ -28,8 +28,7 @@ public class Debug {
         String[] sparqlEndPoints = dataset.getSparqlEndPoints();
 
         _void.add(dataset.toVoid());
-        while (_voidComp.isEmpty())
-            _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, conf.host().NS(), dataset.getUri()));
+        _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, conf.host().NS(), dataset.getUri()));
         System.out.println("*******************************");
         org.apache.jena.riot.RDFDataMgr.write(System.out, _void, Lang.TURTLE);
         System.out.println("===============================");

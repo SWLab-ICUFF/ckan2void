@@ -85,32 +85,76 @@ public abstract class VoIDHelper {
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
+                + "prefix null: <#>\n"
                 + "prefix : <%1$s>\n"
-                + "construct {<%2$s> ?p1 ?s2.\n"
-                + "           ?s2 ?p2 ?s3.\n"
-                + "           ?s3 ?p3 ?o4.}\n"
+                + "\n"
+                + "construct {?u null:sameAs ?uu.\n"
+                + "           ?s ?p ?o.}\n"
                 + "where {\n"
-                + "  {{{?s1 ?p1 ?o2.\n"
-                + "     filter (?p1 in (void:classPartition, void:propertyPartition)\n"
-                + "             || (?p1 in (void:subset) && exists {?o2 a void:Linkset.}))}\n"
-                + "    bind(if(isBlank(?o2),iri(\"%1$sid2-\"+struuid()),?o2) as ?s2)}\n"
-                + "   ?o2 ?p2 ?o3.\n"
-                + "   optional {{?o3 ?p3 ?o4.\n"
-                + "              bind(if(isBlank(?o3),iri(\"%1$sid2-\"+struuid()),?o3) as ?s3)}\n"
-                + "             optional {?o3 ?p3 ?o4.}}}\n"
-                + "  union\n"
-                + "  {graph ?g {{{?s1 ?p1 ?o2.\n"
-                + "              filter (?p1 in (void:classPartition, void:propertyPartition)\n"
-                + "                      || (?p1 in (void:subset) && exists {?o2 a void:Linkset.}))}\n"
-                + "             bind(if(isBlank(?o2),iri(\"%1$sid2-\"+struuid()),?o2) as ?s2)}\n"
-                + "            ?o2 ?p2 ?o3.\n"
-                + "            optional {{?o3 (?p3 ?o4.\n"
-                + "                       bind(if(isBlank(?o3),iri(\"%1$sid2-\"+struuid()),?o3) as ?s3)}\n"
-                + "                      optional {?o3 ?p3 ?o4.}}}}\n"
+                + "       {{{select distinct ?u"
+                + "         where {{select distinct ?u where {?u ?p ?o.}}\n"
+                + "                union {select distinct ?u where {?s ?p ?u. filter(isIRI(?u))}}}}\n"
+                + "        bind(if(isBlank(?u),iri(\"%1$sid2-\"+struuid()),?u) as ?uu)}\n"
+                + "       union {?s ?p ?o.}}\n"
+                + "       union\n"
+                + "       {graph ?g {{{select distinct ?u"
+                + "                   where {{select distinct ?u where {?u ?p ?o.}}\n"
+                + "                          union {select distinct ?u where {?s ?p ?u. filter(isIRI(?u))}}}}\n"
+                + "                  bind(if(isBlank(?u),iri(\"%1$sid2-\"+struuid()),?u) as ?uu)}\n"
+                + "                 union {?s ?p ?o.}}}"
                 + "}";
+
+        String queryString2 = ""
+                + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                + "prefix void: <http://rdfs.org/ns/void#>\n"
+                + "prefix null: <#>\n"
+                + "prefix : <%1$s>\n"
+                + "\n"
+                + "construct {<%2$s> ?p1 ?s2.\n"
+                + "           ?s2 ?p2 ?r3.\n"
+                + "           ?s3 ?p3 ?r4.\n"
+                + "           ?r4 ?p4 ?r5.\n"
+                + "}\n"
+                + "where {\n"
+                + "  {?o1 ?p1 ?o2.\n"
+                + "   filter (?p1 in (void:classPartition, void:propertyPartition)\n"
+                + "           || (?p1 in (void:subset) && exists {?o2 a void:Linkset.}))}\n"
+                + "  ?o2 ?p2 ?o3.\n"
+                + "  ?o2 null:sameAs ?s2.\n"
+                + "  optional {?o3 null:sameAs ?s3.}\n"
+                + "  bind(if(bound(?s3),?s3,?o3) as ?r3)\n"
+                + "  optional {?o3 (!<>)+ ?o4.\n"
+                + "            optional {?o4 null:sameAs ?s4.}\n"
+                + "            bind(if(bound(?s4),?s4,?o4) as ?r4)\n"
+                + "            optional {?o3 ?p3 ?o4.}\n"
+                + "            optional {?o4 ?p4 ?o5.}"
+                + "            optional {?o5 null:sameAs ?s5.}\n"
+                + "            bind(if(bound(?s5),?s5,?o5) as ?r5)"
+                + "           }\n"
+                + "}";
+
+        String queryString3 = ""
+                + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                + "prefix void: <http://rdfs.org/ns/void#>\n"
+                + "prefix : <%1$s>\n"
+                + "\n"
+                + "construct {?s ?p ?o.}\n"
+                + "where {?s ?p ?o. filter(?p != <#sameAs>)}";
+
         Callable<Model> task = () -> {
-            Query query = QueryFactory.create(String.format(queryString, namespace, targetURI));
+            Query query = QueryFactory.create(String.format(queryString, namespace));
             QueryExecution exec = QueryExecutionFactory.create(query, dataset);
+
+            query = QueryFactory.create(String.format(queryString2, namespace, targetURI));
+            exec = QueryExecutionFactory.create(query, exec.execConstruct());
+
+            query = QueryFactory.create(String.format(queryString3, namespace));
+            exec = QueryExecutionFactory.create(query, exec.execConstruct());
+
             return exec.execConstruct();
         };
         return Executor.execute(task, "Extract void for " + targetURI, Config.getInsatnce().sparqlTimeout());

@@ -30,8 +30,6 @@ public class Debug {
         _void.add(dataset.toVoid());
         _voidComp.add(VoIDHelper.getContent(urls, sparqlEndPoints, conf.host().NS(), dataset.getUri()));
         System.out.println("*******************************");
-        org.apache.jena.riot.RDFDataMgr.write(System.out, _void, Lang.TURTLE);
-        System.out.println("===============================");
         org.apache.jena.riot.RDFDataMgr.write(System.out, _voidComp, Lang.TURTLE);
         System.out.println("-------------------------------");
         conf.host().saveVoid(_void, _voidComp, datasetUri, graphUri);

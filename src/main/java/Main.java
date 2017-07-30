@@ -44,7 +44,7 @@ public abstract class Main {
                 uploadDataset();
                 System.gc();
 
-                int qtd = 24;
+                int qtd = 8;
                 System.out.println("Sleeping for " + qtd + " hours.");
                 Thread.sleep(3600 * qtd);
             }

@@ -69,7 +69,7 @@ public abstract class VoIDHelper {
                 + "  {?s1 ?p1 ?s2.\n"
                 + "   filter (?p1 in (void:subset, void:classPartition, void:propertyPartition)\n"
                 + "           && not exists {?s2 a void:Linkset.})}\n"
-                + "  optional {?s2 ?p2 ?o2.}\n"
+                + "  ?s2 ?p2 ?o2.\n"
                 + "}";
         Callable<Model> task = () -> {
             Query query = QueryFactory.create(String.format(queryString, targetURI));
@@ -86,17 +86,19 @@ public abstract class VoIDHelper {
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "prefix void: <http://rdfs.org/ns/void#>\n"
                 + "prefix : <%1$s>\n"
-                + "construct {<%2$s> ?p1 ?s2. ?s2 ?p2 ?o2.}\n"
+                + "construct {<%2$s> ?p1 ?s2. ?s2 ?p2 ?s3. ?s3 ?p3 ?s4.}\n"
                 + "where {\n"
                 + "  {{{?s1 ?p1 ?unknown.\n"
                 + "     filter (?p1 in (void:classPartition, void:propertyPartition) || (?p1 in (void:subset) && exists {?unknown a void:Linkset.}))}\n"
-                + "    bind(iri(\":id2-\"+struuid()) as ?s2)}\n"
-                + "   optional {?unknown ?p2 ?o2.}}\n"
+                + "    bind(if(isBlank(?unknown),iri(\"%1$sid2-\"+struuid()),?unknown) as ?s2)}\n"
+                + "   ?unknown ?p2 ?s3.\n"
+                + "   optional {?s3 (!<>)+ ?o3. ?s3 ?p3 ?o3. bind(if(isBlank(?o3),iri(\"%1$sid2-\"+struuid()),?unknown) as ?s4)}}\n"
                 + "  union\n"
                 + "  {graph ?g {{{?s1 ?p1 ?unknown.\n"
                 + "              filter (?p1 in (void:classPartition, void:propertyPartition) || (?p1 in (void:subset) && exists {?unknown a void:Linkset.}))}\n"
-                + "             bind(iri(\":id2-\"+struuid()) as ?s2)}\n"
-                + "            optional {?s2 ?p2 ?o2.}}}\n"
+                + "             bind(if(isBlank(?unknown),iri(\"%1$sid2-\"+struuid()),?unknown) as ?s2)}\n"
+                + "            ?unknown ?p2 ?s3.\n"
+                + "            optional {?s3 (!<>)+ ?o3. ?s3 ?p3 ?o3. bind(if(isBlank(?o3),iri(\"%1$sid2-\"+struuid()),?unknown) as ?s4)}}}\n"
                 + "}";
         Callable<Model> task = () -> {
             Query query = QueryFactory.create(String.format(queryString, namespace, targetURI));

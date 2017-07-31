@@ -1,3 +1,5 @@
+package uff.ic.swlab.ckan2void.debug;
+
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.sql.SQLException;

@@ -1,10 +1,11 @@
 package uff.ic.swlab.harvestTopics;
 
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 import org.apache.jena.query.Dataset;
@@ -18,41 +19,30 @@ import org.apache.jena.vocabulary.VOID;
 
 public class CreateErichments {
 
+    private static String NS = "http://swlab.ic.uff.br/resource/";
+    private static String NS2 = "http://datahub.io/api/rest/dataset/";
+    private static String NS3 = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/";
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Dataset dataset = DatasetFactory.create();
 
-        String NS = "http://swlab.ic.uff.br/resource/";
-        String NS2 = "http://datahub.io/api/rest/dataset/";
-        String NS3 = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/";
-        String[] datasetnames = {"rkb-explorer-acm", "rkb-explorer-ieee"};
-
+        List<String> datasetnames = listDatasetnames();
         for (String datasetname : datasetnames) {
-            Model model = dataset.getNamedModel(NS2 + datasetname);
-            model.setNsPrefix("void", VOID.NS);
-            model.setNsPrefix("dcterms", DCTerms.NS);
-            model.setNsPrefix("", "http://swlab.ic.uff.br/resource/");
 
-            Resource desc1 = model.createResource(NS + datasetname + "-datahub", VOID.Dataset)
-                    .addProperty(VOID.subset, model.createResource(NS + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
-                            .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/category1"))
-                            .addProperty(VOID.triples, model.createTypedLiteral(156l)))
-                    .addProperty(VOID.subset, model.createResource(NS + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
-                            .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/category2"))
-                            .addProperty(VOID.triples, model.createTypedLiteral(234l)));
+            List<Category> categories = listCategories(datasetname);
+            for (Category category : categories) {
+                Model model = dataset.getNamedModel(NS2 + datasetname);
+                Resource desc1 = model.createResource(NS + datasetname + "-datahub", VOID.Dataset)
+                        .addProperty(VOID.subset, model.createResource(NS + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
+                                .addProperty(DCTerms.subject, model.createResource(category.uri))
+                                .addProperty(VOID.triples, model.createTypedLiteral(category.triples)));
 
-            model = dataset.getNamedModel(NS3 + datasetname);
-            model.setNsPrefix("void", VOID.NS);
-            model.setNsPrefix("dcterms", DCTerms.NS);
-            model.setNsPrefix("", "http://swlab.ic.uff.br/resource/");
-
-            Resource desc2 = model.createResource(NS + datasetname + "-uni-mannheim", VOID.Dataset)
-                    .addProperty(VOID.subset, model.createResource(NS + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
-                            .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/category1"))
-                            .addProperty(VOID.triples, model.createTypedLiteral(156l)))
-                    .addProperty(VOID.subset, model.createResource(NS + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
-                            .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/category2"))
-                            .addProperty(VOID.triples, model.createTypedLiteral(234l)));
-
+                model = dataset.getNamedModel(NS3 + datasetname);
+                Resource desc2 = model.createResource(NS + datasetname + "-uni-mannheim", VOID.Dataset)
+                        .addProperty(VOID.subset, model.createResource(NS + "id-" + UUID.randomUUID().toString(), VOID.Dataset)
+                                .addProperty(DCTerms.subject, model.createResource(category.uri))
+                                .addProperty(VOID.triples, model.createTypedLiteral(category.triples)));
+            }
         }
 
         try (OutputStream out = new FileOutputStream("./data/v1/rdf/dataset/enrichments.nq.gz");
@@ -61,5 +51,32 @@ public class CreateErichments {
             out2.finish();
             out.flush();
         }
+    }
+
+    private static List<String> listDatasetnames() {
+        List<String> datasetnames = new ArrayList<>();
+        datasetnames.add("rkb-explorer-acm");
+        datasetnames.add("rkb-explorer-ieee");
+        return datasetnames;
+    }
+
+    private static class Category {
+
+        public String uri;
+        public long triples;
+
+        public Category(String uri, long triples) {
+            this.uri = uri;
+            this.triples = triples;
+        }
+    }
+
+    private static List<Category> listCategories(String datasetname) {
+        List<Category> categories = new ArrayList<>();
+
+        categories.add(new Category("http://dbpedia.org/category1", 136));
+        categories.add(new Category("http://dbpedia.org/category2", 56));
+
+        return categories;
     }
 }

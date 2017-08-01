@@ -99,14 +99,14 @@ public class MakeVoIDTask implements Runnable {
                 } catch (ExecutionException e) {
                     Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
 
-                    try {// retry save VoID
+                    try {// retry to save VoID
 
                         Model emptyModel = ModelFactory.createDefaultModel();
                         Callable<Object> save = () -> {
                             conf.host().saveVoid(_void, emptyModel, datasetUri, graphUri);
                             return null;
                         };
-                        Executor.execute(save, "Retry save VoID of " + dataset.getUri(), conf.saveTimeout());
+                        Executor.execute(save, "Retry to save VoID of " + dataset.getUri(), conf.saveTimeout());
 
                     } catch (Throwable e2) {
                         Logger.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));

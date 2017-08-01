@@ -147,14 +147,12 @@ public enum SWLabHost {
     public synchronized void putModel(String datasetname, Model sourceModel) throws InvalidNameException {
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
         accessor.putModel(sourceModel);
-        Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", "default graph"));
     }
 
     public synchronized void putModel(String datasetname, String graphUri, Model model) throws InvalidNameException {
         if (graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
             accessor.putModel(graphUri, model);
-            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1$s>).", graphUri));
         } else
             throw new InvalidNameException(String.format("Invalid graph URI: %1$s.", graphUri));
     }
@@ -185,11 +183,6 @@ public enum SWLabHost {
         Store tempDatasetStore = SDBFactory.connectStore(Config.getInsatnce().tempDatasetSDBDesc());
         try {
 
-            if (_void.size() == 0)
-                Logger.getLogger("info").log(Level.INFO, String.format("Empty synthetized VoID (<%1$s>).", datasetUri));
-            if (_voidComp.size() == 0)
-                Logger.getLogger("info").log(Level.INFO, String.format("Empty captured VoID (<%1$s>).", datasetUri));
-
             Model partitions;
             try {
                 partitions = VoIDHelper.extractPartitions(_void, datasetUri);
@@ -219,11 +212,14 @@ public enum SWLabHost {
 
                 tempDatasetStore.getConnection().getTransactionHandler().commit();
                 datasetStore.getConnection().getTransactionHandler().commit();
-                Logger.getLogger("info").log(Level.INFO, String.format("Dataset save commit (<%1$s>).", graphUri));
+                Logger.getLogger("info").log(Level.INFO, String.format("Dataset save commited (<%1$s>).", graphUri));
+                if (_void.size() == 0)
+                    Logger.getLogger("info").log(Level.INFO, String.format("Empty VoIDComp (<%1$s>).", datasetUri));
             } else {
                 tempDatasetStore.getConnection().getTransactionHandler().abort();
                 datasetStore.getConnection().getTransactionHandler().abort();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
+                Logger.getLogger("info").log(Level.INFO, String.format("Empty VoID (<%1$s>).", datasetUri));
             }
 
         } catch (Throwable t) {

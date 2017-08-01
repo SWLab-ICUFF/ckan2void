@@ -46,7 +46,7 @@ public abstract class Main {
 
                 int hours = 8;
                 System.out.println("Sleeping for " + hours + " hours.");
-                Thread.sleep(3600 * hours);
+                Thread.sleep(1000 * 3600 * hours);
             }
 
         } catch (Throwable e) {

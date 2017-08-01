@@ -542,7 +542,7 @@ public class Dataset {
                 + "prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n"
                 + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
                 + "\n"
-                + "select (((now()- if(!bound(?o),\"0001-01-01T00:00:00.000-00:00\"^^xsd:dateTime,?o)) > \"P1D\"^^xsd:duration) as ?isUpdateCandidate)\n"
+                + "select (((now()- if(!bound(?o),\"0001-01-01T00:00:00.000-00:00\"^^xsd:dateTime,?o)) > \"P3D\"^^xsd:duration) as ?isUpdateCandidate)\n"
                 + "where {{bind(<%1$s> as ?s)}\n"
                 + "       optional {graph ?g {?s2 a void:DatasetDescription.\n"
                 + "                           ?s2 foaf:primaryTopic ?s.\n"

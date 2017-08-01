@@ -219,7 +219,6 @@ public enum SWLabHost {
                 tempDatasetStore.getConnection().getTransactionHandler().abort();
                 datasetStore.getConnection().getTransactionHandler().abort();
                 Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1$s>).", graphUri));
-                Logger.getLogger("info").log(Level.INFO, String.format("Empty VoID (<%1$s>).", datasetUri));
             }
 
         } catch (Throwable t) {

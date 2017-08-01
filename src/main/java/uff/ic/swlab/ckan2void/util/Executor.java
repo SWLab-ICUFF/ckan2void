@@ -19,6 +19,7 @@ public abstract class Executor {
             return future.get(timeout, TimeUnit.MILLISECONDS);
         } catch (TimeoutException e) {
             Logger.getLogger("timeout").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
+            Logger.getLogger("error").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
             throw e;
         } finally {
             future.cancel(true);

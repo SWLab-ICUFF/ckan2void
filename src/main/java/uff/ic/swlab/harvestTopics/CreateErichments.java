@@ -55,8 +55,12 @@ public class CreateErichments {
 
     private static List<String> listDatasetnames() {
         List<String> datasetnames = new ArrayList<>();
-        datasetnames.add("rkb-explorer-acm");
-        datasetnames.add("rkb-explorer-ieee");
+
+        {// adaptar
+            datasetnames.add("rkb-explorer-acm");
+            datasetnames.add("rkb-explorer-ieee");
+        }
+
         return datasetnames;
     }
 
@@ -74,8 +78,10 @@ public class CreateErichments {
     private static List<Category> listCategories(String datasetname) {
         List<Category> categories = new ArrayList<>();
 
-        categories.add(new Category("http://dbpedia.org/category1", 136));
-        categories.add(new Category("http://dbpedia.org/category2", 56));
+        {//adaptar
+            categories.add(new Category("http://dbpedia.org/category1", 136));
+            categories.add(new Category("http://dbpedia.org/category2", 56));
+        }
 
         return categories;
     }

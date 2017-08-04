@@ -35,18 +35,17 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 
-public enum SWLabHost {
+public class SWLabHost {
 
-    PRIMARY_HOST("swlab.ic.uff.br", 80, 21),
-    DEVELOPMENT_HOST("swlab.ic.uff.br", 8080, 2121),
-    ALTERNATE_HOST("swlab.paes-leme.name", 8080, 2121);
+    public String hostname;
+    public int httpPort;
+    public int ftpPort;
 
-    public final String hostname;
-    public final int httpPort;
-    public final int ftpPort;
-    public static final SWLabHost DEFAULT_HOST = ALTERNATE_HOST;
+    private SWLabHost() {
 
-    SWLabHost(String hostname, int httpPort, int ftpPort) {
+    }
+
+    public SWLabHost(String hostname, int httpPort, int ftpPort) {
         this.hostname = hostname;
         this.httpPort = httpPort;
         this.ftpPort = ftpPort;

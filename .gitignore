@@ -18,3 +18,5 @@ sdb2.ttl
 
 /logs/
 /data/tdb/
+/conf/host.properties
+/data/v1/rdf/

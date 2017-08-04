@@ -87,28 +87,22 @@ public class Config {
             maxVoidFileSize = 1048576l;
         }
 
-        try (InputStream input = new FileInputStream("./conf/auth.properties");) {
+        try (InputStream input = new FileInputStream("./conf/host.properties");) {
             Properties prop = new Properties();
             prop.load(input);
+
+            String hostname = prop.getProperty("hostname", "localhost");
+            int httpPort = Integer.parseInt(prop.getProperty("httpPort", "8080"));
+            int ftpPort = Integer.parseInt(prop.getProperty("ftpPort", "2121"));
+            host = new SWLabHost(hostname, httpPort, ftpPort);
 
             username = prop.getProperty("username", "");
             password = prop.getProperty("password", "");
 
-            String _host = prop.getProperty("host", "alternate");
-            if (_host == null)
-                host = SWLabHost.ALTERNATE_HOST;
-            else if (_host.toLowerCase().equals("primary"))
-                host = SWLabHost.PRIMARY_HOST;
-            else if (_host.toLowerCase().equals("development"))
-                host = SWLabHost.DEVELOPMENT_HOST;
-            else if (_host.toLowerCase().equals("alternate"))
-                host = SWLabHost.ALTERNATE_HOST;
-            else
-                host = SWLabHost.ALTERNATE_HOST;
         } catch (Throwable t) {
             username = "";
             password = "";
-            host = SWLabHost.ALTERNATE_HOST;
+            host = new SWLabHost("localhost", 8080, 2121);
         }
 
         datasetSDBDesc = "./conf/sdb1.ttl";

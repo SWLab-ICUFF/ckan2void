@@ -13,11 +13,11 @@ public class Config {
     private String fusekiTemDataset = "temp";
     private String datasetname = fusekiDataset + "_v1";
 
-    private String htmlRoot = "./data/v1/html";
-    private String rdfRoot = "./data/v1/rdf";
+    private String htmlRootDir = "./data/v1/html";
+    private String rdfRootDir = "./data/v1/rdf";
 
-    private String localdatasetHomepageName = htmlRoot + "/dataset/" + datasetname + "/index.jsp";
-    private String localNquadsDumpNamed = rdfRoot + "/dataset/" + datasetname + ".nq.gz";
+    private String localdatasetHomepageName = htmlRootDir + "/dataset/" + datasetname + "/index.jsp";
+    private String localNquadsDumpNamed = rdfRootDir + "/dataset/" + datasetname + ".nq.gz";
 
     private String username;
     private String password;
@@ -131,7 +131,7 @@ public class Config {
     }
 
     public String rdfRoot() {
-        return rdfRoot;
+        return rdfRootDir;
     }
 
     public String localDatasetHomepageName() {

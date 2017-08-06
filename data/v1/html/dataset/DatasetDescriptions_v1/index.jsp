@@ -10,14 +10,14 @@
         <title>Dataset Descriptions (v1)</title>
     </head>
     <body>
-        <div style="text-align:right">
-            <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>dataset/DatasetDescriptions_v1?@Lookup@=&refresh=clean">
-                <img title="Browse with" src="/uriburnerlogo_small.png" style="vertical-align:middle; width:10%; height:auto"/>
-            </a>
-        </div>
-        <h1 style="text-align:center">Dataset Descriptions (v1)</h1>
-        <br/><br/><br/>
         <div style="margin:auto; text-align:justify; width:70%; height:90%">
+            <div style="text-align:right">
+                <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>dataset/DatasetDescriptions_v1?@Lookup@=&refresh=clean">
+                    <i>browse as linked data</i>
+                </a>
+            </div>
+            <h1 style="text-align:center">Dataset Descriptions (v1)</h1>
+            <br/><br/><br/>
             <p>
                 Despite the fact that extensive list of open datasets are available in catalogues, most of
                 the data publishers still connects their datasets to other popular datasets, such as DBpedia5,

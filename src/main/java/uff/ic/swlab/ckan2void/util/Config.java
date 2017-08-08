@@ -99,7 +99,6 @@ public class Config {
 
             username = prop.getProperty("username", "");
             password = prop.getProperty("password", "");
-
         } catch (Throwable t) {
             username = "";
             password = "";

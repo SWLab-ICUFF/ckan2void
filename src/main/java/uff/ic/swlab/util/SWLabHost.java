@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.util;
+package uff.ic.swlab.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -33,7 +33,6 @@ import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.ckan2void.helper.VoIDHelper;
 
 public class SWLabHost {
 

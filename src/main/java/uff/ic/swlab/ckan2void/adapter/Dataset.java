@@ -42,9 +42,9 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.ckan2void.helper.URLHelper;
-import uff.ic.swlab.ckan2void.util.Config;
-import uff.ic.swlab.ckan2void.util.Executor;
+import uff.ic.swlab.util.URLHelper;
+import uff.ic.swlab.util.Config;
+import uff.ic.swlab.util.Executor;
 
 public class Dataset {
 

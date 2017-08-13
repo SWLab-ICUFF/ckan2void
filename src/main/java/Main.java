@@ -19,7 +19,7 @@ import uff.ic.swlab.ckan2void.adapter.Dataset;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
 import uff.ic.swlab.ckan2void.core.Crawler;
 import uff.ic.swlab.ckan2void.core.MakeVoIDTask;
-import uff.ic.swlab.ckan2void.util.Config;
+import uff.ic.swlab.util.Config;
 
 public abstract class Main {
 

@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
 import uff.ic.swlab.ckan2void.adapter.Dataset;
-import uff.ic.swlab.ckan2void.util.Config;
-import uff.ic.swlab.ckan2void.util.Executor;
+import uff.ic.swlab.util.Config;
+import uff.ic.swlab.util.Executor;
 
 public class CKANCrawler extends Crawler<Dataset> {
 

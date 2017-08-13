@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.helper;
+package uff.ic.swlab.util;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -8,8 +8,8 @@ import java.net.URLConnection;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
-import uff.ic.swlab.ckan2void.util.Config;
-import uff.ic.swlab.ckan2void.util.Executor;
+import uff.ic.swlab.util.Config;
+import uff.ic.swlab.util.Executor;
 
 public abstract class URLHelper {
 

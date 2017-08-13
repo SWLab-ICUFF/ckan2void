@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.util;
+package uff.ic.swlab.util;
 
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -19,7 +19,6 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import uff.ic.swlab.ckan2void.helper.URLHelper;
 
 public abstract class RDFDataMgr {
 

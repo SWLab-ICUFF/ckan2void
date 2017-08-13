@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.util;
+package uff.ic.swlab.util;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

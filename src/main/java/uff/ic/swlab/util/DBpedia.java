@@ -12,7 +12,7 @@ import org.apache.http.impl.client.HttpClients;
 public class DBpedia {
 
     public static void main(String[] args) {
-        annotate("Rio de Janeiro is the wonderful city of Brazil.");
+        annotate("Rio de Janeiro is the wonderful city of Brazil Rio de Janeiro.");
     }
 
     public static void annotate(String text) {

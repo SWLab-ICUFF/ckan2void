@@ -11,10 +11,10 @@ public class Config {
 
     private String fusekiDataset = "DatasetDescriptions";
     private String fusekiTemDataset = "temp";
-    private String datasetname = fusekiDataset + "_v1";
+    private String datasetname = fusekiDataset + "_v3";
 
-    private String htmlRootDir = "./data/v1/html";
-    private String rdfRootDir = "./data/v1/rdf";
+    private String htmlRootDir = "./data/v3/html";
+    private String rdfRootDir = "./data/v3/rdf";
 
     private String localdatasetHomepageName = htmlRootDir + "/dataset/" + datasetname + "/index.jsp";
     private String localNquadsDumpNamed = rdfRootDir + "/dataset/" + datasetname + ".nq.gz";

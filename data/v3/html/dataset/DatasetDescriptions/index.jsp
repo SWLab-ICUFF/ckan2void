@@ -1,22 +1,23 @@
 <%
     String domain = request.getRequestURL().toString().replaceAll(request.getRequestURI(),"/");
     String domain2 = domain.replaceAll("http://","http/");
+    String version = "v3";
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <link href="swlab.css" rel="stylesheet" type="text/css"/>
-        <title>Dataset Descriptions (v3)</title>
+        <title>Dataset Descriptions</title>
     </head>
     <body>
         <div style="margin:auto; text-align:justify; width:70%; height:90%">
             <div style="text-align:right">
-                <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>dataset/DatasetDescriptions_v1?@Lookup@=&refresh=clean">
+                <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>dataset/DatasetDescriptions">
                     <i>browse as linked data</i>
                 </a>
             </div>
-            <h1 style="text-align:center">Dataset Descriptions (v3)</h1>
+            <h1 style="text-align:center">Dataset Descriptions</h1>
             <br/><br/><br/>
             <p>
                 Despite the fact that extensive list of open datasets are available in catalogues, most of
@@ -41,7 +42,7 @@
                 categories of each entity.
             </p>
             <div style="text-align:right">
-                <a href="https://doi.org/10.6084/m9.figshare.5211916.v3">https://doi.org/10.6084/m9.figshare.5211916.v3</a>
+                <a href="https://doi.org/10.6084/m9.figshare.5211916">https://doi.org/10.6084/m9.figshare.5211916</a>
             </div>
             <br/><br/>
             <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5211916/embed?show_title=1">
@@ -55,12 +56,12 @@
              rdfs: http://www.w3.org/2000/01/rdf-schema#
              void: http://rdfs.org/ns/void#
              myvoid: <%=domain%>void.ttl#">
-            <div  about="<%=domain%>void.ttl#DatasetDescriptions_v3" typeof="http://rdfs.org/ns/void#Dataset">
-                <div property="http://www.w3.org/1999/02/22-rdf-syntax-ns#label" content="Dataset Descriptions (v3)">
+            <div  about="<%=domain%>void.ttl#DatasetDescriptions_<%=version%>" typeof="http://rdfs.org/ns/void#Dataset">
+                <div property="http://www.w3.org/1999/02/22-rdf-syntax-ns#label" content="Dataset Descriptions (<%=version%>)">
                 </div>
             </div>
             <div  about="#this" typeof="http://xmlns.com/foaf/0.1/Document">
-                <div rel="http://xmlns.com/foaf/0.1/topic" resource="<%=domain%>void.ttl#DatasetDescriptions_v3">
+                <div rel="http://xmlns.com/foaf/0.1/topic" resource="<%=domain%>void.ttl#DatasetDescriptions_<%=version%>">
                 </div>
             </div>
         </div>

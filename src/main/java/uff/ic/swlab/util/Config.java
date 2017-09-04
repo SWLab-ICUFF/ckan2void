@@ -9,20 +9,20 @@ public class Config {
 
     private SWLabHost host;
 
+    private String version = "v3";
     private String fusekiDataset = "DatasetDescriptions";
-    private String fusekiTemDataset = "temp";
-    private String datasetname = fusekiDataset + "_v3";
+    private String datasetname = fusekiDataset + "_" + version;
 
-    private String htmlRootDir = "./data/v3/html";
-    private String rdfRootDir = "./data/v3/rdf";
+    private String htmlRootDir = "./data/" + version + "/html";
+    private String rdfRootDir = "./data/" + version + "/rdf";
 
-    private String localdatasetHomepageName = htmlRootDir + "/dataset/" + datasetname + "/index.jsp";
+    private String localdatasetHomepageName = htmlRootDir + "/dataset/" + fusekiDataset + "/index.jsp";
     private String localNquadsDumpNamed = rdfRootDir + "/dataset/" + datasetname + ".nq.gz";
 
     private String username;
     private String password;
 
-    private String remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
+    private String remoteDatasetHomepageName = "/tomcat/dataset/" + fusekiDataset + "/index.jsp";
     private String remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
 
     private String ckanCatalogs = "http://datahub.io";
@@ -119,10 +119,6 @@ public class Config {
 
     public String fusekiDataset() {
         return fusekiDataset;
-    }
-
-    public String fusekiTemDataset() {
-        return fusekiTemDataset;
     }
 
     public String datasetname() {

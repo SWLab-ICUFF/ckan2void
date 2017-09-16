@@ -35,6 +35,7 @@ import org.apache.jena.sdb.Store;
 import org.apache.jena.sdb.StoreDesc;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
+import org.apache.jena.vocabulary.DCAT;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
@@ -42,9 +43,9 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.util.URLHelper;
 import uff.ic.swlab.util.Config;
 import uff.ic.swlab.util.Executor;
+import uff.ic.swlab.util.URLHelper;
 
 public class Dataset {
 
@@ -439,6 +440,7 @@ public class Dataset {
         _void.setNsPrefix("dcterms", DCTerms.NS);
         _void.setNsPrefix("foaf", FOAF.NS);
         _void.setNsPrefix("void", VOID.NS);
+        _void.setNsPrefix("dcat", DCAT.NS);
         _void.setNsPrefix("", NS);
 
         Resource dataset = _void.createResource(getUri(), VOID.Dataset);
@@ -481,9 +483,9 @@ public class Dataset {
             dataset.addProperty(VOID.uriSpace, uriSpace);
         });
 
-        List<String> tags = Arrays.asList(getTags());
-        tags.stream().forEach((tag) -> {
-            dataset.addProperty(FOAF.topic, tag);
+        List<String> keywords = Arrays.asList(getTags());
+        keywords.stream().forEach((keyword) -> {
+            dataset.addProperty(DCAT.keyword, keyword);
         });
 
         String title = getTitle();

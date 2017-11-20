@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.core;
+package uff.ic.swlab.ckan2void;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,6 +16,9 @@ import org.apache.jena.sdb.StoreDesc;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import uff.ic.swlab.ckan2void.core.CKANCrawler;
+import uff.ic.swlab.ckan2void.core.Crawler;
+import uff.ic.swlab.ckan2void.core.MakeVoIDTask;
 import uff.ic.swlab.ckan2void.util.Config;
 import uff.ic.swlab.ckan2void.util.Dataset;
 

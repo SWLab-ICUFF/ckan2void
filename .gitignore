@@ -5,6 +5,7 @@
 .DS_Store
 Thumbs.db
 auth.properties
+host.properties
 sdb1.ttl
 sdb2.ttl
 
@@ -13,5 +14,3 @@ sdb2.ttl
 
 /logs/
 /data/tdb/
-/conf/host.properties
-/data/v1/rdf/

@@ -1,4 +1,4 @@
-package uff.ic.swlab.util.debug;
+package uff.ic.swlab.ckan2void.util.debug;
 
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;

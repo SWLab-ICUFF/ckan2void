@@ -16,8 +16,8 @@ import org.apache.jena.sdb.StoreDesc;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.util.Config;
-import uff.ic.swlab.util.Dataset;
+import uff.ic.swlab.ckan2void.util.Config;
+import uff.ic.swlab.ckan2void.util.Dataset;
 
 public abstract class Main {
 

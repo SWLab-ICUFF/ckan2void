@@ -1,4 +1,4 @@
-package uff.ic.swlab.util;
+package uff.ic.swlab.ckan2void.util;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -9,12 +9,15 @@ public class Config {
 
     private SWLabHost host;
 
-    private String version = "v3";
+    //private String version = "v3";
     private String fusekiDataset = "DatasetDescriptions";
-    private String datasetname = fusekiDataset + "_" + version;
+    //private String datasetname = fusekiDataset + "_" + version;
+    private String datasetname = fusekiDataset;
 
-    private String htmlRootDir = "./data/" + version + "/html";
-    private String rdfRootDir = "./data/" + version + "/rdf";
+    //private String htmlRootDir = "./data/" + version + "/html";
+    //private String rdfRootDir = "./data/" + version + "/rdf";
+    private String htmlRootDir = "./data/html";
+    private String rdfRootDir = "./data/rdf";
 
     private String localdatasetHomepageName = htmlRootDir + "/dataset/" + fusekiDataset + "/index.jsp";
     private String localNquadsDumpNamed = rdfRootDir + "/dataset/" + datasetname + ".nq.gz";

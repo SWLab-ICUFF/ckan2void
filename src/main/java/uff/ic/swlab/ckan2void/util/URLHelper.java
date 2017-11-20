@@ -1,4 +1,4 @@
-package uff.ic.swlab.util;
+package uff.ic.swlab.ckan2void.util;
 
 import java.net.MalformedURLException;
 import java.net.URI;

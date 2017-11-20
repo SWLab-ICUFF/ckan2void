@@ -1,6 +1,6 @@
-package uff.ic.swlab.harvestTopics;
+package uff.ic.swlab.ckan2void.harvestTopics;
 
-import uff.ic.swlab.util.ConnectionMySql;
+import uff.ic.swlab.ckan2void.util.ConnectionMySql;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;

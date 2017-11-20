@@ -1,4 +1,4 @@
-package uff.ic.swlab.util;
+package uff.ic.swlab.ckan2void.util;
 
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;

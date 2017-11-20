@@ -7,10 +7,10 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.util.Dataset;
-import uff.ic.swlab.util.VoIDHelper;
-import uff.ic.swlab.util.Config;
-import uff.ic.swlab.util.Executor;
+import uff.ic.swlab.ckan2void.util.Dataset;
+import uff.ic.swlab.ckan2void.util.VoIDHelper;
+import uff.ic.swlab.ckan2void.util.Config;
+import uff.ic.swlab.ckan2void.util.Executor;
 
 public class MakeVoIDTask implements Runnable {
 

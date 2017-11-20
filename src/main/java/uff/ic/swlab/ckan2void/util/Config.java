@@ -16,16 +16,16 @@ public class Config {
 
     //private String htmlRootDir = "./data/" + version + "/html";
     //private String rdfRootDir = "./data/" + version + "/rdf";
-    private String htmlRootDir = "./data/html";
-    private String rdfRootDir = "./data/rdf";
+    private String htmlRootDir = "./data";
+    private String rdfRootDir = "./data";
 
-    private String localdatasetHomepageName = htmlRootDir + "/dataset/" + fusekiDataset + "/index.jsp";
+    private String localdatasetHomepageName = htmlRootDir + "/dataset/" + datasetname + "/index.jsp";
     private String localNquadsDumpNamed = rdfRootDir + "/dataset/" + datasetname + ".nq.gz";
 
     private String username;
     private String password;
 
-    private String remoteDatasetHomepageName = "/tomcat/dataset/" + fusekiDataset + "/index.jsp";
+    private String remoteDatasetHomepageName = "/tomcat/dataset/" + datasetname + "/index.jsp";
     private String remoteNquadsDumpName = "/tomcat/dataset/" + datasetname + ".nq.gz";
 
     private String ckanCatalogs = "http://datahub.io";

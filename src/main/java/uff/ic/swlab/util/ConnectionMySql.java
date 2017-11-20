@@ -14,17 +14,18 @@ import java.sql.SQLException;
  * @author angelo
  */
 public class ConnectionMySql {
+
     public static Connection Conectar() throws ClassNotFoundException {
-        Connection connection = null;  
+        Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Features","root","123");
-            return connection; 
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Features", "root", "123");
+            return connection;
         } catch (SQLException e) {
             System.out.println("Problemas na conexao com o banco de dados." + e);
             return null;
         }
 
     }
-    
+
 }

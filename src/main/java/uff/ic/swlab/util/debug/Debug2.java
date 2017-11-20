@@ -1,6 +1,5 @@
 package uff.ic.swlab.util.debug;
 
-
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.Query;

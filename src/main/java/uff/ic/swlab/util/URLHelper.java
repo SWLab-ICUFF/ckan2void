@@ -8,8 +8,6 @@ import java.net.URLConnection;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
-import uff.ic.swlab.util.Config;
-import uff.ic.swlab.util.Executor;
 
 public abstract class URLHelper {
 

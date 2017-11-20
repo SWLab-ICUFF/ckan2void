@@ -1,6 +1,5 @@
 package uff.ic.swlab.ckan2void.core;
 
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,11 +16,8 @@ import org.apache.jena.sdb.StoreDesc;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.util.Dataset;
-import uff.ic.swlab.ckan2void.core.CKANCrawler;
-import uff.ic.swlab.ckan2void.core.Crawler;
-import uff.ic.swlab.ckan2void.core.MakeVoIDTask;
 import uff.ic.swlab.util.Config;
+import uff.ic.swlab.util.Dataset;
 
 public abstract class Main {
 

@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 import org.apache.jena.query.Dataset;
@@ -17,7 +16,6 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.VOID;
-
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -102,9 +100,8 @@ public class Main {
             java.sql.Statement stmt = conn.createStatement();
             String query = "SELECT type_name, type_frequen FROM Types where name_dataset ='" + datasetname + "' ";
             java.sql.ResultSet rs = stmt.executeQuery(query);
-            while (rs.next()) {
+            while (rs.next())
                 categories.add(new Category(rs.getString("type_name"), rs.getLong("type_frequen")));
-            }
 
             stmt.close();
             rs.close();

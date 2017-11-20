@@ -1,6 +1,5 @@
 package uff.ic.swlab.util.debug;
 
-
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
@@ -10,8 +9,6 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import uff.ic.swlab.util.Dataset;
-import uff.ic.swlab.util.VoIDHelper;
-import uff.ic.swlab.util.Config;
 import uff.ic.swlab.util.Config;
 import uff.ic.swlab.util.VoIDHelper;
 

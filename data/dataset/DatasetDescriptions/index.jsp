@@ -31,7 +31,7 @@
             </p>
 			<div style="text-align:right">
 				<a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>void.ttl%01DatasetDescriptions">void</a>,
-				<a href="http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData">sparql</a>, 
+				<a href="http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/DatasetDescriptions">sparql</a>, 
 				<a href="https://doi.org/10.6084/m9.figshare.5211916">doi</a>
             </div>
             <br/><br/>
@@ -47,7 +47,7 @@
              void: http://rdfs.org/ns/void#
              myvoid: <%=domain%>void.ttl#">
             <div  about="<%=domain%>void.ttl#DatasetDescriptions" typeof="http://rdfs.org/ns/void#Dataset">
-                <div property="http://www.w3.org/1999/02/22-rdf-syntax-ns#label" content="Dataset Descriptions (latest version)">
+                <div property="http://www.w3.org/1999/02/22-rdf-syntax-ns#label" content="Dataset Descriptions">
                 </div>
             </div>
             <div  about="#this" typeof="http://xmlns.com/foaf/0.1/Document">

@@ -1,7 +1,6 @@
 <%
     String domain = request.getRequestURL().toString().replaceAll(request.getRequestURI(),"/");
     String domain2 = domain.replaceAll("http://","http/");
-	String version = "v3";
 %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +19,7 @@
             <h1 style="text-align:center">Dataset Descriptions (latest version)</h1>
             <br/><br/><br/>
             <p>
-                This repository contains descriptions of Linked Data datasets using VoID vocabulary. 
+                &emsp;&emsp;This repository contains descriptions of Linked Data datasets using VoID vocabulary. 
 				The descriptions include Linksets, classes, properties and topic categories and mashes up data
 				from DataHub, dataset dumps, VoID files and DBpedia. The DBpedia Spotlight allowed the 
 				recognition of named entities in literal values. Each entity is associated with a list of topic 

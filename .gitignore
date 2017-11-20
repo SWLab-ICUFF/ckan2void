@@ -8,7 +8,6 @@ auth.properties
 host.properties
 sdb1.ttl
 sdb2.ttl
-
 *.class
 *.cdi
 

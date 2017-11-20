@@ -7,7 +7,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.ckan2void.adapter.Dataset;
+import uff.ic.swlab.util.Dataset;
 import uff.ic.swlab.util.VoIDHelper;
 import uff.ic.swlab.util.Config;
 import uff.ic.swlab.util.Executor;

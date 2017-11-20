@@ -1,6 +1,6 @@
 package uff.ic.swlab.harvestTopics;
 
-import Connection.ConnectionMySql;
+import uff.ic.swlab.util.ConnectionMySql;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import org.apache.jena.vocabulary.VOID;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class CreateErichments {
+public class Main {
 
     private static String NS = "http://swlab.ic.uff.br/resource/";
     private static String NS2 = "http://datahub.io/api/rest/dataset/";

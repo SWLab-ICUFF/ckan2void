@@ -1,4 +1,4 @@
-package uff.ic.swlab.ckan2void.debug;
+package uff.ic.swlab.util.debug;
 
 
 import eu.trentorise.opendata.jackan.CkanClient;
@@ -9,9 +9,11 @@ import javax.naming.InvalidNameException;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
-import uff.ic.swlab.ckan2void.adapter.Dataset;
+import uff.ic.swlab.util.Dataset;
 import uff.ic.swlab.util.VoIDHelper;
 import uff.ic.swlab.util.Config;
+import uff.ic.swlab.util.Config;
+import uff.ic.swlab.util.VoIDHelper;
 
 public class Debug {
 

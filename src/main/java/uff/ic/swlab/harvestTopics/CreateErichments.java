@@ -1,5 +1,6 @@
 package uff.ic.swlab.harvestTopics;
 
+import Connection.ConnectionMySql;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,19 +18,23 @@ import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.VOID;
 
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class CreateErichments {
 
     private static String NS = "http://swlab.ic.uff.br/resource/";
     private static String NS2 = "http://datahub.io/api/rest/dataset/";
     private static String NS3 = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/";
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
         Dataset dataset = DatasetFactory.create();
 
-        List<String> datasetnames = listDatasetnames();
+        ArrayList<String> datasetnames = listDatasetnames();
         for (String datasetname : datasetnames) {
 
-            List<Category> categories = listCategories(datasetname);
+            ArrayList<Category> categories = listCategories(datasetname);
             for (Category category : categories) {
                 Model model = dataset.getNamedModel(NS2 + datasetname);
                 Resource desc1 = model.createResource(NS + datasetname + "-datahub", VOID.Dataset)
@@ -53,14 +58,29 @@ public class CreateErichments {
         }
     }
 
-    private static List<String> listDatasetnames() {
-        List<String> datasetnames = new ArrayList<>();
+    private static ArrayList<String> listDatasetnames() throws ClassNotFoundException, SQLException {
 
-        {// adaptar
-            datasetnames.add("rkb-explorer-acm");
-            datasetnames.add("rkb-explorer-ieee");
+        ArrayList<String> datasetnames = new ArrayList<>();
+        Connection conn = ConnectionMySql.Conectar();
+        if (conn != null) {
+            java.sql.Statement stmt = conn.createStatement();
+            String query = "SELECT DISTINCT name_dataset FROM Types";
+            java.sql.ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                String name_dataset = rs.getString("name_dataset");
+                datasetnames.add(name_dataset);
+            }
+            stmt.close();
+            rs.close();
         }
+        conn.close();
 
+        //List<String> datasetnames = GetBD.listDatasetnames();
+//
+//        {// adaptar
+//            datasetnames.add("rkb-explorer-acm");
+//            datasetnames.add("rkb-explorer-ieee");
+//        }
         return datasetnames;
     }
 
@@ -75,14 +95,29 @@ public class CreateErichments {
         }
     }
 
-    private static List<Category> listCategories(String datasetname) {
-        List<Category> categories = new ArrayList<>();
+    private static ArrayList<Category> listCategories(String datasetname) throws ClassNotFoundException, SQLException {
+        ArrayList<Category> categories = new ArrayList<>();
+        Connection conn = ConnectionMySql.Conectar();
+        if (conn != null) {
+            java.sql.Statement stmt = conn.createStatement();
+            String query = "SELECT type_name, type_frequen FROM Types where name_dataset ='" + datasetname + "' ";
+            java.sql.ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                categories.add(new Category(rs.getString("type_name"), rs.getLong("type_frequen")));
+            }
 
-        {//adaptar
-            categories.add(new Category("http://dbpedia.org/category1", 136));
-            categories.add(new Category("http://dbpedia.org/category2", 56));
+            stmt.close();
+            rs.close();
+            conn.close();
+
         }
 
+//        List<Category> categories = new ArrayList<>();
+//
+//        {//adaptar
+//            categories.add(new Category("http://dbpedia.org/category1", 136));
+//            categories.add(new Category("http://dbpedia.org/category2", 56));
+//        }
         return categories;
     }
 }

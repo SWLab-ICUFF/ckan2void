@@ -7,17 +7,11 @@
     <head>
         <meta charset="UTF-8">
         <link href="swlab.css" rel="stylesheet" type="text/css"/>
-        <title>Dataset Descriptions (latest version)</title>
+        <title>Dataset Descriptions</title>
     </head>
     <body>
         <div style="margin:auto; text-align:justify; width:70%; height:90%">
-            <div style="text-align:right">
-                <a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>dataset/DatasetDescriptions/">
-                    <i>browse as linked data</i>
-                </a>
-            </div>
-            <h1 style="text-align:center">Dataset Descriptions (latest version)</h1>
-            <br/><br/><br/>
+            <h1 style="text-align:center">Dataset Descriptions</h1>
             <p>
                 &emsp;&emsp;This repository contains descriptions of Linked Data datasets using VoID vocabulary. 
 				The descriptions include Linksets, classes, properties and topic categories and mashes up data
@@ -29,12 +23,12 @@
 				dataset to <i>c</i> in DBpedia.
             </p>
 			<div style="text-align:right">
-				<a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>void.ttl%01DatasetDescriptions">void</a>,
 				<a href="http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/DatasetDescriptions">sparql</a>, 
+				<a href="http://linkeddata.uriburner.com/about/html/<%=domain2%>void.ttl%01DatasetDescriptions">void</a>,
 				<a href="https://doi.org/10.6084/m9.figshare.5211916">doi</a>
             </div>
-            <br/><br/>
-            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5211916/embed?show_title=1">
+            <br/>
+            <iframe src="https://widgets.figshare.com/articles/5211916/embed?show_title=1" width="100%" height="351" frameborder="0">
             </iframe>
         </div>
 

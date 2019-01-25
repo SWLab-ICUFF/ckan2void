@@ -28,7 +28,7 @@ public abstract class Main {
 
     public static void main(String[] args) {
         try {
-            PropertyConfigurator.configure("./conf/log4j.properties");
+            PropertyConfigurator.configure("./resources/conf/log4j.properties");
             conf.host().initSDB(conf.datasetSDBDesc());
             conf.host().initSDB(conf.tempDatasetSDBDesc());
 
@@ -82,8 +82,9 @@ public abstract class Main {
                         if (dataset.isUpdateCandidate()) {
                             pool.submit(new MakeVoIDTask(dataset, graphUri));
                             System.out.println((++counter) + ": Harvesting task for " + graphUri + " submitted.");
-                        } else
+                        } else {
                             System.out.println("Skipping dataset " + graphUri + ".");
+                        }
                     } catch (Throwable t) {
                         System.out.println("Skipping dataset " + graphUri + ".");
                     }

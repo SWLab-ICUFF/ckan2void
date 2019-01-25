@@ -11,5 +11,5 @@ sdb2.ttl
 *.class
 *.cdi
 
-/logs/
-/data/tdb/
+**/logs/
+**/data/tdb/

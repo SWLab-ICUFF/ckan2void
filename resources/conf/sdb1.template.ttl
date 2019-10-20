@@ -14,7 +14,7 @@
 <#conn> rdf:type sdb:SDBConnection;
         sdb:sdbType        "postgresql";
         sdb:driver         "org.postgresql.Driver" ;
-        sdb:sdbHost        "192.168.0.10:5432";
+        sdb:sdbHost        "localhost:5432";
         sdb:sdbName        "DatasetDescriptions";
         sdb:sdbUser        "postgres";
         sdb:sdbPassword    "???".

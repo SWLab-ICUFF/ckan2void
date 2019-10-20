@@ -42,9 +42,8 @@ public abstract class Main {
                 exportDataset();
                 System.gc();
 
-                uploadDataset();
-                System.gc();
-
+                //uploadDataset();
+                //System.gc();
                 int hours = 8;
                 System.out.println("Sleeping for " + hours + " hours.");
                 Thread.sleep(1000 * 3600 * hours);
@@ -82,9 +81,8 @@ public abstract class Main {
                         if (dataset.isUpdateCandidate()) {
                             pool.submit(new MakeVoIDTask(dataset, graphUri));
                             System.out.println((++counter) + ": Harvesting task for " + graphUri + " submitted.");
-                        } else {
+                        } else
                             System.out.println("Skipping dataset " + graphUri + ".");
-                        }
                     } catch (Throwable t) {
                         System.out.println("Skipping dataset " + graphUri + ".");
                     }
@@ -100,7 +98,6 @@ public abstract class Main {
 
             }
             System.gc();
-
         }
     }
 

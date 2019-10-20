@@ -23,7 +23,7 @@ public abstract class Executor {
             throw e;
         } finally {
             future.cancel(true);
-            thread.stop();
+            //thread.stop();
         }
     }
 

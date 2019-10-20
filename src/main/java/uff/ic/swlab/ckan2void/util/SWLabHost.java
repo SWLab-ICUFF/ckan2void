@@ -59,27 +59,27 @@ public class SWLabHost {
     }
 
     public String getBackupURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/$/backup/%1$s", datasetname);
+        return String.format(baseHttpUrl() + "$/backup/%1$s", datasetname);
     }
 
     public String getQuadsURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/", datasetname);
+        return String.format(baseHttpUrl() + "%1$s/", datasetname);
     }
 
     public String getSparqlURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/sparql", datasetname);
+        return String.format(baseHttpUrl() + "%1$s/sparql", datasetname);
     }
 
     public String getUpdateURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/update", datasetname);
+        return String.format(baseHttpUrl() + "%1$s/update", datasetname);
     }
 
     public String getDataURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/data", datasetname);
+        return String.format(baseHttpUrl() + "%1$s/data", datasetname);
     }
 
     public String updateURL(String datasetname) {
-        return String.format(baseHttpUrl() + "fuseki/%1$s/update", datasetname);
+        return String.format(baseHttpUrl() + "%1$s/update", datasetname);
     }
 
 //    public synchronized List<String> listGraphNames(String datasetname, long timeout) {

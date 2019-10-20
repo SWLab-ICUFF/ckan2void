@@ -50,7 +50,7 @@ public class Config {
     private String tempDatasetSDBDesc;
 
     private Config() {
-        try (InputStream input = new FileInputStream("./conf/ckan2void.properties");) {
+        try (InputStream input = new FileInputStream("./resources/conf/ckan2void.properties");) {
             Properties prop = new Properties();
             prop.load(input);
 
@@ -91,7 +91,7 @@ public class Config {
             maxVoidFileSize = 1048576l;
         }
 
-        try (InputStream input = new FileInputStream("./conf/host.properties");) {
+        try (InputStream input = new FileInputStream("./resources/conf/host.properties");) {
             Properties prop = new Properties();
             prop.load(input);
 
@@ -108,8 +108,8 @@ public class Config {
             host = new SWLabHost("localhost", 8080, 2121);
         }
 
-        datasetSDBDesc = "./conf/sdb1.ttl";
-        tempDatasetSDBDesc = "./conf/sdb2.ttl";
+        datasetSDBDesc = "./resources/conf/sdb1.ttl";
+        tempDatasetSDBDesc = "./resources/conf/sdb2.ttl";
     }
 
     private static Config config;

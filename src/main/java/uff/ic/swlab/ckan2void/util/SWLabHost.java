@@ -21,6 +21,7 @@ import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdfconnection.RDFConnectionFactory;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sdb.SDBFactory;
 import org.apache.jena.sdb.Store;
@@ -132,10 +133,9 @@ public class SWLabHost {
             HttpEntity entity = response.getEntity();
             if (entity != null && statuscode == 200)
                 try (final InputStream instream = entity.getContent()) {
-                    System.out.println(IOUtils.toString(instream, "utf-8"));
-                    System.out.println("Done.");
-                }
-            else
+                System.out.println(IOUtils.toString(instream, "utf-8"));
+                System.out.println("Done.");
+            } else
                 System.out.println("Backup request failed.");
         } catch (Throwable e) {
             System.out.println("Backup request failed.");
@@ -159,6 +159,10 @@ public class SWLabHost {
         if (graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(datasetname), HttpClients.createDefault());
             Model model = accessor.getModel(graphUri);
+
+            Model model1 = RDFConnectionFactory.connectFuseki(getDataURL(datasetname)).fetch(graphUri);
+
+            //Model model2 = RDFConnectionFactory.connectFuseki(getDataURL(datasetname)).queryConstruct("");
             if (model != null)
                 return model;
             else
@@ -233,7 +237,7 @@ public class SWLabHost {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(hostname, ftpPort);
 
-        try (InputStream in = new FileInputStream(localFilename);) {
+        try ( InputStream in = new FileInputStream(localFilename);) {
             String[] dirs = remoteName.split("/");
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode()))
                 if (ftpClient.login(user, pass)) {

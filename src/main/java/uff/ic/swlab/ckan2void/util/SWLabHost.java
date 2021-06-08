@@ -161,6 +161,7 @@ public class SWLabHost {
             Model model = accessor.getModel(graphUri);
 
             Model model1 = RDFConnectionFactory.connectFuseki(getDataURL(datasetname)).fetch(graphUri);
+            // https://stackoverflow.com/questions/9898324/jena-how-to-query-data-from-model
 
             //Model model2 = RDFConnectionFactory.connectFuseki(getDataURL(datasetname)).queryConstruct("");
             if (model != null)

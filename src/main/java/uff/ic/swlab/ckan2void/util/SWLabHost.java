@@ -7,17 +7,12 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import javax.naming.InvalidNameException;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetAccessor;
-import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -27,13 +22,11 @@ import org.apache.jena.sdb.SDBFactory;
 import org.apache.jena.sdb.Store;
 import org.apache.jena.sdb.StoreDesc;
 import org.apache.jena.sdb.util.StoreUtils;
-import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 public class SWLabHost {
 
@@ -99,8 +92,13 @@ public class SWLabHost {
 //    }
     public synchronized Model execConstruct(String queryString, String datasetname) {
         Model result = ModelFactory.createDefaultModel();
-        try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+        //try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+        //    ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+        try ( QueryExecution exec = QueryExecutionHTTP.service(getSparqlURL(datasetname))
+                .query(queryString)
+                .acceptHeader(WebContent.contentTypeRDFXML)
+                .timeout(Config.getInsatnce().sparqlTimeout())
+                .build()) {
             exec.execConstruct(result);
         }
         return result;
@@ -286,7 +284,7 @@ public class SWLabHost {
         }
     }
 
-    public synchronized static void initSDB(String desc) throws SQLException {
+    public synchronized void initSDB(String desc) throws SQLException {
         Store store = SDBFactory.connectStore(StoreDesc.read(desc));
         try {
             if (!StoreUtils.isFormatted(store))

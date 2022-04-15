@@ -5,8 +5,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 
 public abstract class Executor {
 
@@ -18,8 +18,10 @@ public abstract class Executor {
             thread.start();
             return future.get(timeout, TimeUnit.MILLISECONDS);
         } catch (TimeoutException e) {
-            Logger.getLogger("timeout").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
-            Logger.getLogger("error").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
+            //Logger.getLogger("timeout").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
+            //Logger.getLogger("error").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
+            LogManager.getLogger("timeout").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
+            LogManager.getLogger("error").log(Level.ERROR, "Timeout while executing \"" + description + "\".");
             throw e;
         } finally {
             future.cancel(true);

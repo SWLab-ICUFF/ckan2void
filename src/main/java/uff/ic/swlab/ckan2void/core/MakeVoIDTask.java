@@ -5,12 +5,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import uff.ic.swlab.ckan2void.util.Dataset;
-import uff.ic.swlab.ckan2void.util.VoIDHelper;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import uff.ic.swlab.ckan2void.util.Config;
+import uff.ic.swlab.ckan2void.util.Dataset;
 import uff.ic.swlab.ckan2void.util.Executor;
+import uff.ic.swlab.ckan2void.util.VoIDHelper;
 
 public class MakeVoIDTask implements Runnable {
 
@@ -36,9 +36,9 @@ public class MakeVoIDTask implements Runnable {
                     break;
                 } else
                     try {
-                        wait();
-                    } catch (InterruptedException ex) {
-                    }
+                    wait();
+                } catch (InterruptedException ex) {
+                }
         }
 
         public synchronized void finalizeInstance() {
@@ -97,7 +97,8 @@ public class MakeVoIDTask implements Runnable {
                     Executor.execute(save, "Save VoID + VoIDComp of " + dataset.getUri(), conf.saveTimeout());
 
                 } catch (ExecutionException e) {
-                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                    //Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                    LogManager.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
 
                     try {// retry to save VoID
 
@@ -109,13 +110,16 @@ public class MakeVoIDTask implements Runnable {
                         Executor.execute(save, "Retry to save VoID of " + dataset.getUri(), conf.saveTimeout());
 
                     } catch (Throwable e2) {
-                        Logger.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                        //Logger.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                        LogManager.getLogger("error").log(Level.ERROR, String.format("Retry save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
                     }
                 } catch (Throwable e) {
-                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                    //Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                    LogManager.getLogger("error").log(Level.ERROR, String.format("Save VoID + VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
                 }
             } catch (TimeoutException | ExecutionException e) {
-                Logger.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                //Logger.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                LogManager.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
 
                 try {// save VoID
 
@@ -127,13 +131,16 @@ public class MakeVoIDTask implements Runnable {
                     Executor.execute(save, "Save VoID of " + dataset.getUri(), conf.saveTimeout());
 
                 } catch (Throwable e2) {
-                    Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                    //Logger.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
+                    LogManager.getLogger("error").log(Level.ERROR, String.format("Save VoID failure (<%1$s>). Msg: %2$s", datasetUri, e2.getMessage()));
                 }
             } catch (Throwable e) {
-                Logger.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                //Logger.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+                LogManager.getLogger("error").log(Level.ERROR, String.format("Make VoIDComp failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
             }
         } catch (Throwable e) {
-            Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+            //Logger.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
+            LogManager.getLogger("error").log(Level.ERROR, String.format("Make VoID failure (<%1$s>). Msg: %2$s", datasetUri, e.getMessage()));
         }
     }
 }

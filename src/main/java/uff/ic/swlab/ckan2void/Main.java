@@ -13,9 +13,9 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.sdb.SDBFactory;
 import org.apache.jena.sdb.Store;
 import org.apache.jena.sdb.StoreDesc;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.LoggerContext;
 import uff.ic.swlab.ckan2void.core.CKANCrawler;
 import uff.ic.swlab.ckan2void.core.Crawler;
 import uff.ic.swlab.ckan2void.core.MakeVoIDTask;
@@ -24,11 +24,14 @@ import uff.ic.swlab.ckan2void.util.Dataset;
 
 public abstract class Main {
 
-    private static Config conf = Config.getInsatnce();
+    private static final Config conf = Config.getInsatnce();
 
     public static void main(String[] args) {
         try {
-            PropertyConfigurator.configure("./resources/conf/log4j.properties");
+            //PropertyConfigurator.configure("./resources/conf/log4j.properties");
+            LoggerContext context = (LoggerContext) LogManager.getContext(false);
+            File file = new File("./resources/conf/log4j2.xml");
+            context.setConfigLocation(file.toURI());
             conf.host().initSDB(conf.datasetSDBDesc());
             conf.host().initSDB(conf.tempDatasetSDBDesc());
 
@@ -128,7 +131,8 @@ public abstract class Main {
             conf.host().execUpdate(queryString, StoreDesc.read(conf.datasetSDBDesc()));
             System.out.println("Done.");
         } catch (Throwable t) {
-            Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
+            //Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
+            LogManager.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
             System.out.println("Failed.");
         }
     }
@@ -138,8 +142,7 @@ public abstract class Main {
             System.out.println("Exporting dataset...");
             (new File(conf.localDatasetHomepageName())).getParentFile().mkdirs();
             Store datasetStore = SDBFactory.connectStore(Config.getInsatnce().datasetSDBDesc());
-            try (OutputStream out = new FileOutputStream(conf.localNquadsDumpName());
-                    GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+            try ( OutputStream out = new FileOutputStream(conf.localNquadsDumpName());  GZIPOutputStream out2 = new GZIPOutputStream(out)) {
                 RDFDataMgr.write(out2, SDBFactory.connectDataset(datasetStore), Lang.NQUADS);
                 out2.finish();
                 out.flush();
@@ -148,7 +151,8 @@ public abstract class Main {
             }
             System.out.println("Done.");
         } catch (Throwable t) {
-            Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
+            //Logger.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
+            LogManager.getLogger("error").log(Level.ERROR, "Error while exporting dataset. Msg: " + t.getMessage());
             System.out.println("Failed.");
         }
     }
@@ -167,7 +171,8 @@ public abstract class Main {
             }
             System.out.println("Done.");
         } catch (Throwable t) {
-            Logger.getLogger("error").log(Level.ERROR, "Error while uploading dataset. Msg: " + t.getMessage());
+            //Logger.getLogger("error").log(Level.ERROR, "Error while uploading dataset. Msg: " + t.getMessage());
+            LogManager.getLogger("error").log(Level.ERROR, "Error while uploading dataset. Msg: " + t.getMessage());
             System.out.println("Failed.");
         }
     }

@@ -18,7 +18,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
@@ -33,7 +32,7 @@ import org.apache.jena.riot.WebContent;
 import org.apache.jena.sdb.SDBFactory;
 import org.apache.jena.sdb.Store;
 import org.apache.jena.sdb.StoreDesc;
-import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCAT;
 import org.apache.jena.vocabulary.DCTerms;
@@ -41,11 +40,8 @@ import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import uff.ic.swlab.ckan2void.util.Config;
-import uff.ic.swlab.ckan2void.util.Executor;
-import uff.ic.swlab.ckan2void.util.URLHelper;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 
 public class Dataset {
 
@@ -321,12 +317,12 @@ public class Dataset {
             String key, value;
             for (CkanPair ex : getDoc().getExtras())
                 try {
-                    key = ex.getKey();
-                    value = ex.getValue();
-                    if (key.startsWith("links:"))
-                        links.put(ns + key.replace("links:", "").trim().replaceAll(" ", "_"), Integer.parseInt(value));
-                } catch (Throwable e) {
-                }
+                key = ex.getKey();
+                value = ex.getValue();
+                if (key.startsWith("links:"))
+                    links.put(ns + key.replace("links:", "").trim().replaceAll(" ", "_"), Integer.parseInt(value));
+            } catch (Throwable e) {
+            }
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             throw e;
         } catch (Throwable e) {
@@ -363,70 +359,90 @@ public class Dataset {
     public Set<Entry<String, Integer>> getClasses() throws InterruptedException, ExecutionException, TimeoutException {
         for (String sparqlEndPoint : getSparqlEndPoints())
             try {
-                String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-                        + "select ?class (count(?s) as ?freq)\n"
-                        + "WHERE {{?s rdf:type ?class} union {graph ?g {?s rdf:type ?class}}}\n"
-                        + "group by ?class\n"
-                        + "order by desc(?freq)\n"
-                        + "limit 200";
-                Callable<Map<String, Integer>> task = () -> {
-                    Map<String, Integer> classes = new HashMap<>();
-                    try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
-                        ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                        ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
-                        ResultSet rs = exec.execSelect();
-                        while (rs.hasNext()) {
-                            QuerySolution qs = rs.next();
-                            Resource class_ = qs.getResource("class");
-                            Literal freq = qs.getLiteral("freq");
-                            try {
-                                if (!class_.getURI().equals(""))
-                                    classes.put(class_.getURI(), freq.getInt());
-                            } catch (Throwable t) {
-                            }
+            String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                    + "select ?class (count(?s) as ?freq)\n"
+                    + "WHERE {{?s rdf:type ?class} union {graph ?g {?s rdf:type ?class}}}\n"
+                    + "group by ?class\n"
+                    + "order by desc(?freq)\n"
+                    + "limit 200";
+            Callable<Map<String, Integer>> task = () -> {
+                Map<String, Integer> classes = new HashMap<>();
+                //try ( QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
+                //    ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                //    ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
+                //
+                // Doc: https://jena.apache.org/documentation/sparql-apis/#changes
+                try ( QueryExecution exec = QueryExecutionHTTP.service(sparqlEndPoint)
+                        .query(queryString)
+                        .acceptHeader(WebContent.contentTypeRDFXML)
+                        .timeout(conf.sparqlTimeout())
+                        .build()) {
+                    ResultSet rs = exec.execSelect();
+                    while (rs.hasNext()) {
+                        QuerySolution qs = rs.next();
+                        Resource class_ = qs.getResource("class");
+                        Literal freq = qs.getLiteral("freq");
+                        try {
+                            if (!class_.getURI().equals(""))
+                                classes.put(class_.getURI(), freq.getInt());
+                        } catch (Throwable t) {
                         }
-                        return classes;
                     }
-                };
-                return Executor.execute(task, "Query classes from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout()).entrySet();
-            } catch (InterruptedException e) {
-            } catch (Throwable e) {
-            }
+                    return classes;
+                }
+            };
+            return Executor.execute(task, "Query classes from " + sparqlEndPoint, Config.getInsatnce().sparqlTimeout()).entrySet();
+        } catch (InterruptedException e) {
+        } catch (Throwable e) {
+        }
         return (new HashMap<String, Integer>()).entrySet();
     }
 
     public Set<Entry<String, Integer>> getProperties() throws InterruptedException, ExecutionException, TimeoutException {
         for (String sparqlEndPoint : getSparqlEndPoints())
             try {
-                String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-                        + "select ?property (count(?s) as ?freq)\n"
-                        + "WHERE {{?s ?property []} union {graph ?g {?s ?property []}}}\n"
-                        + "group by ?property\n"
-                        + "order by desc(?freq)\n"
-                        + "limit 200";
-                Callable<Map<String, Integer>> task = () -> {
-                    Map<String, Integer> properties = new HashMap<>();
-                    try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
-                        ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                        ((QueryEngineHTTP) exec).setTimeout(conf.sparqlTimeout());
-                        ResultSet rs = exec.execSelect();
-                        while (rs.hasNext()) {
-                            QuerySolution qs = rs.next();
-                            Resource property = qs.getResource("property");
-                            Literal freq = qs.getLiteral("freq");
-                            try {
-                                if (!property.getURI().equals(""))
-                                    properties.put(property.getURI(), freq.getInt());
-                            } catch (Throwable t) {
-                            }
+            String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                    + "select ?property (count(?s) as ?freq)\n"
+                    + "WHERE {{?s ?property []} union {graph ?g {?s ?property []}}}\n"
+                    + "group by ?property\n"
+                    + "order by desc(?freq)\n"
+                    + "limit 200";
+            Callable<Map<String, Integer>> task = () -> {
+                Map<String, Integer> properties = new HashMap<>();
+
+                //final Model result = ModelFactory.createDefaultModel();
+                //try ( QueryExecution exec = QueryExecution.service(getSparqlURL(datasetname), queryString)) {
+                //try (final QueryExecution exec = new QueryEngineHTTP(getSparqlURL(datasetname), queryString, HttpClients.createDefault())) {
+                //((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                //((QueryExecutionHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                //    exec.execConstruct(result);
+                //}
+                //
+                // Doc: https://jena.apache.org/documentation/sparql-apis/#changes
+                try ( QueryExecution exec = QueryExecutionHTTP.service(sparqlEndPoint)
+                        .query(queryString)
+                        .acceptHeader(WebContent.contentTypeRDFXML)
+                        .timeout(conf.sparqlTimeout())
+                        .build()) {
+
+                    ResultSet rs = exec.execSelect();
+                    while (rs.hasNext()) {
+                        QuerySolution qs = rs.next();
+                        Resource property = qs.getResource("property");
+                        Literal freq = qs.getLiteral("freq");
+                        try {
+                            if (!property.getURI().equals(""))
+                                properties.put(property.getURI(), freq.getInt());
+                        } catch (Throwable t) {
                         }
-                        return properties;
                     }
-                };
-                return Executor.execute(task, "Query properties from " + sparqlEndPoint, conf.sparqlTimeout()).entrySet();
-            } catch (InterruptedException e) {
-            } catch (Throwable e) {
-            }
+                    return properties;
+                }
+            };
+            return Executor.execute(task, "Query properties from " + sparqlEndPoint, conf.sparqlTimeout()).entrySet();
+        } catch (InterruptedException e) {
+        } catch (Throwable e) {
+        }
         return (new HashMap<String, Integer>()).entrySet();
     }
 
@@ -561,7 +577,8 @@ public class Dataset {
                 datasetStore.getConnection().close();
             }
         } catch (Throwable t) {
-            Logger.getLogger("error").log(Level.ERROR, "Error isUpdateCandidate():" + getUri());
+            //Logger.getLogger("error").log(Level.ERROR, "Error isUpdateCandidate():" + getUri());
+            LogManager.getLogger("error").log(Level.ERROR, "Error isUpdateCandidate():" + getUri());
             return false;
         }
     }

@@ -1,10 +1,11 @@
 package uff.ic.swlab.ckan2void.harvestTopics;
 
-import uff.ic.swlab.ckan2void.util.ConnectionMySql;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
@@ -16,17 +17,16 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.VOID;
-
-import java.sql.Connection;
-import java.sql.SQLException;
+import uff.ic.swlab.ckan2void.util.ConnectionMySql;
 
 public class Main {
 
-    private static String NS = "http://swlab.ic.uff.br/resource/";
-    private static String NS2 = "http://datahub.io/api/rest/dataset/";
-    private static String NS3 = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/";
+    private static final String NS = "http://swlab.ic.uff.br/resource/";
+    private static final String NS2 = "http://datahub.io/api/rest/dataset/";
+    private static final String NS3 = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/";
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws FileNotFoundException,
+            IOException, ClassNotFoundException, SQLException {
         Dataset dataset = DatasetFactory.create();
 
         ArrayList<String> datasetnames = listDatasetnames();
@@ -48,15 +48,16 @@ public class Main {
             }
         }
 
-        try (OutputStream out = new FileOutputStream("./data/v1/rdf/dataset/enrichments.nq.gz");
-                GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+        try ( OutputStream out = new FileOutputStream("./data/v1/rdf/dataset/enrichments.nq.gz");
+                 GZIPOutputStream out2 = new GZIPOutputStream(out)) {
             RDFDataMgr.write(out2, dataset, RDFFormat.NQUADS);
             out2.finish();
             out.flush();
         }
     }
 
-    private static ArrayList<String> listDatasetnames() throws ClassNotFoundException, SQLException {
+    private static ArrayList<String> listDatasetnames() throws
+            ClassNotFoundException, SQLException {
 
         ArrayList<String> datasetnames = new ArrayList<>();
         Connection conn = ConnectionMySql.Conectar();
@@ -93,7 +94,8 @@ public class Main {
         }
     }
 
-    private static ArrayList<Category> listCategories(String datasetname) throws ClassNotFoundException, SQLException {
+    private static ArrayList<Category> listCategories(String datasetname) throws
+            ClassNotFoundException, SQLException {
         ArrayList<Category> categories = new ArrayList<>();
         Connection conn = ConnectionMySql.Conectar();
         if (conn != null) {

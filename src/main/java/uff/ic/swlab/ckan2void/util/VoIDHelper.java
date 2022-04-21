@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -18,47 +17,48 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import uff.ic.swlab.ckan2void.util.Config;
-import uff.ic.swlab.ckan2void.util.Executor;
-import uff.ic.swlab.ckan2void.util.RDFDataMgr;
+import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 
 public abstract class VoIDHelper {
 
-    public static Model getContent(String[] urls, String[] sparqlEndPoints, String namespace, String targetURI) throws InterruptedException {
+    public static Model getContent(String[] urls, String[] sparqlEndPoints, String namespace, String targetURI) throws
+            InterruptedException {
         return getContentFromURL(urls, namespace, targetURI).add(getContentFromSparql(sparqlEndPoints, namespace, targetURI));
     }
 
-    private static Model getContentFromURL(String[] urls, String namespace, String targetURI) throws InterruptedException {
+    private static Model getContentFromURL(String[] urls, String namespace, String targetURI) throws
+            InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
         for (String url : makeVoIDUrls(urls))
             try {
-                _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.getInsatnce().maxVoidFileSize()), namespace, targetURI));
-            } catch (InterruptedException e) {
-                throw e;
-            } catch (Throwable e) {
-            }
+            _void.add(extractVoID(RDFDataMgr.loadDataset(url, Config.getInsatnce().maxVoidFileSize()), namespace, targetURI));
+        } catch (InterruptedException e) {
+            throw e;
+        } catch (Throwable e) {
+        }
         return _void;
     }
 
-    private static Model getContentFromSparql(String[] sparqlEndPoints, String namespace, String targetURI) throws InterruptedException {
+    private static Model getContentFromSparql(String[] sparqlEndPoints, String namespace, String targetURI) throws
+            InterruptedException {
         Model _void = ModelFactory.createDefaultModel();
         for (String endPoint : sparqlEndPoints)
             try {
-                String[] graphs = VoIDHelper.detectVoidGraphNames(endPoint);
-                if (graphs.length > 0) {
-                    String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
-                    String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
-                    _void.add(extractVoID(RDFDataMgr.loadDataset(endPoint, String.format(query, from)), namespace, targetURI));
-                }
-            } catch (InterruptedException e) {
-                throw e;
-            } catch (Throwable e) {
+            String[] graphs = VoIDHelper.detectVoidGraphNames(endPoint);
+            if (graphs.length > 0) {
+                String query = "construct {?s ?p ?o}\n %1$swhere {?s ?p ?o.}";
+                String from = Arrays.stream(graphs).map((String n) -> String.format("from <%1$s>\n", n)).reduce("", String::concat);
+                _void.add(extractVoID(RDFDataMgr.loadDataset(endPoint, String.format(query, from)), namespace, targetURI));
             }
+        } catch (InterruptedException e) {
+            throw e;
+        } catch (Throwable e) {
+        }
         return _void;
     }
 
-    public static Model extractPartitions(Model model, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
+    public static Model extractPartitions(Model model, String targetURI) throws InterruptedException, ExecutionException,
+            TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -79,7 +79,8 @@ public abstract class VoIDHelper {
         return Executor.execute(task, "Extract partitions for " + targetURI, Config.getInsatnce().sparqlTimeout());
     }
 
-    public static Model extractVoID(Dataset dataset, String namespace, String targetURI) throws InterruptedException, ExecutionException, TimeoutException {
+    public static Model extractVoID(Dataset dataset, String namespace, String targetURI) throws InterruptedException,
+            ExecutionException, TimeoutException {
         String queryString = ""
                 + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -195,13 +196,18 @@ public abstract class VoIDHelper {
         return voidURLs.toArray(new String[0]);
     }
 
-    private static String[] detectVoidGraphNames(String sparqlEndPoint) throws InterruptedException, ExecutionException, TimeoutException {
+    private static String[] detectVoidGraphNames(String sparqlEndPoint) throws InterruptedException, ExecutionException,
+            TimeoutException {
         Callable<String[]> task = () -> {
             List<String> graphNames = new ArrayList<>();
-            String query = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
+            String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
             String name;
-            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query, HttpClients.createDefault())) {
-                ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
+            //try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString, HttpClients.createDefault())) {
+            //    ((QueryEngineHTTP) exec).setTimeout(Config.getInsatnce().sparqlTimeout());
+            try ( QueryExecution exec = QueryExecutionHTTP.service(sparqlEndPoint)
+                    .query(queryString)
+                    .timeout(Config.getInsatnce().sparqlTimeout())
+                    .build()) {
                 ResultSet rs = exec.execSelect();
                 while (rs.hasNext()) {
                     name = rs.next().getResource("g").getURI();

@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.17.2</version>
+            <version>2.19.0</version>
         </dependency>
         <!--
         <dependency>
@@ -52,12 +52,12 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.3.4</version>
+            <version>42.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>apache-jena</artifactId>
-            <version>4.4.0</version>
+            <version>4.6.1</version>
             <type>pom</type>
         </dependency>
         <dependency>
@@ -78,7 +78,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <mainClass>uff.ic.swlab.datasetcrawler.Main</mainClass>
                 </configuration>
@@ -86,7 +86,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.10.0</version>
+                <version>2.13.0</version>
                 <configuration>
                     <rulesUri>file:///Users/lapaesleme/.m2/maven-version-rules.xml</rulesUri>
                 </configuration>
@@ -101,7 +101,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <id>copy-resources1</id>
